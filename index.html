@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posts</title>
+<meta name="description" content="Analyses and explainers, each with its data and sources.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a data appendix. One wide column, each block is a picture of
+   the raw records first, then the table and the download. */
+:root {
+  --page: #f3f6f9; --surface: #fcfcfb; --ink: #101820; --ink-2: #4b5560; --muted: #858b92; --line: #dde2e7;
+  --cold: #2a78d6; --cold-soft: #d6e6f9; --warm: #eb6834; --neutral: #b9bfc6;
+  --m1: #9ec5f4; --m2: #2a78d6; --m3: #104281;
+  --r0: #eef3f8; --r1: #cde2fb; --r2: #86b6ef; --r3: #3987e5; --r4: #1c5cab; --r5: #0d366b; --gap: #e6e2d6;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0c1116; --surface: #161c22; --ink: #eef1f4; --ink-2: #b9c1c9; --muted: #858b92; --line: #2a323a;
+    --cold: #3987e5; --cold-soft: #17304f; --warm: #d95926; --neutral: #59626b;
+    --m1: #184f95; --m2: #3987e5; --m3: #b7d3f6;
+    --r0: #1b222a; --r1: #17304f; --r2: #184f95; --r3: #3987e5; --r4: #86b6ef; --r5: #cde2fb; --gap: #2b2a26;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0c1116; --surface: #161c22; --ink: #eef1f4; --ink-2: #b9c1c9; --muted: #858b92; --line: #2a323a;
+  --cold: #3987e5; --cold-soft: #17304f; --warm: #d95926; --neutral: #59626b;
+  --m1: #184f95; --m2: #3987e5; --m3: #b7d3f6;
+  --r0: #1b222a; --r1: #17304f; --r2: #184f95; --r3: #3987e5; --r4: #86b6ef; --r5: #cde2fb; --gap: #2b2a26;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 400 18px/1.55 var(--body); }
+nav.top { max-width: 980px; margin: 0 auto; padding: 16px 20px 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15.5px; }
+nav.top a { color: var(--ink-2); text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; }
+nav.top a:hover { color: var(--ink); }
+nav.top a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--cold); font-weight: 600; }
+main { max-width: 980px; margin: 0 auto; padding: 28px 20px 72px; display: flex; flex-direction: column; gap: 52px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.12; }
+h1 { font-size: clamp(32px, 6vw, 48px); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: clamp(24px, 4.2vw, 31px); font-weight: 700; }
+h3 { font-size: 18px; font-weight: 500; }
+p { margin: 0; max-width: 68ch; }
+a { color: var(--cold); }
+a:focus-visible, button:focus-visible, select:focus-visible, canvas:focus-visible { outline: 2px solid var(--cold); outline-offset: 2px; }
+section { display: flex; flex-direction: column; gap: 16px; }
+.kicker { font: 600 14px/1.2 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+.lede { font-size: 20px; color: var(--ink-2); }
+.tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; }
+.tile b { font: 700 28px/1.1 var(--display); font-variant-numeric: tabular-nums; }
+.tile span { font-size: 15px; color: var(--ink-2); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 12px; }
+.note { font-size: 15.5px; color: var(--ink-2); max-width: 72ch; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; font-size: 15.5px; }
+.controls label { color: var(--ink-2); }
+select, button.chip {
+  font: 400 15.5px var(--body); color: var(--ink); background: var(--page); border: 1px solid var(--line);
+  border-radius: 8px; padding: 6px 10px; cursor: pointer;
+}
+button.chip[aria-pressed="true"] { background: var(--cold); border-color: var(--cold); color: #fff; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15px; color: var(--ink-2); align-items: center; }
+.legend span { display: inline-flex; align-items: center; gap: 7px; }
+.sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.sw.line { height: 3px; width: 18px; border-radius: 2px; }
+.ramp { width: 150px; height: 12px; border-radius: 3px; background: linear-gradient(90deg, var(--r1), var(--r2), var(--r3), var(--r4), var(--r5)); }
+canvas { display: block; width: 100%; border-radius: 6px; }
+svg { display: block; }
+svg text { font-family: var(--body); fill: var(--ink); }
+.t-muted { fill: var(--ink-2); }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 15.5px; font-variant-numeric: tabular-nums; }
+th, td { text-align: right; padding: 6px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+thead th { position: sticky; top: 0; background: var(--surface); font-weight: 600; color: var(--ink-2); }
+.tablewrap { max-height: 380px; overflow: auto; border: 1px solid var(--line); border-radius: 8px; }
+tr.enso td:first-child::after { content: " El Niño"; color: var(--warm); font-size: 13px; font-weight: 600; }
+td.left, th.left { text-align: left; white-space: normal; }
+.files td, .files th { white-space: normal; }
+footer { font-size: 15px; color: var(--ink-2); border-top: 1px solid var(--line); padding-top: 20px; }
+#tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--page); font: 400 14px/1.35 var(--body); padding: 6px 9px; border-radius: 6px; max-width: 250px; opacity: 0; z-index: 5; }
+#status { color: var(--ink-2); }
+@media (max-width: 700px) { body { font-size: 17px; } .tiles { grid-template-columns: 1fr 1fr; } }
+
+.posts { display: flex; flex-direction: column; gap: 16px; }
+a.post { display: grid; grid-template-columns: 1fr; gap: 8px; text-decoration: none; color: inherit; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; }
+a.post:hover { border-color: var(--cold); }
+a.post h2 { color: var(--ink); }
+a.post p { color: var(--ink-2); }
+.meta { font-size: 15px; color: var(--ink-2); }
+.more { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15.5px; }
+</style>
+</head>
+<body>
+<main style="max-width:760px">
+<header style="display:flex;flex-direction:column;gap:16px">
+  <div class="kicker">Posts</div>
+  <h1>Questions worked out in the open</h1>
+  <p class="lede">Each post answers one question, shows the data behind the answer and links every source.</p>
+</header>
+<section class="posts">
+  <div>
+  <a class="post" href="hokkaido-winter-2026-27/">
+    <div class="meta">11 November 2026 · Hokkaido ski winter 2026-27</div>
+    <h2>Why this winter's snow will come late, and when to go</h2>
+    <p>A record El Niño meets the Hokkaido ski season. What it does to December, January and February snow, which weeks are the best bet, and every station record behind the answer.</p>
+  </a>
+  <div class="more" style="padding:10px 4px 0"><a href="hokkaido-winter-2026-27/data/">Explore the data</a><a href="hokkaido-winter-2026-27/sources/">Read the report and sources</a></div>
+  </div>
+</section>
+<footer>The analysis and these pages were made by Claude. They are not official forecasts. The source of each page is in the <a href="https://github.com/jwang47/posts">repository</a>.</footer>
+</main>
+</body>
+</html>

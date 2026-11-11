@@ -1,0 +1,1867 @@
+{
+ "kutchan_all": [
+  {
+   "week": 1,
+   "starts": "1 Dec",
+   "powder": 13,
+   "snow10": 37,
+   "thaw": 31,
+   "rain": 21,
+   "sunny": 18,
+   "windy": 40,
+   "snow_per_week": 56,
+   "sun_h": 1.6,
+   "depth_median": 24,
+   "depth_low": 4,
+   "depth_high": 54,
+   "temp": -1.4,
+   "days": 245
+  },
+  {
+   "week": 2,
+   "starts": "8 Dec",
+   "powder": 19,
+   "snow10": 37,
+   "thaw": 18,
+   "rain": 15,
+   "sunny": 20,
+   "windy": 33,
+   "snow_per_week": 65,
+   "sun_h": 1.5,
+   "depth_median": 46,
+   "depth_low": 12,
+   "depth_high": 70,
+   "temp": -2.9,
+   "days": 245
+  },
+  {
+   "week": 3,
+   "starts": "15 Dec",
+   "powder": 19,
+   "snow10": 44,
+   "thaw": 15,
+   "rain": 12,
+   "sunny": 15,
+   "windy": 34,
+   "snow_per_week": 72,
+   "sun_h": 1.3,
+   "depth_median": 63,
+   "depth_low": 25,
+   "depth_high": 102,
+   "temp": -3.7,
+   "days": 241
+  },
+  {
+   "week": 4,
+   "starts": "22 Dec",
+   "powder": 16,
+   "snow10": 43,
+   "thaw": 13,
+   "rain": 10,
+   "sunny": 19,
+   "windy": 36,
+   "snow_per_week": 69,
+   "sun_h": 1.5,
+   "depth_median": 74,
+   "depth_low": 34,
+   "depth_high": 121,
+   "temp": -4.2,
+   "days": 245
+  },
+  {
+   "week": 5,
+   "starts": "29 Dec",
+   "powder": 17,
+   "snow10": 43,
+   "thaw": 8,
+   "rain": 7,
+   "sunny": 13,
+   "windy": 33,
+   "snow_per_week": 70,
+   "sun_h": 1.1,
+   "depth_median": 91,
+   "depth_low": 51,
+   "depth_high": 134,
+   "temp": -4.3,
+   "days": 244
+  },
+  {
+   "week": 6,
+   "starts": "5 Jan",
+   "powder": 16,
+   "snow10": 44,
+   "thaw": 3,
+   "rain": 2,
+   "sunny": 15,
+   "windy": 40,
+   "snow_per_week": 73,
+   "sun_h": 1.5,
+   "depth_median": 104,
+   "depth_low": 72,
+   "depth_high": 153,
+   "temp": -5.3,
+   "days": 244
+  },
+  {
+   "week": 7,
+   "starts": "12 Jan",
+   "powder": 13,
+   "snow10": 41,
+   "thaw": 2,
+   "rain": 1,
+   "sunny": 24,
+   "windy": 27,
+   "snow_per_week": 63,
+   "sun_h": 1.8,
+   "depth_median": 122,
+   "depth_low": 85,
+   "depth_high": 167,
+   "temp": -5.8,
+   "days": 243
+  },
+  {
+   "week": 8,
+   "starts": "19 Jan",
+   "powder": 16,
+   "snow10": 38,
+   "thaw": 5,
+   "rain": 5,
+   "sunny": 28,
+   "windy": 30,
+   "snow_per_week": 64,
+   "sun_h": 2.2,
+   "depth_median": 131,
+   "depth_low": 90,
+   "depth_high": 170,
+   "temp": -5.8,
+   "days": 244
+  },
+  {
+   "week": 9,
+   "starts": "26 Jan",
+   "powder": 13,
+   "snow10": 39,
+   "thaw": 5,
+   "rain": 3,
+   "sunny": 22,
+   "windy": 36,
+   "snow_per_week": 67,
+   "sun_h": 1.8,
+   "depth_median": 142,
+   "depth_low": 104,
+   "depth_high": 181,
+   "temp": -5.6,
+   "days": 244
+  },
+  {
+   "week": 10,
+   "starts": "2 Feb",
+   "powder": 9,
+   "snow10": 40,
+   "thaw": 2,
+   "rain": 2,
+   "sunny": 30,
+   "windy": 35,
+   "snow_per_week": 60,
+   "sun_h": 2.2,
+   "depth_median": 153,
+   "depth_low": 109,
+   "depth_high": 192,
+   "temp": -5.8,
+   "days": 245
+  },
+  {
+   "week": 11,
+   "starts": "9 Feb",
+   "powder": 12,
+   "snow10": 35,
+   "thaw": 7,
+   "rain": 4,
+   "sunny": 27,
+   "windy": 35,
+   "snow_per_week": 60,
+   "sun_h": 2.1,
+   "depth_median": 158,
+   "depth_low": 115,
+   "depth_high": 202,
+   "temp": -5.0,
+   "days": 242
+  },
+  {
+   "week": 12,
+   "starts": "16 Feb",
+   "powder": 10,
+   "snow10": 31,
+   "thaw": 10,
+   "rain": 6,
+   "sunny": 34,
+   "windy": 41,
+   "snow_per_week": 54,
+   "sun_h": 2.6,
+   "depth_median": 165,
+   "depth_low": 118,
+   "depth_high": 207,
+   "temp": -4.0,
+   "days": 240
+  },
+  {
+   "week": 13,
+   "starts": "23 Feb",
+   "powder": 4,
+   "snow10": 23,
+   "thaw": 14,
+   "rain": 7,
+   "sunny": 50,
+   "windy": 34,
+   "snow_per_week": 38,
+   "sun_h": 3.6,
+   "depth_median": 159,
+   "depth_low": 109,
+   "depth_high": 210,
+   "temp": -3.4,
+   "days": 245
+  }
+ ],
+ "kutchan_recent": [
+  {
+   "week": 1,
+   "starts": "1 Dec",
+   "powder": 12,
+   "snow10": 37,
+   "thaw": 32,
+   "rain": 21,
+   "sunny": 17,
+   "windy": 42,
+   "snow_per_week": 55,
+   "sun_h": 1.4,
+   "depth_median": 24,
+   "depth_low": 5,
+   "depth_high": 51,
+   "temp": -1.4,
+   "days": 147
+  },
+  {
+   "week": 2,
+   "starts": "8 Dec",
+   "powder": 16,
+   "snow10": 32,
+   "thaw": 19,
+   "rain": 15,
+   "sunny": 20,
+   "windy": 31,
+   "snow_per_week": 58,
+   "sun_h": 1.5,
+   "depth_median": 46,
+   "depth_low": 12,
+   "depth_high": 77,
+   "temp": -2.7,
+   "days": 147
+  },
+  {
+   "week": 3,
+   "starts": "15 Dec",
+   "powder": 14,
+   "snow10": 41,
+   "thaw": 14,
+   "rain": 12,
+   "sunny": 10,
+   "windy": 33,
+   "snow_per_week": 63,
+   "sun_h": 0.9,
+   "depth_median": 65,
+   "depth_low": 24,
+   "depth_high": 118,
+   "temp": -3.7,
+   "days": 144
+  },
+  {
+   "week": 4,
+   "starts": "22 Dec",
+   "powder": 12,
+   "snow10": 43,
+   "thaw": 14,
+   "rain": 12,
+   "sunny": 17,
+   "windy": 39,
+   "snow_per_week": 66,
+   "sun_h": 1.3,
+   "depth_median": 82,
+   "depth_low": 36,
+   "depth_high": 128,
+   "temp": -4.3,
+   "days": 147
+  },
+  {
+   "week": 5,
+   "starts": "29 Dec",
+   "powder": 13,
+   "snow10": 39,
+   "thaw": 7,
+   "rain": 5,
+   "sunny": 11,
+   "windy": 32,
+   "snow_per_week": 62,
+   "sun_h": 1.0,
+   "depth_median": 108,
+   "depth_low": 53,
+   "depth_high": 142,
+   "temp": -4.3,
+   "days": 146
+  },
+  {
+   "week": 6,
+   "starts": "5 Jan",
+   "powder": 15,
+   "snow10": 45,
+   "thaw": 3,
+   "rain": 2,
+   "sunny": 10,
+   "windy": 38,
+   "snow_per_week": 73,
+   "sun_h": 1.1,
+   "depth_median": 124,
+   "depth_low": 75,
+   "depth_high": 160,
+   "temp": -5.2,
+   "days": 146
+  },
+  {
+   "week": 7,
+   "starts": "12 Jan",
+   "powder": 10,
+   "snow10": 40,
+   "thaw": 1,
+   "rain": 0,
+   "sunny": 24,
+   "windy": 32,
+   "snow_per_week": 62,
+   "sun_h": 1.6,
+   "depth_median": 135,
+   "depth_low": 104,
+   "depth_high": 178,
+   "temp": -5.9,
+   "days": 145
+  },
+  {
+   "week": 8,
+   "starts": "19 Jan",
+   "powder": 7,
+   "snow10": 29,
+   "thaw": 5,
+   "rain": 5,
+   "sunny": 29,
+   "windy": 31,
+   "snow_per_week": 49,
+   "sun_h": 2.1,
+   "depth_median": 140,
+   "depth_low": 110,
+   "depth_high": 174,
+   "temp": -5.7,
+   "days": 146
+  },
+  {
+   "week": 9,
+   "starts": "26 Jan",
+   "powder": 8,
+   "snow10": 33,
+   "thaw": 6,
+   "rain": 3,
+   "sunny": 20,
+   "windy": 36,
+   "snow_per_week": 56,
+   "sun_h": 1.7,
+   "depth_median": 150,
+   "depth_low": 112,
+   "depth_high": 185,
+   "temp": -5.2,
+   "days": 146
+  },
+  {
+   "week": 10,
+   "starts": "2 Feb",
+   "powder": 6,
+   "snow10": 37,
+   "thaw": 1,
+   "rain": 1,
+   "sunny": 26,
+   "windy": 41,
+   "snow_per_week": 53,
+   "sun_h": 1.9,
+   "depth_median": 161,
+   "depth_low": 114,
+   "depth_high": 194,
+   "temp": -5.9,
+   "days": 147
+  },
+  {
+   "week": 11,
+   "starts": "9 Feb",
+   "powder": 5,
+   "snow10": 24,
+   "thaw": 8,
+   "rain": 5,
+   "sunny": 31,
+   "windy": 36,
+   "snow_per_week": 44,
+   "sun_h": 2.2,
+   "depth_median": 174,
+   "depth_low": 109,
+   "depth_high": 204,
+   "temp": -4.9,
+   "days": 146
+  },
+  {
+   "week": 12,
+   "starts": "16 Feb",
+   "powder": 7,
+   "snow10": 26,
+   "thaw": 11,
+   "rain": 7,
+   "sunny": 33,
+   "windy": 47,
+   "snow_per_week": 47,
+   "sun_h": 2.5,
+   "depth_median": 172,
+   "depth_low": 121,
+   "depth_high": 214,
+   "temp": -3.7,
+   "days": 144
+  },
+  {
+   "week": 13,
+   "starts": "23 Feb",
+   "powder": 3,
+   "snow10": 22,
+   "thaw": 16,
+   "rain": 9,
+   "sunny": 49,
+   "windy": 41,
+   "snow_per_week": 36,
+   "sun_h": 3.6,
+   "depth_median": 165,
+   "depth_low": 113,
+   "depth_high": 213,
+   "temp": -3.3,
+   "days": 147
+  }
+ ],
+ "kutchan_strong": [
+  {
+   "week": 1,
+   "starts": "1 Dec",
+   "powder": 0,
+   "snow10": 29,
+   "thaw": 43,
+   "rain": 26,
+   "sunny": 9,
+   "windy": 37,
+   "snow_per_week": 36,
+   "sun_h": 1.2,
+   "depth_median": 16,
+   "depth_low": 2,
+   "depth_high": 36,
+   "temp": -0.6,
+   "days": 35
+  },
+  {
+   "week": 2,
+   "starts": "8 Dec",
+   "powder": 26,
+   "snow10": 31,
+   "thaw": 26,
+   "rain": 17,
+   "sunny": 29,
+   "windy": 37,
+   "snow_per_week": 61,
+   "sun_h": 2.1,
+   "depth_median": 18,
+   "depth_low": 7,
+   "depth_high": 50,
+   "temp": -1.9,
+   "days": 35
+  },
+  {
+   "week": 3,
+   "starts": "15 Dec",
+   "powder": 12,
+   "snow10": 41,
+   "thaw": 29,
+   "rain": 21,
+   "sunny": 10,
+   "windy": 29,
+   "snow_per_week": 58,
+   "sun_h": 0.9,
+   "depth_median": 36,
+   "depth_low": 18,
+   "depth_high": 68,
+   "temp": -2.6,
+   "days": 34
+  },
+  {
+   "week": 4,
+   "starts": "22 Dec",
+   "powder": 9,
+   "snow10": 37,
+   "thaw": 3,
+   "rain": 0,
+   "sunny": 24,
+   "windy": 34,
+   "snow_per_week": 57,
+   "sun_h": 1.8,
+   "depth_median": 60,
+   "depth_low": 31,
+   "depth_high": 86,
+   "temp": -4.6,
+   "days": 35
+  },
+  {
+   "week": 5,
+   "starts": "29 Dec",
+   "powder": 15,
+   "snow10": 29,
+   "thaw": 3,
+   "rain": 3,
+   "sunny": 7,
+   "windy": 29,
+   "snow_per_week": 60,
+   "sun_h": 0.8,
+   "depth_median": 76,
+   "depth_low": 42,
+   "depth_high": 100,
+   "temp": -3.5,
+   "days": 34
+  },
+  {
+   "week": 6,
+   "starts": "5 Jan",
+   "powder": 12,
+   "snow10": 44,
+   "thaw": 3,
+   "rain": 3,
+   "sunny": 4,
+   "windy": 44,
+   "snow_per_week": 72,
+   "sun_h": 0.7,
+   "depth_median": 80,
+   "depth_low": 71,
+   "depth_high": 122,
+   "temp": -5.0,
+   "days": 34
+  },
+  {
+   "week": 7,
+   "starts": "12 Jan",
+   "powder": 9,
+   "snow10": 32,
+   "thaw": 3,
+   "rain": 3,
+   "sunny": 18,
+   "windy": 32,
+   "snow_per_week": 52,
+   "sun_h": 1.5,
+   "depth_median": 113,
+   "depth_low": 65,
+   "depth_high": 145,
+   "temp": -5.9,
+   "days": 34
+  },
+  {
+   "week": 8,
+   "starts": "19 Jan",
+   "powder": 23,
+   "snow10": 54,
+   "thaw": 3,
+   "rain": 3,
+   "sunny": 16,
+   "windy": 31,
+   "snow_per_week": 90,
+   "sun_h": 1.6,
+   "depth_median": 123,
+   "depth_low": 81,
+   "depth_high": 139,
+   "temp": -5.4,
+   "days": 35
+  },
+  {
+   "week": 9,
+   "starts": "26 Jan",
+   "powder": 17,
+   "snow10": 46,
+   "thaw": 3,
+   "rain": 0,
+   "sunny": 20,
+   "windy": 29,
+   "snow_per_week": 80,
+   "sun_h": 1.5,
+   "depth_median": 132,
+   "depth_low": 112,
+   "depth_high": 151,
+   "temp": -5.4,
+   "days": 35
+  },
+  {
+   "week": 10,
+   "starts": "2 Feb",
+   "powder": 9,
+   "snow10": 40,
+   "thaw": 0,
+   "rain": 0,
+   "sunny": 16,
+   "windy": 20,
+   "snow_per_week": 60,
+   "sun_h": 2.0,
+   "depth_median": 141,
+   "depth_low": 109,
+   "depth_high": 170,
+   "temp": -6.6,
+   "days": 35
+  },
+  {
+   "week": 11,
+   "starts": "9 Feb",
+   "powder": 6,
+   "snow10": 23,
+   "thaw": 11,
+   "rain": 6,
+   "sunny": 25,
+   "windy": 34,
+   "snow_per_week": 44,
+   "sun_h": 2.0,
+   "depth_median": 132,
+   "depth_low": 120,
+   "depth_high": 168,
+   "temp": -3.9,
+   "days": 35
+  },
+  {
+   "week": 12,
+   "starts": "16 Feb",
+   "powder": 11,
+   "snow10": 34,
+   "thaw": 6,
+   "rain": 3,
+   "sunny": 38,
+   "windy": 51,
+   "snow_per_week": 58,
+   "sun_h": 2.6,
+   "depth_median": 133,
+   "depth_low": 118,
+   "depth_high": 176,
+   "temp": -4.6,
+   "days": 35
+  },
+  {
+   "week": 13,
+   "starts": "23 Feb",
+   "powder": 0,
+   "snow10": 14,
+   "thaw": 17,
+   "rain": 3,
+   "sunny": 50,
+   "windy": 26,
+   "snow_per_week": 26,
+   "sun_h": 4.0,
+   "depth_median": 137,
+   "depth_low": 112,
+   "depth_high": 159,
+   "temp": -3.6,
+   "days": 35
+  }
+ ],
+ "furano_all": [
+  {
+   "week": 1,
+   "starts": "1 Dec",
+   "powder": 3,
+   "snow10": 16,
+   "thaw": 24,
+   "rain": 14,
+   "sunny": 21,
+   "windy": 3,
+   "snow_per_week": 29,
+   "sun_h": 1.6,
+   "depth_median": 10,
+   "depth_low": 0,
+   "depth_high": 29,
+   "temp": -2.7,
+   "days": 233
+  },
+  {
+   "week": 2,
+   "starts": "8 Dec",
+   "powder": 3,
+   "snow10": 19,
+   "thaw": 12,
+   "rain": 11,
+   "sunny": 20,
+   "windy": 2,
+   "snow_per_week": 35,
+   "sun_h": 1.6,
+   "depth_median": 18,
+   "depth_low": 3,
+   "depth_high": 39,
+   "temp": -4.6,
+   "days": 238
+  },
+  {
+   "week": 3,
+   "starts": "15 Dec",
+   "powder": 3,
+   "snow10": 14,
+   "thaw": 8,
+   "rain": 5,
+   "sunny": 19,
+   "windy": 2,
+   "snow_per_week": 37,
+   "sun_h": 1.5,
+   "depth_median": 25,
+   "depth_low": 11,
+   "depth_high": 47,
+   "temp": -5.7,
+   "days": 240
+  },
+  {
+   "week": 4,
+   "starts": "22 Dec",
+   "powder": 2,
+   "snow10": 17,
+   "thaw": 3,
+   "rain": 3,
+   "sunny": 23,
+   "windy": 4,
+   "snow_per_week": 36,
+   "sun_h": 1.6,
+   "depth_median": 32,
+   "depth_low": 16,
+   "depth_high": 49,
+   "temp": -6.7,
+   "days": 236
+  },
+  {
+   "week": 5,
+   "starts": "29 Dec",
+   "powder": 0,
+   "snow10": 18,
+   "thaw": 2,
+   "rain": 2,
+   "sunny": 18,
+   "windy": 4,
+   "snow_per_week": 35,
+   "sun_h": 1.5,
+   "depth_median": 38,
+   "depth_low": 21,
+   "depth_high": 55,
+   "temp": -6.5,
+   "days": 241
+  },
+  {
+   "week": 6,
+   "starts": "5 Jan",
+   "powder": 2,
+   "snow10": 12,
+   "thaw": 1,
+   "rain": 1,
+   "sunny": 24,
+   "windy": 3,
+   "snow_per_week": 33,
+   "sun_h": 1.9,
+   "depth_median": 45,
+   "depth_low": 26,
+   "depth_high": 57,
+   "temp": -8.2,
+   "days": 239
+  },
+  {
+   "week": 7,
+   "starts": "12 Jan",
+   "powder": 2,
+   "snow10": 12,
+   "thaw": 0,
+   "rain": 0,
+   "sunny": 32,
+   "windy": 2,
+   "snow_per_week": 32,
+   "sun_h": 2.1,
+   "depth_median": 49,
+   "depth_low": 29,
+   "depth_high": 63,
+   "temp": -9.2,
+   "days": 242
+  },
+  {
+   "week": 8,
+   "starts": "19 Jan",
+   "powder": 0,
+   "snow10": 13,
+   "thaw": 2,
+   "rain": 2,
+   "sunny": 40,
+   "windy": 3,
+   "snow_per_week": 29,
+   "sun_h": 2.6,
+   "depth_median": 52,
+   "depth_low": 39,
+   "depth_high": 66,
+   "temp": -9.1,
+   "days": 244
+  },
+  {
+   "week": 9,
+   "starts": "26 Jan",
+   "powder": 1,
+   "snow10": 12,
+   "thaw": 2,
+   "rain": 2,
+   "sunny": 36,
+   "windy": 2,
+   "snow_per_week": 30,
+   "sun_h": 2.5,
+   "depth_median": 53,
+   "depth_low": 41,
+   "depth_high": 74,
+   "temp": -8.2,
+   "days": 242
+  },
+  {
+   "week": 10,
+   "starts": "2 Feb",
+   "powder": 0,
+   "snow10": 11,
+   "thaw": 1,
+   "rain": 1,
+   "sunny": 40,
+   "windy": 3,
+   "snow_per_week": 29,
+   "sun_h": 2.9,
+   "depth_median": 58,
+   "depth_low": 42,
+   "depth_high": 76,
+   "temp": -8.8,
+   "days": 241
+  },
+  {
+   "week": 11,
+   "starts": "9 Feb",
+   "powder": 0,
+   "snow10": 9,
+   "thaw": 4,
+   "rain": 2,
+   "sunny": 36,
+   "windy": 3,
+   "snow_per_week": 28,
+   "sun_h": 2.6,
+   "depth_median": 60,
+   "depth_low": 46,
+   "depth_high": 78,
+   "temp": -7.4,
+   "days": 243
+  },
+  {
+   "week": 12,
+   "starts": "16 Feb",
+   "powder": 1,
+   "snow10": 9,
+   "thaw": 4,
+   "rain": 2,
+   "sunny": 45,
+   "windy": 6,
+   "snow_per_week": 28,
+   "sun_h": 3.2,
+   "depth_median": 60,
+   "depth_low": 48,
+   "depth_high": 79,
+   "temp": -6.4,
+   "days": 240
+  },
+  {
+   "week": 13,
+   "starts": "23 Feb",
+   "powder": 0,
+   "snow10": 8,
+   "thaw": 9,
+   "rain": 5,
+   "sunny": 51,
+   "windy": 7,
+   "snow_per_week": 25,
+   "sun_h": 3.9,
+   "depth_median": 58,
+   "depth_low": 40,
+   "depth_high": 80,
+   "temp": -5.7,
+   "days": 244
+  }
+ ],
+ "furano_strong": [
+  {
+   "week": 1,
+   "starts": "1 Dec",
+   "powder": 3,
+   "snow10": 9,
+   "thaw": 29,
+   "rain": 17,
+   "sunny": 17,
+   "windy": 0,
+   "snow_per_week": 21,
+   "sun_h": 1.4,
+   "depth_median": 6,
+   "depth_low": 0,
+   "depth_high": 20,
+   "temp": -2.1,
+   "days": 35
+  },
+  {
+   "week": 2,
+   "starts": "8 Dec",
+   "powder": 0,
+   "snow10": 14,
+   "thaw": 20,
+   "rain": 17,
+   "sunny": 23,
+   "windy": 0,
+   "snow_per_week": 29,
+   "sun_h": 1.8,
+   "depth_median": 10,
+   "depth_low": 5,
+   "depth_high": 21,
+   "temp": -3.1,
+   "days": 35
+  },
+  {
+   "week": 3,
+   "starts": "15 Dec",
+   "powder": 3,
+   "snow10": 9,
+   "thaw": 17,
+   "rain": 11,
+   "sunny": 23,
+   "windy": 0,
+   "snow_per_week": 34,
+   "sun_h": 1.8,
+   "depth_median": 14,
+   "depth_low": 7,
+   "depth_high": 27,
+   "temp": -4.1,
+   "days": 35
+  },
+  {
+   "week": 4,
+   "starts": "22 Dec",
+   "powder": 0,
+   "snow10": 27,
+   "thaw": 0,
+   "rain": 0,
+   "sunny": 30,
+   "windy": 0,
+   "snow_per_week": 45,
+   "sun_h": 2.1,
+   "depth_median": 28,
+   "depth_low": 6,
+   "depth_high": 47,
+   "temp": -7.7,
+   "days": 33
+  },
+  {
+   "week": 5,
+   "starts": "29 Dec",
+   "powder": 0,
+   "snow10": 17,
+   "thaw": 0,
+   "rain": 0,
+   "sunny": 20,
+   "windy": 6,
+   "snow_per_week": 34,
+   "sun_h": 1.7,
+   "depth_median": 38,
+   "depth_low": 16,
+   "depth_high": 69,
+   "temp": -6.1,
+   "days": 35
+  },
+  {
+   "week": 6,
+   "starts": "5 Jan",
+   "powder": 0,
+   "snow10": 17,
+   "thaw": 0,
+   "rain": 0,
+   "sunny": 14,
+   "windy": 0,
+   "snow_per_week": 37,
+   "sun_h": 1.1,
+   "depth_median": 47,
+   "depth_low": 22,
+   "depth_high": 64,
+   "temp": -7.2,
+   "days": 35
+  },
+  {
+   "week": 7,
+   "starts": "12 Jan",
+   "powder": 6,
+   "snow10": 20,
+   "thaw": 0,
+   "rain": 0,
+   "sunny": 31,
+   "windy": 0,
+   "snow_per_week": 41,
+   "sun_h": 2.1,
+   "depth_median": 53,
+   "depth_low": 25,
+   "depth_high": 59,
+   "temp": -9.3,
+   "days": 35
+  },
+  {
+   "week": 8,
+   "starts": "19 Jan",
+   "powder": 3,
+   "snow10": 17,
+   "thaw": 3,
+   "rain": 3,
+   "sunny": 17,
+   "windy": 9,
+   "snow_per_week": 35,
+   "sun_h": 1.6,
+   "depth_median": 49,
+   "depth_low": 44,
+   "depth_high": 62,
+   "temp": -8.3,
+   "days": 35
+  },
+  {
+   "week": 9,
+   "starts": "26 Jan",
+   "powder": 0,
+   "snow10": 17,
+   "thaw": 0,
+   "rain": 0,
+   "sunny": 37,
+   "windy": 0,
+   "snow_per_week": 35,
+   "sun_h": 2.1,
+   "depth_median": 52,
+   "depth_low": 47,
+   "depth_high": 64,
+   "temp": -8.2,
+   "days": 35
+  },
+  {
+   "week": 10,
+   "starts": "2 Feb",
+   "powder": 0,
+   "snow10": 12,
+   "thaw": 0,
+   "rain": 0,
+   "sunny": 24,
+   "windy": 0,
+   "snow_per_week": 31,
+   "sun_h": 2.6,
+   "depth_median": 60,
+   "depth_low": 42,
+   "depth_high": 67,
+   "temp": -10.4,
+   "days": 33
+  },
+  {
+   "week": 11,
+   "starts": "9 Feb",
+   "powder": 0,
+   "snow10": 6,
+   "thaw": 12,
+   "rain": 6,
+   "sunny": 35,
+   "windy": 6,
+   "snow_per_week": 26,
+   "sun_h": 2.4,
+   "depth_median": 58,
+   "depth_low": 51,
+   "depth_high": 65,
+   "temp": -5.5,
+   "days": 34
+  },
+  {
+   "week": 12,
+   "starts": "16 Feb",
+   "powder": 0,
+   "snow10": 18,
+   "thaw": 6,
+   "rain": 6,
+   "sunny": 56,
+   "windy": 6,
+   "snow_per_week": 30,
+   "sun_h": 3.7,
+   "depth_median": 57,
+   "depth_low": 49,
+   "depth_high": 70,
+   "temp": -6.5,
+   "days": 34
+  },
+  {
+   "week": 13,
+   "starts": "23 Feb",
+   "powder": 0,
+   "snow10": 6,
+   "thaw": 9,
+   "rain": 3,
+   "sunny": 54,
+   "windy": 6,
+   "snow_per_week": 18,
+   "sun_h": 4.5,
+   "depth_median": 51,
+   "depth_low": 36,
+   "depth_high": 68,
+   "temp": -6.4,
+   "days": 35
+  }
+ ],
+ "stations": {
+  "kutchan": {
+   "label": "Niseko (Kutchan)",
+   "lon": 140.76,
+   "lat": 42.9,
+   "group": "west",
+   "dec": {
+    "median": 80,
+    "winters": {
+     "1982": 137,
+     "1991": 109,
+     "1997": 63,
+     "2009": 95,
+     "2015": 64,
+     "2023": 66
+    }
+   },
+   "jan": {
+    "median": 99,
+    "winters": {
+     "1982": 85,
+     "1991": 68,
+     "1997": 132,
+     "2009": 114,
+     "2015": 101,
+     "2023": 97
+    }
+   },
+   "feb": {
+    "median": 98,
+    "winters": {
+     "1982": 102,
+     "1991": 112,
+     "1997": 71,
+     "2009": 94,
+     "2015": 124,
+     "2023": 66
+    }
+   },
+   "djf": {
+    "median": 92,
+    "winters": {
+     "1982": 101,
+     "1991": 96,
+     "1997": 89,
+     "2009": 99,
+     "2015": 86,
+     "2023": 80
+    }
+   },
+   "djf_mean_cm": 809
+  },
+  "kimobetsu": {
+   "label": "Rusutsu (Kimobetsu)",
+   "lon": 140.94,
+   "lat": 42.8,
+   "group": "west",
+   "dec": {
+    "median": 84,
+    "winters": {
+     "1982": 103,
+     "1991": 101,
+     "1997": 69,
+     "2009": 79,
+     "2015": 89,
+     "2023": 67
+    }
+   },
+   "jan": {
+    "median": 98,
+    "winters": {
+     "1982": 105,
+     "1991": 93,
+     "1997": 84,
+     "2009": 91,
+     "2015": 103,
+     "2023": 114
+    }
+   },
+   "feb": {
+    "median": 85,
+    "winters": {
+     "1982": 98,
+     "1991": 97,
+     "1997": 71,
+     "2009": 62,
+     "2015": 129,
+     "2023": 73
+    }
+   },
+   "djf": {
+    "median": 94,
+    "winters": {
+     "1982": 102,
+     "1991": 100,
+     "1997": 78,
+     "2009": 89,
+     "2015": 99,
+     "2023": 84
+    }
+   },
+   "djf_mean_cm": 649
+  },
+  "akaigawa": {
+   "label": "Kiroro (Akaigawa)",
+   "lon": 140.82,
+   "lat": 43.08,
+   "group": "west",
+   "dec": {
+    "median": 82,
+    "winters": {
+     "1991": 85,
+     "1997": 90,
+     "2009": 82,
+     "2015": 67,
+     "2023": 78
+    }
+   },
+   "jan": {
+    "median": 100,
+    "winters": {
+     "1991": 70,
+     "1997": 100,
+     "2009": 103,
+     "2015": 100,
+     "2023": 162
+    }
+   },
+   "feb": {
+    "median": 88,
+    "winters": {
+     "1991": 114,
+     "1997": 66,
+     "2009": 88,
+     "2015": 118,
+     "2023": 67
+    }
+   },
+   "djf": {
+    "median": 91,
+    "winters": {
+     "1991": 87,
+     "1997": 85,
+     "2009": 91,
+     "2015": 92,
+     "2023": 107
+    }
+   },
+   "djf_mean_cm": 692
+  },
+  "otaru": {
+   "label": "Otaru",
+   "lon": 141.02,
+   "lat": 43.18,
+   "group": "west",
+   "dec": {
+    "median": 86,
+    "winters": {
+     "1982": 112,
+     "1991": 98,
+     "1997": 65,
+     "2009": 100,
+     "2015": 74,
+     "2023": 57
+    }
+   },
+   "jan": {
+    "median": 100,
+    "winters": {
+     "1982": 47,
+     "1991": 101,
+     "1997": 93,
+     "2009": 103,
+     "2015": 98,
+     "2023": 152
+    }
+   },
+   "feb": {
+    "median": 89,
+    "winters": {
+     "1982": 90,
+     "1991": 88,
+     "1997": 74,
+     "2009": 84,
+     "2015": 124,
+     "2023": 121
+    }
+   },
+   "djf": {
+    "median": 91,
+    "winters": {
+     "1982": 73,
+     "1991": 103,
+     "1997": 81,
+     "2009": 98,
+     "2015": 84,
+     "2023": 101
+    }
+   },
+   "djf_mean_cm": 461
+  },
+  "sapporo": {
+   "label": "Sapporo",
+   "lon": 141.33,
+   "lat": 43.06,
+   "group": "west",
+   "dec": {
+    "median": 82,
+    "winters": {
+     "1982": 78,
+     "1991": 117,
+     "1997": 66,
+     "2009": 87,
+     "2015": 97,
+     "2023": 57
+    }
+   },
+   "jan": {
+    "median": 94,
+    "winters": {
+     "1982": 53,
+     "1991": 77,
+     "1997": 115,
+     "2009": 109,
+     "2015": 78,
+     "2023": 129
+    }
+   },
+   "feb": {
+    "median": 106,
+    "winters": {
+     "1982": 131,
+     "1991": 52,
+     "1997": 91,
+     "2009": 77,
+     "2015": 134,
+     "2023": 120
+    }
+   },
+   "djf": {
+    "median": 90,
+    "winters": {
+     "1982": 85,
+     "1991": 80,
+     "1997": 90,
+     "2009": 90,
+     "2015": 94,
+     "2023": 110
+    }
+   },
+   "djf_mean_cm": 375
+  },
+  "iwamizawa": {
+   "label": "Iwamizawa",
+   "lon": 141.79,
+   "lat": 43.21,
+   "group": "west",
+   "dec": {
+    "median": 90,
+    "winters": {
+     "1982": 152,
+     "1991": 117,
+     "1997": 72,
+     "2009": 73,
+     "2015": 69,
+     "2023": 106
+    }
+   },
+   "jan": {
+    "median": 113,
+    "winters": {
+     "1982": 110,
+     "1991": 96,
+     "1997": 160,
+     "2009": 116,
+     "2015": 120,
+     "2023": 73
+    }
+   },
+   "feb": {
+    "median": 90,
+    "winters": {
+     "1982": 124,
+     "1991": 84,
+     "1997": 65,
+     "2009": 95,
+     "2015": 173,
+     "2023": 80
+    }
+   },
+   "djf": {
+    "median": 106,
+    "winters": {
+     "1982": 120,
+     "1991": 109,
+     "1997": 102,
+     "2009": 100,
+     "2015": 111,
+     "2023": 79
+    }
+   },
+   "djf_mean_cm": 569
+  },
+  "asahikawa": {
+   "label": "Asahikawa",
+   "lon": 142.37,
+   "lat": 43.76,
+   "group": "centre",
+   "dec": {
+    "median": 98,
+    "winters": {
+     "1982": 122,
+     "1991": 76,
+     "1997": 78,
+     "2009": 99,
+     "2015": 96,
+     "2023": 113
+    }
+   },
+   "jan": {
+    "median": 112,
+    "winters": {
+     "1982": 133,
+     "1991": 96,
+     "1997": 113,
+     "2009": 144,
+     "2015": 110,
+     "2023": 94
+    }
+   },
+   "feb": {
+    "median": 94,
+    "winters": {
+     "1982": 93,
+     "1991": 180,
+     "1997": 85,
+     "2009": 95,
+     "2015": 145,
+     "2023": 76
+    }
+   },
+   "djf": {
+    "median": 103,
+    "winters": {
+     "1982": 124,
+     "1991": 101,
+     "1997": 89,
+     "2009": 114,
+     "2015": 105,
+     "2023": 99
+    }
+   },
+   "djf_mean_cm": 424
+  },
+  "biei": {
+   "label": "Asahidake side (Biei)",
+   "lon": 142.47,
+   "lat": 43.59,
+   "group": "centre",
+   "dec": {
+    "median": 84,
+    "winters": {
+     "1991": 74,
+     "1997": 80,
+     "2009": 84,
+     "2015": 99,
+     "2023": 92
+    }
+   },
+   "jan": {
+    "median": 114,
+    "winters": {
+     "1991": 114,
+     "1997": 101,
+     "2009": 123,
+     "2015": 126,
+     "2023": 104
+    }
+   },
+   "feb": {
+    "median": 92,
+    "winters": {
+     "1991": 166,
+     "1997": 92,
+     "2009": 70,
+     "2015": 140,
+     "2023": 67
+    }
+   },
+   "djf": {
+    "median": 90,
+    "winters": {
+     "1991": 118,
+     "1997": 90,
+     "2009": 89,
+     "2015": 118,
+     "2023": 79
+    }
+   },
+   "djf_mean_cm": 467
+  },
+  "furano": {
+   "label": "Furano",
+   "lon": 142.4,
+   "lat": 43.33,
+   "group": "centre",
+   "dec": {
+    "median": 91,
+    "winters": {
+     "1991": 81,
+     "1997": 92,
+     "2009": 107,
+     "2015": 91,
+     "2023": 76
+    }
+   },
+   "jan": {
+    "median": 126,
+    "winters": {
+     "1982": 155,
+     "1991": 143,
+     "1997": 108,
+     "2009": 118,
+     "2015": 123,
+     "2023": 128
+    }
+   },
+   "feb": {
+    "median": 71,
+    "winters": {
+     "1991": 111,
+     "1997": 71,
+     "2009": 65,
+     "2015": 141,
+     "2023": 70
+    }
+   },
+   "djf": {
+    "median": 99,
+    "winters": {
+     "1991": 111,
+     "1997": 88,
+     "2009": 99,
+     "2015": 117,
+     "2023": 90
+    }
+   },
+   "djf_mean_cm": 411
+  },
+  "shimukappu": {
+   "label": "Tomamu (Shimukappu)",
+   "lon": 142.4,
+   "lat": 42.98,
+   "group": "centre",
+   "dec": {
+    "median": 90,
+    "winters": {
+     "1982": 112,
+     "1991": 53,
+     "1997": 91,
+     "2009": 112,
+     "2015": 79,
+     "2023": 90
+    }
+   },
+   "jan": {
+    "median": 104,
+    "winters": {
+     "1982": 105,
+     "1991": 92,
+     "1997": 116,
+     "2009": 102,
+     "2015": 65,
+     "2023": 112
+    }
+   },
+   "feb": {
+    "median": 92,
+    "winters": {
+     "1982": 98,
+     "1991": 100,
+     "1997": 85,
+     "2009": 51,
+     "2015": 143,
+     "2023": 55
+    }
+   },
+   "djf": {
+    "median": 92,
+    "winters": {
+     "1982": 110,
+     "1991": 84,
+     "1997": 100,
+     "2009": 92,
+     "2015": 92,
+     "2023": 84
+    }
+   },
+   "djf_mean_cm": 446
+  },
+  "hakuba": {
+   "label": "Hakuba",
+   "lon": 137.86,
+   "lat": 36.7,
+   "group": "honshu",
+   "dec": {
+    "median": 54,
+    "winters": {
+     "1982": 28,
+     "1991": 53,
+     "1997": 67,
+     "2009": 171,
+     "2015": 56,
+     "2023": 42
+    }
+   },
+   "jan": {
+    "median": 98,
+    "winters": {
+     "1982": 111,
+     "1991": 92,
+     "1997": 105,
+     "2009": 119,
+     "2015": 59,
+     "2023": 67
+    }
+   },
+   "feb": {
+    "median": 98,
+    "winters": {
+     "1982": 118,
+     "1991": 102,
+     "1997": 77,
+     "2009": 98,
+     "2023": 59
+    }
+   },
+   "djf": {
+    "median": 85,
+    "winters": {
+     "1982": 90,
+     "1991": 85,
+     "1997": 84,
+     "2009": 118,
+     "2023": 57
+    }
+   },
+   "djf_mean_cm": 508
+  },
+  "nozawaonsen": {
+   "label": "Nozawa Onsen",
+   "lon": 138.44,
+   "lat": 36.92,
+   "group": "honshu",
+   "dec": {
+    "median": 53,
+    "winters": {
+     "1982": 54,
+     "1991": 100,
+     "1997": 52,
+     "2009": 128,
+     "2015": 31,
+     "2023": 42
+    }
+   },
+   "jan": {
+    "median": 77,
+    "winters": {
+     "1982": 77,
+     "1991": 77,
+     "1997": 91,
+     "2009": 114,
+     "2015": 50,
+     "2023": 73
+    }
+   },
+   "feb": {
+    "median": 84,
+    "winters": {
+     "1982": 81,
+     "1991": 109,
+     "1997": 55,
+     "2009": 94,
+     "2015": 87,
+     "2023": 57
+    }
+   },
+   "djf": {
+    "median": 72,
+    "winters": {
+     "1982": 74,
+     "1991": 96,
+     "1997": 70,
+     "2009": 94,
+     "2015": 59,
+     "2023": 63
+    }
+   },
+   "djf_mean_cm": 845
+  },
+  "sekiyama": {
+   "label": "Myoko (Sekiyama)",
+   "lon": 138.23,
+   "lat": 36.93,
+   "group": "honshu",
+   "dec": {
+    "median": 52,
+    "winters": {
+     "1991": 151,
+     "1997": 50,
+     "2009": 137,
+     "2015": 52,
+     "2023": 38
+    }
+   },
+   "jan": {
+    "median": 79,
+    "winters": {
+     "1982": 82,
+     "1991": 76,
+     "1997": 106,
+     "2009": 119,
+     "2015": 62,
+     "2023": 63
+    }
+   },
+   "feb": {
+    "median": 103,
+    "winters": {
+     "1982": 104,
+     "1991": 135,
+     "1997": 55,
+     "2009": 102,
+     "2015": 124,
+     "2023": 61
+    }
+   },
+   "djf": {
+    "median": 80,
+    "winters": {
+     "1991": 111,
+     "1997": 80,
+     "2009": 92,
+     "2015": 74,
+     "2023": 56
+    }
+   },
+   "djf_mean_cm": 857
+  },
+  "yuzawa": {
+   "label": "Yuzawa",
+   "lon": 138.82,
+   "lat": 36.94,
+   "group": "honshu",
+   "dec": {
+    "median": 55,
+    "winters": {
+     "1991": 87,
+     "1997": 55,
+     "2009": 121,
+     "2015": 41,
+     "2023": 49
+    }
+   },
+   "jan": {
+    "median": 76,
+    "winters": {
+     "1982": 87,
+     "1991": 65,
+     "1997": 87,
+     "2009": 97,
+     "2015": 38,
+     "2023": 65
+    }
+   },
+   "feb": {
+    "median": 85,
+    "winters": {
+     "1982": 86,
+     "1991": 109,
+     "1997": 56,
+     "2009": 84,
+     "2015": 103,
+     "2023": 40
+    }
+   },
+   "djf": {
+    "median": 76,
+    "winters": {
+     "1991": 90,
+     "1997": 76,
+     "2009": 82,
+     "2015": 62,
+     "2023": 55
+    }
+   },
+   "djf_mean_cm": 856
+  },
+  "takada": {
+   "label": "Takada (Joetsu)",
+   "lon": 138.25,
+   "lat": 37.11,
+   "group": "honshu",
+   "dec": {
+    "median": 62,
+    "winters": {
+     "1982": 46,
+     "1991": 77,
+     "1997": 26,
+     "2009": 164,
+     "2015": 24,
+     "2023": 286
+    }
+   },
+   "jan": {
+    "median": 72,
+    "winters": {
+     "1982": 47,
+     "1991": 65,
+     "1997": 153,
+     "2009": 155,
+     "2015": 73,
+     "2023": 72
+    }
+   },
+   "feb": {
+    "median": 131,
+    "winters": {
+     "1982": 141,
+     "1991": 138,
+     "1997": 40,
+     "2009": 168,
+     "2015": 124,
+     "2023": 29
+    }
+   },
+   "djf": {
+    "median": 76,
+    "winters": {
+     "1982": 65,
+     "1991": 83,
+     "1997": 81,
+     "2009": 129,
+     "2015": 72,
+     "2023": 63
+    }
+   },
+   "djf_mean_cm": 391
+  }
+ }
+}

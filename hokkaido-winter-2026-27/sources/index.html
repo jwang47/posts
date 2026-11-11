@@ -1,0 +1,1128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hokkaido Snow Report and Sources</title>
+<meta name="description" content="The full written report behind the Hokkaido winter 2026-27 forecast, with every source linked and labelled by how it was checked.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a data appendix. One wide column, each block is a picture of
+   the raw records first, then the table and the download. */
+:root {
+  --page: #f3f6f9; --surface: #fcfcfb; --ink: #101820; --ink-2: #4b5560; --muted: #858b92; --line: #dde2e7;
+  --cold: #2a78d6; --cold-soft: #d6e6f9; --warm: #eb6834; --neutral: #b9bfc6;
+  --m1: #9ec5f4; --m2: #2a78d6; --m3: #104281;
+  --r0: #eef3f8; --r1: #cde2fb; --r2: #86b6ef; --r3: #3987e5; --r4: #1c5cab; --r5: #0d366b; --gap: #e6e2d6;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0c1116; --surface: #161c22; --ink: #eef1f4; --ink-2: #b9c1c9; --muted: #858b92; --line: #2a323a;
+    --cold: #3987e5; --cold-soft: #17304f; --warm: #d95926; --neutral: #59626b;
+    --m1: #184f95; --m2: #3987e5; --m3: #b7d3f6;
+    --r0: #1b222a; --r1: #17304f; --r2: #184f95; --r3: #3987e5; --r4: #86b6ef; --r5: #cde2fb; --gap: #2b2a26;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0c1116; --surface: #161c22; --ink: #eef1f4; --ink-2: #b9c1c9; --muted: #858b92; --line: #2a323a;
+  --cold: #3987e5; --cold-soft: #17304f; --warm: #d95926; --neutral: #59626b;
+  --m1: #184f95; --m2: #3987e5; --m3: #b7d3f6;
+  --r0: #1b222a; --r1: #17304f; --r2: #184f95; --r3: #3987e5; --r4: #86b6ef; --r5: #cde2fb; --gap: #2b2a26;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 400 18px/1.55 var(--body); }
+nav.top { max-width: 980px; margin: 0 auto; padding: 16px 20px 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15.5px; }
+nav.top a { color: var(--ink-2); text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; }
+nav.top a:hover { color: var(--ink); }
+nav.top a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--cold); font-weight: 600; }
+main { max-width: 980px; margin: 0 auto; padding: 28px 20px 72px; display: flex; flex-direction: column; gap: 52px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.12; }
+h1 { font-size: clamp(32px, 6vw, 48px); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: clamp(24px, 4.2vw, 31px); font-weight: 700; }
+h3 { font-size: 18px; font-weight: 500; }
+p { margin: 0; max-width: 68ch; }
+a { color: var(--cold); }
+a:focus-visible, button:focus-visible, select:focus-visible, canvas:focus-visible { outline: 2px solid var(--cold); outline-offset: 2px; }
+section { display: flex; flex-direction: column; gap: 16px; }
+.kicker { font: 600 14px/1.2 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+.lede { font-size: 20px; color: var(--ink-2); }
+.tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; }
+.tile b { font: 700 28px/1.1 var(--display); font-variant-numeric: tabular-nums; }
+.tile span { font-size: 15px; color: var(--ink-2); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 12px; }
+.note { font-size: 15.5px; color: var(--ink-2); max-width: 72ch; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; font-size: 15.5px; }
+.controls label { color: var(--ink-2); }
+select, button.chip {
+  font: 400 15.5px var(--body); color: var(--ink); background: var(--page); border: 1px solid var(--line);
+  border-radius: 8px; padding: 6px 10px; cursor: pointer;
+}
+button.chip[aria-pressed="true"] { background: var(--cold); border-color: var(--cold); color: #fff; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15px; color: var(--ink-2); align-items: center; }
+.legend span { display: inline-flex; align-items: center; gap: 7px; }
+.sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.sw.line { height: 3px; width: 18px; border-radius: 2px; }
+.ramp { width: 150px; height: 12px; border-radius: 3px; background: linear-gradient(90deg, var(--r1), var(--r2), var(--r3), var(--r4), var(--r5)); }
+canvas { display: block; width: 100%; border-radius: 6px; }
+svg { display: block; }
+svg text { font-family: var(--body); fill: var(--ink); }
+.t-muted { fill: var(--ink-2); }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 15.5px; font-variant-numeric: tabular-nums; }
+th, td { text-align: right; padding: 6px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+thead th { position: sticky; top: 0; background: var(--surface); font-weight: 600; color: var(--ink-2); }
+.tablewrap { max-height: 380px; overflow: auto; border: 1px solid var(--line); border-radius: 8px; }
+tr.enso td:first-child::after { content: " El Niño"; color: var(--warm); font-size: 13px; font-weight: 600; }
+td.left, th.left { text-align: left; white-space: normal; }
+.files td, .files th { white-space: normal; }
+footer { font-size: 15px; color: var(--ink-2); border-top: 1px solid var(--line); padding-top: 20px; }
+#tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--page); font: 400 14px/1.35 var(--body); padding: 6px 9px; border-radius: 6px; max-width: 250px; opacity: 0; z-index: 5; }
+#status { color: var(--ink-2); }
+@media (max-width: 700px) { body { font-size: 17px; } .tiles { grid-template-columns: 1fr 1fr; } }
+
+.prose { display: flex; flex-direction: column; gap: 14px; max-width: 780px; }
+.prose h2 { margin-top: 34px; scroll-margin-top: 16px; }
+.prose h3 { margin-top: 14px; font-size: 20px; font-weight: 700; }
+.prose p, .prose li { max-width: 72ch; }
+.prose ul, .prose ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; }
+.prose code { font: 400 .88em ui-monospace, "SF Mono", Consolas, monospace; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; }
+.prose pre { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; overflow-x: auto; margin: 0; }
+.prose pre code { border: 0; padding: 0; background: none; }
+.prose table { font-size: 15.5px; }
+.prose th, .prose td { text-align: left; white-space: normal; vertical-align: top; min-width: 90px; }
+.prose thead th { position: static; }
+.prose a { overflow-wrap: anywhere; }
+.lab { font: 600 12px/1 var(--body); text-decoration: none; display: inline-block; padding: 3px 6px; border-radius: 4px; vertical-align: 1px; cursor: help; border: 1px solid var(--line); color: var(--ink-2); background: var(--surface); }
+.lab-V { background: var(--cold); border-color: var(--cold); color: #fff; }
+.lab-M { border-style: dashed; }
+.toc { display: flex; flex-wrap: wrap; gap: 6px 8px; font-size: 15px; }
+.toc a { text-decoration: none; color: var(--ink-2); border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 4px 11px; }
+.toc a:hover { color: var(--ink); border-color: var(--cold); }
+</style>
+</head>
+<body>
+<nav class="top" aria-label="Pages">
+  <a href="../../">All posts</a>
+  <a href="../">Explainer</a>
+  <a href="../data/">Data</a>
+  <a href="../sources/" aria-current="page">Report and sources</a>
+</nav>
+<main>
+<header style="display:flex;flex-direction:column;gap:16px">
+  <div class="kicker">Hokkaido ski winter 2026-27 · the report</div>
+  <h1>Hokkaido ski winter 2026-27: forecast and month choice</h1>
+  <p class="lede">The full written analysis. Each fact carries a label: <abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> read directly at the source, <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> from search-result text only, <abbr class="lab lab-M" title="from model memory: not checked">M</abbr> from model memory.</p>
+  <nav class="toc" aria-label="Sections">
+<a href="#answer">Answer</a>
+<a href="#how-to-read-the-source-labels">How to read the source labels</a>
+<a href="#1-el-ni-o-now">1. El Niño now</a>
+<a href="#2-what-el-ni-o-does-to-hokkaido-snow">2. What El Niño does to Hokkaido snow</a>
+<a href="#3-jma-outlooks">3. JMA outlooks</a>
+<a href="#4-the-november-cold-snap">4. The November cold snap</a>
+<a href="#5-other-drivers">5. Other drivers</a>
+<a href="#6-the-months-in-a-normal-year">6. The months in a normal year</a>
+<a href="#6b-west-against-centre-niseko-and-furano">6b. West against centre: Niseko and Furano</a>
+<a href="#7-crowds-and-prices-by-date">7. Crowds and prices by date</a>
+<a href="#8-forecast-by-month">8. Forecast by month</a>
+<a href="#9-week-by-week-at-kutchan">9. Week by week at Kutchan</a>
+<a href="#10-el-ni-o-by-station-and-honshu">10. El Niño by station, and Honshu</a>
+<a href="#what-could-not-be-verified">What could not be verified</a>
+<a href="#sources-read-directly-on-2026-11-11">Sources read directly on 2026-11-11</a>
+  </nav>
+</header>
+<article class="prose">
+<p>Written 2026-11-11. Planning and synthesis: Claude Fable 5.2. Research
+workers: five Claude Opus 5.5 agents, one per topic. Question: for a
+Hokkaido ski trip, is December 2026 better or worse than January or
+February 2027?</p>
+<p>For a picture version in plain language, see <a href="../">the explainer</a>. Sections 9 and 10 were added later on 2026-11-11 from daily
+station data.</p>
+<h2 id="answer">Answer</h2>
+<ol>
+<li><strong>Go from about 16 January to 3 February 2027.</strong> This period has the
+best odds of deep cold powder, a finished base and open gates. It is
+also between the New Year peak and the Lunar New Year peak. The best
+fortnight inside it is 19 January to 1 February (section 9).</li>
+<li><strong>December is the weak month this winter.</strong> A record El Niño is in
+progress. In the Kutchan (Niseko) record, strong El Niño winters lose
+snow mainly in December: 4 of the 5 strongest had about two thirds of
+the usual December snowfall. December is also the month that starts with
+no base.</li>
+<li><strong>The cold snap of 7-10 November does not change this.</strong> It was real
+(56 cm on the ground at Kutchan on 10 November), but early snow at
+town level melts. It was 32 cm one day later. JMA expects temperatures
+to go back to normal from mid November.</li>
+<li><strong>February is the second choice.</strong> The base is at its deepest. Less new
+snow falls than in January, and recent El Niño Februaries were poor.
+Do not go on 4-11 February (Snow Festival, Lunar New Year and a
+national holiday in one week).</li>
+<li><strong>The whole season leans a little below normal, not bad.</strong> JMA gives
+40% below, 40% near and 20% above normal snowfall for the Hokkaido Sea
+of Japan side. A normal Niseko winter is still about 9 m of snowfall
+in the town.</li>
+</ol>
+<p>Confidence: high that January is the safest month (this is climatology and
+is true every year). Medium that December will be below normal. Low on
+the season total, because this El Niño is stronger than any past event.</p>
+<h2 id="how-to-read-the-source-labels">How to read the source labels</h2>
+<p>The cloud container could not open any weather site. A session on a
+Windows PC read the official pages directly on 2026-11-11.</p>
+<ul>
+<li><strong><abbr class="lab lab-V" title="verified: the page was read directly">V</abbr></strong> verified: the page was read directly and the numbers are copied
+from it.</li>
+<li><strong><abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></strong> search snippet only: the page could not be opened. The fact
+comes from search-result text. Treat the number as provisional.</li>
+<li><strong><abbr class="lab lab-M" title="from model memory: not checked">M</abbr></strong> from model memory, not checked. A DOI link with this label
+was not opened.</li>
+</ul>
+<h2 id="1-el-ni-o-now">1. El Niño now</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Fact</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JMA NINO.3 anomaly for October 2026 is +4.4 °C. It is the highest value since 1949 and beats September (+4.0 °C). JMA expects the peak by early winter and gives 100% for El Niño to continue into spring 2027.</td>
+<td><abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.data.jma.go.jp/cpd/elnino/kanshi_joho/kanshi_joho1.html">JMA El Niño outlook No. 410, 2026-11-10</a></td>
+</tr>
+<tr>
+<td>NOAA has an El Niño Advisory. &quot;Strong-to-very strong El Niño likely through January-March 2027&quot;. September values: Niño-3.4 +2.1 °C, Niño-3 +3.0 °C, Niño-1+2 +3.9 °C. Chance of a &quot;historic&quot; event (RONI of +2.5 °C or more): 83% for October-December.</td>
+<td><abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml">NOAA CPC ENSO discussion, 2026-10-08</a> (next issue 2026-11-12)</td>
+</tr>
+<tr>
+<td>ONI for August-October 2026 is +2.46. Past peaks: 2015-16 +2.59, 1997-98 +2.37, 1982-83 +2.14, 2023-24 +1.99, 1972-73 +1.84.</td>
+<td><abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt">NOAA ONI data</a></td>
+</tr>
+<tr>
+<td>The warmest water is in the east Pacific (Niño-1+2 is warmer than Niño-3.4). This is a classic east Pacific event, not a central Pacific (Modoki) event.</td>
+<td><abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml">NOAA CPC ENSO discussion, 2026-10-08</a></td>
+</tr>
+<tr>
+<td>Indian Ocean Dipole index is +0.69 (positive).</td>
+<td><abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.data.jma.go.jp/cpd/elnino/kanshi_joho/kanshi_joho1.html">JMA El Niño outlook No. 410, 2026-11-10</a></td>
+</tr>
+<tr>
+<td>All models in the IRI plume keep a very strong El Niño through December-February.</td>
+<td><abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://forecast.ccsr.columbia.edu/forecasts/enso/forecast">IRI ENSO forecast</a></td>
+</tr>
+<tr>
+<td>The Australian BoM also reports a strong to very strong El Niño and a positive IOD.</td>
+<td><abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://www.bom.gov.au/climate/enso/">BoM climate drivers</a></td>
+</tr>
+<tr>
+<td>The QBO is westerly. The PDO was -1.55 in September (negative, unlike 1997 and 2015).</td>
+<td><abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://www.oregon.gov/oda/natural-resources/Documents/Weather/forecast.pdf">Oregon ODA forecast</a>, <a href="https://opensnow.com/news/post/2026-2027-winter-forecast-preview">OpenSnow preview</a></td>
+</tr>
+</tbody></table></div>
+<p>The closest past winters are 1997-98, 1982-83 and 2015-16. This event is
+already stronger than all of them in the east Pacific, so they are weak
+guides.</p>
+<h2 id="2-what-el-ni-o-does-to-hokkaido-snow">2. What El Niño does to Hokkaido snow</h2>
+<p><strong>The official statistics show no reliable signal for Hokkaido.</strong> JMA&#39;s
+table of significant El Niño winter effects (1947/48 to 2020/21) lists a
+warm West Japan and a wet Pacific side of East Japan. It lists nothing
+for North Japan temperature or for Sea of Japan side snowfall.
+<abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.data.jma.go.jp/cpd/data/elnino/learning/tenkou/nihon1.html">JMA, El Niño and Japan&#39;s weather</a></p>
+<p><strong>The mechanism points to a weaker winter monsoon.</strong> El Niño builds a
+high near the Philippines and weakens the north-west monsoon wind that
+makes sea-effect snow.</p>
+<ul>
+<li>Wang, Wu and Fu (2000), the Pacific-East Asian teleconnection. <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://ams.confex.com/ams/annual2000/techprogram/paper_5534.htm">abstract</a></li>
+<li>Ohba and Sugimoto (2021): El Niño gives less precipitation on the Sea of
+Japan side and more on the Pacific side. The link is stronger when the
+PDO is negative, as it is now. <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://link.springer.com/article/10.1007/s00382-021-06052-9">Climate Dynamics</a></li>
+<li>Ueda et al. (2015): Sea of Japan side snowfall follows tropical
+convection. <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://rmets.onlinelibrary.wiley.com/doi/10.1002/joc.4032">Int. J. Climatol.</a></li>
+<li>Yatagai and Kinoshita (2022), Sapporo area: ENSO changes where the snow
+falls more than how much. El Niño favours the south-west mountains and
+inland. <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://doi.org/10.3390/atmos13091413">Atmosphere 13:1413</a></li>
+</ul>
+<p><strong>Our own count from the JMA Kutchan record.</strong> Kutchan is the JMA station
+in the valley below Niseko. <a href="../kutchan-snowfall.csv"><code>kutchan-snowfall.csv</code></a> holds its monthly
+snowfall totals for 65 winters (1961-62 to 2025-26).
+<abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.data.jma.go.jp/stats/etrn/view/monthly_s3.php?prec_no=16&block_no=47433&view=p6">JMA Kutchan monthly snowfall</a>
+<a href="../enso_composite.py"><code>enso_composite.py</code></a> compares each winter with the median of the ten
+winters around it. This removes the long downward drift.</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Snowfall as % of the winters around it (median)</th>
+<th>Dec</th>
+<th>Jan</th>
+<th>Feb</th>
+<th>Dec-Feb</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>All El Niño winters (22)</td>
+<td>92%</td>
+<td>104%</td>
+<td>100%</td>
+<td>98%</td>
+</tr>
+<tr>
+<td>All La Niña winters (23)</td>
+<td>106%</td>
+<td>100%</td>
+<td>103%</td>
+<td>104%</td>
+</tr>
+<tr>
+<td>Strong El Niño winters (8)</td>
+<td>77%</td>
+<td>99%</td>
+<td>98%</td>
+<td>92%</td>
+</tr>
+</tbody></table></div>
+<p>Strong El Niño winters one by one (December, then the three months):</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Winter</th>
+<th>Dec</th>
+<th>Dec-Feb</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1965-66</td>
+<td>110%</td>
+<td>98%</td>
+</tr>
+<tr>
+<td>1972-73</td>
+<td>61%</td>
+<td>67%</td>
+</tr>
+<tr>
+<td>1982-83</td>
+<td>153%</td>
+<td>104%</td>
+</tr>
+<tr>
+<td>1991-92</td>
+<td>109%</td>
+<td>96%</td>
+</tr>
+<tr>
+<td>1997-98</td>
+<td>63%</td>
+<td>89%</td>
+</tr>
+<tr>
+<td>2009-10</td>
+<td>87%</td>
+<td>98%</td>
+</tr>
+<tr>
+<td>2015-16</td>
+<td>64%</td>
+<td>86%</td>
+</tr>
+<tr>
+<td>2023-24</td>
+<td>66%</td>
+<td>80%</td>
+</tr>
+</tbody></table></div>
+<p>What this shows:</p>
+<ul>
+<li>Across all El Niño winters the effect is close to zero. A ski site
+found the same from 73 seasons (El Niño 11.45 m, La Niña 11.57 m).
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://skiasia.com/news/worried-about-the-effect-of-the-super-el-nino-on-your-niseko-ski-holiday-you-shouldnt-be/">skiasia</a></li>
+<li>Strong events are different. 7 of 8 were below their neighbours for the
+three months, by 8% at the median.</li>
+<li>The loss is in December. Of the 5 strongest events (ONI peak of 1.8 or
+more), 4 had 61% to 66% of the usual December snowfall (1972, 1997,
+2015, 2023). January and February were near normal at
+the median. January 1998 was 132%.</li>
+<li>1982-83 was a snowy exception, so a good December is still possible.</li>
+</ul>
+<p>Limits: 8 winters is a small sample. The differences are inside the
+normal year-to-year spread (about ±25% for one month). The ENSO year
+lists in the script are the usual NOAA classification, entered from
+memory <abbr class="lab lab-M" title="from model memory: not checked">M</abbr>. Raw values in the yearly table do not match the JMA normals
+(the 1991-2020 average of raw December values is 298 cm, the normal is
+253 cm). JMA probably adjusted the normals for a change in measuring
+method. Compare the yearly table only with itself.</p>
+<h2 id="3-jma-outlooks">3. JMA outlooks</h2>
+<p>All <abbr class="lab lab-V" title="verified: the page was read directly">V</abbr>, read from the JMA forecast data on 2026-11-11:
+<a href="https://www.jma.go.jp/bosai/season/">seasonal forecast pages</a>,
+<a href="https://www.data.jma.go.jp/cpd/longfcst/">explanations</a>.
+Probabilities are below / near / above normal.</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Outlook</th>
+<th>Hokkaido temperature</th>
+<th>Sea of Japan side precipitation</th>
+<th>Sea of Japan side snowfall</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cold season, Dec-Feb (issued 2026-09-18, kept on 2026-10-20)</td>
+<td>20 / 40 / 40</td>
+<td>30 / 30 / 40</td>
+<td>40 / 40 / 20</td>
+</tr>
+<tr>
+<td>3 months, Nov-Jan (issued 2026-10-20)</td>
+<td>20 / 30 / 50</td>
+<td>30 / 30 / 40</td>
+<td>40 / 40 / 20</td>
+</tr>
+<tr>
+<td>December alone</td>
+<td>20 / 40 / 40</td>
+<td>30 / 30 / 40</td>
+<td>not given</td>
+</tr>
+<tr>
+<td>January alone</td>
+<td>20 / 40 / 40</td>
+<td>30 / 40 / 30</td>
+<td>not given</td>
+</tr>
+<tr>
+<td>1 month, 7 Nov-6 Dec (issued 2026-11-05)</td>
+<td>50 / 30 / 20</td>
+<td>30 / 40 / 30</td>
+<td>not given</td>
+</tr>
+</tbody></table></div>
+<p>JMA&#39;s reasons: the record El Niño continues. The Siberian High is near
+normal, but the Aleutian Low is weak on its west side, so the monsoon
+wind near Japan is weak. The whole atmosphere is warm. JMA&#39;s summary for
+Hokkaido: temperature normal or above, Sea of Japan side snowfall normal
+or below.</p>
+<p>More precipitation with less snowfall means more of it falls as rain or
+wet snow at low level. This matters most at the start and end of the
+season and at the base of the resorts.</p>
+<p>Next issues: 1-month outlook 2026-11-12, 3-month outlook 2026-11-24,
+El Niño outlook 2026-12-10.</p>
+<p>Private forecasters agree. Weathernews: Hokkaido Sea of Japan side about
+normal, a weak monsoon with short cold outbreaks.
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://wxtech.weathernews.com/news/sky20261102-01/">Weathernews, 2026-11-02</a>.
+Japan Weather Association: a warm winter with sudden cold waves and
+local heavy snow.
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://tenki.jp/forecaster/m_seta/2026/09/30/40810.html">tenki.jp, 2026-09-30</a></p>
+<h2 id="4-the-november-cold-snap">4. The November cold snap</h2>
+<ul>
+<li>JMA issued an Early Warning Information on 2 November for Hokkaido and
+Tohoku. It warned of markedly low temperature from about 8 November.
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://news.yahoo.co.jp/articles/37bb2f340bf4e1cdca706b91fe8d164adfbeb7b0">news report</a>.
+The bulletin itself is no longer on the JMA feed.</li>
+<li>&quot;Once in ten years&quot; has a narrow meaning. JMA issues this bulletin when
+there is a 30% or higher chance that a 5-day mean falls in the coldest
+10% <strong>for that time of year</strong>. <abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> criteria on the
+<a href="https://www.jma.go.jp/bosai/season/">JMA early warning page</a>. It is a
+cold week for early November, not a rare winter event.</li>
+<li>The 1-month outlook of 5 November gave an 80% chance of below-normal
+temperature in week 1, then near normal.
+<abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.jma.go.jp/bosai/season/">JMA 1-month forecast</a></li>
+<li>What happened at Kutchan: no snow on 1-6 November, then 13 cm, 7 cm,
+38 cm and 8 cm of new snow on 7-10 November. Depth was 56 cm on the
+10th and 32 cm at 19:00 on the 11th.
+<abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.data.jma.go.jp/stats/etrn/view/daily_s1.php?prec_no=16&block_no=47433&year=2026&month=11">JMA Kutchan daily data</a>.
+The normal deepest snow for all of November is 36 cm.</li>
+<li>Sapporo had 10 cm on 7 November
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://tenki.jp/forecaster/deskpart/2026/11/07/41234.html">tenki.jp, 2026-11-07</a>
+and 0 cm on 11 November <abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.jma.go.jp/bosai/amedas/">JMA AMeDAS map</a>.</li>
+</ul>
+<p>Reading: it helps the early base high on the mountain and it supports an
+on-time opening. It says very little about December to February. Last
+winter shows this: Kutchan had 56 cm on 12 December 2025 and 21 cm on
+25 December.
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://skiasia.com/news/has-niseko-just-recorded-its-worst-start-to-winter-in-67-years/">skiasia</a></p>
+<h2 id="5-other-drivers">5. Other drivers</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Driver</th>
+<th>State</th>
+<th>Effect on Hokkaido</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Sea of Japan surface temperature</td>
+<td>Much above normal in October, with a much stronger Tsushima Warm Current. The cold snap shrank the very warm area. Next month: north normal or above, south much above.</td>
+<td>Each cold outbreak picks up more moisture, so single storms can be heavy. Early in the season the same warm water gives wetter snow and rain at low level.</td>
+<td><abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.data.jma.go.jp/kaiyou/data/shindan/c_1/jpn_jun/jpn_sst.html">JMA sea diagnosis, 2026-11-10</a>, <a href="https://www.data.jma.go.jp/kaiyou/data/shindan/c_1/jun_NK/kaikyo_NK.html">Sea of Japan page</a></td>
+</tr>
+<tr>
+<td>Arctic Oscillation</td>
+<td>+1.29 for October. It fell to about -2 on 10 November. The forecast mean goes back to about 0 by 15-17 November, with a wide spread.</td>
+<td>Negative AO goes with a stronger Siberian High and colder East Asia (<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://openpolar.no/Record/ftpekinguniv:oai:localhost:20.500.11897%2F247353">Gong, Wang and Zhu 2001</a>; <abbr class="lab lab-M" title="from model memory: not checked">M</abbr> <a href="https://doi.org/10.1029/2000GL012311">DOI</a>). It explains the cold snap. It is not predictable beyond about two weeks.</td>
+<td><abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.cpc.ncep.noaa.gov/products/precip/CWlink/daily_ao_index/ao.shtml">NOAA CPC AO</a></td>
+</tr>
+<tr>
+<td>Stratospheric polar vortex</td>
+<td>The wind at 60°N, 10 hPa fell from 21.9 m/s on 23 October to 0.3 m/s on 5 November. The normal for that date is 26.0 and the lowest value in the record before this year (1978 onward) was 13.6. The forecast gives a reversal (-3.5 m/s on 11 November) and a recovery to 14 m/s by 19 November. A reversal is a major sudden stratospheric warming.</td>
+<td>After such an event, cold outbreaks at the surface are more likely for several weeks. This is the main reason December could beat the El Niño odds. Where the cold goes is not known in advance.</td>
+<td><abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://ozonewatch.gsfc.nasa.gov/meteorology/NH.html">NASA Ozone Watch, MERRA-2 and GEOS FP</a> (file <code>u60n_10_2026_merra2.txt</code>); news context <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://phys.org/news/2026-11-polar-vortex-faltering-weeks-earlier.html">phys.org</a></td>
+</tr>
+<tr>
+<td>Barents-Kara sea ice</td>
+<td>Very low in October.</td>
+<td>Some studies link low ice to cold Eurasian winters (<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://www.eco-business.com/news/arctic-melting-sends-winter-warning-europe-and-asia">Mori et al. 2014, 2019, news summary</a>; <abbr class="lab lab-M" title="from model memory: not checked">M</abbr> DOIs <a href="https://doi.org/10.1038/ngeo2277">2014</a>, <a href="https://doi.org/10.1038/s41558-018-0379-3">2019</a>). Others disagree (<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> Blackport et al. 2019, cited in <a href="https://www.frontiersin.org/journals/climate/articles/10.3389/fclim.2024.1345763/pdf">this review</a>; <abbr class="lab lab-M" title="from model memory: not checked">M</abbr> <a href="https://doi.org/10.1038/s41558-019-0551-4">DOI</a>). Weak evidence.</td>
+<td><abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://climate.copernicus.eu/sea-ice-cover-october-2026">Copernicus, October 2026</a></td>
+</tr>
+<tr>
+<td>Long-term warming</td>
+<td>Total snowfall goes down. The heaviest single falls inland go up.</td>
+<td>Fewer snow days, some very large ones. Low-level snow is less reliable in December and March.</td>
+<td><abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://link.springer.com/content/pdf/10.1186/s40645-023-00536-4.pdf">Kawase et al., via PEPS 2023</a>; record fall at Obihiro in February 2025 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://www.jstage.jst.go.jp/article/sola/21C/Special_Edition/21C_21C-001/_article/-char/ja">Hirata et al., SOLA 2025</a></td>
+</tr>
+</tbody></table></div>
+<p>Net effect: the non-ENSO drivers favour sharp cold outbreaks with heavy
+falls, mainly in the next four to six weeks. The El Niño background
+favours long mild breaks between them.</p>
+<h2 id="6-the-months-in-a-normal-year">6. The months in a normal year</h2>
+<p>Kutchan 1991-2020 normals.
+<abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.data.jma.go.jp/stats/etrn/view/nml_sfc_ym.php?prec_no=16&block_no=47433">JMA Kutchan normals</a></p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Month</th>
+<th>Mean temperature</th>
+<th>Snowfall</th>
+<th>Deepest snow</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>November</td>
+<td>2.9 °C</td>
+<td>95 cm</td>
+<td>36 cm</td>
+</tr>
+<tr>
+<td>December</td>
+<td>-3.1 °C</td>
+<td>253 cm</td>
+<td>99 cm</td>
+</tr>
+<tr>
+<td>January</td>
+<td>-5.4 °C</td>
+<td>253 cm</td>
+<td>155 cm</td>
+</tr>
+<tr>
+<td>February</td>
+<td>-4.9 °C</td>
+<td>187 cm</td>
+<td>181 cm</td>
+</tr>
+<tr>
+<td>March</td>
+<td>-1.0 °C</td>
+<td>122 cm</td>
+<td>170 cm</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li>December and January get the same snowfall. The difference is the
+base. December starts from near zero and ends near 1 m in the town.
+Off-piste terrain and the backcountry gates need that base.</li>
+<li>December changes most from year to year. Kutchan had 145 cm on the
+ground on 30 December 2024 and 21 cm on 25 December 2025.
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://snowstash.com/news/2025/01/hokkaido-record-snowfall-2024">snowstash</a>,
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://skiasia.com/news/has-niseko-just-recorded-its-worst-start-to-winter-in-67-years/">skiasia</a></li>
+<li>January is the coldest month, so the snow is the driest.</li>
+<li>February has the deepest base and about a quarter less new snow.</li>
+</ul>
+<p>Last three winters at Kutchan (snowfall,
+<abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.data.jma.go.jp/stats/etrn/view/monthly_s3.php?prec_no=16&block_no=47433&view=p6">JMA Kutchan monthly snowfall</a>):</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Winter</th>
+<th>Dec</th>
+<th>Jan</th>
+<th>Feb</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2023-24 (El Niño, ONI +2.0)</td>
+<td>191 cm</td>
+<td>241 cm</td>
+<td>134 cm</td>
+</tr>
+<tr>
+<td>2024-25</td>
+<td>347 cm</td>
+<td>159 cm</td>
+<td>204 cm</td>
+</tr>
+<tr>
+<td>2025-26</td>
+<td>208 cm</td>
+<td>311 cm</td>
+<td>134 cm</td>
+</tr>
+</tbody></table></div>
+<p>In the last El Niño winter, Niseko had a thin December, then 6.6 m at
+mid-mountain from 17 December to 17 January, then a poor February.
+<abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.niseko.ne.jp/en/news/how-much-did-it-snow-in-niseko-in-winter-2023-24/">Niseko United, 2024-04-27</a></p>
+<h2 id="6b-west-against-centre-niseko-and-furano">6b. West against centre: Niseko and Furano</h2>
+<p>Claim to test: central Hokkaido is less deep but more consistent.</p>
+<p>Data: JMA Furano (AMeDAS, 174 m) and JMA Kutchan, winters 1991-92 to
+2025-26. <a href="../furano-snowfall.csv"><code>furano-snowfall.csv</code></a> and <a href="../deepest-snow.csv"><code>deepest-snow.csv</code></a> hold the tables.
+<abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.data.jma.go.jp/stats/etrn/view/nml_amd_ym.php?prec_no=12&block_no=0021">Furano normals</a>,
+<abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.data.jma.go.jp/stats/etrn/view/monthly_a1.php?prec_no=12&block_no=0021&year=2025">Furano yearly pages</a> (one page per year; change <code>year=</code>),
+<abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.data.jma.go.jp/stats/etrn/view/monthly_s1.php?prec_no=16&block_no=47433&year=2025">Kutchan yearly pages</a> (same).
+Both stations are in valley towns. The mountains hold more snow.</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th></th>
+<th>Kutchan</th>
+<th>Furano</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>January mean temperature (normal)</td>
+<td>-5.4 °C</td>
+<td>-8.3 °C</td>
+</tr>
+<tr>
+<td>Dec-Feb snowfall, average</td>
+<td>809 cm</td>
+<td>411 cm</td>
+</tr>
+<tr>
+<td>Deepest snow, Dec / Jan / Feb average</td>
+<td>100 / 157 / 184 cm</td>
+<td>45 / 66 / 74 cm</td>
+</tr>
+<tr>
+<td>Deepest snow, lowest year, Dec / Jan / Feb</td>
+<td>51 / 83 / 95 cm</td>
+<td>14 / 44 / 52 cm</td>
+</tr>
+<tr>
+<td>Year-to-year spread of deepest snow (standard deviation / mean), Dec / Jan / Feb</td>
+<td>0.29 / 0.20 / 0.17</td>
+<td>0.31 / 0.21 / 0.18</td>
+</tr>
+<tr>
+<td>Year-to-year spread of monthly snowfall, trend removed, Dec / Jan / Feb</td>
+<td>0.23 / 0.23 / 0.23</td>
+<td>0.18 / 0.18 / 0.22</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><strong>Less deep: true.</strong> Furano has about half the snowfall and less than
+half the base in every month.</li>
+<li><strong>More consistent: partly.</strong> New snow is a little steadier in December
+and January. The base is not steadier. It changes as much as at
+Kutchan in relative terms.</li>
+<li><strong>Strong El Niño winters were kinder to Furano.</strong> Snowfall as % of the
+winters around it, for 1982, 1991, 1997, 2009, 2015 and 2023:
+December 148, 81, 92, 107, 91, 76 at Furano against 153, 109, 63, 87,
+64, 66 at Kutchan. January 155, 143, 108, 118, 123, 128 at Furano
+(above usual in all six) against 85, 68, 132, 110, 101, 97 at Kutchan.
+This agrees with Yatagai and Kinoshita (2022): El Niño moves snow
+toward the inland side. Six winters is a small sample.</li>
+<li>December snowfall at the two stations has a correlation of 0.11. A
+poor December at Niseko says little about Furano.</li>
+</ul>
+<p>Result: Furano is a real hedge for this winter. It gives colder, drier
+snow and less El Niño risk, with a much thinner base and less off-piste
+depth. Furano&#39;s snowfall record falls after about 2008. The station
+history was not checked, so do not read that step as climate.</p>
+<h2 id="7-crowds-and-prices-by-date">7. Crowds and prices by date</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Dates</th>
+<th>What happens</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>21 Nov</td>
+<td>First planned opening in Hakuba Valley (Honshu)</td>
+<td><abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.hakubavalley.com/">Hakuba Valley</a></td>
+</tr>
+<tr>
+<td>28 Nov</td>
+<td>Planned opening of the four Niseko areas, Kiroro and Furano. Tomamu plans 1 Dec. Rusutsu has no date on its site yet.</td>
+<td><abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.niseko.ne.jp/en/lift/">Niseko United</a>, <a href="https://www.grand-hirafu.jp/">Grand Hirafu</a>, <a href="https://www.kiroro.co.jp/">Kiroro</a>, <a href="https://www.princehotels.co.jp/ski/furano/winter/">Furano</a>, <a href="https://www.snowtomamu.jp/">Tomamu</a></td>
+</tr>
+<tr>
+<td>1-19 Dec</td>
+<td>Lowest prices, few people, limited terrain</td>
+<td><abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://www.powderhounds.com/japan/hokkaido/niseko/when-to-visit.aspx">Powderhounds</a></td>
+</tr>
+<tr>
+<td>20 Dec-5 Jan</td>
+<td>Highest prices of the season</td>
+<td><abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://www.powderhounds.com/japan/hokkaido/niseko/when-to-visit.aspx">Powderhounds</a></td>
+</tr>
+<tr>
+<td>9-11 Jan</td>
+<td>Japanese long weekend (Coming of Age Day, Monday 11 Jan)</td>
+<td><abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv">Cabinet Office holiday list</a></td>
+</tr>
+<tr>
+<td>To 26 Jan</td>
+<td>Australian school holidays. Queensland and Victoria start term on 27 Jan. NSW students return on 3 Feb.</td>
+<td><abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://education.qld.gov.au/about-us/calendar/future-dates">Queensland</a>, <a href="https://www.vic.gov.au/school-term-dates-and-holidays-victoria">Victoria</a>, <a href="https://education.nsw.gov.au/schooling/calendars/2027">NSW</a></td>
+</tr>
+<tr>
+<td>4-11 Feb</td>
+<td>Sapporo Snow Festival (Thursday to Thursday)</td>
+<td><abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.snowfes.com/">Sapporo Snow Festival</a></td>
+</tr>
+<tr>
+<td>6 Feb</td>
+<td>Lunar New Year&#39;s Day (Saturday). Hong Kong holidays 6, 8 and 9 Feb. China&#39;s holiday schedule is not published yet.</td>
+<td><abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.gov.hk/en/about/abouthk/holiday/2027.htm">Hong Kong government</a></td>
+</tr>
+<tr>
+<td>11 Feb, 23 Feb</td>
+<td>Japanese national holidays (Thursday and Tuesday)</td>
+<td><abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv">Cabinet Office holiday list</a></td>
+</tr>
+</tbody></table></div>
+<h2 id="8-forecast-by-month">8. Forecast by month</h2>
+<p>These are my estimates. They combine the JMA outlook, the Kutchan
+composites and the base build-up. They are not an official forecast.</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th></th>
+<th>December 2026</th>
+<th>January 2027</th>
+<th>February 2027</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Snowfall against normal</td>
+<td>Below normal is most likely. About 50 / 30 / 20 (below / near / above)</td>
+<td>Near normal. About 35 / 40 / 25</td>
+<td>Near to a little below. About 40 / 40 / 20</td>
+</tr>
+<tr>
+<td>Base</td>
+<td>Thin until the last third of the month</td>
+<td>Complete by mid month in most years</td>
+<td>Deepest</td>
+</tr>
+<tr>
+<td>Snow quality</td>
+<td>Mixed. Rain or wet snow is possible at the base</td>
+<td>Best</td>
+<td>Good, with more mild breaks late in the month</td>
+</tr>
+<tr>
+<td>Main risk</td>
+<td>Closed gates and thin cover on a non-refundable booking</td>
+<td>Storm days and wind holds</td>
+<td>A mild spell or a long dry gap</td>
+</tr>
+<tr>
+<td>What could make it better</td>
+<td>The polar vortex weakening and a warm Sea of Japan give large early storms, as in 1982</td>
+<td>-</td>
+<td>A late cold outbreak</td>
+</tr>
+<tr>
+<td>Crowds and price</td>
+<td>Cheap to 19 Dec, then the peak</td>
+<td>Peak to 5 Jan, then moderate, best after 26 Jan</td>
+<td>Very busy 4-11 Feb, then moderate</td>
+</tr>
+</tbody></table></div>
+<p>Ranking for this winter:</p>
+<ol>
+<li><strong>16 January to 3 February.</strong> Best snow odds and no peak week. After
+26 January it is also quieter.</li>
+<li><strong>12 to 28 February.</strong> Deep base, fewer people. Higher risk of a mild
+spell. Central Hokkaido (Furano, Tomamu, Asahidake) is colder and
+keeps its snow better then.</li>
+<li><strong>Late December.</strong> Possible, but it is the most expensive week and it
+has the weakest odds this winter.</li>
+<li><strong>Early to mid December.</strong> Only as a cheap trip booked late with free
+cancellation, after you see the base.</li>
+</ol>
+<p>If the dates must be in December: wait for the JMA 3-month outlook on
+24 November and the Kutchan depth in the first week of December. A depth
+near 60 cm or more at Kutchan by 10 December, with cold air in the
+1-month outlook, is a good sign. Choose Kiroro or Asahidake, which build
+a base earlier than the Niseko base areas.
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://www.powderhounds.com/japan/hokkaido.aspx">Powderhounds, Hokkaido</a></p>
+<h2 id="9-week-by-week-at-kutchan">9. Week by week at Kutchan</h2>
+<p><a href="../weekly_odds.py"><code>weekly_odds.py</code></a> reads the daily records in <a href="../data/"><code>data/</code></a> (JMA Kutchan, 1961 to
+2026; JMA Furano, 1981 to 2026) and writes <a href="../analysis.json"><code>analysis.json</code></a>.
+<abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.data.jma.go.jp/stats/etrn/view/daily_s1.php?prec_no=16&block_no=47433&year=2026&month=11">JMA Kutchan daily pages</a>,
+<abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.data.jma.go.jp/stats/etrn/view/daily_a1.php?prec_no=12&block_no=0021&year=2026&month=1">JMA Furano daily pages</a>
+(one page per month; change <code>year=</code> and <code>month=</code>). Weeks are
+7-day blocks from 1 December. The table uses winters 1991-92 to 2025-26.
+All values are for the town station, not the mountain.</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Week from</th>
+<th>Powder days (20 cm+)</th>
+<th>Thaw days (mean above 0 °C)</th>
+<th>Sunny days (3 h+)</th>
+<th>New snow per week</th>
+<th>Base: low / typical / high</th>
+<th>Typical base, strong El Niño</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1 Dec</td>
+<td>13%</td>
+<td>31%</td>
+<td>18%</td>
+<td>56 cm</td>
+<td>4 / 24 / 54 cm</td>
+<td>16 cm</td>
+</tr>
+<tr>
+<td>8 Dec</td>
+<td>19%</td>
+<td>18%</td>
+<td>20%</td>
+<td>65 cm</td>
+<td>12 / 46 / 70 cm</td>
+<td>18 cm</td>
+</tr>
+<tr>
+<td>15 Dec</td>
+<td>19%</td>
+<td>15%</td>
+<td>15%</td>
+<td>72 cm</td>
+<td>25 / 63 / 102 cm</td>
+<td>36 cm</td>
+</tr>
+<tr>
+<td>22 Dec</td>
+<td>16%</td>
+<td>13%</td>
+<td>19%</td>
+<td>69 cm</td>
+<td>34 / 74 / 121 cm</td>
+<td>60 cm</td>
+</tr>
+<tr>
+<td>29 Dec</td>
+<td>17%</td>
+<td>8%</td>
+<td>13%</td>
+<td>70 cm</td>
+<td>51 / 91 / 134 cm</td>
+<td>76 cm</td>
+</tr>
+<tr>
+<td>5 Jan</td>
+<td>16%</td>
+<td>3%</td>
+<td>15%</td>
+<td>73 cm</td>
+<td>72 / 104 / 153 cm</td>
+<td>80 cm</td>
+</tr>
+<tr>
+<td>12 Jan</td>
+<td>13%</td>
+<td>2%</td>
+<td>24%</td>
+<td>63 cm</td>
+<td>85 / 122 / 167 cm</td>
+<td>113 cm</td>
+</tr>
+<tr>
+<td>19 Jan</td>
+<td>16%</td>
+<td>5%</td>
+<td>28%</td>
+<td>64 cm</td>
+<td>90 / 131 / 170 cm</td>
+<td>123 cm</td>
+</tr>
+<tr>
+<td>26 Jan</td>
+<td>13%</td>
+<td>5%</td>
+<td>22%</td>
+<td>67 cm</td>
+<td>104 / 142 / 181 cm</td>
+<td>132 cm</td>
+</tr>
+<tr>
+<td>2 Feb</td>
+<td>9%</td>
+<td>2%</td>
+<td>30%</td>
+<td>60 cm</td>
+<td>109 / 153 / 192 cm</td>
+<td>141 cm</td>
+</tr>
+<tr>
+<td>9 Feb</td>
+<td>12%</td>
+<td>7%</td>
+<td>27%</td>
+<td>60 cm</td>
+<td>115 / 158 / 202 cm</td>
+<td>132 cm</td>
+</tr>
+<tr>
+<td>16 Feb</td>
+<td>10%</td>
+<td>10%</td>
+<td>34%</td>
+<td>54 cm</td>
+<td>118 / 165 / 207 cm</td>
+<td>133 cm</td>
+</tr>
+<tr>
+<td>23 Feb</td>
+<td>4%</td>
+<td>14%</td>
+<td>50%</td>
+<td>38 cm</td>
+<td>109 / 159 / 210 cm</td>
+<td>137 cm</td>
+</tr>
+</tbody></table></div>
+<p>&quot;Low&quot; and &quot;high&quot; are the 10th and 90th percentiles of daily depth.
+&quot;Strong El Niño&quot; is the median of 1991, 1997, 2009, 2015 and 2023.</p>
+<ul>
+<li><strong>Powder.</strong> The chance of a 20 cm day is 13% to 19% from 8 December to
+the end of January. It is about 10% in February and 4% in the last
+week.</li>
+<li><strong>Thaws.</strong> One day in three is a thaw day in the first week of
+December. From 5 January to 8 February it is one day in twenty or
+fewer.</li>
+<li><strong>Base.</strong> The typical base passes 1 m in the week of 5 January. In a
+poor year (the low column) it does so in the week of 26 January.</li>
+<li><strong>Sunshine.</strong> January is dark: about one day in four has 3 hours of
+sun. The last week of February has one in two. Furano has more sun in
+every week (about 40% of days from mid January).</li>
+<li><strong>Strong El Niño winters.</strong> The base was about two weeks late and
+stayed 20 to 30 cm lower all season. December thaw days were about
+double (43%, 26% and 29% in the first three weeks). The weeks of
+19 and 26 January were the snowiest, with 90 and 80 cm of new snow
+against a usual 64 and 67 cm. Five winters is a small sample.</li>
+<li><strong>Wind.</strong> The share of days with a maximum wind of 8 m/s or more is
+27% to 41% in every week, with no pattern. Town wind does not show
+lift closures on the mountain. This question stays open.</li>
+</ul>
+<p>Result: 19 January to 1 February is the best fortnight. It has a full
+base in 9 winters out of 10, almost no thaws, steady powder odds and
+the most new snow in strong El Niño winters.</p>
+<h2 id="10-el-ni-o-by-station-and-honshu">10. El Niño by station, and Honshu</h2>
+<p><a href="../weekly_odds.py"><code>weekly_odds.py</code></a> also compares monthly snowfall in strong El Niño
+winters with the ten winters around each one, for 15 JMA stations
+(<code>data/*-monthly.csv</code>, winters 1981-82 to 2025-26;
+<abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.data.jma.go.jp/stats/etrn/index.php">JMA station pages</a>, station numbers in
+<a href="../data/README.md"><code>data/README.md</code></a>). Each station has 5
+or 6 strong El Niño winters in that period (1982, 1991, 1997, 2009,
+2015, 2023). Values are the median, as % of usual.</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Station (resort)</th>
+<th>Dec-Feb average</th>
+<th>Dec</th>
+<th>Jan</th>
+<th>Feb</th>
+<th>Dec-Feb</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Kutchan (Niseko)</td>
+<td>809 cm</td>
+<td>80%</td>
+<td>99%</td>
+<td>98%</td>
+<td>92%</td>
+</tr>
+<tr>
+<td>Kimobetsu (Rusutsu)</td>
+<td>649 cm</td>
+<td>84%</td>
+<td>98%</td>
+<td>85%</td>
+<td>94%</td>
+</tr>
+<tr>
+<td>Akaigawa (Kiroro)</td>
+<td>692 cm</td>
+<td>82%</td>
+<td>100%</td>
+<td>88%</td>
+<td>91%</td>
+</tr>
+<tr>
+<td>Otaru</td>
+<td>461 cm</td>
+<td>86%</td>
+<td>100%</td>
+<td>89%</td>
+<td>91%</td>
+</tr>
+<tr>
+<td>Sapporo</td>
+<td>375 cm</td>
+<td>82%</td>
+<td>94%</td>
+<td>106%</td>
+<td>90%</td>
+</tr>
+<tr>
+<td>Iwamizawa</td>
+<td>569 cm</td>
+<td>90%</td>
+<td>113%</td>
+<td>90%</td>
+<td>106%</td>
+</tr>
+<tr>
+<td>Asahikawa</td>
+<td>424 cm</td>
+<td>98%</td>
+<td>112%</td>
+<td>94%</td>
+<td>103%</td>
+</tr>
+<tr>
+<td>Biei (Asahidake side)</td>
+<td>467 cm</td>
+<td>84%</td>
+<td>114%</td>
+<td>92%</td>
+<td>90%</td>
+</tr>
+<tr>
+<td>Furano</td>
+<td>411 cm</td>
+<td>91%</td>
+<td>126%</td>
+<td>71%</td>
+<td>99%</td>
+</tr>
+<tr>
+<td>Shimukappu (Tomamu)</td>
+<td>446 cm</td>
+<td>90%</td>
+<td>104%</td>
+<td>92%</td>
+<td>92%</td>
+</tr>
+<tr>
+<td>Hakuba</td>
+<td>508 cm</td>
+<td>54%</td>
+<td>98%</td>
+<td>98%</td>
+<td>85%</td>
+</tr>
+<tr>
+<td>Nozawa Onsen</td>
+<td>845 cm</td>
+<td>53%</td>
+<td>77%</td>
+<td>84%</td>
+<td>72%</td>
+</tr>
+<tr>
+<td>Sekiyama (Myoko)</td>
+<td>857 cm</td>
+<td>52%</td>
+<td>79%</td>
+<td>103%</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>Yuzawa</td>
+<td>856 cm</td>
+<td>55%</td>
+<td>76%</td>
+<td>85%</td>
+<td>76%</td>
+</tr>
+<tr>
+<td>Takada (Joetsu)</td>
+<td>391 cm</td>
+<td>62%</td>
+<td>72%</td>
+<td>131%</td>
+<td>76%</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><strong>Hokkaido, west side:</strong> December loses about a fifth. January is
+normal.</li>
+<li><strong>Hokkaido, centre:</strong> December loses about a tenth. January gains
+(104% to 126%). Furano&#39;s February is weak (71%).</li>
+<li><strong>Honshu:</strong> December loses about half. January loses about a quarter,
+except at Hakuba. JMA&#39;s cold-season outlook agrees: below-normal
+snowfall has a 50% chance on the Sea of Japan side of East and West
+Japan and a 40% chance in North Japan.
+<abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.jma.go.jp/bosai/season/">JMA seasonal forecast data</a></li>
+<li>Hokkaido is the better island this winter. Honshu resorts are a poor
+choice for December.</li>
+</ul>
+<p><strong>Measuring change at Kutchan.</strong> JMA marks the Kutchan snowfall series as
+not homogeneous from the cold season of 2005-06 (an instrument or method
+change). The deepest-snow series has no such mark.
+<abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.data.jma.go.jp/stats/etrn/view/annually_s.php?prec_no=16&block_no=47433">JMA Kutchan annual page</a>
+<a href="../weekly_odds.py"><code>weekly_odds.py</code></a> never compares a winter with neighbours on the other
+side of that change. With this rule the Kutchan December figure for
+strong El Niño winters is 80% (section 2 gives 77% from the longer
+record without the rule). The per-winter values for 1997, 2015 and 2023
+stay at 63% to 66%. The long downward drift in the raw Kutchan snowfall
+series is partly this change, so do not read it as climate.</p>
+<h2 id="what-could-not-be-verified">What could not be verified</h2>
+<ul>
+<li>The text of the 2 November early warning (news reports only).</li>
+<li>China&#39;s 2027 Spring Festival holiday schedule and the Rusutsu opening
+date (not published yet).</li>
+<li>IRI, BoM, QBO and PDO values (search text only).</li>
+<li>Sea of Japan anomaly in degrees (JMA gives it only on maps).</li>
+<li>Lift closures by wind on the mountain (no public record found).</li>
+<li>The research papers in section 2 (abstracts seen as search text).</li>
+</ul>
+<h2 id="sources-read-directly-on-2026-11-11">Sources read directly on 2026-11-11</h2>
+<ul>
+<li>JMA El Niño outlook: <a href="https://www.data.jma.go.jp/cpd/elnino/kanshi_joho/kanshi_joho1.html">https://www.data.jma.go.jp/cpd/elnino/kanshi_joho/kanshi_joho1.html</a></li>
+<li>JMA El Niño effects on Japan: <a href="https://www.data.jma.go.jp/cpd/data/elnino/learning/tenkou/nihon1.html">https://www.data.jma.go.jp/cpd/data/elnino/learning/tenkou/nihon1.html</a></li>
+<li>JMA seasonal forecasts: <a href="https://www.jma.go.jp/bosai/season/">https://www.jma.go.jp/bosai/season/</a> and <a href="https://www.data.jma.go.jp/cpd/longfcst/">https://www.data.jma.go.jp/cpd/longfcst/</a></li>
+<li>JMA Kutchan normals: <a href="https://www.data.jma.go.jp/stats/etrn/view/nml_sfc_ym.php?prec_no=16&block_no=47433">https://www.data.jma.go.jp/stats/etrn/view/nml_sfc_ym.php?prec_no=16&amp;block_no=47433</a></li>
+<li>JMA Kutchan yearly snowfall: <a href="https://www.data.jma.go.jp/stats/etrn/view/monthly_s3.php?prec_no=16&block_no=47433&view=p6">https://www.data.jma.go.jp/stats/etrn/view/monthly_s3.php?prec_no=16&amp;block_no=47433&amp;view=p6</a></li>
+<li>JMA Kutchan daily data: <a href="https://www.data.jma.go.jp/stats/etrn/view/daily_s1.php?prec_no=16&block_no=47433&year=2026&month=11">https://www.data.jma.go.jp/stats/etrn/view/daily_s1.php?prec_no=16&amp;block_no=47433&amp;year=2026&amp;month=11</a></li>
+<li>JMA AMeDAS map: <a href="https://www.jma.go.jp/bosai/amedas/">https://www.jma.go.jp/bosai/amedas/</a></li>
+<li>JMA sea surface temperature diagnosis: <a href="https://www.data.jma.go.jp/kaiyou/data/shindan/c_1/jpn_jun/jpn_sst.html">https://www.data.jma.go.jp/kaiyou/data/shindan/c_1/jpn_jun/jpn_sst.html</a></li>
+<li>NOAA CPC ENSO discussion: <a href="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml">https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml</a></li>
+<li>NOAA ONI data: <a href="https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt">https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt</a></li>
+<li>NOAA CPC Arctic Oscillation: <a href="https://www.cpc.ncep.noaa.gov/products/precip/CWlink/daily_ao_index/ao.shtml">https://www.cpc.ncep.noaa.gov/products/precip/CWlink/daily_ao_index/ao.shtml</a></li>
+<li>NASA Ozone Watch, polar vortex wind: <a href="https://ozonewatch.gsfc.nasa.gov/meteorology/NH.html">https://ozonewatch.gsfc.nasa.gov/meteorology/NH.html</a></li>
+<li>JMA daily and monthly station pages for the stations in <a href="../data/"><code>data/</code></a> (see <a href="../data/README.md"><code>data/README.md</code></a>)</li>
+<li>Holiday, festival, school term and resort pages listed in section 7</li>
+<li>Niseko United 2023-24 recap: <a href="https://www.niseko.ne.jp/en/news/how-much-did-it-snow-in-niseko-in-winter-2023-24/">https://www.niseko.ne.jp/en/news/how-much-did-it-snow-in-niseko-in-winter-2023-24/</a></li>
+</ul>
+</article>
+<footer>Part of <a href="../">Why this winter's snow will come late, and when to go</a>. The analysis was made by Claude. It is not an official forecast.</footer>
+</main>
+</body>
+</html>

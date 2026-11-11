@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hokkaido Snow Data</title>
+<meta name="description" content="Daily and monthly snow records from 16 Japan Meteorological Agency stations in Hokkaido and Honshu, shown as charts and tables, with downloads and source links.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a data appendix. One wide column, each block is a picture of
+   the raw records first, then the table and the download. */
+:root {
+  --page: #f3f6f9; --surface: #fcfcfb; --ink: #101820; --ink-2: #4b5560; --muted: #858b92; --line: #dde2e7;
+  --cold: #2a78d6; --cold-soft: #d6e6f9; --warm: #eb6834; --neutral: #b9bfc6;
+  --m1: #9ec5f4; --m2: #2a78d6; --m3: #104281;
+  --r0: #eef3f8; --r1: #cde2fb; --r2: #86b6ef; --r3: #3987e5; --r4: #1c5cab; --r5: #0d366b; --gap: #e6e2d6;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0c1116; --surface: #161c22; --ink: #eef1f4; --ink-2: #b9c1c9; --muted: #858b92; --line: #2a323a;
+    --cold: #3987e5; --cold-soft: #17304f; --warm: #d95926; --neutral: #59626b;
+    --m1: #184f95; --m2: #3987e5; --m3: #b7d3f6;
+    --r0: #1b222a; --r1: #17304f; --r2: #184f95; --r3: #3987e5; --r4: #86b6ef; --r5: #cde2fb; --gap: #2b2a26;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0c1116; --surface: #161c22; --ink: #eef1f4; --ink-2: #b9c1c9; --muted: #858b92; --line: #2a323a;
+  --cold: #3987e5; --cold-soft: #17304f; --warm: #d95926; --neutral: #59626b;
+  --m1: #184f95; --m2: #3987e5; --m3: #b7d3f6;
+  --r0: #1b222a; --r1: #17304f; --r2: #184f95; --r3: #3987e5; --r4: #86b6ef; --r5: #cde2fb; --gap: #2b2a26;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 400 18px/1.55 var(--body); }
+nav.top { max-width: 980px; margin: 0 auto; padding: 16px 20px 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15.5px; }
+nav.top a { color: var(--ink-2); text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; }
+nav.top a:hover { color: var(--ink); }
+nav.top a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--cold); font-weight: 600; }
+main { max-width: 980px; margin: 0 auto; padding: 28px 20px 72px; display: flex; flex-direction: column; gap: 52px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.12; }
+h1 { font-size: clamp(32px, 6vw, 48px); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: clamp(24px, 4.2vw, 31px); font-weight: 700; }
+h3 { font-size: 18px; font-weight: 500; }
+p { margin: 0; max-width: 68ch; }
+a { color: var(--cold); }
+a:focus-visible, button:focus-visible, select:focus-visible, canvas:focus-visible { outline: 2px solid var(--cold); outline-offset: 2px; }
+section { display: flex; flex-direction: column; gap: 16px; }
+.kicker { font: 600 14px/1.2 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+.lede { font-size: 20px; color: var(--ink-2); }
+.tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; }
+.tile b { font: 700 28px/1.1 var(--display); font-variant-numeric: tabular-nums; }
+.tile span { font-size: 15px; color: var(--ink-2); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 12px; }
+.note { font-size: 15.5px; color: var(--ink-2); max-width: 72ch; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; font-size: 15.5px; }
+.controls label { color: var(--ink-2); }
+select, button.chip {
+  font: 400 15.5px var(--body); color: var(--ink); background: var(--page); border: 1px solid var(--line);
+  border-radius: 8px; padding: 6px 10px; cursor: pointer;
+}
+button.chip[aria-pressed="true"] { background: var(--cold); border-color: var(--cold); color: #fff; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15px; color: var(--ink-2); align-items: center; }
+.legend span { display: inline-flex; align-items: center; gap: 7px; }
+.sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.sw.line { height: 3px; width: 18px; border-radius: 2px; }
+.ramp { width: 150px; height: 12px; border-radius: 3px; background: linear-gradient(90deg, var(--r1), var(--r2), var(--r3), var(--r4), var(--r5)); }
+canvas { display: block; width: 100%; border-radius: 6px; }
+svg { display: block; }
+svg text { font-family: var(--body); fill: var(--ink); }
+.t-muted { fill: var(--ink-2); }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 15.5px; font-variant-numeric: tabular-nums; }
+th, td { text-align: right; padding: 6px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+thead th { position: sticky; top: 0; background: var(--surface); font-weight: 600; color: var(--ink-2); }
+.tablewrap { max-height: 380px; overflow: auto; border: 1px solid var(--line); border-radius: 8px; }
+tr.enso td:first-child::after { content: " El Niño"; color: var(--warm); font-size: 13px; font-weight: 600; }
+td.left, th.left { text-align: left; white-space: normal; }
+.files td, .files th { white-space: normal; }
+footer { font-size: 15px; color: var(--ink-2); border-top: 1px solid var(--line); padding-top: 20px; }
+#tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--page); font: 400 14px/1.35 var(--body); padding: 6px 9px; border-radius: 6px; max-width: 250px; opacity: 0; z-index: 5; }
+#status { color: var(--ink-2); }
+@media (max-width: 700px) { body { font-size: 17px; } .tiles { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+<nav class="top" aria-label="Pages">
+  <a href="../../">All posts</a>
+  <a href="../">Explainer</a>
+  <a href="./" aria-current="page">Data</a>
+  <a href="../sources/">Report and sources</a>
+</nav>
+<main>
+<header style="display:flex;flex-direction:column;gap:16px">
+  <div class="kicker">Hokkaido ski winter 2026-27 · the data</div>
+  <h1>Every snow record behind the forecast</h1>
+  <p class="lede">The forecast rests on official station records from the Japan Meteorological Agency. This page shows them as they are, so you can check any claim yourself. Every table can be downloaded.</p>
+  <div class="tiles">
+    <div class="tile"><b>16</b><span>weather stations in Hokkaido and Honshu</span></div>
+    <div class="tile"><b>65</b><span>winters of daily records at Kutchan, below Niseko</span></div>
+    <div class="tile"><b id="n-days">16,656</b><span>station-days from November to March</span></div>
+    <div class="tile"><b>1961</b><span>first winter in the daily record</span></div>
+  </div>
+  <p id="status" role="status">Loading the records…</p>
+</header>
+
+<section>
+  <h2>Every winter since 1961, one row each</h2>
+  <p>Each row is one winter from 1 November to 31 March. Darker means more. Look down a column to see how a date compares across the years, and along a row to see how that winter built up.</p>
+  <div class="panel">
+    <div class="controls">
+      <label for="hm-station">Station</label>
+      <select id="hm-station"><option value="kutchan">Kutchan (Niseko)</option><option value="furano">Furano</option></select>
+      <label for="hm-measure">Show</label>
+      <select id="hm-measure"><option value="snow_depth_cm">Snow on the ground</option><option value="snowfall_cm">New snow that day</option><option value="temp_mean_c">Thaw days (average above 0 °C)</option></select>
+    </div>
+    <div class="legend"><span id="hm-lo">0 cm</span><span class="ramp" id="hm-ramp"></span><span id="hm-hi">230 cm</span><span><i class="sw" style="background:var(--warm)"></i>strong El Niño winter</span><span><i class="sw" style="background:var(--gap)"></i>no reading</span></div>
+    <canvas id="heat" tabindex="0" role="img" aria-label="Heat map of daily values for every winter. Use the winter chooser below for exact values."></canvas>
+    <p class="note">Strong El Niño winters are 1965, 1972, 1982, 1991, 1997, 2009, 2015 and 2023 (named by the December year). Notice how late their rows turn dark compared with their neighbours. The readings are from the valley town, so the mountain holds more.</p>
+  </div>
+</section>
+
+<section>
+  <h2>One winter, day by day</h2>
+  <p>Pick a winter to see its base and its snowfalls against what is usual for each date.</p>
+  <div class="panel">
+    <div class="controls">
+      <label for="w-station">Station</label>
+      <select id="w-station"><option value="kutchan">Kutchan (Niseko)</option><option value="furano">Furano</option></select>
+      <label for="w-year">Winter</label>
+      <select id="w-year"></select>
+    </div>
+    <div class="chips" id="w-chips" aria-label="Strong El Niño winters"></div>
+    <div class="legend"><span><i class="sw" style="background:var(--neutral);opacity:.5"></i>base in 8 winters out of 10 (1991 to 2025)</span><span><i class="sw line" style="background:var(--ink)"></i>base this winter</span><span><i class="sw" style="background:var(--cold)"></i>new snow each day</span></div>
+    <div id="winter"></div>
+    <p class="note" id="w-summary"></p>
+  </div>
+</section>
+
+<section>
+  <h2>Every station, every winter</h2>
+  <p>Monthly snowfall at the official station nearest each resort, for winters 1981-82 to 2025-26. This is the table behind the comparison of Hokkaido's west side, its centre and Honshu.</p>
+  <div class="panel">
+    <div class="controls">
+      <label for="s-station">Station</label>
+      <select id="s-station"></select>
+      <a id="s-csv" href="#">Download this table (CSV)</a>
+      <a id="s-jma" href="#">Source page at the agency</a>
+    </div>
+    <div class="legend"><span><i class="sw" style="background:var(--m1)"></i>December</span><span><i class="sw" style="background:var(--m2)"></i>January</span><span><i class="sw" style="background:var(--m3)"></i>February</span><span><i class="sw" style="background:var(--warm);border-radius:50%"></i>strong El Niño winter</span></div>
+    <div id="station"></div>
+    <p class="note" id="s-summary"></p>
+    <div class="tablewrap"><table id="s-table"><thead><tr><th>Winter</th><th>Dec</th><th>Jan</th><th>Feb</th><th>Dec to Feb</th><th>Deepest snow</th></tr></thead><tbody></tbody></table></div>
+    <p class="note">Snowfall and deepest snow in centimetres. A dash means the agency has no complete value for that month.</p>
+  </div>
+</section>
+
+<section>
+  <h2>All files</h2>
+  <div class="panel">
+    <div class="scroll"><table class="files"><thead><tr><th class="left">File</th><th class="left">What it holds</th><th>Rows</th></tr></thead><tbody id="files"></tbody></table></div>
+    <p class="note">The scraper that produced these files is <a href="scrape.py">scrape.py</a> with <a href="jma.py">jma.py</a>. The analysis scripts are <a href="../weekly_odds.py">weekly_odds.py</a> and <a href="../enso_composite.py">enso_composite.py</a>, and their output is <a href="../analysis.json">analysis.json</a>.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Things to know before you use it</h2>
+  <div class="panel">
+    <p class="note"><b>Town, not mountain.</b> Every station is in a valley town. Resorts above them get more snow and stay colder. Compare a station with itself across years, not with a resort's own figures.</p>
+    <p class="note"><b>A change at Kutchan in 2005.</b> The agency marks the Kutchan snowfall series as not comparable across the winter of 2005-06, when the measuring method changed. Snow on the ground has no such mark. The analysis never compares a winter with neighbours on the other side of that change.</p>
+    <p class="note"><b>Empty cells.</b> At staffed stations the agency writes a dash when nothing fell. The files keep those cells empty, and this page reads them as zero when the rest of the day's row is present. Rows the agency marks as incomplete carry a 1 in the flag column and are left out of the charts.</p>
+    <p class="note"><b>Source and reuse.</b> All records are from the <a href="https://www.data.jma.go.jp/stats/etrn/index.php">Japan Meteorological Agency's past weather data pages</a>, read on 11 November 2026. The agency's content may be reused with credit under its terms of use.</p>
+  </div>
+</section>
+
+<footer>Part of <a href="../">Why this winter's snow will come late, and when to go</a>. The analysis and this page were made by Claude. They are not an official forecast.</footer>
+</main>
+<div id="tip" role="status"></div>
+
+<script>
+(function () {
+  var NS = "http://www.w3.org/2000/svg", STRONG = [1965, 1972, 1982, 1991, 1997, 2009, 2015, 2023];
+  var STAFFED = { kutchan: 1, sapporo: 1, otaru: 1, iwamizawa: 1, asahikawa: 1, takada: 1 };
+  var STATIONS = [
+    ["Hokkaido, west side", [["kutchan", "Kutchan (Niseko)", "16", "47433"], ["kimobetsu", "Kimobetsu (Rusutsu)", "16", "0060"], ["akaigawa", "Akaigawa (Kiroro)", "16", "1091"], ["yoichi", "Yoichi (coast near Kiroro)", "16", "0052"], ["otaru", "Otaru", "16", "47411"], ["sapporo", "Sapporo", "14", "47412"], ["iwamizawa", "Iwamizawa", "15", "47413"]]],
+    ["Hokkaido, centre", [["asahikawa", "Asahikawa", "12", "47407"], ["biei", "Biei (Asahidake side)", "12", "1052"], ["furano", "Furano", "12", "0021"], ["shimukappu", "Shimukappu (Tomamu)", "12", "1189"]]],
+    ["Honshu", [["hakuba", "Hakuba", "48", "0396"], ["nozawaonsen", "Nozawa Onsen", "48", "0393"], ["sekiyama", "Sekiyama (Myoko)", "54", "0998"], ["yuzawa", "Yuzawa", "54", "0544"], ["takada", "Takada (Joetsu)", "54", "47612"]]]
+  ];
+  var css = function (n) { return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); };
+  var $ = function (id) { return document.getElementById(id); };
+  function el(tag, attrs, parent, text) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    if (text != null) e.textContent = text;
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function parse(text) {
+    var lines = text.trim().split(/\r?\n/), head = lines[0].split(",");
+    return lines.slice(1).map(function (l) { var c = l.split(","), o = {}; head.forEach(function (h, i) { o[h] = c[i] === undefined ? "" : c[i]; }); return o; });
+  }
+  var num = function (v) { return v === "" || v == null ? null : +v; };
+  var cache = {};
+  function load(file) { return cache[file] || (cache[file] = fetch(file).then(function (r) { if (!r.ok) throw new Error(file); return r.text(); }).then(parse)); }
+
+  // Daily rows grouped as winters[year][dayIndex], day 0 = 1 November.
+  var daily = {};
+  function loadDaily(name) {
+    if (daily[name]) return Promise.resolve(daily[name]);
+    return load(name + "-daily.csv").then(function (rows) {
+      var w = {};
+      rows.forEach(function (r) {
+        var y = +r.date.slice(0, 4), m = +r.date.slice(5, 7), d = +r.date.slice(8, 10), win = m >= 11 ? y : y - 1;
+        var idx = Math.round((Date.UTC(y, m - 1, d) - Date.UTC(win, 10, 1)) / 864e5);
+        if (idx < 0 || idx > 151) return;
+        var o = { date: r.date, flag: r.flag === "1", snow_depth_cm: num(r.snow_depth_cm), snowfall_cm: num(r.snowfall_cm), temp_mean_c: num(r.temp_mean_c), precip_mm: num(r.precip_mm), sunshine_h: num(r.sunshine_h) };
+        if (STAFFED[name] && o.temp_mean_c != null) { if (o.snowfall_cm == null) o.snowfall_cm = 0; if (o.snow_depth_cm == null) o.snow_depth_cm = 0; }
+        if (o.flag) { o.snow_depth_cm = o.snowfall_cm = null; }
+        (w[win] = w[win] || [])[idx] = o;
+      });
+      return (daily[name] = w);
+    });
+  }
+  var fmtDate = function (iso) { var d = new Date(iso + "T00:00:00Z"); return d.getUTCDate() + " " + ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][d.getUTCMonth()] + " " + d.getUTCFullYear(); };
+  var winterName = function (y) { return y + "-" + String(y + 1).slice(2); };
+
+  // ---------- heat map ----------
+  var hm = { cells: null, geo: null };
+  function mix(a, b, t) { var p = function (h, i) { return parseInt(h.slice(1 + i * 2, 3 + i * 2), 16); }; return "rgb(" + [0, 1, 2].map(function (i) { return Math.round(p(a, i) + (p(b, i) - p(a, i)) * t); }).join(",") + ")"; }
+  function ramp(t) { var st = [css("--r1"), css("--r2"), css("--r3"), css("--r4"), css("--r5")]; t = Math.max(0, Math.min(1, t)) * 4; var i = Math.min(3, Math.floor(t)); return mix(st[i], st[i + 1], t - i); }
+  function drawHeat() {
+    var name = $("hm-station").value, measure = $("hm-measure").value;
+    loadDaily(name).then(function (w) {
+      var years = Object.keys(w).map(Number).sort(function (a, b) { return a - b; }).filter(function (y) { return w[y].length > 60; });
+      var c = $("heat"), W = c.clientWidth, left = 58, top = 20, cw = (W - left - 2) / 152, rh = W < 560 ? 6 : 8, H = top + years.length * rh + 4, dpr = window.devicePixelRatio || 1;
+      c.width = W * dpr; c.height = H * dpr; c.style.height = H + "px";
+      var g = c.getContext("2d"); g.scale(dpr, dpr); g.clearRect(0, 0, W, H);
+      var max = measure === "snow_depth_cm" ? (name === "kutchan" ? 230 : 110) : measure === "snowfall_cm" ? (name === "kutchan" ? 40 : 25) : 1;
+      $("hm-lo").textContent = measure === "temp_mean_c" ? "freezing day" : "0 cm"; $("hm-hi").textContent = measure === "temp_mean_c" ? "thaw day" : max + " cm";
+      $("hm-ramp").style.background = measure === "temp_mean_c" ? "linear-gradient(90deg," + css("--r0") + " 50%," + css("--warm") + " 50%)" : "";
+      g.font = "12px " + css("--body"); g.textBaseline = "middle";
+      years.forEach(function (y, r) {
+        var yy = top + r * rh;
+        for (var d = 0; d < 152; d++) {
+          var o = w[y][d], v = o ? o[measure] : null;
+          if (v == null) g.fillStyle = css("--gap");
+          else if (measure === "temp_mean_c") g.fillStyle = v > 0 ? css("--warm") : css("--r0");
+          else g.fillStyle = v <= 0 ? css("--r0") : ramp(v / max);
+          g.fillRect(left + d * cw, yy, Math.ceil(cw), rh - (rh > 6 ? 1 : 0.5));
+        }
+        if (STRONG.indexOf(y) >= 0) { g.fillStyle = css("--warm"); g.fillRect(left - 9, yy, 5, rh - 1); }
+        if (y % 5 === 0) { g.fillStyle = css("--ink-2"); g.textAlign = "right"; g.fillText(winterName(y), left - 13, yy + rh / 2); }
+      });
+      g.fillStyle = css("--ink-2"); g.textAlign = "left";
+      [["Nov", 0], ["Dec", 30], ["Jan", 61], ["Feb", 92], ["Mar", 120]].forEach(function (m) { g.fillText(m[0], left + m[1] * cw + 2, 9); g.fillStyle = css("--surface"); g.fillRect(left + m[1] * cw - 0.5, top, 1, years.length * rh); g.fillStyle = css("--ink-2"); });
+      hm.geo = { left: left, top: top, cw: cw, rh: rh, years: years, w: w, measure: measure };
+    }).catch(fail);
+  }
+  $("heat").addEventListener("pointermove", function (e) {
+    var q = hm.geo; if (!q) return;
+    var b = e.target.getBoundingClientRect(), d = Math.floor((e.clientX - b.left - q.left) / q.cw), r = Math.floor((e.clientY - b.top - q.top) / q.rh);
+    var y = q.years[r], o = y != null && d >= 0 && d < 152 ? q.w[y][d] : null;
+    if (!o) return hideTip();
+    var t = fmtDate(o.date) + (STRONG.indexOf(y) >= 0 ? " (strong El Niño winter)" : "") + ": " + (o.snow_depth_cm == null ? "no snow reading" : o.snow_depth_cm + " cm on the ground, " + (o.snowfall_cm || 0) + " cm new") + (o.temp_mean_c == null ? "" : ", " + o.temp_mean_c.toFixed(1) + " °C");
+    showTip(t, e.clientX, e.clientY);
+  });
+  $("heat").addEventListener("pointerleave", hideTip);
+  $("heat").addEventListener("click", function (e) {
+    var q = hm.geo; if (!q) return; var b = e.target.getBoundingClientRect(), r = Math.floor((e.clientY - b.top - q.top) / q.rh), y = q.years[r];
+    if (y != null) { $("w-station").value = $("hm-station").value; fillYears().then(function () { $("w-year").value = y; drawWinter(); $("winter").scrollIntoView({ behavior: "smooth", block: "center" }); }); }
+  });
+
+  // ---------- one winter ----------
+  function fillYears() {
+    return loadDaily($("w-station").value).then(function (w) {
+      var sel = $("w-year"), keep = sel.value, years = Object.keys(w).map(Number).filter(function (y) { return w[y].length > 60; }).sort(function (a, b) { return b - a; });
+      sel.textContent = "";
+      years.forEach(function (y) { var o = document.createElement("option"); o.value = y; o.textContent = winterName(y) + (STRONG.indexOf(y) >= 0 ? " (strong El Niño)" : ""); sel.appendChild(o); });
+      sel.value = years.indexOf(+keep) >= 0 ? keep : String(years[0]);
+      var chips = $("w-chips"); chips.textContent = "";
+      STRONG.filter(function (y) { return years.indexOf(y) >= 0; }).forEach(function (y) {
+        var b = document.createElement("button"); b.className = "chip"; b.type = "button"; b.textContent = winterName(y); b.dataset.y = y;
+        b.addEventListener("click", function () { sel.value = y; drawWinter(); }); chips.appendChild(b);
+      });
+    });
+  }
+  function drawWinter() {
+    var name = $("w-station").value;
+    loadDaily(name).then(function (w) {
+      var y = +$("w-year").value, rows = w[y] || [], box = $("winter"), W = Math.max(300, box.clientWidth), H = 300, left = 46, top = 10, bot = H - 28;
+      Array.prototype.forEach.call($("w-chips").children, function (b) { b.setAttribute("aria-pressed", String(+b.dataset.y === y)); });
+      var lo = [], hi = [], med = [];
+      for (var d = 0; d < 152; d++) {
+        var vals = []; for (var yy = 1991; yy <= 2025; yy++) { var o = w[yy] && w[yy][d]; if (o && o.snow_depth_cm != null) vals.push(o.snow_depth_cm); }
+        vals.sort(function (a, b) { return a - b; });
+        var q = function (p) { return vals.length ? vals[Math.min(vals.length - 1, Math.round(p * (vals.length - 1)))] : 0; };
+        lo.push(q(.1)); hi.push(q(.9)); med.push(q(.5));
+      }
+      var peak = Math.max.apply(null, hi.concat(rows.map(function (o) { return o && o.snow_depth_cm || 0; }))), max = Math.ceil((peak + 10) / 50) * 50;
+      var px = function (d) { return left + (W - left - 6) * d / 151; }, py = function (v) { return bot - (bot - top) * v / max; };
+      box.textContent = "";
+      var s = el("svg", { width: W, height: H, viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": "Snow on the ground and daily new snow for the winter of " + winterName(y) + " at " + name + "." }, box);
+      for (var v = 0; v <= max; v += max > 150 ? 50 : 25) {
+        el("line", { x1: left, x2: W, y1: py(v), y2: py(v), stroke: v ? css("--line") : css("--muted"), "stroke-width": 1 }, s);
+        el("text", { x: left - 8, y: py(v) + 4, "font-size": 12, "text-anchor": "end", class: "t-muted" }, s, v + (v === max ? " cm" : ""));
+      }
+      [["Nov", 0], ["Dec", 30], ["Jan", 61], ["Feb", 92], ["Mar", 120]].forEach(function (m) { el("text", { x: px(m[1]) + 2, y: H - 8, "font-size": 12, class: "t-muted" }, s, m[0]); el("line", { x1: px(m[1]), x2: px(m[1]), y1: bot, y2: bot + 5, stroke: css("--muted") }, s); });
+      var band = lo.map(function (v, d) { return px(d) + "," + py(v); }).concat(hi.map(function (v, d) { return px(d) + "," + py(v); }).reverse()).join(" ");
+      el("polygon", { points: band, fill: css("--neutral"), opacity: .38 }, s);
+      var bw = Math.max(1.5, (W - left - 6) / 152 - 1), total = 0, big = 0, peakD = 0, pts = [], first100 = null;
+      rows.forEach(function (o, d) {
+        if (!o) return;
+        if (o.snowfall_cm > 0) { total += o.snowfall_cm; if (o.snowfall_cm >= 20) big++; el("rect", { x: px(d) - bw / 2, y: py(o.snowfall_cm), width: bw, height: bot - py(o.snowfall_cm), fill: css("--cold") }, s); }
+        if (o.snow_depth_cm != null) { pts.push(px(d) + "," + py(o.snow_depth_cm)); if (o.snow_depth_cm > peakD) peakD = o.snow_depth_cm; if (first100 == null && o.snow_depth_cm >= 100) first100 = o.date; }
+      });
+      el("polyline", { points: pts.join(" "), fill: "none", stroke: css("--ink"), "stroke-width": 2.2, "stroke-linejoin": "round" }, s);
+      var hit = el("rect", { x: left, y: top, width: W - left, height: bot - top, fill: "transparent" }, s), mark = el("line", { y1: top, y2: bot, stroke: css("--ink-2"), "stroke-width": 1, opacity: 0 }, s);
+      hit.addEventListener("pointermove", function (e) {
+        var b = s.getBoundingClientRect(), d = Math.max(0, Math.min(151, Math.round((e.clientX - b.left - left) / (W - left - 6) * 151))), o = rows[d];
+        mark.setAttribute("x1", px(d)); mark.setAttribute("x2", px(d)); mark.setAttribute("opacity", 1);
+        if (o) showTip(fmtDate(o.date) + ": " + (o.snow_depth_cm == null ? "no reading" : o.snow_depth_cm + " cm on the ground") + ", " + (o.snowfall_cm || 0) + " cm new. Usual base for the date: " + med[d] + " cm (" + lo[d] + " to " + hi[d] + ")", e.clientX, e.clientY);
+      });
+      hit.addEventListener("pointerleave", function () { mark.setAttribute("opacity", 0); hideTip(); });
+      $("w-summary").textContent = "Winter " + winterName(y) + " at " + (name === "kutchan" ? "Kutchan" : "Furano") + ": " + Math.round(total) + " cm of new snow from November to March, " + big + " days with 20 cm or more, and a deepest base of " + peakD + " cm. " + (first100 ? "The base first reached 1 m on " + fmtDate(first100) + "." : "The base never reached 1 m in the town.") + (y === 2026 ? " This winter has only just begun." : "");
+    }).catch(fail);
+  }
+
+  // ---------- stations ----------
+  var stationIndex = {};
+  (function () {
+    var sel = $("s-station");
+    STATIONS.forEach(function (g) { var og = document.createElement("optgroup"); og.label = g[0]; g[1].forEach(function (st) { stationIndex[st[0]] = st; var o = document.createElement("option"); o.value = st[0]; o.textContent = st[1]; og.appendChild(o); }); sel.appendChild(og); });
+  })();
+  function drawStation() {
+    var key = $("s-station").value, st = stationIndex[key];
+    $("s-csv").href = key + "-monthly.csv";
+    $("s-jma").href = "https://www.data.jma.go.jp/stats/etrn/view/" + (STAFFED[key] ? "annually_s" : "annually_a") + ".php?prec_no=" + st[2] + "&block_no=" + st[3];
+    load(key + "-monthly.csv").then(function (rows) {
+      var w = {};
+      rows.forEach(function (r) { var y = +r.year, m = +r.month, win = m >= 11 ? y : y - 1; if (r.flag === "1") return; (w[win] = w[win] || {})[m] = { snow: num(r.snowfall_cm), deep: num(r.deepest_snow_cm) }; });
+      var years = []; for (var y = 1981; y <= 2025; y++) years.push(y);
+      var val = function (y, m) { return w[y] && w[y][m] ? w[y][m].snow : null; };
+      var box = $("station"), W = Math.max(300, box.clientWidth), H = 280, left = 50, top = 10, bot = H - 30, totals = years.map(function (y) { var a = [12, 1, 2].map(function (m) { return val(y, m); }); return a.some(function (v) { return v == null; }) ? null : a[0] + a[1] + a[2]; });
+      var max = Math.ceil(Math.max.apply(null, totals.map(function (t) { return t || 0; })) / 200) * 200 || 200;
+      var step = (W - left - 4) / years.length, bw = Math.max(3, step - 2), py = function (v) { return bot - (bot - top) * v / max; };
+      box.textContent = "";
+      var s = el("svg", { width: W, height: H, viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": "December, January and February snowfall for each winter at " + st[1] + "." }, box);
+      for (var v = 0; v <= max; v += max > 800 ? 400 : 200) {
+        el("line", { x1: left, x2: W, y1: py(v), y2: py(v), stroke: v ? css("--line") : css("--muted"), "stroke-width": 1 }, s);
+        el("text", { x: left - 8, y: py(v) + 4, "font-size": 12, "text-anchor": "end", class: "t-muted" }, s, v + (v === max ? " cm" : ""));
+      }
+      var cols = [css("--m1"), css("--m2"), css("--m3")], body = $("s-table").tBodies[0]; body.textContent = "";
+      years.forEach(function (y, i) {
+        var x = left + i * step + (step - bw) / 2, acc = 0, parts = [12, 1, 2].map(function (m) { return val(y, m); });
+        parts.forEach(function (p, j) { if (p == null) return; var h0 = py(acc), h1 = py(acc + p); el("rect", { x: x, y: h1, width: bw, height: Math.max(0, h0 - h1 - 1.5), fill: cols[j] }, s); acc += p; });
+        if (STRONG.indexOf(y) >= 0) el("circle", { cx: x + bw / 2, cy: bot + 7, r: 3, fill: css("--warm") }, s);
+        if (y % 5 === 0 && (step > 14 || y % 10 === 0)) el("text", { x: x + bw / 2, y: H - 4, "font-size": 11.5, "text-anchor": "middle", class: "t-muted" }, s, y);
+        var hit = el("rect", { x: left + i * step, y: top, width: step, height: bot - top, fill: "transparent" }, s);
+        var t = winterName(y) + (STRONG.indexOf(y) >= 0 ? " (strong El Niño)" : "") + ": December " + show(parts[0]) + ", January " + show(parts[1]) + ", February " + show(parts[2]) + " cm";
+        hit.addEventListener("pointermove", function (e) { showTip(t, e.clientX, e.clientY); }); hit.addEventListener("pointerleave", hideTip);
+        var deep = [12, 1, 2, 3].map(function (m) { return w[y] && w[y][m] ? w[y][m].deep : null; }).filter(function (d) { return d != null; });
+        var tr = document.createElement("tr"); if (STRONG.indexOf(y) >= 0) tr.className = "enso";
+        [winterName(y), show(parts[0]), show(parts[1]), show(parts[2]), show(totals[i]), deep.length ? Math.max.apply(null, deep) : "–"].forEach(function (c) { var td = document.createElement("td"); td.textContent = c; tr.appendChild(td); });
+        body.insertBefore(tr, body.firstChild);
+      });
+      var ok = totals.filter(function (t) { return t != null; }), mean = ok.reduce(function (a, b) { return a + b; }, 0) / ok.length;
+      var en = years.map(function (y, i) { return STRONG.indexOf(y) >= 0 ? totals[i] : null; }).filter(function (t) { return t != null; });
+      $("s-summary").textContent = st[1] + ": " + Math.round(mean) + " cm from December to February in an average winter (" + ok.length + " complete winters). Its strong El Niño winters averaged " + Math.round(en.reduce(function (a, b) { return a + b; }, 0) / en.length) + " cm. The explainer compares each of those winters with the ten around it, which is a fairer test than this simple average.";
+    }).catch(fail);
+  }
+  var show = function (v) { return v == null ? "–" : Math.round(v); };
+
+  // ---------- file list ----------
+  var FILES = [["kutchan-daily.csv", "Kutchan, every day from November to March, 1961 to 2026: temperature, precipitation, wind, sunshine, new snow, snow on the ground"], ["furano-daily.csv", "Furano, the same daily values, 1981 to 2026"]];
+  STATIONS.forEach(function (g) { g[1].forEach(function (st) { FILES.push([st[0] + "-monthly.csv", st[1] + ": monthly snowfall, deepest snow and mean temperature, November to March, 1981 to 2026"]); }); });
+  FILES.forEach(function (f) {
+    var tr = document.createElement("tr"), a = document.createElement("a"); a.href = f[0]; a.textContent = f[0];
+    var td1 = document.createElement("td"); td1.className = "left"; td1.appendChild(a);
+    var td2 = document.createElement("td"); td2.className = "left"; td2.textContent = f[1];
+    var td3 = document.createElement("td"); td3.textContent = "…";
+    tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3); $("files").appendChild(tr);
+    load(f[0]).then(function (rows) { td3.textContent = rows.length.toLocaleString("en"); }).catch(function () { td3.textContent = "–"; });
+  });
+
+  // ---------- shared ----------
+  var tipEl = $("tip");
+  function showTip(text, x, y) { tipEl.textContent = text; tipEl.style.opacity = 1; var r = tipEl.getBoundingClientRect(); tipEl.style.left = Math.max(8, Math.min(x + 12, window.innerWidth - r.width - 8)) + "px"; tipEl.style.top = Math.max(8, y - r.height - 12) + "px"; }
+  function hideTip() { tipEl.style.opacity = 0; }
+  function fail(e) { $("status").textContent = "Some records did not load (" + e.message + "). The files are still linked in the list below."; }
+  function all() { drawHeat(); drawWinter(); drawStation(); }
+  ["hm-station", "hm-measure"].forEach(function (id) { $(id).addEventListener("change", drawHeat); });
+  $("w-station").addEventListener("change", function () { fillYears().then(drawWinter); });
+  $("w-year").addEventListener("change", drawWinter);
+  $("s-station").addEventListener("change", drawStation);
+  var t; window.addEventListener("resize", function () { clearTimeout(t); t = setTimeout(all, 150); });
+  if (window.matchMedia) window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", all);
+  new MutationObserver(all).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  Promise.all([loadDaily("kutchan"), loadDaily("furano")]).then(function (r) {
+    var n = 0; r.forEach(function (w) { Object.keys(w).forEach(function (y) { n += w[y].filter(Boolean).length; }); });
+    $("n-days").textContent = n.toLocaleString("en"); $("status").textContent = "";
+    return fillYears();
+  }).then(function () { $("w-year").value = "2023"; all(); }).catch(fail);
+})();
+</script>
+</body>
+</html>
