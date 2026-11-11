@@ -442,6 +442,13 @@ series is partly this change, so do not read it as climate.
 
 ## What could not be verified
 
+- Snow on the mountain. Every station record in this report is from a
+  valley town (Kutchan is at about 175 m [M]). No official long daily
+  record exists on the Niseko slopes. The slopes hold more snow than the
+  town and keep it longer, and a warm December melts more in the valley
+  than up high. The town record compares winters with each other. It does
+  not give the depth on the slopes.
+
 - The text of the 2 November early warning (news reports only).
 - China's 2027 Spring Festival holiday schedule and the Rusutsu opening
   date (not published yet).
