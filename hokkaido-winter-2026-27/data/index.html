@@ -69,6 +69,7 @@ section { display: flex; flex-direction: column; gap: 16px; }
 .tile { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; }
 .tile b { font: 700 28px/1.1 var(--display); font-variant-numeric: tabular-nums; }
 .tile span { font-size: 15px; color: var(--ink-2); }
+/* data-css */
 .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 12px; }
 .note { font-size: 15.5px; color: var(--ink-2); max-width: 72ch; }
 .controls { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; font-size: 15.5px; }
@@ -96,6 +97,8 @@ thead th { position: sticky; top: 0; background: var(--surface); font-weight: 60
 .tablewrap { max-height: 380px; overflow: auto; border: 1px solid var(--line); border-radius: 8px; }
 tr.enso td:first-child::after { content: " El Niño"; color: var(--warm); font-size: 13px; font-weight: 600; }
 td.left, th.left { text-align: left; white-space: normal; }
+#dtip { position: fixed; pointer-events: none; background: var(--ink); color: var(--page); font: 400 14px/1.35 var(--body); padding: 6px 9px; border-radius: 6px; max-width: 250px; opacity: 0; z-index: 6; }
+/* /data-css */
 .files td, .files th { white-space: normal; }
 footer { font-size: 15px; color: var(--ink-2); border-top: 1px solid var(--line); padding-top: 20px; }
 #tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--page); font: 400 14px/1.35 var(--body); padding: 6px 9px; border-radius: 6px; max-width: 250px; opacity: 0; z-index: 5; }
@@ -124,9 +127,10 @@ footer { font-size: 15px; color: var(--ink-2); border-top: 1px solid var(--line)
   <p id="status" role="status">Loading the records…</p>
 </header>
 
+<!--block:heat-->
 <section>
   <h2>Every winter since 1961, one row each</h2>
-  <p>Each row is one winter from 1 November to 31 March. Darker means more. Look down a column to see how a date compares across the years, and along a row to see how that winter built up.</p>
+  <p>Each row is one winter from 1 November to 31 March. The colour shows how much, on the scale above the picture. Look down a column to see how a date compares across the years, and along a row to see how that winter built up.</p>
   <div class="panel">
     <div class="controls">
       <label for="hm-station">Station</label>
@@ -136,10 +140,13 @@ footer { font-size: 15px; color: var(--ink-2); border-top: 1px solid var(--line)
     </div>
     <div class="legend"><span id="hm-lo">0 cm</span><span class="ramp" id="hm-ramp"></span><span id="hm-hi">230 cm</span><span><i class="sw" style="background:var(--warm)"></i>strong El Niño winter</span><span><i class="sw" style="background:var(--gap)"></i>no reading</span></div>
     <canvas id="heat" tabindex="0" role="img" aria-label="Heat map of daily values for every winter. Use the winter chooser below for exact values."></canvas>
-    <p class="note">Strong El Niño winters are 1965, 1972, 1982, 1991, 1997, 2009, 2015 and 2023 (named by the December year). Notice how late their rows turn dark compared with their neighbours. The readings are from the valley town, so the mountain holds more.</p>
+    <p class="note">Strong El Niño winters are 1965, 1972, 1982, 1991, 1997, 2009, 2015 and 2023 (named by the December year). Notice how late their rows fill in compared with their neighbours. The readings are from the valley town, so the mountain holds more.</p>
   </div>
 </section>
 
+<!--/block-->
+
+<!--block:winter-->
 <section>
   <h2>One winter, day by day</h2>
   <p>Pick a winter to see its base and its snowfalls against what is usual for each date.</p>
@@ -157,6 +164,9 @@ footer { font-size: 15px; color: var(--ink-2); border-top: 1px solid var(--line)
   </div>
 </section>
 
+<!--/block-->
+
+<!--block:station-->
 <section>
   <h2>Every station, every winter</h2>
   <p>Monthly snowfall at the official station nearest each resort, for winters 1981-82 to 2025-26. This is the table behind the comparison of Hokkaido's west side, its centre and Honshu.</p>
@@ -174,6 +184,8 @@ footer { font-size: 15px; color: var(--ink-2); border-top: 1px solid var(--line)
     <p class="note">Snowfall and deepest snow in centimetres. A dash means the agency has no complete value for that month.</p>
   </div>
 </section>
+
+<!--/block-->
 
 <section>
   <h2>All files</h2>
@@ -195,7 +207,7 @@ footer { font-size: 15px; color: var(--ink-2); border-top: 1px solid var(--line)
 
 <footer>Part of <a href="../">Why this winter's snow will come late, and when to go</a>. The analysis and this page were made by Claude. They are not an official forecast.</footer>
 </main>
-<div id="tip" role="status"></div>
+<div id="dtip" role="status"></div>
 
 <script>
 (function () {
@@ -220,8 +232,8 @@ footer { font-size: 15px; color: var(--ink-2); border-top: 1px solid var(--line)
     return lines.slice(1).map(function (l) { var c = l.split(","), o = {}; head.forEach(function (h, i) { o[h] = c[i] === undefined ? "" : c[i]; }); return o; });
   }
   var num = function (v) { return v === "" || v == null ? null : +v; };
-  var cache = {};
-  function load(file) { return cache[file] || (cache[file] = fetch(file).then(function (r) { if (!r.ok) throw new Error(file); return r.text(); }).then(parse)); }
+  var cache = {}, BASE = (document.currentScript && document.currentScript.getAttribute("data-base")) || "";
+  function load(file) { return cache[file] || (cache[file] = fetch(BASE + file).then(function (r) { if (!r.ok) throw new Error(file); return r.text(); }).then(parse)); }
 
   // Daily rows grouped as winters[year][dayIndex], day 0 = 1 November.
   var daily = {};
@@ -353,7 +365,7 @@ footer { font-size: 15px; color: var(--ink-2); border-top: 1px solid var(--line)
   })();
   function drawStation() {
     var key = $("s-station").value, st = stationIndex[key];
-    $("s-csv").href = key + "-monthly.csv";
+    $("s-csv").href = BASE + key + "-monthly.csv";
     $("s-jma").href = "https://www.data.jma.go.jp/stats/etrn/view/" + (STAFFED[key] ? "annually_s" : "annually_a") + ".php?prec_no=" + st[2] + "&block_no=" + st[3];
     load(key + "-monthly.csv").then(function (rows) {
       var w = {};
@@ -385,7 +397,7 @@ footer { font-size: 15px; color: var(--ink-2); border-top: 1px solid var(--line)
       });
       var ok = totals.filter(function (t) { return t != null; }), mean = ok.reduce(function (a, b) { return a + b; }, 0) / ok.length;
       var en = years.map(function (y, i) { return STRONG.indexOf(y) >= 0 ? totals[i] : null; }).filter(function (t) { return t != null; });
-      $("s-summary").textContent = st[1] + ": " + Math.round(mean) + " cm from December to February in an average winter (" + ok.length + " complete winters). Its strong El Niño winters averaged " + Math.round(en.reduce(function (a, b) { return a + b; }, 0) / en.length) + " cm. The explainer compares each of those winters with the ten around it, which is a fairer test than this simple average.";
+      $("s-summary").textContent = st[1] + ": " + Math.round(mean) + " cm from December to February in an average winter (" + ok.length + " complete winters). Its strong El Niño winters averaged " + Math.round(en.reduce(function (a, b) { return a + b; }, 0) / en.length) + " cm. The forecast compares each of those winters with the ten around it, which is a fairer test than this simple average.";
     }).catch(fail);
   }
   var show = function (v) { return v == null ? "–" : Math.round(v); };
@@ -393,7 +405,7 @@ footer { font-size: 15px; color: var(--ink-2); border-top: 1px solid var(--line)
   // ---------- file list ----------
   var FILES = [["kutchan-daily.csv", "Kutchan, every day from November to March, 1961 to 2026: temperature, precipitation, wind, sunshine, new snow, snow on the ground"], ["furano-daily.csv", "Furano, the same daily values, 1981 to 2026"]];
   STATIONS.forEach(function (g) { g[1].forEach(function (st) { FILES.push([st[0] + "-monthly.csv", st[1] + ": monthly snowfall, deepest snow and mean temperature, November to March, 1981 to 2026"]); }); });
-  FILES.forEach(function (f) {
+  if ($("files")) FILES.forEach(function (f) {
     var tr = document.createElement("tr"), a = document.createElement("a"); a.href = f[0]; a.textContent = f[0];
     var td1 = document.createElement("td"); td1.className = "left"; td1.appendChild(a);
     var td2 = document.createElement("td"); td2.className = "left"; td2.textContent = f[1];
@@ -403,10 +415,10 @@ footer { font-size: 15px; color: var(--ink-2); border-top: 1px solid var(--line)
   });
 
   // ---------- shared ----------
-  var tipEl = $("tip");
+  var tipEl = $("dtip");
   function showTip(text, x, y) { tipEl.textContent = text; tipEl.style.opacity = 1; var r = tipEl.getBoundingClientRect(); tipEl.style.left = Math.max(8, Math.min(x + 12, window.innerWidth - r.width - 8)) + "px"; tipEl.style.top = Math.max(8, y - r.height - 12) + "px"; }
   function hideTip() { tipEl.style.opacity = 0; }
-  function fail(e) { $("status").textContent = "Some records did not load (" + e.message + "). The files are still linked in the list below."; }
+  function fail(e) { var st = $("status") || $("w-summary"); st.textContent = "Some records did not load (" + e.message + "). The files are on the data page."; }
   function all() { drawHeat(); drawWinter(); drawStation(); }
   ["hm-station", "hm-measure"].forEach(function (id) { $(id).addEventListener("change", drawHeat); });
   $("w-station").addEventListener("change", function () { fillYears().then(drawWinter); });
@@ -417,7 +429,7 @@ footer { font-size: 15px; color: var(--ink-2); border-top: 1px solid var(--line)
   new MutationObserver(all).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
   Promise.all([loadDaily("kutchan"), loadDaily("furano")]).then(function (r) {
     var n = 0; r.forEach(function (w) { Object.keys(w).forEach(function (y) { n += w[y].filter(Boolean).length; }); });
-    $("n-days").textContent = n.toLocaleString("en"); $("status").textContent = "";
+    if ($("n-days")) { $("n-days").textContent = n.toLocaleString("en"); $("status").textContent = ""; }
     return fillYears();
   }).then(function () { $("w-year").value = "2023"; all(); }).catch(fail);
 })();
