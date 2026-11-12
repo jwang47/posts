@@ -223,17 +223,18 @@ td.left, th.left { text-align: left; white-space: normal; }
   <!-- Dated edit notes, newest first. After each update add one line here:
        <p class="edit"><b>12 Nov 2026 edit:</b> What changed, in one or two sentences.</p>
        and strike the passed date in the box below with class="past" on its dt and dd. -->
+  <p class="edit"><b>12 Nov 2026 edit:</b> <a href="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml">NOAA's November update</a> says El Niño is still getting stronger and will start to weaken in early 2027. It gives a better than 79% chance that the event stays strong to very strong through January to March. The chance that it beats every event since 1950 is now about 60%, down from 83% a month ago. The Arctic wind ring reversed on 10 November, as forecast. Nothing here changes the advice: December stays the risky month and late January stays the best window.</p>
   <div class="watch">
     <span class="kicker">Dates to watch</span>
     <dl>
-      <dt>12 November</dt><dd><a href="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml">NOAA's monthly El Niño update</a>. Look for the peak strength and how long it will last.</dd>
-      <dt>Mid November</dt><dd>The <a href="https://ozonewatch.gsfc.nasa.gov/meteorology/NH.html">Arctic wind ring</a>. If it reverses, cold outbreaks become more likely four to eight weeks later.</dd>
+      <dt class="past">12 November</dt><dd class="past"><a href="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml">NOAA's monthly El Niño update</a>. Look for the peak strength and how long it will last.</dd>
+      <dt>Late November</dt><dd>The <a href="https://ozonewatch.gsfc.nasa.gov/meteorology/NH.html">Arctic wind ring</a> reversed on 10 November. Watch how fast it recovers. A slow recovery makes cold outbreaks more likely in December.</dd>
       <dt>Every Thursday</dt><dd>The Japan Meteorological Agency's <a href="https://www.jma.go.jp/bosai/season/">one-month forecast</a>. It is the first to show a cold or a mild spell.</dd>
       <dt>24 November</dt><dd>The agency's <a href="https://www.jma.go.jp/bosai/season/">three-month outlook</a> for December to February. This is the main one.</dd>
       <dt>1 to 10 December</dt><dd>The snow on the ground at <a href="https://www.data.jma.go.jp/stats/etrn/view/daily_s1.php?prec_no=16&amp;block_no=47433&amp;year=2026&amp;month=12">Kutchan</a>. About 60 cm by 10 December is a good start. A typical year has about 45 cm.</dd>
       <dt>10 December</dt><dd>The next NOAA update, and about the same day the agency's own <a href="https://www.data.jma.go.jp/cpd/elnino/kanshi_joho/kanshi_joho1.html">El Niño outlook</a>.</dd>
     </dl>
-    <span class="small">After 12 November, 24 November and 10 December, a dated edit note appears above this box with what changed.</span>
+    <span class="small">After 24 November and 10 December, a dated edit note appears above this box with what changed.</span>
   </div>
 </header>
 
@@ -390,13 +391,13 @@ td.left, th.left { text-align: left; white-space: normal; }
   <figure>
     <h3>The ring of wind has collapsed, far below anything seen this early</h3>
     <div class="chart" id="c-vortex"></div>
-    <figcaption>Speed of the wind in the ring, about 30 km above the Arctic. It normally blows near 28 metres per second in mid November. It fell to almost zero by 5 November and is forecast to reverse briefly, which meteorologists call a sudden stratospheric warming. The lowest value seen before on these dates, in records back to 1978, was about 12. After an event like this, cold outbreaks further south are more likely for several weeks. Source: <a href="https://ozonewatch.gsfc.nasa.gov/meteorology/NH.html">NASA Ozone Watch</a>, read on 11 November 2026.</figcaption>
+    <figcaption>Speed of the wind in the ring, about 30 km above the Arctic. It normally blows near 28 metres per second in mid November. It fell to almost zero by 5 November and reversed on 10 November, which meteorologists call a sudden stratospheric warming. The forecast has it back near 17 by 19 November. The lowest value seen before on these dates, in records back to 1978, was about 12. After an event like this, cold outbreaks further south are more likely for several weeks. Source: <a href="https://ozonewatch.gsfc.nasa.gov/meteorology/NH.html">NASA Ozone Watch</a>, read on 12 November 2026.</figcaption>
   </figure>
 
   <figure>
     <h3>The November cold snap was real, and it is already melting</h3>
     <div class="chart" id="c-nov"></div>
-    <figcaption>Snow on the ground at Kutchan, 6 to 11 November 2026. The "once in a decade" warning meant a week in the coldest tenth for early November. That is a cold week for the date, not a rare event for winter. Snow that falls this early in the town does not last, so it says little about December. Sources: <a href="https://www.data.jma.go.jp/stats/etrn/view/daily_s1.php?prec_no=16&amp;block_no=47433&amp;year=2026&amp;month=11">Japan Meteorological Agency, Kutchan daily data</a> and the <a href="https://www.jma.go.jp/bosai/season/">early warning criteria</a>.</figcaption>
+    <figcaption>Snow on the ground at Kutchan, 6 to 12 November 2026. The "once in a decade" warning meant a week in the coldest tenth for early November. That is a cold week for the date, not a rare event for winter. Snow that falls this early in the town does not last, so it says little about December. Sources: <a href="https://www.data.jma.go.jp/stats/etrn/view/daily_s1.php?prec_no=16&amp;block_no=47433&amp;year=2026&amp;month=11">Japan Meteorological Agency, Kutchan daily data</a> and the <a href="https://www.jma.go.jp/bosai/season/">early warning criteria</a>.</figcaption>
   </figure>
 </section>
 
@@ -627,8 +628,8 @@ td.left, th.left { text-align: left; white-space: normal; }
       return s;
     },
     "c-nov": function (w) {
-      var d = [["6 Nov", 0], ["7 Nov", 13], ["8 Nov", 16], ["9 Nov", 48], ["10 Nov", 56], ["11 Nov", 32]];
-      var h = 220, left = 44, top = 14, bot = h - 30, s = svg(w, h, "Snow depth at Kutchan rose from zero on 6 November to 56 centimetres on 10 November and fell to 32 on 11 November.");
+      var d = [["6 Nov", 0], ["7 Nov", 13], ["8 Nov", 16], ["9 Nov", 48], ["10 Nov", 56], ["11 Nov", 40], ["12 Nov", 31]];
+      var h = 220, left = 44, top = 14, bot = h - 30, s = svg(w, h, "Snow depth at Kutchan rose from zero on 6 November to 56 centimetres on 10 November and fell to 31 by 12 November.");
       var py = function (v) { return bot - (bot - top) * v / 60; }, step = (w - left - 8) / d.length, bw = Math.min(46, step - 10);
       [20, 40, 60].forEach(function (v) {
         el("line", { x1: left, x2: w, y1: py(v), y2: py(v), class: "s-line", "stroke-width": 1 }, s);
@@ -690,10 +691,10 @@ td.left, th.left { text-align: left; white-space: normal; }
       return s;
     },
     "c-vortex": function (w) {
-      var obs = [[0, 21.87], [3, 21.62], [6, 13.48], [9, 8.96], [11, 3.16], [13, 0.32], [16, 2.11]];
-      var fc = [[16, 2.11], [18, -0.64], [19, -3.47], [20, -2.12], [21, 1.32], [23, 4.35], [27, 14.04]];
+      var obs = [[0, 21.87], [3, 21.62], [6, 13.48], [9, 8.96], [11, 3.16], [13, 0.32], [16, 2.11], [17, 1.22], [18, -0.64], [19, -3.00]];
+      var fc = [[19, -3.00], [20, -2.18], [21, 1.57], [23, 4.63], [25, 8.87], [27, 17.03]];
       var norm = [[0, 21.08], [13, 25.97], [16, 27.79], [19, 28.78]], low = [[13, 13.57], [16, 11.95], [19, 11.30]];
-      var h = 250, left = 46, right = 12, top = 12, bot = h - 28, s = svg(w, h, "Wind speed in the polar vortex fell from 22 metres per second on 23 October to 0.3 on 5 November, against a normal of about 26 and a previous record low of about 14. It is forecast to turn slightly negative around 11 November and recover to 14 by 19 November.");
+      var h = 250, left = 46, right = 12, top = 12, bot = h - 28, s = svg(w, h, "Wind speed in the polar vortex fell from 22 metres per second on 23 October to 0.3 on 5 November, against a normal of about 26 and a previous record low of about 14. It turned negative on 10 November, reached minus 3 on 11 November, and is forecast to recover to 17 by 19 November.");
       var px = function (d) { return left + (w - left - right) * d / 27; }, py = function (v) { return bot - (bot - top) * (v + 6) / 38; };
       [0, 10, 20, 30].forEach(function (v) {
         el("line", { x1: left, x2: w - right, y1: py(v), y2: py(v), class: v ? "s-line" : "s-muted", "stroke-width": 1 }, s);
