@@ -1,13 +1,20 @@
 """Download JMA daily (Part A) and monthly (Part B) winter data to CSV.
 
-Usage:  python -X utf8 scrape.py [A|B]   (default: both)
+Usage:  python -X utf8 scrape.py [A|B|C|D|E|F]   (default: A and B)
+  A/B  original daily and monthly files
+  C    daily files for the extra stations (Kimobetsu, Akaigawa, Rankoshi,
+       Sukayu, Shumarinai)
+  D    monthly files for Rankoshi, Sukayu, Shumarinai
+  E    long monthly files for staffed stations, plus homogeneity breaks
+  F    stations.csv (position and elevation from the JMA station lists)
+Set JMA_CACHE to use a page cache other than raw/.
 
 Rules: ')' (quasi-normal) is stripped; a row gets flag=1 when any kept value
 had ']' (insufficient data) or '#' (questionable). Missing / no-phenomenon
 markers ('--', '///', 'x', blank) become empty cells. Raw pages are cached
 in raw/ so the CSVs can be regenerated offline.
 """
-import csv, os, sys, datetime
+import csv, os, re, sys, datetime
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import jma
 
@@ -108,7 +115,7 @@ def daily(name, prec, block, kind, first_year):
     return len(rows)
 
 
-def monthly(name, prec, block, kind, first_winter=1981, last_winter=2025):
+def monthly(name, prec, block, kind, first_winter=1981, last_winter=2025, suffix="monthly"):
     page = "monthly_s1" if kind == "s" else "monthly_a1"
     cols = [c for c, _ in MONTHLY_COLS]
     rows = []
@@ -135,7 +142,7 @@ def monthly(name, prec, block, kind, first_winter=1981, last_winter=2025):
                 continue
             rows.append([y, m] + [vals[c] for c in cols] + ["1" if flag else ""])
     rows.sort(key=lambda r: (r[0], r[1]))
-    fn = os.path.join(OUT, f"{name}-monthly.csv")
+    fn = os.path.join(OUT, f"{name}-{suffix}.csv")
     with open(fn, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["year", "month"] + cols + ["flag"])
@@ -164,6 +171,96 @@ MONTHLY_STATIONS = [
     ("takada", 54, "47612", "s"),
 ]
 
+DAILY_STATIONS = [
+    ("kimobetsu", 16, "0060", "a"),
+    ("akaigawa", 16, "1091", "a"),
+    ("rankoshi", 16, "0055", "a"),
+    ("sukayu", 31, "1079", "a"),      # Aomori, Hakkoda, 890 m
+    ("shumarinai", 12, "1279", "a"),  # Horokanai, northern Hokkaido
+]
+
+EXTRA_MONTHLY = [st for st in DAILY_STATIONS if st[0] in ("rankoshi", "sukayu", "shumarinai")]
+
+LONG_STATIONS = [
+    ("suttsu", 16, "47421", "s"),
+    ("kutchan", 16, "47433", "s"),
+    ("sapporo", 14, "47412", "s"),
+    ("otaru", 16, "47411", "s"),
+]
+
+BREAK_COLS = [
+    ("snowfall", lambda l: "降雪" in l and "合計" in l and "日合計" not in l),
+    ("deepest_snow", has("最深積雪")),
+    ("temp_mean", lambda l: l.startswith("気温") and "日平均" in l),
+]
+LINE = {"1": "dotted", "2": "solid"}
+
+
+def annual(prec, block, kind):
+    """First year on the annual page and the red break lines.
+
+    A red line on top of the row for year Y (class data_1t_*/data_2t_*) or
+    under the row for Y-1 (data_*_1b/_2b) means the series is not homogeneous
+    across Y-1/Y; it is reported as the year Y where the new part starts.
+    """
+    t = jma.fetch(f"view/annually_{kind}.php?prec_no={prec}&block_no={block}&year=&month=&day=&view=")
+    labels, data, cls = jma.parse_table(t, classes=True)
+    years = [int(r[0]) for r in data if r[0].strip().isdigit()]
+    breaks = {}
+    for name, pred in BREAK_COLS:
+        hits = [i for i, l in enumerate(labels) if pred(l)]
+        found = set()
+        for i in hits[:1]:
+            for r, c in zip(data, cls):
+                if not r[0].strip().isdigit():
+                    continue
+                y = int(r[0])
+                parts = c[i].split("_")  # data_<top>t_<bottom>b...
+                for p in parts[1:]:
+                    if p.endswith("t") and p[0] in LINE:
+                        found.add((y, LINE[p[0]]))
+                    if p.endswith("b") and p[0] in LINE:
+                        found.add((y + 1, LINE[p[0]]))
+        breaks[name] = sorted(found)
+    return min(years), breaks
+
+
+def station_list(prec):
+    """block_no -> (kind, name, lat, lon, elevation) from the prefecture page."""
+    t = jma.fetch(f"select/prefecture.php?prec_no={prec}")
+    out = {}
+    for args in re.findall(r"viewPoint\(([^)]*)\)", t):
+        a = [x.strip("'") for x in args.split(",")]
+        if not a[4].isdigit():  # the viewPoint() definition itself
+            continue
+        kind, block, jname = a[0], a[1], a[2]
+        lat = int(a[4]) + float(a[5]) / 60
+        lon = int(a[6]) + float(a[7]) / 60
+        out.setdefault(block, dict(kind=kind, jname=jname, lat=f"{lat:.4f}", lon=f"{lon:.4f}",
+                                   lat_dm=f"{a[4]}°{a[5]}'", lon_dm=f"{a[6]}°{a[7]}'",
+                                   elev=a[8], snow=a[13]))
+    return out
+
+
+def stations_csv():
+    seen = {}
+    for name, prec, block, kind in MONTHLY_STATIONS + DAILY_STATIONS + LONG_STATIONS:
+        seen.setdefault(name, (prec, block, kind))
+    rows = []
+    for name, (prec, block, kind) in sorted(seen.items()):
+        info = station_list(prec)[block]
+        assert info["kind"] == kind, (name, info)
+        rows.append([name, prec, block, kind, info["jname"], info["lat"], info["lon"],
+                     info["lat_dm"], info["lon_dm"], info["elev"]])
+    fn = os.path.join(OUT, "stations.csv")
+    with open(fn, "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["name", "prec_no", "block_no", "kind", "name_ja", "latitude", "longitude",
+                    "latitude_dm", "longitude_dm", "elevation_m"])
+        w.writerows(rows)
+    print(f"{fn}: {len(rows)} rows")
+
+
 if __name__ == "__main__":
     parts = sys.argv[1:] or ["A", "B"]
     if "A" in parts:
@@ -172,3 +269,18 @@ if __name__ == "__main__":
     if "B" in parts:
         for st in MONTHLY_STATIONS:
             monthly(*st)
+    if "C" in parts:
+        for name, prec, block, kind in DAILY_STATIONS:
+            first, _ = annual(prec, block, kind)
+            daily(name, prec, block, kind, max(1976, first - 1))
+    if "D" in parts:
+        for st in EXTRA_MONTHLY:
+            monthly(*st)
+    if "E" in parts:
+        last = TODAY.year if TODAY.month >= 11 else TODAY.year - 1
+        for name, prec, block, kind in LONG_STATIONS:
+            first, br = annual(prec, block, kind)
+            print(name, "first year", first, "breaks", br)
+            monthly(name, prec, block, kind, first - 1, last, suffix="monthly-long")
+    if "F" in parts:
+        stations_csv()

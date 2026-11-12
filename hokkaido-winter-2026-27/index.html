@@ -108,6 +108,10 @@ ol.steps li > b { width: 24px; height: 24px; border-radius: 50%; background: var
 .facts span { white-space: nowrap; }
 .facts .h:first-child { white-space: normal; }
 .facts b { font-weight: 600; }
+table.places { border-collapse: collapse; width: 100%; font-size: 15.5px; font-variant-numeric: tabular-nums; }
+table.places th, table.places td { padding: 7px 6px; border-bottom: 1px solid var(--line); text-align: right; white-space: normal; vertical-align: bottom; line-height: 1.25; }
+table.places th { font-weight: 600; font-size: 14px; color: var(--ink-2); position: static; background: none; }
+table.places th:first-child, table.places td:first-child { text-align: left; padding-left: 0; }
 .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15px; color: var(--ink-2); }
 .legend span { display: inline-flex; align-items: center; gap: 7px; }
 .sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
@@ -203,11 +207,11 @@ td.left, th.left { text-align: left; white-space: normal; }
   <h2>The evidence: every winter since 1961</h2>
   <p>The forecast rests on one long record: the snow measured every day at Kutchan, the town below Niseko. Here is all of it. The orange marks are the eight strong El Niño winters. On average their base arrived about two weeks late, and it caught up by late January.</p>
   <p>Each row is one winter from 1 November to 31 March. The colour shows how much, on the scale above the picture. Look down a column to see how a date compares across the years, and along a row to see how that winter built up.</p>
-  <p class="callout"><b>A limit to keep in mind: this is the town, not the mountain.</b> Every reading here is from the weather station in Kutchan town, in the valley at about 175 m. There is no official long record on the mountain itself. The resorts publish snow reports, but not a checked daily series that goes back decades. The lifts run from about 250 m to about 1,200 m, where the air is colder and more snow falls. So the slopes hold more snow than these numbers, and keep it longer. Use the record to compare one winter with another. Do not read it as the depth on the slopes. A warm December also melts more snow in the valley than up high, so the town may overstate what the upper mountain loses.</p>
+  <p class="callout"><b>A limit to keep in mind: this is the town, not the mountain.</b> Every reading here is from the weather station in Kutchan town, in the valley at 176 m. There is no official long record on the mountain itself. The resorts publish snow reports, but not a checked daily series that goes back decades. The lifts run from about 250 m to about 1,200 m, where the air is colder and more snow falls. So the slopes hold more snow than these numbers, and keep it longer. Use the record to compare one winter with another. Do not read it as the depth on the slopes. A warm December also melts more snow in the valley than up high, so the town may overstate what the upper mountain loses. Weather balloon flights from Sapporo, analysed in the post, support this.</p>
   <div class="panel">
     <div class="controls">
       <label for="hm-station">Station</label>
-      <select id="hm-station"><option value="kutchan">Kutchan (Niseko)</option><option value="furano">Furano</option></select>
+      <select id="hm-station"><option value="kutchan">Kutchan (Niseko)</option><option value="rankoshi">Rankoshi (west Niseko)</option><option value="kimobetsu">Kimobetsu (Rusutsu)</option><option value="akaigawa">Akaigawa (Kiroro)</option><option value="furano">Furano</option><option value="shumarinai">Shumarinai (far north)</option><option value="sukayu">Sukayu (Honshu, 890 m)</option></select>
       <label for="hm-measure">Show</label>
       <select id="hm-measure"><option value="snow_depth_cm">Snow on the ground</option><option value="snowfall_cm">New snow that day</option><option value="temp_mean_c">Thaw days (average above 0 °C)</option></select>
     </div>
@@ -224,7 +228,7 @@ td.left, th.left { text-align: left; white-space: normal; }
   <div class="panel">
     <div class="controls">
       <label for="w-station">Station</label>
-      <select id="w-station"><option value="kutchan">Kutchan (Niseko)</option><option value="furano">Furano</option></select>
+      <select id="w-station"><option value="kutchan">Kutchan (Niseko)</option><option value="rankoshi">Rankoshi (west Niseko)</option><option value="kimobetsu">Kimobetsu (Rusutsu)</option><option value="akaigawa">Akaigawa (Kiroro)</option><option value="furano">Furano</option><option value="shumarinai">Shumarinai (far north)</option><option value="sukayu">Sukayu (Honshu, 890 m)</option></select>
       <label for="w-year">Winter</label>
       <select id="w-year"></select>
     </div>
@@ -322,6 +326,12 @@ td.left, th.left { text-align: left; white-space: normal; }
     <div class="chart" id="c-months"></div>
     <figcaption>Each bar is one strong El Niño winter. The line marks a usual month for that era. In four of the five strongest events (1972, 1997, 2015, 2023), December had about two thirds of its usual snow. January and February show no pattern. Eight winters is a small sample, and 1982 was a snowy exception. Source: <a href="https://www.data.jma.go.jp/stats/etrn/view/monthly_s3.php?prec_no=16&amp;block_no=47433&amp;view=p6">Japan Meteorological Agency, Kutchan monthly snowfall</a>.</figcaption>
   </figure>
+  <p>Eight winters is a small sample, so I went further back. Sapporo has measured snow depth since 1877, and Suttsu, on the coast west of Niseko, since 1884. A long record of ocean temperature picks out 16 strong El Niño winters in that time, and 14 of them have snow readings.</p>
+  <figure>
+    <h3>The longer record agrees on December, less clearly at Suttsu</h3>
+    <div class="facts"><span class="h">Deepest snow in strong El Niño winters since 1896, against the winters around each</span><span class="h">December</span><span class="h">January</span><b>Sapporo</b><span>74%</span><span>87%</span><b>Suttsu</b><span>81%</span><span>107%</span></div>
+    <figcaption>Middle value of 14 winters. December was below its neighbours in 10 of the 14 at both stations. At Suttsu the shortfall comes from the later events: the six before 1961 show none. December was no warmer than the winters around it at either station, so the cause is less snowfall, not heat. Sources: Japan Meteorological Agency monthly records for <a href="https://www.data.jma.go.jp/stats/etrn/view/monthly_s1.php?prec_no=14&amp;block_no=47412&amp;year=2025">Sapporo</a> and <a href="https://www.data.jma.go.jp/stats/etrn/view/monthly_s1.php?prec_no=16&amp;block_no=47421&amp;year=2025">Suttsu</a>; ocean temperature from the <a href="https://psl.noaa.gov/data/timeseries/month/data/nino34.long.anom.data">NOAA long Niño 3.4 series</a>.</figcaption>
+  </figure>
 </section>
 
 <section>
@@ -372,6 +382,23 @@ td.left, th.left { text-align: left; white-space: normal; }
 </section>
 
 <section>
+  <h2>Up on the mountain: what the weather balloon shows</h2>
+  <p>No official station sits on the slopes. But twice a day a weather balloon goes up from Sapporo, 60 km away, and measures the air at mountain height. From 35 winters of those flights I estimated how often the air is above freezing at three heights on a mountain the size of Niseko.</p>
+  <figure>
+    <h3>From late December the upper mountain almost never thaws</h3>
+    <div class="legend"><span><i class="sw line" style="background:var(--warm)"></i>base, 250 m</span><span><i class="sw line" style="background:var(--ink)"></i>mid-mountain, 800 m</span><span><i class="sw line" style="background:var(--cold)"></i>top lifts, 1,200 m</span></div>
+    <div class="chart" id="c-upper"></div>
+    <figcaption>Share of days with the air above 0 °C, by week, winters 1991-92 to 2025-26. This is an estimate, not a measurement on the slope: the balloon gives the temperature at about 1,450 m, and I step down from there at 6.5 °C per kilometre. As a check, the same method gets the Kutchan town thermometer right to within 0.2 °C on average, but it counts too many thaw days in the valley (15% against 10% measured), because cold air pools there. Source: <a href="https://www.ncei.noaa.gov/products/weather-balloon/integrated-global-radiosonde-archive">NOAA weather balloon archive</a>, Sapporo (<a href="data/">table on the data page</a>).</figcaption>
+  </figure>
+  <div class="three">
+    <div class="card"><span class="n">Early December</span><b>One mild day in five at mid-mountain</b><span>In the first week of December the air at 800 m is above freezing on 19% of days. At the base it is one day in three.</span></div>
+    <div class="card"><span class="n">Strong El Niño Decembers</span><b>About 1 °C warmer up high</b><span>Mild days at mid-mountain went from 9% of December to 16%. Three of the seven events were more than 2 °C warmer.</span></div>
+    <div class="card"><span class="n">January</span><b>No difference</b><span>Mid-mountain stayed below freezing through January in all eight strong El Niño winters.</span></div>
+  </div>
+  <p>So the town record overstates the December problem for the upper mountain. In a strong El Niño December less snow falls, and more of it turns to rain or melts low down. But above mid-mountain, what falls still falls as snow on about five days in six.</p>
+</section>
+
+<section>
   <h2>Picking the week</h2>
   <p>Months hide a lot. Kutchan has a reading for every day, so here are the odds for each week of the season, from 35 winters of daily records.</p>
   <p><b>What counts as a powder day here.</b> A day when 20 cm or more of new snow fell at the Kutchan town station. This is our own line, not an official one: 20 cm in the town means deep, fresh snow on the slopes above. By this measure Kutchan has about 12 powder days from December to February in a typical winter (5 in December, 5 in January, 3 in February). Days with 10 cm or more come about 35 times, and days with 30 cm or more only about 3 times. The count is for the town, so the mountain has more.</p>
@@ -398,6 +425,23 @@ td.left, th.left { text-align: left; white-space: normal; }
     <div class="legend"><span><i class="sw" style="background:var(--warm);border-radius:50%"></i>December</span><span><i class="sw" style="background:var(--cold);border-radius:50%"></i>January</span><span>snowfall against the usual amount for that place</span></div>
     <div class="chart" id="c-stations"></div>
     <figcaption>Middle value of the strong El Niño winters since 1982 (five or six winters for each place), at the official station nearest each resort. Hokkaido's west side lost about a fifth of its December snow and nothing in January. Central Hokkaido gained in January. Honshu lost about half in December and a quarter in January. Japan's forecasters agree: they give a 50% chance of below-normal snowfall on Honshu's Sea of Japan side this winter, against 40% for Hokkaido. Sources: Japan Meteorological Agency <a href="https://www.data.jma.go.jp/stats/etrn/index.php">station records</a> (<a href="data/">tables on the data page</a>) and its <a href="https://www.jma.go.jp/bosai/season/">seasonal forecast</a>.</figcaption>
+  </figure>
+  <p>The same test on more places shows what protects a mountain and what does not.</p>
+  <figure>
+    <h3>Further north helps. Height alone does not.</h3>
+    <table class="places">
+      <thead><tr><th>Station and its height</th><th>Base at Christmas</th><th>Powder days, late January</th><th>December snow in strong El Niño winters</th></tr></thead>
+      <tbody>
+        <tr><td>Niseko town, 176 m</td><td>74 cm</td><td>16%</td><td>80%</td></tr>
+        <tr><td>West Niseko, 39 m</td><td>42 cm</td><td>5%</td><td>80%</td></tr>
+        <tr><td>Rusutsu, 264 m</td><td>59 cm</td><td>5%</td><td>84%</td></tr>
+        <tr><td>Kiroro, 148 m</td><td>54 cm</td><td>8%</td><td>82%</td></tr>
+        <tr><td>Furano, 174 m</td><td>32 cm</td><td>0%</td><td>91%</td></tr>
+        <tr><td>Shumarinai (far north), 255 m</td><td>133 cm</td><td>10%</td><td>97%</td></tr>
+        <tr><td>Sukayu (north Honshu), 890 m</td><td>142 cm</td><td>31%</td><td>66%</td></tr>
+      </tbody>
+    </table>
+    <figcaption>Each row is the official station nearest that resort (Kutchan, Rankoshi, Kimobetsu and Akaigawa for the first four), in the valley, not on the slopes. Base is the usual snow on the ground in the week of 22 December. Powder days are days with 20 cm or more of new snow in the week of 19 January. Both are for winters 1991-92 to 2025-26. The last column is the middle value of the five or six strong El Niño winters since 1982. Kutchan is the snowiest valley station near Niseko by a wide margin, so its numbers do not carry over to Rusutsu or Kiroro one for one. Sukayu sits at 890 m and still lost a third of its December snow, so height does not protect a mountain that far south. Shumarinai, in the far north of Hokkaido, lost little at the middle value, although its three most recent strong events came in at 76 to 86%. Source: Japan Meteorological Agency <a href="https://www.data.jma.go.jp/stats/etrn/index.php">station records</a> (<a href="data/">tables on the data page</a>).</figcaption>
   </figure>
 </section>
 
@@ -642,6 +686,21 @@ td.left, th.left { text-align: left; white-space: normal; }
       el("text", { x: px(23), y: py(4.35) + 22, "font-size": 13, "font-weight": 600, "text-anchor": "middle" }, s, "forecast");
       return s;
     },
+    "c-upper": function (w) {
+      var d = [["1 Dec", 34, 19, 7], ["8 Dec", 24, 9, 4], ["15 Dec", 20, 6, 2], ["22 Dec", 16, 3, 0], ["29 Dec", 7, 1, 0], ["5 Jan", 7, 1, 0], ["12 Jan", 8, 1, 1], ["19 Jan", 9, 0, 0], ["26 Jan", 7, 2, 0], ["2 Feb", 4, 0, 0], ["9 Feb", 12, 5, 2], ["16 Feb", 13, 7, 2], ["23 Feb", 20, 8, 4]];
+      var h = 250, left = 44, right = 10, top = 14, bot = h - 30, s = svg(w, h, "Share of days above freezing by week at three heights. At the base it falls from 34 percent in the first week of December to under 10 percent in January. At mid-mountain it falls from 19 percent to about zero. At the top lifts it is under 7 percent all winter.");
+      var px = function (i) { return left + (w - left - right) * i / (d.length - 1); }, py = function (v) { return bot - (bot - top) * v / 40; };
+      [0, 10, 20, 30, 40].forEach(function (v) {
+        el("line", { x1: left, x2: w, y1: py(v), y2: py(v), class: v ? "s-line" : "s-muted", "stroke-width": 1 }, s);
+        el("text", { x: left - 8, y: py(v) + 4, "font-size": 12, "text-anchor": "end", class: "t-muted" }, s, v + "%");
+      });
+      var every = w < 480 ? 4 : 2; d.forEach(function (r, i) { if (i % every === 0) el("text", { x: px(i), y: h - 8, "font-size": 12, "text-anchor": i === 0 ? "start" : i === d.length - 1 ? "end" : "middle", class: "t-muted" }, s, r[0]); });
+      [[1, "s-warm", "f-warm", "the base"], [2, "s-ink", "f-ink", "mid-mountain"], [3, "s-cold", "f-cold", "the top lifts"]].forEach(function (c) {
+        el("polyline", { points: d.map(function (r, i) { return px(i) + "," + py(r[c[0]]); }).join(" "), class: c[1] + " nofill", "stroke-width": 2.5, "stroke-linejoin": "round" }, s);
+        d.forEach(function (r, i) { var m = el("circle", { cx: px(i), cy: py(r[c[0]]), r: 4, class: c[2] + " s-surface", "stroke-width": 1.5 }, s); tip(m, "Week of " + r[0] + ": above freezing on " + r[c[0]] + "% of days at " + c[3]); });
+      });
+      return s;
+    },
     "c-weeks": function (w) {
       var wk = ["1 Dec", "8 Dec", "15 Dec", "22 Dec", "29 Dec", "5 Jan", "12 Jan", "19 Jan", "26 Jan", "2 Feb", "9 Feb", "16 Feb", "23 Feb"];
       var low = [4, 12, 25, 34, 51, 72, 85, 90, 104, 109, 115, 118, 109], med = [24, 46, 63, 74, 91, 104, 122, 131, 142, 153, 158, 165, 159], high = [54, 70, 102, 121, 134, 153, 167, 170, 181, 192, 202, 207, 210];
@@ -787,9 +846,9 @@ td.left, th.left { text-align: left; white-space: normal; }
   var NS = "http://www.w3.org/2000/svg", STRONG = [1965, 1972, 1982, 1991, 1997, 2009, 2015, 2023];
   var STAFFED = { kutchan: 1, sapporo: 1, otaru: 1, iwamizawa: 1, asahikawa: 1, takada: 1 };
   var STATIONS = [
-    ["Hokkaido, west side", [["kutchan", "Kutchan (Niseko)", "16", "47433"], ["kimobetsu", "Kimobetsu (Rusutsu)", "16", "0060"], ["akaigawa", "Akaigawa (Kiroro)", "16", "1091"], ["yoichi", "Yoichi (coast near Kiroro)", "16", "0052"], ["otaru", "Otaru", "16", "47411"], ["sapporo", "Sapporo", "14", "47412"], ["iwamizawa", "Iwamizawa", "15", "47413"]]],
-    ["Central Hokkaido", [["asahikawa", "Asahikawa", "12", "47407"], ["biei", "Biei (Asahidake side)", "12", "1052"], ["furano", "Furano", "12", "0021"], ["shimukappu", "Shimukappu (Tomamu)", "12", "1189"]]],
-    ["Honshu", [["hakuba", "Hakuba", "48", "0396"], ["nozawaonsen", "Nozawa Onsen", "48", "0393"], ["sekiyama", "Sekiyama (Myoko)", "54", "0998"], ["yuzawa", "Yuzawa", "54", "0544"], ["takada", "Takada (Joetsu)", "54", "47612"]]]
+    ["Hokkaido, west side", [["kutchan", "Kutchan (Niseko)", "16", "47433"], ["kimobetsu", "Kimobetsu (Rusutsu)", "16", "0060"], ["akaigawa", "Akaigawa (Kiroro)", "16", "1091"], ["yoichi", "Yoichi (coast near Kiroro)", "16", "0052"], ["rankoshi", "Rankoshi (west Niseko)", "16", "0055"], ["otaru", "Otaru", "16", "47411"], ["sapporo", "Sapporo", "14", "47412"], ["iwamizawa", "Iwamizawa", "15", "47413"]]],
+    ["Central Hokkaido", [["asahikawa", "Asahikawa", "12", "47407"], ["biei", "Biei (Asahidake side)", "12", "1052"], ["furano", "Furano", "12", "0021"], ["shimukappu", "Shimukappu (Tomamu)", "12", "1189"], ["shumarinai", "Shumarinai (far north)", "12", "1279"]]],
+    ["Honshu", [["sukayu", "Sukayu (Hakkoda, 890 m)", "31", "1079"], ["hakuba", "Hakuba", "48", "0396"], ["nozawaonsen", "Nozawa Onsen", "48", "0393"], ["sekiyama", "Sekiyama (Myoko)", "54", "0998"], ["yuzawa", "Yuzawa", "54", "0544"], ["takada", "Takada (Joetsu)", "54", "47612"]]]
   ];
   var css = function (n) { return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); };
   var $ = function (id) { return document.getElementById(id); };
@@ -840,7 +899,7 @@ td.left, th.left { text-align: left; white-space: normal; }
       var c = $("heat"), W = c.clientWidth, left = 64, top = 20, cw = (W - left - 2) / 152, rh = W < 560 ? 6 : 8, H = top + years.length * rh + 4, dpr = window.devicePixelRatio || 1;
       c.width = W * dpr; c.height = H * dpr; c.style.height = H + "px";
       var g = c.getContext("2d"); g.scale(dpr, dpr); g.clearRect(0, 0, W, H);
-      var max = measure === "snow_depth_cm" ? (name === "kutchan" ? 230 : 110) : measure === "snowfall_cm" ? (name === "kutchan" ? 40 : 25) : 1;
+      var max = 1; if (measure !== "temp_mean_c") { var all = []; years.forEach(function (y) { w[y].forEach(function (o) { if (o && o[measure] > 0) all.push(o[measure]); }); }); all.sort(function (a, b) { return a - b; }); var stepM = measure === "snow_depth_cm" ? 10 : 5; max = Math.max(stepM, Math.ceil((all[Math.floor(all.length * 0.98)] || stepM) / stepM) * stepM); }
       $("hm-lo").textContent = measure === "temp_mean_c" ? "freezing day" : "0 cm"; $("hm-hi").textContent = measure === "temp_mean_c" ? "thaw day" : max + " cm";
       $("hm-ramp").style.background = measure === "temp_mean_c" ? "linear-gradient(90deg," + css("--r0") + " 50%," + css("--warm") + " 50%)" : "";
       g.font = "12px " + css("--body"); g.textBaseline = "middle";
@@ -926,7 +985,7 @@ td.left, th.left { text-align: left; white-space: normal; }
         if (o) showTip(fmtDate(o.date) + ": " + (o.snow_depth_cm == null ? "no reading" : o.snow_depth_cm + " cm on the ground") + ", " + (o.snowfall_cm || 0) + " cm new. Usual base for the date: " + med[d] + " cm (" + lo[d] + " to " + hi[d] + ")", e.clientX, e.clientY);
       });
       hit.addEventListener("pointerleave", function () { mark.setAttribute("opacity", 0); hideTip(); });
-      $("w-summary").textContent = "Winter " + winterName(y) + " at " + (name === "kutchan" ? "Kutchan" : "Furano") + ": " + Math.round(total) + " cm of new snow from November to March, " + big + " days with 20 cm or more, and a deepest base of " + peakD + " cm. " + (first100 ? "The base first reached 1 m on " + fmtDate(first100) + "." : "The base never reached 1 m in the town.") + (y === 2026 ? " This winter has only just begun." : "");
+      $("w-summary").textContent = "Winter " + winterName(y) + " at " + $("w-station").selectedOptions[0].textContent.split(" (")[0] + ": " + Math.round(total) + " cm of new snow from November to March, " + big + " days with 20 cm or more, and a deepest base of " + peakD + " cm. " + (first100 ? "The base first reached 1 m on " + fmtDate(first100) + "." : "The base never reached 1 m in the town.") + (y === 2026 ? " This winter has only just begun." : "");
     }).catch(fail);
   }
 
@@ -976,7 +1035,7 @@ td.left, th.left { text-align: left; white-space: normal; }
   var show = function (v) { return v == null ? "–" : Math.round(v); };
 
   // ---------- file list ----------
-  var FILES = [["kutchan-daily.csv", "Kutchan, every day from November to March, 1961 to 2026: temperature, precipitation, wind, sunshine, new snow, snow on the ground"], ["furano-daily.csv", "Furano, the same daily values, 1981 to 2026"]];
+  var FILES = [["kutchan-daily.csv", "Kutchan, every day from November to March, 1961 to 2026: temperature, precipitation, wind, sunshine, new snow, snow on the ground"], ["furano-daily.csv", "Furano, the same daily values, 1981 to 2026"], ["rankoshi-daily.csv", "Rankoshi (west Niseko), daily values, 1976 to 2026"], ["kimobetsu-daily.csv", "Kimobetsu (Rusutsu), daily values, 1977 to 2026"], ["akaigawa-daily.csv", "Akaigawa (Kiroro), daily values, 1979 to 2026; no thermometer"], ["shumarinai-daily.csv", "Shumarinai (northern Hokkaido), daily values, 1978 to 2026"], ["sukayu-daily.csv", "Sukayu (Hakkoda mountains, Honshu, 890 m), daily values, 1976 to 2026"], ["sapporo-upper.csv", "Sapporo weather balloon: temperature at 925, 850 and 700 hPa for each flight, November to March, 1961 to 2026 (NOAA IGRA)"], ["suttsu-monthly-long.csv", "Suttsu: monthly snowfall, deepest snow and mean temperature, November to March, 1884 to 2026"], ["sapporo-monthly-long.csv", "Sapporo, the same monthly values, 1877 to 2026"], ["kutchan-monthly-long.csv", "Kutchan, the same monthly values, 1944 to 2026"], ["otaru-monthly-long.csv", "Otaru, the same monthly values, 1943 to 2026"], ["nino34-long.csv", "Ocean temperature in the central Pacific (Niño 3.4, HadISST1, from NOAA PSL), monthly, 1870 to 2026"], ["stations.csv", "Every station: agency numbers, position and height"]];
   STATIONS.forEach(function (g) { g[1].forEach(function (st) { FILES.push([st[0] + "-monthly.csv", st[1] + ": monthly snowfall, deepest snow and mean temperature, November to March, 1981 to 2026"]); }); });
   if ($("files")) FILES.forEach(function (f) {
     var tr = document.createElement("tr"), a = document.createElement("a"); a.href = f[0]; a.textContent = f[0];

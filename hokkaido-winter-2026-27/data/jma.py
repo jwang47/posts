@@ -1,7 +1,7 @@
 """Small JMA etrn scraper helpers (stdlib only).
 
 Downloads pages from https://www.data.jma.go.jp/stats/etrn/ with a generic
-User-Agent, caches them under raw/, and parses the data tables into rows
+User-Agent, caches them under raw/ (or $JMA_CACHE), and parses the data tables into rows
 keyed by flattened column labels.
 """
 import os, re, time, html, hashlib, urllib.request
@@ -10,7 +10,7 @@ from html.parser import HTMLParser
 BASE = "https://www.data.jma.go.jp/stats/etrn/"
 UA = "posts-research (github.com/jwang47/posts)"
 HERE = os.path.dirname(os.path.abspath(__file__))
-CACHE = os.path.join(HERE, "raw")
+CACHE = os.environ.get("JMA_CACHE") or os.path.join(HERE, "raw")
 os.makedirs(CACHE, exist_ok=True)
 _last = [0.0]
 
@@ -57,7 +57,8 @@ class _TP(HTMLParser):
         elif tag == "tr":
             self.stack[-1][1].append([])
         elif tag in ("td", "th"):
-            self.cell = [tag, "", int(a.get("rowspan", 1) or 1), int(a.get("colspan", 1) or 1)]
+            self.cell = [tag, "", int(a.get("rowspan", 1) or 1), int(a.get("colspan", 1) or 1),
+                         a.get("class", "")]
         elif tag == "br" and self.cell is not None:
             self.cell[1] += ""
 
@@ -74,8 +75,9 @@ class _TP(HTMLParser):
             self.cell[1] += d
 
 
-def parse_table(txt, table_id="tablefix1"):
-    """Return (labels, datarows). labels are '/'-joined header paths."""
+def parse_table(txt, table_id="tablefix1", classes=False):
+    """Return (labels, datarows). labels are '/'-joined header paths.
+    With classes=True also return the cell CSS classes of the data rows."""
     p = _TP()
     p.feed(txt)
     tab = None
@@ -84,18 +86,18 @@ def parse_table(txt, table_id="tablefix1"):
             tab = rows
             break
     if tab is None:
-        return None, []
+        return (None, [], []) if classes else (None, [])
     # build grid
     grid = {}
     nrows = len(tab)
     for r, row in enumerate(tab):
         c = 0
-        for tag, text, rs, cs in row:
+        for tag, text, rs, cs, cl in row:
             while (r, c) in grid:
                 c += 1
             for dr in range(rs):
                 for dc in range(cs):
-                    grid[(r + dr, c + dc)] = (tag, text.strip())
+                    grid[(r + dr, c + dc)] = (tag, text.strip(), cl)
             c += cs
     ncols = max(c for (_, c) in grid) + 1
     hdr_rows = [r for r in range(nrows) if all(grid.get((r, c), ("th",))[0] == "th" for c in range(ncols))]
@@ -106,13 +108,16 @@ def parse_table(txt, table_id="tablefix1"):
     for c in range(ncols):
         parts = []
         for r in range(nh):
-            t = grid.get((r, c), ("th", ""))[1]
+            t = grid.get((r, c), ("th", "", ""))[1]
             if t and (not parts or parts[-1] != t):
                 parts.append(t)
         labels.append("/".join(parts))
     data = []
     for r in range(nh, nrows):
         data.append([grid.get((r, c), ("td", ""))[1] for c in range(ncols)])
+    if classes:
+        cls = [[grid.get((r, c), ("td", "", ""))[2] for c in range(ncols)] for r in range(nh, nrows)]
+        return labels, data, cls
     return labels, data
 
 

@@ -7,7 +7,7 @@ February 2027?
 
 For a picture version in plain language, open `explainer.html` in a
 browser. Sections 9 and 10 were added later on 2026-11-11 from daily
-station data.
+station data, and section 11 on 2026-11-12.
 
 ## Answer
 
@@ -40,7 +40,9 @@ the season total, because this El Niño is stronger than any past event.
 ## How to read the source labels
 
 The cloud container could not open any weather site. A session on a
-Windows PC read the official pages directly on 2026-11-11.
+Windows PC read the official pages directly on 2026-11-11. On
+2026-11-12 it also opened every source first labelled [S] or [M]. Most
+are now [V]; the text was corrected where a page differed.
 
 - **[V]** verified: the page was read directly and the numbers are copied
   from it.
@@ -58,9 +60,9 @@ Windows PC read the official pages directly on 2026-11-11.
 | ONI for August-October 2026 is +2.46. Past peaks: 2015-16 +2.59, 1997-98 +2.37, 1982-83 +2.14, 2023-24 +1.99, 1972-73 +1.84. | [V] [NOAA ONI data](https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt) |
 | The warmest water is in the east Pacific (Niño-1+2 is warmer than Niño-3.4). This is a classic east Pacific event, not a central Pacific (Modoki) event. | [V] [NOAA CPC ENSO discussion, 2026-10-08](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml) |
 | Indian Ocean Dipole index is +0.69 (positive). | [V] [JMA El Niño outlook No. 410, 2026-11-10](https://www.data.jma.go.jp/cpd/elnino/kanshi_joho/kanshi_joho1.html) |
-| All models in the IRI plume keep a very strong El Niño through December-February. | [S] [IRI ENSO forecast](https://forecast.ccsr.columbia.edu/forecasts/enso/forecast) |
+| All 27 models in the IRI plume (October 2026) keep a very strong El Niño through December-February. | [V] [IRI ENSO forecast](https://forecast.ccsr.columbia.edu/forecasts/enso/forecast) |
 | The Australian BoM also reports a strong to very strong El Niño and a positive IOD. | [S] [BoM climate drivers](https://www.bom.gov.au/climate/enso/) |
-| The QBO is westerly. The PDO was -1.55 in September (negative, unlike 1997 and 2015). | [S] [Oregon ODA forecast](https://www.oregon.gov/oda/natural-resources/Documents/Weather/forecast.pdf), [OpenSnow preview](https://opensnow.com/news/post/2026-2027-winter-forecast-preview) |
+| The QBO is westerly. The PDO was -1.55 in September (negative, unlike 1997 and 2015). | [V] [Oregon ODA forecast](https://www.oregon.gov/oda/natural-resources/Documents/Weather/forecast.pdf), [OpenSnow preview](https://opensnow.com/news/post/2026-2027-winter-forecast-preview) |
 
 The closest past winters are 1997-98, 1982-83 and 2015-16. This event is
 already stronger than all of them in the east Pacific, so they are weak
@@ -78,15 +80,18 @@ for North Japan temperature or for Sea of Japan side snowfall.
 high near the Philippines and weakens the north-west monsoon wind that
 makes sea-effect snow.
 
-- Wang, Wu and Fu (2000), the Pacific-East Asian teleconnection. [S] [abstract](https://ams.confex.com/ams/annual2000/techprogram/paper_5534.htm)
+- Wang, Wu and Fu (2000), the Pacific-East Asian teleconnection. [V] [abstract](https://ams.confex.com/ams/annual2000/techprogram/paper_5534.htm)
 - Ohba and Sugimoto (2021): El Niño gives less precipitation on the Sea of
   Japan side and more on the Pacific side. The link is stronger when the
-  PDO is negative, as it is now. [S] [Climate Dynamics](https://link.springer.com/article/10.1007/s00382-021-06052-9)
+  PDO is negative, as it is now. [V] [Climate Dynamics](https://link.springer.com/article/10.1007/s00382-021-06052-9)
 - Ueda et al. (2015): Sea of Japan side snowfall follows tropical
-  convection. [S] [Int. J. Climatol.](https://rmets.onlinelibrary.wiley.com/doi/10.1002/joc.4032)
+  convection. [V] [Int. J. Climatol.](https://rmets.onlinelibrary.wiley.com/doi/10.1002/joc.4032)
+  (abstract read through Crossref)
 - Yatagai and Kinoshita (2022), Sapporo area: ENSO changes where the snow
   falls more than how much. El Niño favours the south-west mountains and
-  inland. [S] [Atmosphere 13:1413](https://doi.org/10.3390/atmos13091413)
+  inland, except in the super El Niño winter of 1997-98.
+  [V] [Atmosphere 13:1413](https://doi.org/10.3390/atmos13091413)
+  (abstract read through Crossref)
 
 **Our own count from the JMA Kutchan record.** Kutchan is the JMA station
 in the valley below Niseko. `kutchan-snowfall.csv` holds its monthly
@@ -118,10 +123,10 @@ What this shows:
 
 - Across all El Niño winters the effect is close to zero. A ski site
   found the same from 73 seasons (El Niño 11.45 m, La Niña 11.57 m).
-  [S] [skiasia](https://skiasia.com/news/worried-about-the-effect-of-the-super-el-nino-on-your-niseko-ski-holiday-you-shouldnt-be/)
+  [V] [skiasia](https://skiasia.com/news/worried-about-the-effect-of-the-super-el-nino-on-your-niseko-ski-holiday-you-shouldnt-be/)
 - Strong events are different. 7 of 8 were below their neighbours for the
   three months, by 8% at the median.
-- The loss is in December. Of the 5 strongest events (ONI peak of 1.8 or
+- The loss is in December. Of the 5 strongest events (ONI peak of 1.84 or
   more), 4 had 61% to 66% of the usual December snowfall (1972, 1997,
   2015, 2023). January and February were near normal at
   the median. January 1998 was 132%.
@@ -129,8 +134,9 @@ What this shows:
 
 Limits: 8 winters is a small sample. The differences are inside the
 normal year-to-year spread (about ±25% for one month). The ENSO year
-lists in the script are the usual NOAA classification, entered from
-memory [M]. Raw values in the yearly table do not match the JMA normals
+lists in the script follow the NOAA ONI table, with two differences: the
+table counts 2019-20 as El Niño and does not count 2016-17 as La Niña.
+[V] [NOAA CPC ONI table](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/oni/v6/). Raw values in the yearly table do not match the JMA normals
 (the 1991-2020 average of raw December values is 298 cm, the normal is
 253 cm). JMA probably adjusted the normals for a change in measuring
 method. Compare the yearly table only with itself.
@@ -165,10 +171,10 @@ El Niño outlook 2026-12-10.
 
 Private forecasters agree. Weathernews: Hokkaido Sea of Japan side about
 normal, a weak monsoon with short cold outbreaks.
-[S] [Weathernews, 2026-11-02](https://wxtech.weathernews.com/news/sky20261102-01/).
+[V] [Weathernews, 2026-11-02](https://wxtech.weathernews.com/news/sky20261102-01/).
 Japan Weather Association: a warm winter with sudden cold waves and
 local heavy snow.
-[S] [tenki.jp, 2026-09-30](https://tenki.jp/forecaster/m_seta/2026/09/30/40810.html)
+[V] [tenki.jp, 2026-09-30](https://tenki.jp/forecaster/m_seta/2026/09/30/40810.html)
 
 ## 4. The November cold snap
 
@@ -189,25 +195,25 @@ local heavy snow.
   10th and 32 cm at 19:00 on the 11th.
   [V] [JMA Kutchan daily data](https://www.data.jma.go.jp/stats/etrn/view/daily_s1.php?prec_no=16&block_no=47433&year=2026&month=11).
   The normal deepest snow for all of November is 36 cm.
-- Sapporo had 10 cm on 7 November
-  [S] [tenki.jp, 2026-11-07](https://tenki.jp/forecaster/deskpart/2026/11/07/41234.html)
+- Sapporo had 10 cm by 11:00 on 7 November
+  [V] [tenki.jp, 2026-11-07](https://tenki.jp/forecaster/deskpart/2026/11/07/41234.html)
   and 0 cm on 11 November [V] [JMA AMeDAS map](https://www.jma.go.jp/bosai/amedas/).
 
 Reading: it helps the early base high on the mountain and it supports an
 on-time opening. It says very little about December to February. Last
 winter shows this: Kutchan had 56 cm on 12 December 2025 and 21 cm on
 25 December.
-[S] [skiasia](https://skiasia.com/news/has-niseko-just-recorded-its-worst-start-to-winter-in-67-years/)
+[V] [skiasia](https://skiasia.com/news/has-niseko-just-recorded-its-worst-start-to-winter-in-67-years/)
 
 ## 5. Other drivers
 
 | Driver | State | Effect on Hokkaido | Source |
 | --- | --- | --- | --- |
 | Sea of Japan surface temperature | Much above normal in October, with a much stronger Tsushima Warm Current. The cold snap shrank the very warm area. Next month: north normal or above, south much above. | Each cold outbreak picks up more moisture, so single storms can be heavy. Early in the season the same warm water gives wetter snow and rain at low level. | [V] [JMA sea diagnosis, 2026-11-10](https://www.data.jma.go.jp/kaiyou/data/shindan/c_1/jpn_jun/jpn_sst.html), [Sea of Japan page](https://www.data.jma.go.jp/kaiyou/data/shindan/c_1/jun_NK/kaikyo_NK.html) |
-| Arctic Oscillation | +1.29 for October. It fell to about -2 on 10 November. The forecast mean goes back to about 0 by 15-17 November, with a wide spread. | Negative AO goes with a stronger Siberian High and colder East Asia ([S] [Gong, Wang and Zhu 2001](https://openpolar.no/Record/ftpekinguniv:oai:localhost:20.500.11897%2F247353); [M] [DOI](https://doi.org/10.1029/2000GL012311)). It explains the cold snap. It is not predictable beyond about two weeks. | [V] [NOAA CPC AO](https://www.cpc.ncep.noaa.gov/products/precip/CWlink/daily_ao_index/ao.shtml) |
-| Stratospheric polar vortex | The wind at 60°N, 10 hPa fell from 21.9 m/s on 23 October to 0.3 m/s on 5 November. The normal for that date is 26.0 and the lowest value in the record before this year (1978 onward) was 13.6. The forecast gives a reversal (-3.5 m/s on 11 November) and a recovery to 14 m/s by 19 November. A reversal is a major sudden stratospheric warming. | After such an event, cold outbreaks at the surface are more likely for several weeks. This is the main reason December could beat the El Niño odds. Where the cold goes is not known in advance. | [V] [NASA Ozone Watch, MERRA-2 and GEOS FP](https://ozonewatch.gsfc.nasa.gov/meteorology/NH.html) (file `u60n_10_2026_merra2.txt`); news context [S] [phys.org](https://phys.org/news/2026-11-polar-vortex-faltering-weeks-earlier.html) |
-| Barents-Kara sea ice | Very low in October. | Some studies link low ice to cold Eurasian winters ([S] [Mori et al. 2014, 2019, news summary](https://www.eco-business.com/news/arctic-melting-sends-winter-warning-europe-and-asia); [M] DOIs [2014](https://doi.org/10.1038/ngeo2277), [2019](https://doi.org/10.1038/s41558-018-0379-3)). Others disagree ([S] Blackport et al. 2019, cited in [this review](https://www.frontiersin.org/journals/climate/articles/10.3389/fclim.2024.1345763/pdf); [M] [DOI](https://doi.org/10.1038/s41558-019-0551-4)). Weak evidence. | [S] [Copernicus, October 2026](https://climate.copernicus.eu/sea-ice-cover-october-2026) |
-| Long-term warming | Total snowfall goes down. The heaviest single falls inland go up. | Fewer snow days, some very large ones. Low-level snow is less reliable in December and March. | [S] [Kawase et al., via PEPS 2023](https://link.springer.com/content/pdf/10.1186/s40645-023-00536-4.pdf); record fall at Obihiro in February 2025 [S] [Hirata et al., SOLA 2025](https://www.jstage.jst.go.jp/article/sola/21C/Special_Edition/21C_21C-001/_article/-char/ja) |
+| Arctic Oscillation | +1.29 for October. It fell to about -2 on 10 November. The forecast mean goes back to about 0 by 15-17 November, with a wide spread. | Negative AO goes with a stronger Siberian High and colder East Asia ([S] [Gong, Wang and Zhu 2001](https://openpolar.no/Record/ftpekinguniv:oai:localhost:20.500.11897%2F247353); [V] [DOI](https://doi.org/10.1029/2000GL012311), abstract read through Crossref). It explains the cold snap. It is not predictable beyond about two weeks. | [V] [NOAA CPC AO](https://www.cpc.ncep.noaa.gov/products/precip/CWlink/daily_ao_index/ao.shtml) |
+| Stratospheric polar vortex | The wind at 60°N, 10 hPa fell from 21.9 m/s on 23 October to 0.3 m/s on 5 November. The normal for that date is 26.0 and the lowest value in the record before this year (1978 onward) was 13.6. The forecast gives a reversal (-3.5 m/s on 11 November) and a recovery to 14 m/s by 19 November. A reversal is a major sudden stratospheric warming. | After such an event, cold outbreaks at the surface are more likely for several weeks. This is the main reason December could beat the El Niño odds. Where the cold goes is not known in advance. | [V] [NASA Ozone Watch, MERRA-2 and GEOS FP](https://ozonewatch.gsfc.nasa.gov/meteorology/NH.html) (file `u60n_10_2026_merra2.txt`); news context [V] [phys.org](https://phys.org/news/2026-11-polar-vortex-faltering-weeks-earlier.html) |
+| Barents-Kara sea ice | Very low in October. | Some studies link low ice to cold Eurasian winters ([V] [Mori et al. 2014, 2019, news summary](https://www.eco-business.com/news/arctic-melting-sends-winter-warning-europe-and-asia); [V] DOIs [2014](https://doi.org/10.1038/ngeo2277), [2019](https://doi.org/10.1038/s41558-018-0379-3)). Others disagree ([V] Blackport et al. 2019, cited in [this review](https://www.frontiersin.org/journals/climate/articles/10.3389/fclim.2024.1345763/pdf); [V] [DOI](https://doi.org/10.1038/s41558-019-0551-4)). Weak evidence. | [V] [Copernicus, October 2026](https://climate.copernicus.eu/sea-ice-cover-october-2026) |
+| Long-term warming | 1959-2020: snow-covered days go down almost everywhere. On the Sea of Japan side of northern Japan the deepest snow shows no significant change at any height. In the mountains of eastern Japan the heaviest daily falls go up. | Fewer snow days, some very large ones. Low-level snow is less reliable in December and March. | [V] [Kawase et al., via PEPS 2023](https://link.springer.com/content/pdf/10.1186/s40645-023-00536-4.pdf); record fall at Obihiro in February 2025 (120 cm in 12 hours) [V] [Hirata et al., SOLA 2025](https://www.jstage.jst.go.jp/article/sola/21C/Special_Edition/21C_21C-001/_article/-char/ja) |
 
 Net effect: the non-ENSO drivers favour sharp cold outbreaks with heavy
 falls, mainly in the next four to six weeks. The El Niño background
@@ -231,8 +237,8 @@ Kutchan 1991-2020 normals.
   Off-piste terrain and the backcountry gates need that base.
 - December changes most from year to year. Kutchan had 145 cm on the
   ground on 30 December 2024 and 21 cm on 25 December 2025.
-  [S] [snowstash](https://snowstash.com/news/2025/01/hokkaido-record-snowfall-2024),
-  [S] [skiasia](https://skiasia.com/news/has-niseko-just-recorded-its-worst-start-to-winter-in-67-years/)
+  [V] [JMA Kutchan daily data, December 2024](https://www.data.jma.go.jp/stats/etrn/view/daily_s1.php?prec_no=16&block_no=47433&year=2024&month=12),
+  [V] [skiasia](https://skiasia.com/news/has-niseko-just-recorded-its-worst-start-to-winter-in-67-years/)
 - January is the coldest month, so the snow is the driest.
 - February has the deepest base and about a quarter less new snow.
 
@@ -295,8 +301,8 @@ history was not checked, so do not read that step as climate.
 | --- | --- | --- |
 | 21 Nov | First planned opening in Hakuba Valley (Honshu) | [V] [Hakuba Valley](https://www.hakubavalley.com/) |
 | 28 Nov | Planned opening of the four Niseko areas, Kiroro and Furano. Tomamu plans 1 Dec. Rusutsu has no date on its site yet. | [V] [Niseko United](https://www.niseko.ne.jp/en/lift/), [Grand Hirafu](https://www.grand-hirafu.jp/), [Kiroro](https://www.kiroro.co.jp/), [Furano](https://www.princehotels.co.jp/ski/furano/winter/), [Tomamu](https://www.snowtomamu.jp/) |
-| 1-19 Dec | Lowest prices, few people, limited terrain | [S] [Powderhounds](https://www.powderhounds.com/japan/hokkaido/niseko/when-to-visit.aspx) |
-| 20 Dec-5 Jan | Highest prices of the season | [S] [Powderhounds](https://www.powderhounds.com/japan/hokkaido/niseko/when-to-visit.aspx) |
+| 1-19 Dec | Lift tickets discounted before mid-December, few people, off-piste not yet covered | [V] [Powderhounds](https://www.powderhounds.com/japan/hokkaido/niseko/when-to-visit.aspx) |
+| 20 Dec-5 Jan | Highest prices of the season | [V] [Powderhounds](https://www.powderhounds.com/japan/hokkaido/niseko/when-to-visit.aspx) |
 | 9-11 Jan | Japanese long weekend (Coming of Age Day, Monday 11 Jan) | [V] [Cabinet Office holiday list](https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv) |
 | To 26 Jan | Australian school holidays. Queensland and Victoria start term on 27 Jan. NSW students return on 3 Feb. | [V] [Queensland](https://education.qld.gov.au/about-us/calendar/future-dates), [Victoria](https://www.vic.gov.au/school-term-dates-and-holidays-victoria), [NSW](https://education.nsw.gov.au/schooling/calendars/2027) |
 | 4-11 Feb | Sapporo Snow Festival (Thursday to Thursday) | [V] [Sapporo Snow Festival](https://www.snowfes.com/) |
@@ -332,9 +338,8 @@ Ranking for this winter:
 If the dates must be in December: wait for the JMA 3-month outlook on
 24 November and the Kutchan depth in the first week of December. A depth
 near 60 cm or more at Kutchan by 10 December, with cold air in the
-1-month outlook, is a good sign. Choose Kiroro or Asahidake, which build
-a base earlier than the Niseko base areas.
-[S] [Powderhounds, Hokkaido](https://www.powderhounds.com/japan/hokkaido.aspx)
+1-month outlook, is a good sign. Kiroro and Niseko have the best early-season snow in Hokkaido.
+[V] [Powderhounds, Hokkaido](https://www.powderhounds.com/japan/hokkaido.aspx)
 
 ## 9. Week by week at Kutchan
 
@@ -440,10 +445,93 @@ record without the rule). The per-winter values for 1997, 2015 and 2023
 stay at 63% to 66%. The long downward drift in the raw Kutchan snowfall
 series is partly this change, so do not read it as climate.
 
+## 11. The mountain, the long record and more stations
+
+Added 2026-11-12. `more_stations.py` writes `analysis2.json`.
+
+**Air at mountain height.** No official station is on the slopes. The
+Sapporo weather balloon (00 and 12 UTC) gives the temperature at 850 hPa,
+about 1,450 m.
+[V] [NOAA IGRA v2](https://www.ncei.noaa.gov/products/weather-balloon/integrated-global-radiosonde-archive),
+station JAM00047412, file `data/sapporo-upper.csv`.
+The script estimates the temperature at a slope height from the 850 hPa
+value and a lapse rate of 6.5 °C per km. This is an estimate, not a
+measurement. Check: for Kutchan (176 m) the estimate is 0.2 °C too warm on
+average (correlation 0.80, December to February, 1991-2025). It gives 15%
+thaw days there against 10% measured, because cold air pools in the valley.
+
+Share of days above 0 °C, winters 1991-92 to 2025-26:
+
+| Week of | Base, 250 m | Mid, 800 m | Top, 1,200 m |
+| --- | --- | --- | --- |
+| 1 Dec | 34% | 19% | 7% |
+| 15 Dec | 20% | 6% | 2% |
+| 29 Dec | 7% | 1% | 0% |
+| 19 Jan | 9% | 0% | 0% |
+| 9 Feb | 12% | 5% | 2% |
+| 23 Feb | 20% | 8% | 4% |
+
+Strong El Niño winters against the ten winters around each:
+
+- December: 850 hPa was 0.9 °C warmer at the median (seven events; 1972,
+  1997 and 2015 were 2.2 to 2.9 °C warmer). Mid-mountain was above
+  freezing on 16% of December days, against 9% in the neighbours.
+- January: 0.8 °C warmer at the median, but mid-mountain stayed below
+  freezing in all eight events.
+- So the town record overstates the December loss for the upper mountain.
+  The loss up high is mainly less snowfall, not rain.
+
+**The long record.** Sapporo has snow depth from 1877 and Suttsu from 1884
+(`data/*-monthly-long.csv`). JMA marks no homogeneity break for deepest
+snow or mean temperature at either station. Snowfall totals start in 1953
+and have a break at 2005-06.
+Strong El Niño winters are those with a November to January Niño 3.4
+anomaly of 1.3 °C or more above the 31 years around them:
+1877, 1888, 1896, 1899, 1902, 1918, 1930, 1957, 1965, 1972, 1982, 1991,
+1997, 2009, 2015, 2023.
+[V] [NOAA PSL, HadISST1 Niño 3.4](https://psl.noaa.gov/data/timeseries/month/data/nino34.long.anom.data),
+file `data/nino34-long.csv`. The threshold is my choice. It returns the
+same eight winters since 1961 as the list used above.
+
+Deepest snow of the month against the median of the ten winters around
+each event (14 events have snow readings):
+
+| Station | December | Below usual | January | Below usual |
+| --- | --- | --- | --- | --- |
+| Sapporo | 74% | 10 of 14 | 87% | 9 of 14 |
+| Suttsu | 81% | 10 of 14 | 107% | 5 of 14 |
+
+At Suttsu the six events before 1961 show no December shortfall (median
+100%). At Sapporo they show the same shortfall as the later ones (74%).
+December mean temperature did not differ from the neighbours at either
+station (median -0.2 and +0.3 °C). The evidence for a thin December is
+moderate, not strong.
+
+**More stations.** Daily records for Rankoshi, Kimobetsu, Akaigawa,
+Shumarinai and Sukayu (`data/*-daily.csv`), winters 1991-92 to 2025-26.
+Heights are from `data/stations.csv`.
+
+| Station | Height | Base, week of 22 Dec | Powder days, week of 19 Jan | December snowfall in strong El Niño winters |
+| --- | --- | --- | --- | --- |
+| Kutchan (Niseko) | 176 m | 74 cm | 16% | 80% |
+| Rankoshi (west Niseko) | 39 m | 42 cm | 5% | 80% |
+| Kimobetsu (Rusutsu) | 264 m | 59 cm | 5% | 84% |
+| Akaigawa (Kiroro) | 148 m | 54 cm | 8% | 82% |
+| Furano | 174 m | 32 cm | 0% | 91% |
+| Shumarinai (far north) | 255 m | 133 cm | 10% | 97% |
+| Sukayu (Hakkoda, Honshu) | 890 m | 142 cm | 31% | 66% |
+
+- Kutchan is the snowiest valley station near Niseko. Its powder-day
+  counts do not carry over to Rusutsu or Kiroro.
+- Height does not protect a site in northern Honshu: Sukayu lost a third
+  of its December snowfall (82% in January, 79% in February).
+- Northern Hokkaido lost little at the median (January 120%). Its three
+  most recent strong events had 76% to 86% in December.
+
 ## What could not be verified
 
 - Snow on the mountain. Every station record in this report is from a
-  valley town (Kutchan is at about 175 m [M]). No official long daily
+  valley town (Kutchan is at 176.1 m [V] [JMA station list](https://www.data.jma.go.jp/stats/etrn/select/prefecture.php?prec_no=16)). No official long daily
   record exists on the Niseko slopes. The slopes hold more snow than the
   town and keep it longer, and a warm December melts more in the valley
   than up high. The town record compares winters with each other. It does
@@ -452,10 +540,10 @@ series is partly this change, so do not read it as climate.
 - The text of the 2 November early warning (news reports only).
 - China's 2027 Spring Festival holiday schedule and the Rusutsu opening
   date (not published yet).
-- IRI, BoM, QBO and PDO values (search text only).
+- The Australian BoM statement (its site refuses automated readers) and
+  one Yahoo news report (removed). Both stay [S].
 - Sea of Japan anomaly in degrees (JMA gives it only on maps).
 - Lift closures by wind on the mountain (no public record found).
-- The research papers in section 2 (abstracts seen as search text).
 
 ## Sources read directly on 2026-11-11
 
