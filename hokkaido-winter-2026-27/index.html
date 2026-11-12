@@ -153,12 +153,22 @@ nav.top a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--c
 /* data-css */
 .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 12px; }
 .note { font-size: 15.5px; color: var(--ink-2); max-width: 72ch; }
-.controls { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; font-size: 15.5px; }
-.controls label { color: var(--ink-2); }
-select, button.chip {
-  font: 400 15.5px var(--body); color: var(--ink); background: var(--page); border: 1px solid var(--line);
-  border-radius: 8px; padding: 6px 10px; cursor: pointer;
+.controls { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; font-size: 15px; }
+.field { display: inline-flex; align-items: center; gap: 9px; min-width: 0; }
+.field label { color: var(--ink-2); font-size: 14.5px; }
+select, button.chip, .controls a {
+  font: 400 15px/20px var(--body); color: var(--ink); background-color: var(--page); border: 1px solid var(--line);
+  border-radius: 8px; padding: 7px 12px; cursor: pointer; margin: 0; height: 36px;
 }
+select {
+  -webkit-appearance: none; appearance: none; font-weight: 600; padding-right: 34px; max-width: 100%; text-overflow: ellipsis;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1.5 1.5L6 6l4.5-4.5' fill='none' stroke='%23858b92' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 12px center; background-size: 12px 8px;
+}
+select:hover, button.chip:hover, .controls a:hover { border-color: var(--muted); }
+.controls a { display: inline-flex; align-items: center; gap: 7px; text-decoration: none; white-space: nowrap; }
+.controls a svg { flex: none; }
+.controls .push { margin-left: auto; }
 button.chip[aria-pressed="true"] { background: var(--cold); border-color: var(--cold); color: #fff; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15px; color: var(--ink-2); align-items: center; }
@@ -210,10 +220,8 @@ td.left, th.left { text-align: left; white-space: normal; }
   <p class="callout"><b>A limit to keep in mind: this is the town, not the mountain.</b> Every reading here is from the weather station in Kutchan town, in the valley at 176 m. There is no official long record on the mountain itself. The resorts publish snow reports, but not a checked daily series that goes back decades. The lifts run from about 250 m to about 1,200 m, where the air is colder and more snow falls. So the slopes hold more snow than these numbers, and keep it longer. Use the record to compare one winter with another. Do not read it as the depth on the slopes. A warm December also melts more snow in the valley than up high, so the town may overstate what the upper mountain loses. Weather balloon flights from Sapporo, analysed in the post, support this.</p>
   <div class="panel">
     <div class="controls">
-      <label for="hm-station">Station</label>
-      <select id="hm-station"><option value="kutchan">Kutchan (Niseko)</option><option value="rankoshi">Rankoshi (west Niseko)</option><option value="kimobetsu">Kimobetsu (Rusutsu)</option><option value="akaigawa">Akaigawa (Kiroro)</option><option value="furano">Furano</option><option value="shumarinai">Shumarinai (far north)</option><option value="sukayu">Sukayu (Honshu, 890 m)</option></select>
-      <label for="hm-measure">Show</label>
-      <select id="hm-measure"><option value="snow_depth_cm">Snow on the ground</option><option value="snowfall_cm">New snow that day</option><option value="temp_mean_c">Thaw days (average above 0 °C)</option></select>
+      <span class="field"><label for="hm-station">Station</label><select id="hm-station"><option value="kutchan">Kutchan (Niseko)</option><option value="rankoshi">Rankoshi (west Niseko)</option><option value="kimobetsu">Kimobetsu (Rusutsu)</option><option value="akaigawa">Akaigawa (Kiroro)</option><option value="furano">Furano</option><option value="shumarinai">Shumarinai (far north)</option><option value="sukayu">Sukayu (Honshu, 890 m)</option></select></span>
+      <span class="field"><label for="hm-measure">Show</label><select id="hm-measure"><option value="snow_depth_cm">Snow on the ground</option><option value="snowfall_cm">New snow that day</option><option value="temp_mean_c">Thaw days (average above 0 °C)</option></select></span>
     </div>
     <div class="legend"><span id="hm-lo">0 cm</span><span class="ramp" id="hm-ramp"></span><span id="hm-hi">230 cm</span><span><i class="sw" style="background:var(--warm)"></i>strong El Niño winter</span><span><i class="sw" style="background:var(--gap)"></i>no reading</span></div>
     <canvas id="heat" tabindex="0" role="img" aria-label="Heat map of daily values for every winter. Use the winter chooser below for exact values."></canvas>
@@ -227,10 +235,8 @@ td.left, th.left { text-align: left; white-space: normal; }
   <p>The buttons show the strong El Niño winters. The grey band is where the base usually sits on each date. Look at where the black line runs in December, and where it is by late January. Any other winter is in the list.</p>
   <div class="panel">
     <div class="controls">
-      <label for="w-station">Station</label>
-      <select id="w-station"><option value="kutchan">Kutchan (Niseko)</option><option value="rankoshi">Rankoshi (west Niseko)</option><option value="kimobetsu">Kimobetsu (Rusutsu)</option><option value="akaigawa">Akaigawa (Kiroro)</option><option value="furano">Furano</option><option value="shumarinai">Shumarinai (far north)</option><option value="sukayu">Sukayu (Honshu, 890 m)</option></select>
-      <label for="w-year">Winter</label>
-      <select id="w-year"></select>
+      <span class="field"><label for="w-station">Station</label><select id="w-station"><option value="kutchan">Kutchan (Niseko)</option><option value="rankoshi">Rankoshi (west Niseko)</option><option value="kimobetsu">Kimobetsu (Rusutsu)</option><option value="akaigawa">Akaigawa (Kiroro)</option><option value="furano">Furano</option><option value="shumarinai">Shumarinai (far north)</option><option value="sukayu">Sukayu (Honshu, 890 m)</option></select></span>
+      <span class="field"><label for="w-year">Winter</label><select id="w-year"></select></span>
     </div>
     <div class="chips" id="w-chips" aria-label="Strong El Niño winters"></div>
     <div class="legend"><span><i class="sw" style="background:var(--neutral);opacity:.5"></i>base in 8 winters out of 10 (1991 to 2025)</span><span><i class="sw line" style="background:var(--ink)"></i>base this winter</span><span><i class="sw" style="background:var(--cold)"></i>new snow each day</span></div>
@@ -450,10 +456,9 @@ td.left, th.left { text-align: left; white-space: normal; }
   <p>Monthly snowfall at the official station nearest each resort, for winters 1981-82 to 2025-26. This is the table behind the comparison above. All files, with notes on how to read them, are on the <a href="data/">data page</a>.</p>
   <div class="panel">
     <div class="controls">
-      <label for="s-station">Station</label>
-      <select id="s-station"></select>
-      <a id="s-csv" href="#">Download this table (CSV)</a>
-      <a id="s-jma" href="#">Source page at the agency</a>
+      <span class="field"><label for="s-station">Station</label><select id="s-station"></select></span>
+      <a id="s-csv" class="push" href="#"><svg width="13" height="13" viewBox="0 0 13 13" aria-hidden="true"><path d="M6.5 1.5v7M3.5 6l3 3 3-3M2 11.5h9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Download CSV</a>
+      <a id="s-jma" href="#"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2H2v8h8V7.5M7 2h3v3M10 2L5.5 6.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Agency source page</a>
     </div>
     <div class="legend"><span><i class="sw" style="background:var(--m1)"></i>December</span><span><i class="sw" style="background:var(--m2)"></i>January</span><span><i class="sw" style="background:var(--m3)"></i>February</span><span><i class="sw" style="background:var(--warm);border-radius:50%"></i>strong El Niño winter</span></div>
     <div id="station"></div>
