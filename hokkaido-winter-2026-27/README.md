@@ -249,7 +249,7 @@ In the last El Niño winter, Niseko had a thin December, then 6.6 m at
 mid-mountain from 17 December to 17 January, then a poor February.
 [V] [Niseko United, 2024-04-27](https://www.niseko.ne.jp/en/news/how-much-did-it-snow-in-niseko-in-winter-2023-24/)
 
-## 6b. West against centre: Niseko and Furano
+## 6b. West against central Hokkaido: Niseko and Furano
 
 Claim to test: central Hokkaido is less deep but more consistent.
 
@@ -419,7 +419,7 @@ or 6 strong El Niño winters in that period (1982, 1991, 1997, 2009,
 
 - **Hokkaido, west side:** December loses about a fifth. January is
   normal.
-- **Hokkaido, centre:** December loses about a tenth. January gains
+- **Central Hokkaido:** December loses about a tenth. January gains
   (104% to 126%). Furano's February is weak (71%).
 - **Honshu:** December loses about half. January loses about a quarter,
   except at Hakuba. JMA's cold-season outlook agrees: below-normal

@@ -96,6 +96,7 @@ th:first-child, td:first-child { text-align: left; }
 thead th { position: sticky; top: 0; background: var(--surface); font-weight: 600; color: var(--ink-2); }
 .tablewrap { max-height: 380px; overflow: auto; border: 1px solid var(--line); border-radius: 8px; }
 tr.enso td:first-child::after { content: " El Niño"; color: var(--warm); font-size: 13px; font-weight: 600; }
+@media (max-width: 620px) { th, td { padding: 6px 7px; } thead th { white-space: normal; line-height: 1.2; vertical-align: bottom; } tr.enso td:first-child::after { content: ""; } tr.enso td:first-child { color: var(--warm); font-weight: 600; } }
 td.left, th.left { text-align: left; white-space: normal; }
 .callout { background: var(--surface); border: 1px solid var(--line); border-left: 6px solid var(--warm); border-radius: 10px; padding: 14px 18px; font-size: 16.5px; max-width: none; }
 #dtip { position: fixed; pointer-events: none; background: var(--ink); color: var(--page); font: 400 14px/1.35 var(--body); padding: 6px 9px; border-radius: 6px; max-width: 250px; opacity: 0; z-index: 6; }
@@ -171,7 +172,7 @@ footer { font-size: 15px; color: var(--ink-2); border-top: 1px solid var(--line)
 <!--block:station-->
 <section>
   <h2>Every station, every winter</h2>
-  <p>Monthly snowfall at the official station nearest each resort, for winters 1981-82 to 2025-26. This is the table behind the comparison of Hokkaido's west side, its centre and Honshu.</p>
+  <p>Monthly snowfall at the official station nearest each resort, for winters 1981-82 to 2025-26. This is the table behind the comparison of Hokkaido's west side, central Hokkaido and Honshu.</p>
   <div class="panel">
     <div class="controls">
       <label for="s-station">Station</label>
@@ -217,7 +218,7 @@ footer { font-size: 15px; color: var(--ink-2); border-top: 1px solid var(--line)
   var STAFFED = { kutchan: 1, sapporo: 1, otaru: 1, iwamizawa: 1, asahikawa: 1, takada: 1 };
   var STATIONS = [
     ["Hokkaido, west side", [["kutchan", "Kutchan (Niseko)", "16", "47433"], ["kimobetsu", "Kimobetsu (Rusutsu)", "16", "0060"], ["akaigawa", "Akaigawa (Kiroro)", "16", "1091"], ["yoichi", "Yoichi (coast near Kiroro)", "16", "0052"], ["otaru", "Otaru", "16", "47411"], ["sapporo", "Sapporo", "14", "47412"], ["iwamizawa", "Iwamizawa", "15", "47413"]]],
-    ["Hokkaido, centre", [["asahikawa", "Asahikawa", "12", "47407"], ["biei", "Biei (Asahidake side)", "12", "1052"], ["furano", "Furano", "12", "0021"], ["shimukappu", "Shimukappu (Tomamu)", "12", "1189"]]],
+    ["Central Hokkaido", [["asahikawa", "Asahikawa", "12", "47407"], ["biei", "Biei (Asahidake side)", "12", "1052"], ["furano", "Furano", "12", "0021"], ["shimukappu", "Shimukappu (Tomamu)", "12", "1189"]]],
     ["Honshu", [["hakuba", "Hakuba", "48", "0396"], ["nozawaonsen", "Nozawa Onsen", "48", "0393"], ["sekiyama", "Sekiyama (Myoko)", "54", "0998"], ["yuzawa", "Yuzawa", "54", "0544"], ["takada", "Takada (Joetsu)", "54", "47612"]]]
   ];
   var css = function (n) { return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); };
@@ -266,7 +267,7 @@ footer { font-size: 15px; color: var(--ink-2); border-top: 1px solid var(--line)
     var name = $("hm-station").value, measure = $("hm-measure").value;
     loadDaily(name).then(function (w) {
       var years = Object.keys(w).map(Number).sort(function (a, b) { return a - b; }).filter(function (y) { return w[y].length > 60; });
-      var c = $("heat"), W = c.clientWidth, left = 58, top = 20, cw = (W - left - 2) / 152, rh = W < 560 ? 6 : 8, H = top + years.length * rh + 4, dpr = window.devicePixelRatio || 1;
+      var c = $("heat"), W = c.clientWidth, left = 64, top = 20, cw = (W - left - 2) / 152, rh = W < 560 ? 6 : 8, H = top + years.length * rh + 4, dpr = window.devicePixelRatio || 1;
       c.width = W * dpr; c.height = H * dpr; c.style.height = H + "px";
       var g = c.getContext("2d"); g.scale(dpr, dpr); g.clearRect(0, 0, W, H);
       var max = measure === "snow_depth_cm" ? (name === "kutchan" ? 230 : 110) : measure === "snowfall_cm" ? (name === "kutchan" ? 40 : 25) : 1;

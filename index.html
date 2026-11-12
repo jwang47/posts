@@ -96,6 +96,7 @@ th:first-child, td:first-child { text-align: left; }
 thead th { position: sticky; top: 0; background: var(--surface); font-weight: 600; color: var(--ink-2); }
 .tablewrap { max-height: 380px; overflow: auto; border: 1px solid var(--line); border-radius: 8px; }
 tr.enso td:first-child::after { content: " El Niño"; color: var(--warm); font-size: 13px; font-weight: 600; }
+@media (max-width: 620px) { th, td { padding: 6px 7px; } thead th { white-space: normal; line-height: 1.2; vertical-align: bottom; } tr.enso td:first-child::after { content: ""; } tr.enso td:first-child { color: var(--warm); font-weight: 600; } }
 td.left, th.left { text-align: left; white-space: normal; }
 .callout { background: var(--surface); border: 1px solid var(--line); border-left: 6px solid var(--warm); border-radius: 10px; padding: 14px 18px; font-size: 16.5px; max-width: none; }
 #dtip { position: fixed; pointer-events: none; background: var(--ink); color: var(--page); font: 400 14px/1.35 var(--body); padding: 6px 9px; border-radius: 6px; max-width: 250px; opacity: 0; z-index: 6; }

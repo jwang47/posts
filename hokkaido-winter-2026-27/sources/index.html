@@ -96,6 +96,7 @@ th:first-child, td:first-child { text-align: left; }
 thead th { position: sticky; top: 0; background: var(--surface); font-weight: 600; color: var(--ink-2); }
 .tablewrap { max-height: 380px; overflow: auto; border: 1px solid var(--line); border-radius: 8px; }
 tr.enso td:first-child::after { content: " El Niño"; color: var(--warm); font-size: 13px; font-weight: 600; }
+@media (max-width: 620px) { th, td { padding: 6px 7px; } thead th { white-space: normal; line-height: 1.2; vertical-align: bottom; } tr.enso td:first-child::after { content: ""; } tr.enso td:first-child { color: var(--warm); font-weight: 600; } }
 td.left, th.left { text-align: left; white-space: normal; }
 .callout { background: var(--surface); border: 1px solid var(--line); border-left: 6px solid var(--warm); border-radius: 10px; padding: 14px 18px; font-size: 16.5px; max-width: none; }
 #dtip { position: fixed; pointer-events: none; background: var(--ink); color: var(--page); font: 400 14px/1.35 var(--body); padding: 6px 9px; border-radius: 6px; max-width: 250px; opacity: 0; z-index: 6; }
@@ -147,7 +148,7 @@ footer { font-size: 15px; color: var(--ink-2); border-top: 1px solid var(--line)
 <a href="#4-the-november-cold-snap">4. The November cold snap</a>
 <a href="#5-other-drivers">5. Other drivers</a>
 <a href="#6-the-months-in-a-normal-year">6. The months in a normal year</a>
-<a href="#6b-west-against-centre-niseko-and-furano">6b. West against centre: Niseko and Furano</a>
+<a href="#6b-west-against-central-hokkaido-niseko-and-furano">6b. West against central Hokkaido: Niseko and Furano</a>
 <a href="#7-crowds-and-prices-by-date">7. Crowds and prices by date</a>
 <a href="#8-forecast-by-month">8. Forecast by month</a>
 <a href="#9-week-by-week-at-kutchan">9. Week by week at Kutchan</a>
@@ -593,7 +594,7 @@ ground on 30 December 2024 and 21 cm on 25 December 2025.
 <p>In the last El Niño winter, Niseko had a thin December, then 6.6 m at
 mid-mountain from 17 December to 17 January, then a poor February.
 <abbr class="lab lab-V" title="verified: the page was read directly">V</abbr> <a href="https://www.niseko.ne.jp/en/news/how-much-did-it-snow-in-niseko-in-winter-2023-24/">Niseko United, 2024-04-27</a></p>
-<h2 id="6b-west-against-centre-niseko-and-furano">6b. West against centre: Niseko and Furano</h2>
+<h2 id="6b-west-against-central-hokkaido-niseko-and-furano">6b. West against central Hokkaido: Niseko and Furano</h2>
 <p>Claim to test: central Hokkaido is less deep but more consistent.</p>
 <p>Data: JMA Furano (AMeDAS, 174 m) and JMA Kutchan, winters 1991-92 to
 2025-26. <a href="../furano-snowfall.csv"><code>furano-snowfall.csv</code></a> and <a href="../deepest-snow.csv"><code>deepest-snow.csv</code></a> hold the tables.
@@ -1089,7 +1090,7 @@ or 6 strong El Niño winters in that period (1982, 1991, 1997, 2009,
 <ul>
 <li><strong>Hokkaido, west side:</strong> December loses about a fifth. January is
 normal.</li>
-<li><strong>Hokkaido, centre:</strong> December loses about a tenth. January gains
+<li><strong>Central Hokkaido:</strong> December loses about a tenth. January gains
 (104% to 126%). Furano&#39;s February is weak (71%).</li>
 <li><strong>Honshu:</strong> December loses about half. January loses about a quarter,
 except at Hakuba. JMA&#39;s cold-season outlook agrees: below-normal

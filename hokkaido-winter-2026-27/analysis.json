@@ -1421,7 +1421,7 @@
    "label": "Asahikawa",
    "lon": 142.37,
    "lat": 43.76,
-   "group": "centre",
+   "group": "central",
    "dec": {
     "median": 98,
     "winters": {
@@ -1472,7 +1472,7 @@
    "label": "Asahidake side (Biei)",
    "lon": 142.47,
    "lat": 43.59,
-   "group": "centre",
+   "group": "central",
    "dec": {
     "median": 84,
     "winters": {
@@ -1519,7 +1519,7 @@
    "label": "Furano",
    "lon": 142.4,
    "lat": 43.33,
-   "group": "centre",
+   "group": "central",
    "dec": {
     "median": 91,
     "winters": {
@@ -1567,7 +1567,7 @@
    "label": "Tomamu (Shimukappu)",
    "lon": 142.4,
    "lat": 42.98,
-   "group": "centre",
+   "group": "central",
    "dec": {
     "median": 90,
     "winters": {
