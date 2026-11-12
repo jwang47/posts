@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Climate change in 2026: the data</title>
+<meta name="description" content="The raw data files behind the analysis, with their sources.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root { --page: #f3f6f9; --surface: #fcfcfb; --ink: #101820; --ink-2: #4b5560; --muted: #6f7780; --line: #dde2e7; --cold: #2a78d6; --warm: #eb6834;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif; --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif; }
+@media (prefers-color-scheme: dark) { :root { color-scheme: dark; --page: #0c1116; --surface: #161c22; --ink: #eef1f4; --ink-2: #b9c1c9; --muted: #969da5; --line: #2a323a; --cold: #3987e5; --warm: #d95926; } }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 400 18px/1.55 var(--body); }
+nav.top { max-width: 760px; margin: 0 auto; padding: 16px 20px 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15.5px; }
+nav.top a { color: var(--ink-2); text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; }
+nav.top a:hover { color: var(--ink); }
+nav.top a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--cold); font-weight: 600; }
+main { max-width: 760px; margin: 0 auto; padding: 28px 20px 72px; display: flex; flex-direction: column; gap: 48px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.12; }
+h1 { font-size: clamp(32px, 6vw, 46px); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: clamp(24px, 4.2vw, 30px); font-weight: 700; }
+h3 { font-size: 18px; font-weight: 500; }
+p { margin: 0; }
+a { color: var(--cold); }
+a:focus-visible, summary:focus-visible, svg:focus-visible { outline: 2px solid var(--cold); outline-offset: 2px; }
+section, header { display: flex; flex-direction: column; gap: 16px; }
+.kicker { font: 600 14px/1.2 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+.lede { font-size: 20px; color: var(--ink-2); }
+.tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+@media (min-width: 640px) { .tiles { grid-template-columns: repeat(4, 1fr); } }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
+.tile b { font: 700 26px/1.1 var(--display); font-variant-numeric: tabular-nums; }
+.tile span { font-size: 15px; line-height: 1.35; color: var(--ink-2); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px; position: relative; }
+.panel h3 { font-weight: 700; }
+.panel .sub, .note { font-size: 15px; color: var(--ink-2); }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 14.5px; color: var(--ink-2); }
+.legend i { display: inline-block; width: 14px; height: 3px; border-radius: 2px; vertical-align: middle; margin-right: 6px; }
+svg.chart { max-width: 100%; height: auto; display: block; overflow: visible; touch-action: pan-y; }
+svg.chart text { font: 400 13px var(--body); fill: var(--muted); }
+svg.chart text.lab { fill: var(--ink-2); font-size: 13.5px; }
+svg.chart text.val { fill: var(--ink); font-size: 13.5px; font-variant-numeric: tabular-nums; }
+svg.chart .grid { stroke: var(--line); stroke-width: 1; }
+svg.chart .zero { stroke: var(--muted); stroke-width: 1; }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--page); font-size: 14px; line-height: 1.35; padding: 6px 9px; border-radius: 6px; white-space: nowrap; transform: translate(-50%, -100%); opacity: 0; transition: opacity .1s; z-index: 2; }
+.tip.on { opacity: 1; }
+details { font-size: 15px; color: var(--ink-2); }
+summary { cursor: pointer; }
+details table { border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+details th, details td { text-align: right; padding: 2px 12px 2px 0; }
+details .wrap { max-height: 220px; overflow: auto; }
+ul.plain { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
+ol.levers { margin: 0; padding-left: 24px; display: flex; flex-direction: column; gap: 10px; }
+ol.levers b { font-weight: 600; }
+.box { border-left: 3px solid var(--cold); padding: 4px 0 4px 14px; color: var(--ink-2); }
+footer { font-size: 15px; color: var(--ink-2); }
+
+.prose { display: flex; flex-direction: column; gap: 14px; }
+.prose h2 { margin-top: 34px; scroll-margin-top: 16px; }
+.prose ul, .prose ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; }
+.prose code { font: 400 .88em ui-monospace, "SF Mono", Consolas, monospace; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; }
+.prose pre { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; overflow-x: auto; margin: 0; }
+.prose pre code { border: 0; padding: 0; background: none; }
+.scroll { overflow-x: auto; }
+.prose table { border-collapse: collapse; font-size: 15.5px; }
+.prose th, .prose td { text-align: left; vertical-align: top; padding: 6px 12px 6px 0; border-bottom: 1px solid var(--line); min-width: 80px; }
+.prose a { overflow-wrap: anywhere; }
+.lab { font: 600 12px/1 var(--body); text-decoration: none; display: inline-block; padding: 3px 6px; border-radius: 4px; vertical-align: 1px; cursor: help; border: 1px solid var(--line); color: var(--ink-2); background: var(--surface); }
+.lab-D, .lab-V { background: var(--cold); border-color: var(--cold); color: #fff; }
+.lab-M { border-style: dashed; }
+.toc { display: flex; flex-wrap: wrap; gap: 6px 8px; font-size: 15px; }
+.toc a { text-decoration: none; color: var(--ink-2); border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 4px 11px; }
+</style>
+</head>
+<body>
+<nav class="top" aria-label="Pages">
+  <a href="../">Explainer</a>
+  <a href="../sources/">Report and sources</a>
+  <a href="../data/" aria-current="page">Data</a>
+</nav>
+<main>
+<header>
+  <div class="kicker">The data</div>
+  <h1>Every file behind the numbers</h1>
+  <p class="lede">The files are as downloaded on 12 November 2026. <a href="manifest.csv">manifest.csv</a> gives the address, size and SHA-256 of each one. <a href="fetch.py">fetch.py</a> downloads them again and <a href="../analyze.py">analyze.py</a> computes the numbers in <a href="../analysis.json">analysis.json</a>.</p>
+</header>
+<div class="prose">
+<p>Produced by <code>fetch.py</code> (standard library only). Run
+<code>python -X utf8 fetch.py</code> to redo all downloads, or
+<code>python -X utf8 fetch.py noaa nasa</code> for the sources whose name contains a
+word. <code>manifest.csv</code> has one row per source: file, URL, date read, size,
+SHA-256 and status. Large downloads go to <code>cache/</code> (not committed). All
+files outside <code>cache/</code> are committed as downloaded, with no edits (the
+OWID files are extracts).</p>
+<p>The cloud container reaches only GitHub and the Berkeley Earth bucket.
+The agency sites (NOAA, NASA, Met Office, ECMWF, NSIDC, JMA) return
+<code>403</code> there. Run the script on a home machine for those; a failed source
+stays in the manifest as <code>failed</code>. The agency files in <code>primary/</code> were
+downloaded from a home machine on 2026-11-12 with curl, from the URLs in <code>fetch.py</code>
+and with its User-Agent. Each was checked for HTTP 200 and for data, not
+an HTML error page.</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Files</th>
+<th>Source</th>
+<th>Content</th>
+<th>Licence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>igcc/</code></td>
+<td>Indicators of Global Climate Change data repository, <a href="https://github.com/ClimateIndicator/data">https://github.com/ClimateIndicator/data</a>, commit <code>d9726573</code> (19 Oct 2026). Paper: Forster et al., ESSD 18, 3889 (2026)</td>
+<td>The <code>data/base</code> folder as published: annual global temperature 1850-2025, human-caused warming, greenhouse gas concentrations 1750-2025, radiative forcing, Earth heat inventory, sea level 1901-2025, remaining carbon budgets, emissions by gas, land precipitation, temperature extremes, marine heatwaves</td>
+<td>CC BY 4.0 (<code>igcc/UPSTREAM-LICENSE</code>, <code>igcc/UPSTREAM-CITATION.cff</code>)</td>
+</tr>
+<tr>
+<td><code>owid/co2-extract.csv</code></td>
+<td>Our World in Data CO2 and greenhouse gas dataset, <a href="https://github.com/owid/co2-data">https://github.com/owid/co2-data</a>. It collects the Global Carbon Budget, Jones et al. and others</td>
+<td>18 countries and groups, 1850 on, 24 columns. The lists are in <code>fetch.py</code>. Units are in <code>owid/owid-co2-codebook.csv</code> (CO2 in million tonnes)</td>
+<td>CC BY 4.0</td>
+</tr>
+<tr>
+<td><code>owid/energy-extract.csv</code></td>
+<td>Our World in Data energy dataset, <a href="https://github.com/owid/energy-data">https://github.com/owid/energy-data</a>. It collects Ember and the Energy Institute Statistical Review</td>
+<td>World, China, US, EU, India and Japan, 1985 on: electricity by source in TWh and in percent. Units are in <code>owid/owid-energy-codebook.csv</code></td>
+<td>CC BY 4.0</td>
+</tr>
+<tr>
+<td><code>primary/berkeley-earth-land-ocean-annual.txt</code></td>
+<td>Berkeley Earth, <a href="https://berkeleyearth.org/data/">https://berkeleyearth.org/data/</a></td>
+<td>Annual global land and ocean temperature anomaly against 1951-1980</td>
+<td>CC BY 4.0</td>
+</tr>
+<tr>
+<td>other files in <code>primary/</code></td>
+<td>NOAA GML (CO2, CH4, N2O), NASA GISTEMP, Met Office HadCRUT5, NOAA NCEI, ECMWF Climate Pulse (ERA5), NSIDC Sea Ice Index, NOAA CPC (ONI), NOAA STAR (sea level), JMA</td>
+<td>Cross-checks of the IGCC values from the agencies. One row per file in the next table</td>
+<td>Public data of each agency</td>
+</tr>
+</tbody></table></div>
+<h2>Agency files in <code>primary/</code></h2>
+<p>URLs are in <code>manifest.csv</code>. &quot;Last row&quot; is the newest data row on 2026-11-12.</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>File</th>
+<th>Source</th>
+<th>Content</th>
+<th>Last row</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>berkeley-earth-land-ocean-annual.txt</code></td>
+<td>Berkeley Earth</td>
+<td>Annual global anomaly, °C against 1951-1980; one set of columns with air temperature over sea ice, one with water temperature</td>
+<td>2024</td>
+</tr>
+<tr>
+<td><code>era5-daily-2t-global.csv</code></td>
+<td>ECMWF Climate Pulse</td>
+<td>Daily global 2 m temperature, °C, with the 1991-2020 climatology and anomaly; <code>status</code> is FINAL or PRELIMINARY</td>
+<td>2026-11-09 (PRELIMINARY)</td>
+</tr>
+<tr>
+<td><code>hadcrut5-global-annual.csv</code></td>
+<td>Met Office HadCRUT.5.1.0.0, analysis summary series</td>
+<td>Annual global anomaly, °C against 1961-1990, with 95 % limits</td>
+<td>2026 (part year, to July)</td>
+</tr>
+<tr>
+<td><code>hadcrut5-global-monthly.csv</code></td>
+<td>same</td>
+<td>Monthly global anomaly, °C against 1961-1990</td>
+<td>2026-07</td>
+</tr>
+<tr>
+<td><code>jma-japan-annual-temp.csv</code></td>
+<td>JMA</td>
+<td>Annual Japan mean temperature anomaly, °C</td>
+<td>2025</td>
+</tr>
+<tr>
+<td><code>jma-world-annual-temp.csv</code></td>
+<td>JMA</td>
+<td>Annual anomaly, °C: world, Northern and Southern Hemisphere</td>
+<td>2025</td>
+</tr>
+<tr>
+<td><code>nasa-gistemp-global-monthly.csv</code></td>
+<td>NASA GISS GISTEMP v4, GLB.Ts+dSST</td>
+<td>Monthly and seasonal global anomaly, °C against 1951-1980; <code>***</code> = not yet available</td>
+<td>2026, to September</td>
+</tr>
+<tr>
+<td><code>noaa-ch4-annmean-global.csv</code></td>
+<td>NOAA GML</td>
+<td>Global annual mean CH4, ppb</td>
+<td>2025</td>
+</tr>
+<tr>
+<td><code>noaa-co2-annmean-global.csv</code></td>
+<td>NOAA GML</td>
+<td>Global annual mean CO2, ppm</td>
+<td>2025</td>
+</tr>
+<tr>
+<td><code>noaa-co2-annmean-mlo.csv</code></td>
+<td>NOAA GML</td>
+<td>Mauna Loa annual mean CO2, ppm</td>
+<td>2025</td>
+</tr>
+<tr>
+<td><code>noaa-co2-growth-global.csv</code></td>
+<td>NOAA GML</td>
+<td>Global annual CO2 growth rate, ppm per year</td>
+<td>2025</td>
+</tr>
+<tr>
+<td><code>noaa-co2-mm-mlo.csv</code></td>
+<td>NOAA GML</td>
+<td>Mauna Loa monthly CO2, ppm (average and deseasonalized)</td>
+<td>2026-09</td>
+</tr>
+<tr>
+<td><code>noaa-globaltemp-annual.csv</code></td>
+<td>NOAA NCEI Climate at a Glance</td>
+<td>Annual global land and ocean anomaly, °C against 1901-2000</td>
+<td>2025</td>
+</tr>
+<tr>
+<td><code>noaa-n2o-annmean-global.csv</code></td>
+<td>NOAA GML</td>
+<td>Global annual mean N2O, ppb</td>
+<td>2025</td>
+</tr>
+<tr>
+<td><code>noaa-oni.txt</code></td>
+<td>NOAA CPC</td>
+<td>Oceanic Niño Index, 3-month seasons; <code>TOTAL</code> and <code>ANOM</code> in °C</td>
+<td>ASO 2026 (+2.46)</td>
+</tr>
+<tr>
+<td><code>noaa-star-global-sea-level.csv</code></td>
+<td>NOAA STAR Laboratory for Satellite Altimetry</td>
+<td>Global mean sea level anomaly, mm, one column per altimeter mission</td>
+<td>2025.1268 (Sentinel-6MF)</td>
+</tr>
+<tr>
+<td><code>nsidc-antarctic-february-extent.csv</code></td>
+<td>NSIDC Sea Ice Index G02135 v4.0</td>
+<td>Antarctic February extent and area, million km²</td>
+<td>2026</td>
+</tr>
+<tr>
+<td><code>nsidc-arctic-september-extent.csv</code></td>
+<td>same</td>
+<td>Arctic September extent and area, million km²</td>
+<td>2026</td>
+</tr>
+</tbody></table></div>
+<p>Notes:</p>
+<ul>
+<li>The IGCC annual temperature is a mean of several datasets, so it is a
+little lower than Copernicus ERA5 or Berkeley Earth alone.</li>
+<li>In <code>igcc/earth_energy_imbalance/earth_energy_imbalance.csv</code> the
+<code>total</code> column stops at 2020. The ocean columns continue to 2024. The
+last row has no year.</li>
+<li>Our World in Data <code>co2</code> is fossil fuel and cement CO2 before the
+subtraction of cement carbonation. The Global Carbon Budget headline
+is lower for that reason.</li>
+<li>The download through <code>archive/&lt;sha&gt;.tar.gz</code> is blocked in the cloud
+container, so <code>fetch.py</code> uses <code>git clone</code> for the IGCC repository.</li>
+<li>Each agency dataset uses its own baseline (see the table). Rebase
+before you compare anomalies.</li>
+<li>The NOAA GML and NOAA STAR files start with <code>#</code> comment lines
+(citation, method, notes). The NOAA NCEI file has three <code>#</code> lines
+(title, units, base period). Skip them when you parse.</li>
+<li>GISTEMP has a title line (<code>Land-Ocean: Global Means</code>) before the
+header row.</li>
+<li>The two JMA files are Shift-JIS (cp932), not UTF-8. Read them with
+<code>encoding=&quot;cp932&quot;</code>. Headers: <code>年,偏差</code> (year, anomaly) and
+<code>年,世界全体,北半球,南半球</code> (year, world, NH, SH). Values carry an
+explicit <code>+</code> sign.</li>
+<li>HadCRUT.5.0.2.0 is superseded; its monthly file stops at 2025-02.
+<code>fetch.py</code> reads HadCRUT.5.1.0.0 since 2026-11-12.</li>
+<li>The 2026 row of HadCRUT5 annual and the ERA5 days after the last FINAL
+date are not final values.</li>
+<li>NSIDC changed the source dataset from NSIDC-0051 to NSIDC-0803 in
+recent years (column <code>source_dataset</code>).</li>
+</ul>
+<h2>Files</h2>
+<ul>
+<li><a href="../data/README.md">README.md</a></li>
+<li><a href="../data/fetch.py">fetch.py</a></li>
+<li><a href="../data/igcc/UPSTREAM-CITATION.cff">igcc/UPSTREAM-CITATION.cff</a></li>
+<li><a href="../data/igcc/UPSTREAM-LICENSE">igcc/UPSTREAM-LICENSE</a></li>
+<li><a href="../data/igcc/UPSTREAM-README.md">igcc/UPSTREAM-README.md</a></li>
+<li><a href="../data/igcc/anthropogenic_warming/Assessment-Extrapolation-2026_GMST_headlines.csv">igcc/anthropogenic_warming/Assessment-Extrapolation-2026_GMST_headlines.csv</a></li>
+<li><a href="../data/igcc/anthropogenic_warming/Assessment-Update-2025_GMST_headlines.csv">igcc/anthropogenic_warming/Assessment-Update-2025_GMST_headlines.csv</a></li>
+<li><a href="../data/igcc/anthropogenic_warming/Gillett_GMST_headlines.csv">igcc/anthropogenic_warming/Gillett_GMST_headlines.csv</a></li>
+<li><a href="../data/igcc/anthropogenic_warming/Gillett_GMST_rates.csv">igcc/anthropogenic_warming/Gillett_GMST_rates.csv</a></li>
+<li><a href="../data/igcc/anthropogenic_warming/Gillett_GMST_timeseries.csv">igcc/anthropogenic_warming/Gillett_GMST_timeseries.csv</a></li>
+<li><a href="../data/igcc/anthropogenic_warming/Gillett_GSAT_headlines.csv">igcc/anthropogenic_warming/Gillett_GSAT_headlines.csv</a></li>
+<li><a href="../data/igcc/anthropogenic_warming/Ribes_GMST_headlines.csv">igcc/anthropogenic_warming/Ribes_GMST_headlines.csv</a></li>
+<li><a href="../data/igcc/anthropogenic_warming/Ribes_GMST_rates.csv">igcc/anthropogenic_warming/Ribes_GMST_rates.csv</a></li>
+<li><a href="../data/igcc/anthropogenic_warming/Ribes_GMST_timeseries.csv">igcc/anthropogenic_warming/Ribes_GMST_timeseries.csv</a></li>
+<li><a href="../data/igcc/anthropogenic_warming/Walsh_GMST_headlines.csv">igcc/anthropogenic_warming/Walsh_GMST_headlines.csv</a></li>
+<li><a href="../data/igcc/anthropogenic_warming/Walsh_GMST_rates.csv">igcc/anthropogenic_warming/Walsh_GMST_rates.csv</a></li>
+<li><a href="../data/igcc/anthropogenic_warming/Walsh_GMST_timeseries.csv">igcc/anthropogenic_warming/Walsh_GMST_timeseries.csv</a></li>
+<li><a href="../data/igcc/anthropogenic_warming/assessment_6thIPCC_headlines.csv">igcc/anthropogenic_warming/assessment_6thIPCC_headlines.csv</a></li>
+<li><a href="../data/igcc/anthropogenic_warming/multi_method_timeseries.csv">igcc/anthropogenic_warming/multi_method_timeseries.csv</a></li>
+<li><a href="../data/igcc/anthropogenic_warming_by_species/ERF_relative_to_1750.csv">igcc/anthropogenic_warming_by_species/ERF_relative_to_1750.csv</a></li>
+<li><a href="../data/igcc/anthropogenic_warming_by_species/temperature_relative_to_1750.csv">igcc/anthropogenic_warming_by_species/temperature_relative_to_1750.csv</a></li>
+<li><a href="../data/igcc/carbon_budget/budget_normal_magicc_True_fair_False_esf_7.1pm26.7_likeli_0.6827_nonCO2pc50.0_GtCO2_permaf_False_zecsd_0.0_asym_False_hdT_1.24NonlinNonCO2_all_None_recEm213.csv">igcc/carbon_budget/budget_normal_magicc_True_fair_False_esf_7.1pm26.7_likeli_0.6827_nonCO2pc50.0_GtCO2_permaf_False_zecsd_0.0_asym_False_hdT_1.24NonlinNonCO2_all_None_recEm213.csv</a></li>
+<li><a href="../data/igcc/carbon_budget/budget_normal_magicc_True_fair_False_esf_7.1pm26.7_likeli_0.6827_nonCO2pc50.0_GtCO2_permaf_False_zecsd_0.0_asym_False_hdT_1.26NonlinNonCO2_all_None_recEm213.csv">igcc/carbon_budget/budget_normal_magicc_True_fair_False_esf_7.1pm26.7_likeli_0.6827_nonCO2pc50.0_GtCO2_permaf_False_zecsd_0.0_asym_False_hdT_1.26NonlinNonCO2_all_None_recEm213.csv</a></li>
+<li><a href="../data/igcc/carbon_budget/budget_normal_magicc_True_fair_True_esf_7.1pm26.7_likeli_0.6827_nonCO2pc50.0_GtCO2_permaf_False_zecsd_0.19_asym_False_hdT_1.24NonlinNonCO2_all_None_recEm213.csv">igcc/carbon_budget/budget_normal_magicc_True_fair_True_esf_7.1pm26.7_likeli_0.6827_nonCO2pc50.0_GtCO2_permaf_False_zecsd_0.19_asym_False_hdT_1.24NonlinNonCO2_all_None_recEm213.csv</a></li>
+<li><a href="../data/igcc/earth_energy_imbalance/earth_energy_imbalance.csv">igcc/earth_energy_imbalance/earth_energy_imbalance.csv</a></li>
+<li><a href="../data/igcc/effective_radiative_forcing/ERF_best.csv">igcc/effective_radiative_forcing/ERF_best.csv</a></li>
+<li><a href="../data/igcc/effective_radiative_forcing/ERF_best_aggregates.csv">igcc/effective_radiative_forcing/ERF_best_aggregates.csv</a></li>
+<li><a href="../data/igcc/effective_radiative_forcing/ERF_p05.csv">igcc/effective_radiative_forcing/ERF_p05.csv</a></li>
+<li><a href="../data/igcc/effective_radiative_forcing/ERF_p05_aggregates.csv">igcc/effective_radiative_forcing/ERF_p05_aggregates.csv</a></li>
+<li><a href="../data/igcc/effective_radiative_forcing/ERF_p95.csv">igcc/effective_radiative_forcing/ERF_p95.csv</a></li>
+<li><a href="../data/igcc/effective_radiative_forcing/ERF_p95_aggregates.csv">igcc/effective_radiative_forcing/ERF_p95_aggregates.csv</a></li>
+<li><a href="../data/igcc/extreme_temperatures/txx_decadal_means.csv">igcc/extreme_temperatures/txx_decadal_means.csv</a></li>
+<li><a href="../data/igcc/extreme_temperatures/txx_timeseries.csv">igcc/extreme_temperatures/txx_timeseries.csv</a></li>
+<li><a href="../data/igcc/global_land_precipitation/global_land_precipitation.csv">igcc/global_land_precipitation/global_land_precipitation.csv</a></li>
+<li><a href="../data/igcc/global_mean_temperatures/annual_averages.csv">igcc/global_mean_temperatures/annual_averages.csv</a></li>
+<li><a href="../data/igcc/global_mean_temperatures/decadal_averages.csv">igcc/global_mean_temperatures/decadal_averages.csv</a></li>
+<li><a href="../data/igcc/global_mean_temperatures/twenty_year_averages.csv">igcc/global_mean_temperatures/twenty_year_averages.csv</a></li>
+<li><a href="../data/igcc/greenhouse_gas_concentrations/ghg_concentrations.csv">igcc/greenhouse_gas_concentrations/ghg_concentrations.csv</a></li>
+<li><a href="../data/igcc/greenhouse_gas_emissions/greehouse_gas_emissions_co2eq.csv">igcc/greenhouse_gas_emissions/greehouse_gas_emissions_co2eq.csv</a></li>
+<li><a href="../data/igcc/marine_heatwave_days/MHW_days_per_year_combined.csv">igcc/marine_heatwave_days/MHW_days_per_year_combined.csv</a></li>
+<li><a href="../data/igcc/sea_level_rise/AR6_GMSL_TG_ensemble_FGD.csv">igcc/sea_level_rise/AR6_GMSL_TG_ensemble_FGD.csv</a></li>
+<li><a href="../data/igcc/sea_level_rise/AR6_GMSL_altimeter_FGD.csv">igcc/sea_level_rise/AR6_GMSL_altimeter_FGD.csv</a></li>
+<li><a href="../data/igcc/sea_level_rise/AR6_GMSL_reconstructions_FGD.csv">igcc/sea_level_rise/AR6_GMSL_reconstructions_FGD.csv</a></li>
+<li><a href="../data/igcc/sea_level_rise/IGCC_GMSL_ensemble.csv">igcc/sea_level_rise/IGCC_GMSL_ensemble.csv</a></li>
+<li><a href="../data/igcc/sea_level_rise/altimetry_ens.csv">igcc/sea_level_rise/altimetry_ens.csv</a></li>
+<li><a href="../data/igcc/sea_level_rise/altimetry_indiv_estimates.csv">igcc/sea_level_rise/altimetry_indiv_estimates.csv</a></li>
+<li><a href="../data/manifest.csv">manifest.csv</a></li>
+<li><a href="../data/owid/co2-extract.csv">owid/co2-extract.csv</a></li>
+<li><a href="../data/owid/energy-extract.csv">owid/energy-extract.csv</a></li>
+<li><a href="../data/owid/owid-co2-codebook.csv">owid/owid-co2-codebook.csv</a></li>
+<li><a href="../data/owid/owid-energy-codebook.csv">owid/owid-energy-codebook.csv</a></li>
+<li><a href="../data/primary/berkeley-earth-land-ocean-annual.txt">primary/berkeley-earth-land-ocean-annual.txt</a></li>
+<li><a href="../data/primary/era5-daily-2t-global.csv">primary/era5-daily-2t-global.csv</a></li>
+<li><a href="../data/primary/hadcrut5-global-annual.csv">primary/hadcrut5-global-annual.csv</a></li>
+<li><a href="../data/primary/hadcrut5-global-monthly.csv">primary/hadcrut5-global-monthly.csv</a></li>
+<li><a href="../data/primary/jma-japan-annual-temp.csv">primary/jma-japan-annual-temp.csv</a></li>
+<li><a href="../data/primary/jma-world-annual-temp.csv">primary/jma-world-annual-temp.csv</a></li>
+<li><a href="../data/primary/nasa-gistemp-global-monthly.csv">primary/nasa-gistemp-global-monthly.csv</a></li>
+<li><a href="../data/primary/noaa-ch4-annmean-global.csv">primary/noaa-ch4-annmean-global.csv</a></li>
+<li><a href="../data/primary/noaa-co2-annmean-global.csv">primary/noaa-co2-annmean-global.csv</a></li>
+<li><a href="../data/primary/noaa-co2-annmean-mlo.csv">primary/noaa-co2-annmean-mlo.csv</a></li>
+<li><a href="../data/primary/noaa-co2-growth-global.csv">primary/noaa-co2-growth-global.csv</a></li>
+<li><a href="../data/primary/noaa-co2-mm-mlo.csv">primary/noaa-co2-mm-mlo.csv</a></li>
+<li><a href="../data/primary/noaa-globaltemp-annual.csv">primary/noaa-globaltemp-annual.csv</a></li>
+<li><a href="../data/primary/noaa-n2o-annmean-global.csv">primary/noaa-n2o-annmean-global.csv</a></li>
+<li><a href="../data/primary/noaa-oni.txt">primary/noaa-oni.txt</a></li>
+<li><a href="../data/primary/noaa-star-global-sea-level.csv">primary/noaa-star-global-sea-level.csv</a></li>
+<li><a href="../data/primary/nsidc-antarctic-february-extent.csv">primary/nsidc-antarctic-february-extent.csv</a></li>
+<li><a href="../data/primary/nsidc-arctic-september-extent.csv">primary/nsidc-arctic-september-extent.csv</a></li>
+</ul>
+<h2>Research notes</h2>
+<ul>
+<li><a href="../research/research-emissions.md">research/research-emissions.md</a></li>
+<li><a href="../research/research-impacts-actions.md">research/research-impacts-actions.md</a></li>
+<li><a href="../research/research-science.md">research/research-science.md</a></li>
+<li><a href="../research/research-solutions.md">research/research-solutions.md</a></li>
+</ul>
+</div>
+</main>
+</body>
+</html>

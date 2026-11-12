@@ -1,0 +1,1117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Climate change in 2026: report and sources</title>
+<meta name="description" content="The full written report with every source linked and labelled by how it was checked.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root { --page: #f3f6f9; --surface: #fcfcfb; --ink: #101820; --ink-2: #4b5560; --muted: #6f7780; --line: #dde2e7; --cold: #2a78d6; --warm: #eb6834;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif; --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif; }
+@media (prefers-color-scheme: dark) { :root { color-scheme: dark; --page: #0c1116; --surface: #161c22; --ink: #eef1f4; --ink-2: #b9c1c9; --muted: #969da5; --line: #2a323a; --cold: #3987e5; --warm: #d95926; } }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 400 18px/1.55 var(--body); }
+nav.top { max-width: 760px; margin: 0 auto; padding: 16px 20px 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15.5px; }
+nav.top a { color: var(--ink-2); text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; }
+nav.top a:hover { color: var(--ink); }
+nav.top a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--cold); font-weight: 600; }
+main { max-width: 760px; margin: 0 auto; padding: 28px 20px 72px; display: flex; flex-direction: column; gap: 48px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.12; }
+h1 { font-size: clamp(32px, 6vw, 46px); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: clamp(24px, 4.2vw, 30px); font-weight: 700; }
+h3 { font-size: 18px; font-weight: 500; }
+p { margin: 0; }
+a { color: var(--cold); }
+a:focus-visible, summary:focus-visible, svg:focus-visible { outline: 2px solid var(--cold); outline-offset: 2px; }
+section, header { display: flex; flex-direction: column; gap: 16px; }
+.kicker { font: 600 14px/1.2 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+.lede { font-size: 20px; color: var(--ink-2); }
+.tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+@media (min-width: 640px) { .tiles { grid-template-columns: repeat(4, 1fr); } }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
+.tile b { font: 700 26px/1.1 var(--display); font-variant-numeric: tabular-nums; }
+.tile span { font-size: 15px; line-height: 1.35; color: var(--ink-2); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px; position: relative; }
+.panel h3 { font-weight: 700; }
+.panel .sub, .note { font-size: 15px; color: var(--ink-2); }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 14.5px; color: var(--ink-2); }
+.legend i { display: inline-block; width: 14px; height: 3px; border-radius: 2px; vertical-align: middle; margin-right: 6px; }
+svg.chart { max-width: 100%; height: auto; display: block; overflow: visible; touch-action: pan-y; }
+svg.chart text { font: 400 13px var(--body); fill: var(--muted); }
+svg.chart text.lab { fill: var(--ink-2); font-size: 13.5px; }
+svg.chart text.val { fill: var(--ink); font-size: 13.5px; font-variant-numeric: tabular-nums; }
+svg.chart .grid { stroke: var(--line); stroke-width: 1; }
+svg.chart .zero { stroke: var(--muted); stroke-width: 1; }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--page); font-size: 14px; line-height: 1.35; padding: 6px 9px; border-radius: 6px; white-space: nowrap; transform: translate(-50%, -100%); opacity: 0; transition: opacity .1s; z-index: 2; }
+.tip.on { opacity: 1; }
+details { font-size: 15px; color: var(--ink-2); }
+summary { cursor: pointer; }
+details table { border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+details th, details td { text-align: right; padding: 2px 12px 2px 0; }
+details .wrap { max-height: 220px; overflow: auto; }
+ul.plain { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
+ol.levers { margin: 0; padding-left: 24px; display: flex; flex-direction: column; gap: 10px; }
+ol.levers b { font-weight: 600; }
+.box { border-left: 3px solid var(--cold); padding: 4px 0 4px 14px; color: var(--ink-2); }
+footer { font-size: 15px; color: var(--ink-2); }
+
+.prose { display: flex; flex-direction: column; gap: 14px; }
+.prose h2 { margin-top: 34px; scroll-margin-top: 16px; }
+.prose ul, .prose ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; }
+.prose code { font: 400 .88em ui-monospace, "SF Mono", Consolas, monospace; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; }
+.prose pre { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; overflow-x: auto; margin: 0; }
+.prose pre code { border: 0; padding: 0; background: none; }
+.scroll { overflow-x: auto; }
+.prose table { border-collapse: collapse; font-size: 15.5px; }
+.prose th, .prose td { text-align: left; vertical-align: top; padding: 6px 12px 6px 0; border-bottom: 1px solid var(--line); min-width: 80px; }
+.prose a { overflow-wrap: anywhere; }
+.lab { font: 600 12px/1 var(--body); text-decoration: none; display: inline-block; padding: 3px 6px; border-radius: 4px; vertical-align: 1px; cursor: help; border: 1px solid var(--line); color: var(--ink-2); background: var(--surface); }
+.lab-D, .lab-V { background: var(--cold); border-color: var(--cold); color: #fff; }
+.lab-M { border-style: dashed; }
+.toc { display: flex; flex-wrap: wrap; gap: 6px 8px; font-size: 15px; }
+.toc a { text-decoration: none; color: var(--ink-2); border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 4px 11px; }
+</style>
+</head>
+<body>
+<nav class="top" aria-label="Pages">
+  <a href="../">Explainer</a>
+  <a href="../sources/" aria-current="page">Report and sources</a>
+  <a href="../data/">Data</a>
+</nav>
+<main>
+<header>
+  <div class="kicker">The report</div>
+  <h1>Climate change: where it stands and what can be done</h1>
+  <p class="lede">The full written analysis. Each fact carries a label that says how it was checked.</p>
+  <div class="toc">
+<a href="#answer">Answer</a>
+<a href="#how-to-read-the-source-labels">How to read the source labels</a>
+<a href="#1-where-the-climate-is-now">1. Where the climate is now</a>
+<a href="#2-why-it-is-warming">2. Why it is warming</a>
+<a href="#3-is-warming-accelerating">3. Is warming accelerating?</a>
+<a href="#4-where-it-is-going">4. Where it is going</a>
+<a href="#5-what-warming-does">5. What warming does</a>
+<a href="#6-emissions-how-much-from-what-from-whom">6. Emissions: how much, from what, from whom</a>
+<a href="#7-what-is-working">7. What is working</a>
+<a href="#8-what-is-not-working-yet">8. What is not working yet</a>
+<a href="#9-what-can-be-done-the-levers-in-order">9. What can be done: the levers in order</a>
+<a href="#10-adaptation-and-sun-reflection-methods">10. Adaptation and sun-reflection methods</a>
+<a href="#11-what-one-person-can-do">11. What one person can do</a>
+<a href="#12-note-for-a-hokkaido-skier">12. Note for a Hokkaido skier</a>
+<a href="#13-my-judgement">13. My judgement</a>
+<a href="#what-could-not-be-verified">What could not be verified</a>
+<a href="#data-and-how-to-redo-it">Data and how to redo it</a>
+<a href="#sources">Sources</a>
+  </div>
+</header>
+<div class="prose">
+<p>Written 2026-11-12 by Claude, with four research workers (physical
+science, emissions and policy, solutions, impacts and personal action).
+Their raw notes are in
+<a href="../research/"><code>research/</code></a>. The raw data is in <a href="../data/"><code>data/</code></a>, and <a href="../analyze.py"><code>analyze.py</code></a> computes every
+number marked <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>.</p>
+<p>Question: what is the state of climate change and global warming, and
+what can we do about them?</p>
+<h2 id="answer">Answer</h2>
+<ol>
+<li><strong>The world is about 1.4 °C warmer than in 1850-1900, and humans
+caused almost all of it.</strong> The 2025 global mean was 1.39 °C above
+1850-1900 <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. The human-caused part was 1.38 °C <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. The long-term
+level will pass 1.5 °C in about 2029 or 2030.</li>
+<li><strong>Warming is now faster: about 0.27 °C per decade</strong>, against about
+0.18 °C per decade in 1970-2010. Scientists agree on the faster rate.
+They do not agree on how much of it will last (section 3).</li>
+<li><strong>The path has improved, but not enough.</strong> In 2015 the expected
+warming by 2100 was about 3.6 °C. It is now about 2.5 to 2.8 °C under
+current policies. The worst scenarios are now unlikely. The 1.5 °C
+limit without overshoot is also gone.</li>
+<li><strong>Emissions are near a peak but have not started to fall.</strong> Growth of
+fossil CO2 slowed from 2.7% per year (2000-2010) to 0.9% per year
+(2019-2025) <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. In 2025, clean electricity grew more than demand for
+the first time outside a crisis, and fossil electricity fell <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>.</li>
+<li><strong>Electricity and cars are the solved part.</strong> Solar, wind, batteries
+and electric cars are now the cheap option in most markets. The work
+there is to build faster: grids, permits, storage and cheap finance
+for poorer countries.</li>
+<li><strong>The unsolved part is about 40% of emissions</strong>: steel, cement,
+chemicals, aviation, shipping, farming and land use. Methane cuts and
+an end to deforestation are the fastest and cheapest actions that are
+not being done.</li>
+<li><strong>Each tenth of a degree is worth the effort.</strong> No temperature is a
+cliff edge for humanity as a whole, and no temperature is safe.
+Damage grows with each step, and it falls first on people who emitted
+least. Human extinction from climate change alone is very unlikely.
+Large and permanent losses are certain.</li>
+<li><strong>For one person in a rich country, the order is:</strong> vote and act as a
+citizen, give to effective climate groups, then cut the big four
+(flights, car, heating, beef). Small actions such as recycling change
+little. Section 11 has numbers.</li>
+</ol>
+<h2 id="how-to-read-the-source-labels">How to read the source labels</h2>
+<p>The cloud container that wrote this report could not open most web
+sites. The data files in <a href="../data/"><code>data/</code></a> were downloaded directly, the agency
+files from a home machine. Most other facts come from search-result
+text.</p>
+<ul>
+<li><strong><abbr class="lab lab-D" title="computed from a raw data file">D</abbr></strong> data: computed by <a href="../analyze.py"><code>analyze.py</code></a> from a raw file in <a href="../data/"><code>data/</code></a>.
+The number is in <a href="../analysis.json"><code>analysis.json</code></a>. You can check it yourself.</li>
+<li><strong><abbr class="lab lab-V" title="verified: the page was read directly">V</abbr></strong> verified: the page was read directly.</li>
+<li><strong><abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></strong> search snippet only: the page could not be opened. The fact
+comes from search-result text for that page. Treat the number as
+provisional.</li>
+<li><strong><abbr class="lab lab-M" title="from model memory: not checked">M</abbr></strong> from model memory, not checked.</li>
+</ul>
+<p>Most facts about events in 2026 are <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>. The model that wrote this
+report was trained before those events, so it cannot check them from
+memory. Section &quot;What could not be verified&quot; lists the weak points.</p>
+<p>All temperatures are relative to 1850-1900 unless the text says
+otherwise. &quot;Gt&quot; is a billion tonnes. &quot;CO2e&quot; adds the other greenhouse
+gases to CO2 with their 100-year warming effect.</p>
+<h2 id="1-where-the-climate-is-now">1. Where the climate is now</h2>
+<p><strong>Temperature.</strong> The global mean surface temperature in 2025 was
+1.39 °C above 1850-1900 <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. This value is from the Indicators of Global Climate Change
+(IGCC) record, which is a mean of several datasets. The three warmest
+years are 2024 (1.51 °C), 2023 (1.44 °C) and 2025 (1.39 °C) <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. The
+mean of the last 10 years is 1.26 °C <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. Each agency gives a slightly different value. These are from the agency
+files in <code>data/primary/</code>, set to the 1850-1900 baseline <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>:</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th>2023</th>
+<th>2024</th>
+<th>2025</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IGCC mean</td>
+<td>1.44</td>
+<td>1.51</td>
+<td>1.39</td>
+</tr>
+<tr>
+<td>Copernicus ERA5 (1991-2020 anomaly + 0.88 °C)</td>
+<td>1.48</td>
+<td>1.60</td>
+<td>1.47</td>
+</tr>
+<tr>
+<td>Met Office HadCRUT5</td>
+<td>1.47</td>
+<td>1.53</td>
+<td>1.41</td>
+</tr>
+<tr>
+<td>NOAA GlobalTemp</td>
+<td>1.34</td>
+<td>1.42</td>
+<td>1.29</td>
+</tr>
+<tr>
+<td>Berkeley Earth</td>
+<td>1.54</td>
+<td>1.62</td>
+<td>no data in the file</td>
+</tr>
+</tbody></table></div>
+<p>All of them put 2024 first, and all show the same step up of about
+0.3 °C from 2022 to 2023.</p>
+<p><strong>2026.</strong> A very strong El Niño is in progress. The NOAA index (ONI)
+for August to October 2026 is +2.46 °C <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. That is already above the
+peaks of 1982-83 (2.14) and 1997-98 (2.37), and near the record of
+2015-16 (2.59) <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. October 2026 was 1.78 °C above 1850-1900 in ERA5,
+the warmest October in the record <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. From 1 January to 9 November,
+2026 is at 1.54 °C, against 1.60 °C for the same days of 2024 <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. To
+pass 2024, the rest of 2026 must be at about 1.96 °C. So 2026 will
+probably be the second warmest year. Copernicus expects the same, with
+a 2026 mean of 1.56 to 1.61 °C <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://climate.copernicus.eu/copernicus-warmest-october-record-2026-virtually-certain-exceed-15degc">Copernicus</a>.
+Carbon Brief gives a 67% chance of a record in the mean of six
+datasets, and expects about 1.7 °C in 2027 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.carbonbrief.org/state-of-the-climate-2026-likely-to-tie-with-2024-as-the-warmest-year-on-record">Carbon Brief</a>.
+The heat of an El Niño comes mostly in the year after it starts, so
+2027 is the probable record year.</p>
+<p><strong>One year is not the long-term level.</strong> The Paris limits refer to a
+mean over about 20 years. El Niño years are above that mean and La Niña
+years are below it. The best estimate of the long-term level is the
+human-caused warming: 1.38 °C in 2025 (range 1.1 to 1.7) <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. The IGCC
+authors extrapolate 1.41 °C for 2026 <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. At 0.27 °C per decade, the
+level passes 1.5 °C in about 2029 or 2030. Copernicus gets early 2029
+from its own trend <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://climate.copernicus.eu/how-fast-world-has-moved-closer-15degc-global-warming-paris-agreement">Copernicus</a>.</p>
+<p><strong>Greenhouse gases</strong> <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>, 2025 against 1750:</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Gas</th>
+<th>1750</th>
+<th>2025</th>
+<th>Rise</th>
+<th>Rise per year, last 10 years</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CO2</td>
+<td>278 ppm</td>
+<td>425.6 ppm</td>
+<td>+53%</td>
+<td>2.6 ppm</td>
+</tr>
+<tr>
+<td>Methane (CH4)</td>
+<td>729 ppb</td>
+<td>1,936 ppb</td>
+<td>+166%</td>
+<td>10.2 ppb</td>
+</tr>
+<tr>
+<td>Nitrous oxide (N2O)</td>
+<td>270 ppb</td>
+<td>339.4 ppb</td>
+<td>+26%</td>
+<td>1.1 ppb</td>
+</tr>
+</tbody></table></div>
+<p>The NOAA files agree: 425.62 ppm of CO2, 1,936 ppb of methane and
+338.9 ppb of nitrous oxide in 2025 <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. CO2 rose 0.8 ppm per year in
+the 1960s and 2.6 ppm per year in 2015-2024 <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. The rise of 3.76 ppm
+in 2024 was the largest on record <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>, because fires were large and the
+land absorbed less carbon in the El Niño year <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://wmo.int/publication-series/wmo-greenhouse-gas-bulletin-no-21">WMO</a>.
+The same will probably occur in 2026-27. The rise of methane has slowed
+from 16 ppb in 2022 to 7 ppb in 2025 <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>.</p>
+<p><strong>Heat.</strong> The planet takes in more energy than it sends out. From 1971
+to 2020 it gained about 479 ZJ of heat, and 91% of that went into the
+ocean <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. The rate of gain was 0.49 W/m² in 1971-2006 and 0.91 W/m² in
+2006-2020 <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. Satellites show about 1.3 W/m² in recent years <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://eos.org/editor-highlights/earths-energy-imbalance-is-growing-faster-than-expected">Eos</a>.
+Surface temperature can go up and down from year to year. This number
+cannot, and it has about doubled.</p>
+<p><strong>Sea level.</strong> The global mean sea level in 2025 was 230 mm above 1901
+<abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. The rate was 1.3 mm per year in 1901-1971 and 3.8 mm per year in
+2015-2025 <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. The NOAA satellite record gives 2.7 mm per year for its
+first ten years (from 1993) and 3.7 mm per year for its last ten <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>.
+The WMO gives 4.75 mm per year for 2012-2025 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://wmo.int/node/38410">WMO</a>.</p>
+<p><strong>Ice.</strong> Glaciers lost about 390 Gt per year in 2016-2025 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://wgms.ch/ncc_glaciers_in_2025/">WGMS</a>. Greenland lost about
+139 Gt in 2025, a mild year <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://climate.copernicus.eu/esotc/2025/greenland-ice-sheet">Copernicus</a>.
+Arctic sea ice in September was 7.1 million km² on average in
+1979-1990 and 4.6 million km² in the last ten years, a fall of about
+12% per decade <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. September 2026 (4.81 million km²) was the 13th
+lowest of 48 years <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. The record low is still 2012.</p>
+<h2 id="2-why-it-is-warming">2. Why it is warming</h2>
+<p>The IPCC says: &quot;It is unequivocal that human influence has warmed the
+atmosphere, ocean and land&quot; <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.ipcc.ch/report/ar6/wg1/chapter/summary-for-policymakers/">IPCC AR6 WG1 SPM</a>.</p>
+<p>The IGCC record divides the 1.38 °C of human-caused warming in 2025 as
+follows <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>: greenhouse gases +1.63 °C, other human effects (mostly air
+pollution that reflects sunlight) -0.26 °C. Natural causes (sun and
+volcanoes) add 0.04 °C.</p>
+<p>By emitted substance <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>: CO2 has caused about 1.10 °C, methane 0.56 °C,
+nitrous oxide 0.12 °C and fluorinated gases 0.19 °C. Sulphur dioxide
+pollution has hidden about 0.44 °C. These facts have two results:</p>
+<ul>
+<li><strong>Methane is about a third of the gross warming.</strong> It stays in the air
+for about 12 years <abbr class="lab lab-M" title="from model memory: not checked">M</abbr>. A cut in methane lowers the temperature within
+20 years. A cut in CO2 only stops the rise.</li>
+<li><strong>Clean air shows hidden warming.</strong> Sulphur pollution kills millions
+of people, so countries remove it. Each removal adds some warming.</li>
+</ul>
+<h2 id="3-is-warming-accelerating">3. Is warming accelerating?</h2>
+<p>The human-caused warming rate is about 0.27 °C per decade, the highest
+on record <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://essd.copernicus.org/articles/18/3889/2026/">Forster et al. 2026</a>.
+A simple trend through the data gives 0.18 °C per decade for 1970-2010
+and 0.24 °C per decade for 1996-2025 <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. So the rate is higher. The
+disagreement is about the cause and the future.</p>
+<ul>
+<li><strong>Mainstream view.</strong> Emissions are at a record and aerosol pollution
+is falling. Models expected a faster rate from these two causes.
+Cleaner ship fuel since 2020 adds about 0.05 °C by 2029 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://doaj.org/article/69479e59acac43adbb2681c718d4bd7a">Jordan and Henry 2024</a>.
+The clean-up of East Asian air adds about 0.07 °C <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://centaur.reading.ac.uk/123626">Samset et al. 2025</a>.</li>
+<li><strong>Hansen&#39;s view.</strong> James Hansen&#39;s group says aerosols hid much more
+warming than the IPCC assumes, and that the climate is more sensitive
+(4.8 °C for doubled CO2, against the IPCC&#39;s 3 °C) <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.columbia.edu/~jeh1/mailings/2025/Hansen_etal2025.Envir_Global.Warming.Acceleration_FULL.abs.main.SM.pdf">Hansen et al. 2025</a>.
+If this is correct, warming by 2050 is well above current projections.</li>
+<li><strong>The open question is clouds.</strong> The Earth reflected less sunlight in
+2023 than in any year since 1940, because low cloud decreased. Without
+that, 2023 would have been about 0.23 °C cooler <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.awi.de/en/about-us/service/press/single-view/sprunghafter-anstieg-der-erderwaermung-ist-massgeblich-auf-geringere-rueckstrahlkraft-des-planeten-zurueckzufuehren.html">AWI</a>.
+The cause can be natural variation, less pollution, or a feedback of
+warming itself. Models show less than half of the observed rise in
+the energy imbalance <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://eos.org/editor-highlights/earths-energy-imbalance-is-growing-faster-than-expected">Eos</a>.</li>
+</ul>
+<p>My reading: the acceleration is real. The energy imbalance is the
+strongest evidence, because it does not depend on El Niño. The data do
+not yet show whether sensitivity is higher than the IPCC range. The
+record El Niño of 2026-27 will add high temperatures that say little
+about that question. The useful test comes in about 2028-2030, when the
+El Niño heat is gone.</p>
+<h2 id="4-where-it-is-going">4. Where it is going</h2>
+<p><strong>Sensitivity.</strong> A doubling of CO2 gives about 3 °C of warming in the
+end: likely range 2.5 to 4 °C, very likely range 2 to 5 °C <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.carbonbrief.org/guest-post-why-low-end-climate-sensitivity-can-now-be-ruled-out">Carbon Brief</a>.</p>
+<p><strong>Carbon budget.</strong> For a 50% chance to stay below 1.5 °C, about 130 Gt
+of CO2 remained at the start of 2026 <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. The world emits about 43 Gt
+of CO2 per year, so the budget ends in about 3 years. For 2 °C the
+budget is about 1,055 Gt, or about 25 years at the current rate <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.carbonbrief.org/analysis-fossil-fuel-co2-emissions-to-set-new-record-in-2025-as-land-sink-recovers/">Carbon Brief</a>.
+Warming stops, to a first approximation, when net CO2 emissions reach
+zero. It does not go down again for centuries unless CO2 is removed.</p>
+<p><strong>Projected warming by 2100:</strong></p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Current policies</th>
+<th>If all pledges are met</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UNEP Emissions Gap 2026 (Oct 2026)</td>
+<td>about 2.8 °C</td>
+<td>about 2.6 °C; 2.1 °C with net-zero targets</td>
+</tr>
+<tr>
+<td>Climate Action Tracker (Nov 2025)</td>
+<td>2.6 °C</td>
+<td>2.1 to 2.2 °C</td>
+</tr>
+<tr>
+<td>IEA World Energy Outlook 2025</td>
+<td>2.5 to 2.9 °C</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>All <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>: <a href="https://www.unep.org/en/news-and-stories/press-release/new-unep-report-lays-out-emission-cuts-needed-return-15degc">UNEP</a>,
+<a href="https://climateactiontracker.org/publications/warming-projections-global-update-2025/">Climate Action Tracker</a>,
+<a href="https://www.carbonbrief.org/iea-fossil-fuel-use-will-peak-before-2030-unless-stated-policies-are-abandoned/">Carbon Brief on the IEA</a>.</p>
+<p>Three points follow.</p>
+<ul>
+<li>In 2015 the Climate Action Tracker estimate for current policies was
+about 3.6 °C <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://climateactiontracker.org/global/historical-progress/">CAT</a>.
+Policy and cheap clean energy removed about 1 °C in ten years.</li>
+<li>The estimate has not moved in four years. UNEP gives a 6% chance to
+stay below 2 °C on current policies <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>.</li>
+<li>UNEP now says that 1.5 °C without overshoot is not possible. The best
+path peaks at about 1.7 to 1.8 °C and comes back to 1.5 °C by 2100.
+That path needs cuts of 18% by 2030, 45% by 2035 and 69% by 2040 from
+2025 levels <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>.</li>
+</ul>
+<p>The very high scenario (SSP5-8.5, about 4.4 °C) is no longer thought
+plausible, because coal use did not grow as it assumed <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.warpnews.org/human-progress/research-committee-that-provides-input-to-the-ipcc-drops-the-worst-climate-scenarios/">summary of CMIP7 scenarios</a>.
+Warming above 3 °C is still possible if sensitivity is high or if the
+land and ocean absorb less carbon.</p>
+<h2 id="5-what-warming-does">5. What warming does</h2>
+<p><strong>Already measured.</strong></p>
+<ul>
+<li>Heat killed about 546,000 people per year in 2012-2021 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://lancetcountdown.org/2025-report/">Lancet Countdown 2025</a>.</li>
+<li>Weather disasters caused 45.8 million displacements in 2024, a record
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://www.internal-displacement.org/grid2025">IDMC</a>.</li>
+<li>Insured disaster losses were above $100 billion in 2024 and in 2025
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://www.swissre.com/institute/research/sigma-research/sigma-2026-01-natcat-2025-wildfire-storm-risk.html">Swiss Re</a>.
+More buildings in risky places explain part of this trend.</li>
+<li>In 2010-2020, floods, droughts and storms killed 15 times more people
+per head in highly vulnerable regions than in the least vulnerable
+regions. 3.3 to 3.6 billion people live in highly vulnerable
+conditions <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.ipcc.ch/report/ar6/wg2/resources/spm-headline-statements/">IPCC AR6 WG2</a>.</li>
+</ul>
+<p><strong>With more warming.</strong></p>
+<ul>
+<li>Each 1 °C cuts the world yield of maize by 7.4%, wheat by 6.0%, rice
+by 3.2% and soy by 3.1%, before adaptation <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://hal.archives-ouvertes.fr/hal-01594919">Zhao et al. 2017</a>.</li>
+<li>Warm-water coral reefs decline 70 to 90% at 1.5 °C and more than 99%
+at 2 °C <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> IPCC SR1.5. The Global Tipping Points Report 2025 says
+the reefs have already passed their tipping point, at about 1.2 °C
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://www.stockholmresilience.org/research/research-stories/2025-10-13-world-reaches-first-climate-tipping-point---widespread-mortality-of-coral-reefs.html">Stockholm Resilience Centre</a>.</li>
+<li>Sea level is committed to rise 2 to 3 m over 2,000 years at 1.5 °C,
+and 2 to 6 m at 2 °C <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.ipcc.ch/report/ar6/wg1/figures/chapter-9/figure-9-30/">IPCC AR6 WG1</a>.
+By 2100 the likely rise is about 0.4 to 0.8 m on the middle path <abbr class="lab lab-M" title="from model memory: not checked">M</abbr>.</li>
+</ul>
+<p><strong>Tipping points.</strong> The same report puts the Greenland and West
+Antarctic ice sheets, permafrost and the North Atlantic subpolar gyre at
+&quot;around 1.5 °C&quot;, and the Atlantic overturning circulation (AMOC) at
+&quot;around 2 °C&quot; <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>. These are thresholds where a change starts and then
+continues by itself. The ice sheets then melt over centuries. The AMOC
+is the largest disagreement in the field. Some studies find a possible
+collapse this century or soon after
+(<a href="https://skepticalscience.com/amoc-tipping-course.html">van Westen et al.</a>,
+Drijfhout et al. 2025). A study of 34 models finds that it weakens but
+does not collapse before 2100
+(<a href="https://www.scientificamerican.com/article/the-atlantic-meridional-overturning-circulation-amoc-is-safe-from-climate/">Scientific American on Baker et al.</a>).
+All <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>.</p>
+<p><strong>Economic cost.</strong> The estimates differ by a factor of 10: from about
+2% of world GDP at 3 °C (older models) to more than 12% per 1 °C
+(Bilal and Känzig) <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://www.nber.org/papers/w32450">NBER</a>. One
+well-known study (19% of income by 2049) was retracted in December 2025
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://retractionwatch.com/2025/12/03/authors-retract-nature-paper-projecting-high-costs-of-climate-change">Retraction Watch</a>.
+A central estimate of the damage from one tonne of CO2 is $185 (range
+$44 to $413) <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://rff.org/publications/journal-articles/comprehensive-evidence-implies-a-higher-social-cost-of-co2">Rennert et al. 2022</a>.
+The average carbon price in force is about $21, on 29% of emissions <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.worldbank.org/en/news/press-release/2026/05/19/direct-carbon-pricing-covers-nearly-one-third-of-global-emissions">World Bank</a>.</p>
+<p><strong>How bad?</strong> Two wrong ideas are common. The first is that humanity is
+doomed: 56% of young people in a 10-country survey agreed with this <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://grist.org/article/climate-anxiety-study-young-people-think-humanity-is-doomed/">Grist on Hickman et al.</a>.
+Researchers who estimate extinction risk put climate change at about 1
+in 1,000 this century <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.tobyord.com/writing/the-precipice-revisited">Toby Ord</a>.
+The second wrong idea is that 2.7 °C is acceptable because it is not
+4 °C. At 2.7 °C the reefs are gone, the ice sheets are committed to
+metres of sea level rise, and heat makes parts of the tropics very hard
+to live in. The severe outcomes above 3 °C are less likely than before,
+and they are also the least studied <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.cam.ac.uk/stories/climateendgame">Kemp et al. 2022</a>.</p>
+<h2 id="6-emissions-how-much-from-what-from-whom">6. Emissions: how much, from what, from whom</h2>
+<p><strong>How much.</strong> Greenhouse gas emissions were 56.8 Gt CO2e in 2024 <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>:</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Gt CO2e</th>
+<th>Share</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CO2 from fossil fuels and industry</td>
+<td>38.6</td>
+<td>68%</td>
+</tr>
+<tr>
+<td>CO2 from land use (mostly deforestation)</td>
+<td>4.6</td>
+<td>8%</td>
+</tr>
+<tr>
+<td>Methane</td>
+<td>9.3</td>
+<td>16%</td>
+</tr>
+<tr>
+<td>Nitrous oxide</td>
+<td>2.6</td>
+<td>5%</td>
+</tr>
+<tr>
+<td>Fluorinated gases</td>
+<td>1.7</td>
+<td>3%</td>
+</tr>
+</tbody></table></div>
+<p>UNEP gives 58.4 Gt CO2e for 2025, about equal to 2024 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://carbonbrief.org/unep-opportunity-has-been-lost-to-meet-1-5c-warming-limit-without-overshoot">Carbon Brief</a>.</p>
+<p><strong>The trend.</strong> Fossil CO2 grew 2.7% per year in 2000-2010, 1.2% per
+year in 2010-2019 and 0.9% per year in 2019-2025 <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. The Global Carbon
+Budget 2026 projects a fall of about 0.4% in 2026, the first since 2020
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://globalcarbonbudget.org/fossil-co2-emissions-decrease-in-2026/">Global Carbon Budget</a>.
+Part of that fall comes from the 2026 oil supply crisis (the closure of
+the Strait of Hormuz), and the authors expect a rebound. Total CO2 still
+rises in 2026, because fires in Southeast Asia increased land-use
+emissions <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>.</p>
+<p><strong>From what</strong> (2024, all gases) <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.industrialenergyaccelerator.org/wp-content/uploads/Explainer-Brief_02_updated.pdf">EDGAR summary</a>:
+electricity and heat about 28%, industry about 22%, transport 16%,
+agriculture 12%, fuel production 11%, buildings 7%, waste 4%. Food
+systems as a whole (farms, land clearing, transport, waste) are about
+one third <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.carbonbrief.org/food-systems-responsible-for-one-third-of-human-caused-emissions/">Carbon Brief</a>.</p>
+<p><strong>From whom</strong> (fossil CO2, 2025) <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>:</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th></th>
+<th>Gt CO2</th>
+<th>Share</th>
+<th>Tonnes per person</th>
+<th>Share of all CO2 since 1750</th>
+<th>Change from peak</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>China</td>
+<td>12.4</td>
+<td>31.8%</td>
+<td>8.8</td>
+<td>15.8%</td>
+<td>at peak</td>
+</tr>
+<tr>
+<td>United States</td>
+<td>5.0</td>
+<td>12.9%</td>
+<td>14.5</td>
+<td>23.3%</td>
+<td>-18% (2005)</td>
+</tr>
+<tr>
+<td>India</td>
+<td>3.2</td>
+<td>8.2%</td>
+<td>2.2</td>
+<td>3.7%</td>
+<td>at peak</td>
+</tr>
+<tr>
+<td>EU (27)</td>
+<td>2.4</td>
+<td>6.2%</td>
+<td>5.4</td>
+<td>16.1%</td>
+<td>-41% (1979)</td>
+</tr>
+<tr>
+<td>Russia</td>
+<td>1.8</td>
+<td>4.5%</td>
+<td>12.3</td>
+<td>6.5%</td>
+<td>-31% (1990)</td>
+</tr>
+<tr>
+<td>Japan</td>
+<td>1.0</td>
+<td>2.5%</td>
+<td>7.8</td>
+<td>3.8%</td>
+<td>-27% (2013)</td>
+</tr>
+<tr>
+<td>World</td>
+<td>39.0</td>
+<td></td>
+<td>4.7</td>
+<td></td>
+<td>at peak</td>
+</tr>
+</tbody></table></div>
+<p>These numbers are from Our World in Data, which uses the Global Carbon
+Budget. The Global Carbon Budget headline (38.1 Gt for 2025) is lower,
+mostly because it subtracts the CO2 that cement absorbs <abbr class="lab lab-M" title="from model memory: not checked">M</abbr>.</p>
+<p>Three facts make the politics difficult:</p>
+<ul>
+<li>High-income countries have 16% of the population <abbr class="lab lab-M" title="from model memory: not checked">M</abbr> and 62% of the
+historic emissions <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. Low-income countries emit 0.3 t per person
+<abbr class="lab lab-D" title="computed from a raw data file">D</abbr> and have the largest damage.</li>
+<li>Inside each country the same is true. The richest 10% of people cause
+about 47% of emissions <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://prod.wid.world/www-site/uploads/2025/10/Climate_Inequality_Report_2025_Final.pdf">World Inequality Lab</a>.</li>
+<li>Future emissions depend mostly on China, India and other growing
+economies. China&#39;s CO2 has been flat or falling since March 2024 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.carbonbrief.org/analysis-chinas-quarterly-co2-falls-3-in-largest-drop-since-covid">Carbon Brief</a>.
+If that continues, the world peak is here.</li>
+</ul>
+<p><strong>Policy in 2026</strong> (all <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>). The United States left the Paris
+Agreement in January 2026 and removed the legal base for federal
+greenhouse gas rules in February 2026
+(<a href="https://eelp.law.harvard.edu/tracker/paris-climate-agreement">Harvard tracker</a>).
+Its emissions rose 2.4% in 2025. Rhodium still projects a fall of 26 to
+29% below 2005 by 2030, because the market continues to replace coal
+(<a href="https://rhg.com/research/taking-stock-2026/">Rhodium</a>). China
+promised its first absolute cut: 7 to 10% below the peak by 2035
+(<a href="https://www.carbonbrief.org/qa-what-does-chinas-new-paris-agreement-pledge-mean-for-climate-action/">Carbon Brief</a>).
+The EU agreed a 90% cut by 2040. COP30 in Belém asked for $1.3 trillion
+per year of climate finance by 2035 but agreed no plan to leave fossil
+fuels (<a href="https://news.un.org/en/story/2025/11/1166433">UN News</a>). COP31
+is in progress in Antalya until 20 November 2026 and has no result yet.
+Governments still subsidise fossil fuels: about $7.4 trillion in 2024
+if unpaid damage is counted, of which about 10% is direct subsidy
+(<a href="https://www.imf.org/en/publications/wp/issues/2025/12/20/underpriced-and-overused-fossil-fuel-subsidies-data-2025-update-572729">IMF</a>).</p>
+<h2 id="7-what-is-working">7. What is working</h2>
+<p><strong>Electricity.</strong> World electricity by source <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>:</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th></th>
+<th>2010</th>
+<th>2020</th>
+<th>2024</th>
+<th>2025</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Coal</td>
+<td>39.8%</td>
+<td>35.3%</td>
+<td>34.1%</td>
+<td>33.0%</td>
+</tr>
+<tr>
+<td>All fossil</td>
+<td>67.5%</td>
+<td>62.1%</td>
+<td>59.1%</td>
+<td>57.4%</td>
+</tr>
+<tr>
+<td>Solar</td>
+<td>0.2%</td>
+<td>3.2%</td>
+<td>6.9%</td>
+<td>8.7%</td>
+</tr>
+<tr>
+<td>Wind</td>
+<td>1.6%</td>
+<td>6.0%</td>
+<td>8.1%</td>
+<td>8.5%</td>
+</tr>
+<tr>
+<td>All low-carbon</td>
+<td>32.5%</td>
+<td>37.9%</td>
+<td>40.9%</td>
+<td>42.6%</td>
+</tr>
+</tbody></table></div>
+<p>In 2025, world generation grew 842 TWh. Low-carbon sources grew 883 TWh,
+of which solar was 636 TWh. Fossil generation fell 41 TWh and coal fell
+67 TWh <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. Renewables (33.8%) passed coal (33.0%) for the first time
+<abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. Solar output went from 327 TWh in 2016 to 2,779 TWh in 2025 <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>: it
+doubled about every three years.</p>
+<p><strong>Why: cost.</strong> Battery packs cost $108 per kWh, 93% less than in 2010
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://about.bnef.com/insights/clean-energy/lithium-ion-battery-pack-prices-fall-to-108-per-kilowatt-hour-despite-rising-metal-prices-bloombergnef/">BNEF</a>.
+New solar power costs $0.043 per kWh and onshore wind $0.034. In 2024,
+91% of new renewable projects were cheaper than the cheapest new fossil
+plant <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.irena.org/Publications/2025/Jun/Renewable-Power-Generation-Costs-in-2024">IRENA</a>.
+These costs do not include the storage and grid that a high share of
+solar and wind needs.</p>
+<p><strong>Scale.</strong> In 2025 the world added about 650 GW of solar, 165 GW of
+wind and 112 GW of batteries, all records <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+(<a href="https://www.solarpowereurope.org/press-releases/new-report-global-solar-market-hits-new-record-of-664-gw-installation-in-2025-as-global-solar-fleet-passes-3-tw">SolarPower Europe</a>,
+<a href="https://mercomindia.com/global-wind-energy-installations-hit-165-gw-in-2025-up-40-yoy">GWEC via Mercom</a>,
+<a href="https://about.bnef.com/insights/clean-energy/energy-storage-enters-the-100-gigawatt-era-three-things-to-know/">BNEF</a>).
+China built more than half of the solar and wind. Solar additions are expected to
+fall about 8% in 2026, the first fall, because China changed its
+pricing rules <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>.</p>
+<p><strong>Cars.</strong> More than 20 million electric cars were sold in 2025, about
+one new car in four: almost 55% in China, 27% in the EU and under 10%
+in the US <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.iea.org/reports/global-ev-outlook-2026/trends-in-electric-cars">IEA</a>.
+They replaced about 1.2 million barrels of oil per day, about 1% of
+demand. The IEA expects oil and coal demand to peak at about 2030 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>.</p>
+<p><strong>Money.</strong> Clean energy investment is about $2.2 trillion per year,
+about twice the fossil fuel investment <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.iea.org/reports/world-energy-investment-2026/regional-dashboards">IEA</a>.
+Very little of it goes to poor countries: Africa gets about 2% <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>.</p>
+<h2 id="8-what-is-not-working-yet">8. What is not working yet</h2>
+<ul>
+<li><strong>Grids and permits.</strong> In the US, about 2,060 GW of power plants and
+batteries wait for a grid connection <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://emp.lbl.gov/queued-2026-edition-characteristics-power-plants-seeking-transmission-interconnection-end-2025">LBNL</a>.
+The world must build or replace about 80 million km of lines by 2040
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://www.iea.org/news/lack-of-ambition-and-attention-risks-making-electricity-grids-the-weak-link-in-clean-energy-transitions">IEA</a>.</li>
+<li><strong>New demand.</strong> Data centres used 415 TWh in 2024 and can use about
+945 TWh in 2030 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.iea.org/reports/energy-and-ai/executive-summary">IEA</a>.
+That is about 10% of world demand growth, but almost half of the
+growth in the US, where it kept coal plants in use in 2025.</li>
+<li><strong>Methane.</strong> More than 150 countries promised a 30% cut by 2030.
+Current policies give about 8% <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.ccacoalition.org/content/global-methane-status-report-2025">CCAC</a>.
+Methane from the energy sector is still near its record <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://iea.org/reports/global-methane-tracker-2026">IEA</a>.</li>
+<li><strong>Forests.</strong> Tropical primary forest loss was 4.3 million hectares in<ol start="2025">
+<li>That is 36% less than the record of 2024 and 46% more than ten
+years ago <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.wri.org/news/release-tropical-rainforest-loss-drops-36-2025-fires-threaten-global-progress">WRI</a>.</li>
+</ol>
+</li>
+<li><strong>Steel, cement, chemicals.</strong> Clean steel with hydrogen is delayed:
+ArcelorMittal cancelled its German plants, and the Swedish plant
+Stegra needed a rescue <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://eurometal.net/arcelormittal-cancels-dri-eaf-decarbonisation-investment-in-germany/">Eurometal</a>.
+Green hydrogen costs $3.7 to $11.7 per kg, against $1 to $2.5 for
+hydrogen from gas <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>. One cement plant in the world (Brevik, Norway)
+captures its CO2 at full scale <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.heidelbergmaterials.com/en/pr-2025-06-18">Heidelberg Materials</a>.</li>
+<li><strong>Aviation and shipping.</strong> Sustainable aviation fuel was 0.6% of jet
+fuel in 2025 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.iata.org/en/pressroom/2025-releases/2025-12-09-04/">IATA</a>.
+The shipping carbon price at the IMO was postponed in October 2025
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>.</li>
+<li><strong>Food.</strong> No country has a serious policy to reduce beef and dairy
+emissions. Feed additives cut cattle methane by about 30% in barns
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>, but most cattle graze. Investment in alternative proteins fell
+for four years <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>.</li>
+<li><strong>Carbon removal.</strong> Trees and soils remove about 2 Gt of CO2 per
+year. All engineered methods together remove about 1.3 million tonnes
+per year, less than 0.1% of that <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://ox.ac.uk/news/2024-06-05-new-report-states-7-9-billion-tonnes-co2-must-be-sustainably-removed-year-hit">State of CDR</a>.
+Paths that keep warming below 2 °C need 7 to 9 Gt per year by 2050.
+The largest direct air capture plant removed 675 t in half a year,
+against a design of 36,000 t per year <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>. Offsets are worse: a
+review of 2,346 projects found that less than 16% of credits were
+real reductions <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.mpg.de/23737687/climate-impact-of-carbon-crediting-projects-substantially-overestimated">Max Planck Society</a>.</li>
+<li><strong>Firm clean power.</strong> Nuclear is steady at about 9% of electricity
+<abbr class="lab lab-D" title="computed from a raw data file">D</abbr>; 63 reactors are in construction, half of them in China <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>.
+Enhanced geothermal produced its first commercial power in September
+2026 (Fervo, Utah) <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>. Fusion has not produced net electricity and
+cannot help before about 2040 <abbr class="lab lab-M" title="from model memory: not checked">M</abbr>.</li>
+</ul>
+<h2 id="9-what-can-be-done-the-levers-in-order">9. What can be done: the levers in order</h2>
+<p>The IPCC found that actions that cost less than $100 per tonne can cut
+emissions in 2030 to half of the 2019 level, and that more than half of
+that potential costs less than $20 per tonne <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.ipcc.ch/report/ar6/wg3/figures/summary-for-policymakers/figure-spm-7/">IPCC AR6 WG3, figure SPM.7</a>.
+The damage per tonne is about $185. So most of the necessary action is
+cheaper than the damage it prevents. The problem is not the total cost.
+The problems are who pays, who loses income, and how fast things can be
+built.</p>
+<p>This is my order of the levers. It uses three tests: the size of the
+cut by 2040, the cost, and whether the technology is ready. The shares
+are approximate and come from the sector numbers in section 6.</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Lever</th>
+<th>Share of emissions it addresses</th>
+<th>State</th>
+<th>What blocks it</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1. Clean electricity: solar, wind, storage, grids, plus nuclear and geothermal where they fit</td>
+<td>about 28%, and more as other sectors move to electricity</td>
+<td>Cheapest option now; grows faster than demand</td>
+<td>Grid connections, permits, cost of capital in poor countries, coal plants that are still young in Asia</td>
+</tr>
+<tr>
+<td>2. Electrify cars, heating and low-temperature industry</td>
+<td>about 25%</td>
+<td>Cars are on course; heat pumps are stalled (sales -2% in 2025)</td>
+<td>Purchase cost, electricity that is taxed more than gas, charging, landlords</td>
+</tr>
+<tr>
+<td>3. Cut methane from oil, gas, coal and waste</td>
+<td>about 8% of emissions, and up to 0.2 °C less warming by 2050</td>
+<td>Mostly cheap, technology ready, not done</td>
+<td>No price on leaks; weak enforcement; satellite data not used</td>
+</tr>
+<tr>
+<td>4. Stop deforestation</td>
+<td>about 8%</td>
+<td>Works when a government wants it (Brazil -42% in 2025)</td>
+<td>Farm profits, weak land rights, fire in a hotter climate</td>
+</tr>
+<tr>
+<td>5. Efficiency: buildings, motors, less waste</td>
+<td>cuts demand in all sectors</td>
+<td>Cheap, slow</td>
+<td>Many small decisions; split incentives</td>
+</tr>
+<tr>
+<td>6. Food: less beef and dairy, less waste, better fertiliser use</td>
+<td>about 12 to 30%</td>
+<td>Almost no policy</td>
+<td>Culture and farm politics</td>
+</tr>
+<tr>
+<td>7. Clean heavy industry, aviation and shipping</td>
+<td>about 20%</td>
+<td>Pilot stage; projects delayed</td>
+<td>Costs 20 to 100% more with no carbon price; needs standards and public purchase</td>
+</tr>
+<tr>
+<td>8. Carbon removal</td>
+<td>needed for the last 10% and for a return below a peak</td>
+<td>Trees work now; engineered removal is 1,000 times too small</td>
+<td>$500 or more per tonne; honest accounting</td>
+</tr>
+</tbody></table></div>
+<p>Policies that make these levers work:</p>
+<ul>
+<li><strong>A price or a rule on carbon.</strong> Either works. The EU border tax
+(from 2026) pushes its carbon price onto its trade partners.</li>
+<li><strong>Cheaper finance for poor countries.</strong> A solar plant in Africa pays
+about two to three times the interest rate of one in Europe <abbr class="lab lab-M" title="from model memory: not checked">M</abbr>. This
+is the main reason why only 2% of clean investment goes there.</li>
+<li><strong>Faster permits and more grid.</strong> This is the main bottleneck in rich
+countries.</li>
+<li><strong>Public purchase of clean steel, cement and fuels</strong>, to create the
+first market.</li>
+<li><strong>An end to fossil fuel subsidies</strong>, with direct payments to poor
+households in their place.</li>
+</ul>
+<h2 id="10-adaptation-and-sun-reflection-methods">10. Adaptation and sun-reflection methods</h2>
+<p><strong>Adaptation is necessary at every level of warming.</strong> It works: in
+Bangladesh, deaths from cyclones fell more than 100 times after 1970,
+with warnings, shelters and volunteers <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://dialogue.earth/en/climate/how-bangladesh-is-beating-the-odds-on-climate-disaster-deaths/">Dialogue Earth</a>.
+The heat plan of Ahmedabad prevents about 1,190 deaths per year <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6236972">Hess et al. 2018</a>.
+Countries with complete early warning systems have about 6 times fewer
+disaster deaths, and 40% of countries have no such system <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://wmo.int/news/media-centre/early-warning-systems-reach-new-heights-critical-gaps-jeopardize-global-progress">WMO</a>.
+Poor countries need $310 to $365 billion per year by 2035 and receive
+$26 billion <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.unep.org/en/publications/report/adaptation-gap-report-2025">UNEP</a>.
+Adaptation has limits: it cannot keep coral reefs or low islands.</p>
+<p><strong>Sun-reflection methods (solar geoengineering).</strong> Particles in the
+stratosphere can cool the planet within a year, for a few billion
+dollars per year <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://gwagner.com/?p=4417">Smith and Wagner</a>.
+They do not remove CO2, do not stop ocean acidification, and change
+rainfall. If the injection stops suddenly, the hidden warming returns
+in a few years. No international rule exists. The UK funds research
+(£56.8 million) and a private company raised $60 million, while about
+60 countries want an agreement not to use it <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.climatechangenews.com/2026/05/08/eu-warns-on-solar-geoengineering-but-research-debate-grinds-on/">Climate Home</a>.
+My judgement: with a peak near or above 2 °C now likely, some state
+will consider this method in the 2030s or 2040s. Public research and
+rules made before that time are safer than no research. The method
+must not replace emission cuts, because it must then continue for
+centuries.</p>
+<h2 id="11-what-one-person-can-do">11. What one person can do</h2>
+<p>The average person in the world emits 4.7 t of CO2 per year; in the US
+14.5 t, in Japan 7.8 t, in the EU 5.4 t <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. A lifestyle on a 1.5 °C
+path is about 2.5 t CO2e by 2030 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://hotorcool.org/1-5-degree-lifestyles/">Hot or Cool Institute</a>.</p>
+<p><strong>Personal emissions, largest first</strong> (tonnes CO2e saved per year; <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://eprints.whiterose.ac.uk/159418">Ivanova et al. 2020</a> and
+<a href="https://www.thelocal.com/20170712/want-to-save-the-planet-have-fewer-children-researchers-in-lund-sweden-say">Wynes and Nicholas 2017</a>):</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Saving</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Live without a car</td>
+<td>2.0 to 2.4</td>
+</tr>
+<tr>
+<td>One long-haul return flight less</td>
+<td>1.6 to 3</td>
+</tr>
+<tr>
+<td>Electric car in place of a petrol car</td>
+<td>1.2 to 2.0</td>
+</tr>
+<tr>
+<td>Renewable electricity at home</td>
+<td>about 1.6</td>
+</tr>
+<tr>
+<td>Heat pump in place of a gas or oil boiler</td>
+<td>1 to 1.7</td>
+</tr>
+<tr>
+<td>Vegan diet (most of the gain comes from no beef)</td>
+<td>0.8 to 0.9</td>
+</tr>
+<tr>
+<td>Home insulation</td>
+<td>about 0.9</td>
+</tr>
+<tr>
+<td>Less food waste</td>
+<td>about 0.3</td>
+</tr>
+<tr>
+<td>Recycling</td>
+<td>about 0.2 <abbr class="lab lab-M" title="from model memory: not checked">M</abbr></td>
+</tr>
+</tbody></table></div>
+<p>A return flight from the US west coast to Tokyo is about 1.6 t of CO2
+per economy seat, and about 3 t CO2e with the effect of contrails. This
+number is an estimate from the workers&#39; notes <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>. For a person who
+flies long-haul a few times a year, flights are the largest item.</p>
+<p><strong>Actions that are larger than the personal footprint:</strong></p>
+<ul>
+<li><strong>Vote, and say so.</strong> 89% of people in 125 countries want more
+political action on climate, and most of them think they are in a
+minority <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.nature.com/articles/s41558-024-01925-3.pdf">Andre et al. 2024</a>.
+Policy caused the 1 °C improvement in section 4. Local decisions on
+housing, power lines and solar or wind farms are also climate votes.</li>
+<li><strong>Give money to groups that change policy or technology.</strong> Giving
+Green recommends, among others, Clean Air Task Force, Future Cleantech
+Architects, Good Food Institute, Opportunity Green and Project
+InnerSpace <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.givinggreen.earth/post/2025-2026-top-climate-nonprofits">Giving Green</a>.
+Estimates near $1 per tonne are very uncertain. If the true cost is
+even 20 times higher, $1,000 per year does more than most changes in
+the table. Do not buy cheap offsets (section 8).</li>
+<li><strong>Use your work.</strong> An engineer, a buyer or a manager often controls
+more emissions at work than at home.</li>
+<li><strong>Buy the clean option early and be seen.</strong> One more solar roof in a
+postal area increases the chance of the next one <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://econpapers.repec.org/RePEc:inm:ormksc:v:31:y:2012:i:6:p:900-912">Bollinger and Gillingham 2012</a>.
+The same is found for electric cars.</li>
+<li><strong>Pensions and banks.</strong> The evidence that divestment changes the
+cost of capital of fossil companies is weak. Its effect is mostly
+political <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>.</li>
+</ul>
+<p>The phrase &quot;carbon footprint&quot; was made popular by a BP advertising
+campaign in 2004 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://grist.org/energy/footprint-fantasy/">Grist</a>. That does not
+make personal action useless. It means that personal action is one of
+four tools, and for most people not the strongest one.</p>
+<h2 id="12-note-for-a-hokkaido-skier">12. Note for a Hokkaido skier</h2>
+<p>This report started after the Hokkaido ski forecast. In short: cold
+inland Hokkaido is among the last places in Japan to lose its snow.</p>
+<ul>
+<li>Snow loss speeds up where the mean winter temperature is above about
+-8 °C <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.sciencedaily.com/releases/2024/01/240110120210.htm">Gottlieb and Mankin 2024</a>.</li>
+<li>At 2 °C of global warming, the maximum snow depth in Japan falls
+about 30%, except in Hokkaido and some other areas. At 4 °C it falls
+about 70%, except in parts of Hokkaido <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.data.jma.go.jp/cpdinfo/ccj/2020/pdf/cc2020_gaiyo_en.pdf">JMA 2020</a>.</li>
+<li>Heavy snowfalls in western and central Hokkaido can become larger,
+because a warmer Sea of Japan gives more moisture <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>.</li>
+<li>Of 349 Japanese ski areas, 53 stay fully open on natural snow at
++2 °C and 7 at +4 °C <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.jstage.jst.go.jp/article/seppyo/88/4/88_295/_article/-char/en">Yoshizawa and Katsuyama</a>.</li>
+</ul>
+<p>So the difference between the current path (about 2.7 °C) and a 2 °C
+path is, for Japanese skiing, the difference between Hokkaido and high
+Nagano only, and most of the country.</p>
+<h2 id="13-my-judgement">13. My judgement</h2>
+<ul>
+<li><strong>Good news that is firm:</strong> clean electricity and electric cars now
+win on cost, and they grow on an S-curve. Projections made from
+current policies have been too pessimistic about them every year.
+The world emission peak is probably within two years of now.</li>
+<li><strong>Bad news that is firm:</strong> a peak is not a fall. Warming continues
+until net CO2 emissions are zero. On the current path that is after
+2070, at about 2.5 to 2.8 °C. The 1.5 °C limit will be passed in
+about 2030.</li>
+<li><strong>Largest uncertainty in the science:</strong> clouds and sensitivity
+(section 3). If Hansen is right, add about 0.5 °C to every number.</li>
+<li><strong>Largest uncertainty in the response:</strong> politics. The US reversal
+costs about 0.1 °C. China&#39;s decisions on coal count for more than
+those of all other countries.</li>
+<li><strong>Best value now:</strong> methane, forests, grids and finance for poor
+countries. All four are cheap compared with their effect, and all
+four are blocked by institutions, not by technology.</li>
+<li><strong>A realistic good result</strong> is a peak below 2 °C, at about 1.7 to
+1.9 °C, and then a slow fall with carbon removal. This needs world
+emissions to fall by about half by 2040. It is difficult and it is
+still possible.</li>
+</ul>
+<h2 id="what-could-not-be-verified">What could not be verified</h2>
+<ul>
+<li><strong>All <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> facts.</strong> The cloud container could not open the pages. A
+later pass from a home machine can open each link and change <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> to
+<abbr class="lab lab-V" title="verified: the page was read directly">V</abbr>, as the Hokkaido report did.</li>
+<li><strong>Events of 2026</strong>: the Global Carbon Budget 2026, the UNEP Emissions
+Gap Report 2026, the oil crisis and COP31 come from search text only.
+The El Niño and the 2026 temperatures are now confirmed by the NOAA
+and ERA5 files <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>.</li>
+<li><strong>The ERA5 baseline.</strong> The file gives anomalies against 1991-2020.
+This report adds 0.88 °C for 1850-1900. That offset reproduces the
+annual values that Copernicus publishes (1.60 °C for 2024, 1.47 °C for
+2025), but the offset itself was not read on a Copernicus page.</li>
+<li><strong>UNEP 2026 gives 2.6 °C for full pledges; UNEP 2025 gave 2.3 to
+2.5 °C.</strong> The definitions can differ. Not resolved.</li>
+<li><strong>Chance that 2026 is the warmest year</strong>: Copernicus says second
+warmest is likely; Carbon Brief says 67% for a record. The ERA5 file
+to 9 November supports Copernicus. Other datasets can differ.</li>
+<li><strong>Sector shares</strong> for steel, cement, aviation and shipping, the
+methane lifetime, the cost of capital in poor countries, the IPCC sea
+level range for 2100 and the fusion date are from memory <abbr class="lab lab-M" title="from model memory: not checked">M</abbr>.</li>
+<li><strong>The flight estimate</strong> (west coast to Tokyo) has no authoritative
+source.</li>
+<li><strong>AMOC collapse odds</strong> are quoted in the press with no clear source,
+so this report gives none.</li>
+<li><strong>Energy imbalance for 2021-2025</strong>: the IGCC file gives the full
+heat inventory only to 2020. The later values here are ocean only.</li>
+</ul>
+<h2 id="data-and-how-to-redo-it">Data and how to redo it</h2>
+<pre><code>python -X utf8 climate/data/fetch.py    # downloads; see data/README.md
+python -X utf8 climate/analyze.py       # writes climate/analysis.json
+</code></pre>
+<p><a href="../data/manifest.csv"><code>data/manifest.csv</code></a> lists each file with its URL, the date it was read,
+its size and its SHA-256. <a href="../data/README.md"><code>data/README.md</code></a> describes each file and its
+licence.</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Source</th>
+<th>Used for</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>data/igcc/</code></td>
+<td>Indicators of Global Climate Change, data repository at commit <code>d972657</code> (CC BY 4.0), <a href="https://github.com/ClimateIndicator/data">https://github.com/ClimateIndicator/data</a></td>
+<td>Temperature, human-caused warming, gases, forcing, heat, sea level, carbon budget, emissions by gas</td>
+</tr>
+<tr>
+<td><code>data/owid/co2-extract.csv</code></td>
+<td>Our World in Data CO2 dataset (from the Global Carbon Budget), <a href="https://github.com/owid/co2-data">https://github.com/owid/co2-data</a></td>
+<td>Emissions by country</td>
+</tr>
+<tr>
+<td><code>data/owid/energy-extract.csv</code></td>
+<td>Our World in Data energy dataset (from Ember and the Energy Institute), <a href="https://github.com/owid/energy-data">https://github.com/owid/energy-data</a></td>
+<td>Electricity mix</td>
+</tr>
+<tr>
+<td><code>data/primary/</code></td>
+<td>Berkeley Earth, NOAA GML, NASA GISTEMP, Met Office HadCRUT5, NOAA NCEI, ECMWF Climate Pulse (ERA5), NSIDC, NOAA CPC, NOAA STAR and JMA, as downloaded on 2026-11-12 from a home machine</td>
+<td>Agency values for temperature, gases, El Niño, sea ice and sea level (<code>cross_checks</code> in <a href="../analysis.json"><code>analysis.json</code></a>)</td>
+</tr>
+</tbody></table></div>
+<h2 id="sources">Sources</h2>
+<p>The main reports, with the label that applies to this report&#39;s use of
+them. The full list, with one line per fact, is in <a href="../research/"><code>research/</code></a>.</p>
+<ul>
+<li>Forster et al., Indicators of Global Climate Change 2025, ESSD 18,
+3889 (2026): <a href="https://essd.copernicus.org/articles/18/3889/2026/">https://essd.copernicus.org/articles/18/3889/2026/</a> (data
+<abbr class="lab lab-D" title="computed from a raw data file">D</abbr>, text <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>)</li>
+<li>IPCC AR6: <a href="https://www.ipcc.ch/assessment-report/ar6/">https://www.ipcc.ch/assessment-report/ar6/</a> <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></li>
+<li>Copernicus Climate Change Service: <a href="https://climate.copernicus.eu/">https://climate.copernicus.eu/</a> <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></li>
+<li>WMO State of the Global Climate 2025: <a href="https://wmo.int/node/38410">https://wmo.int/node/38410</a> <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></li>
+<li>Global Carbon Budget: <a href="https://globalcarbonbudget.org/">https://globalcarbonbudget.org/</a> <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>; data
+through Our World in Data <abbr class="lab lab-D" title="computed from a raw data file">D</abbr></li>
+<li>UNEP Emissions Gap Report 2026:
+<a href="https://unep.org/en/publications/report/emissions-gap-report-2026">https://unep.org/en/publications/report/emissions-gap-report-2026</a> <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></li>
+<li>Climate Action Tracker: <a href="https://climateactiontracker.org/">https://climateactiontracker.org/</a> <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></li>
+<li>Ember Global Electricity Review 2026:
+<a href="https://ember-energy.org/latest-insights/global-electricity-review-2026/">https://ember-energy.org/latest-insights/global-electricity-review-2026/</a>
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>; data through Our World in Data <abbr class="lab lab-D" title="computed from a raw data file">D</abbr></li>
+<li>IEA World Energy Outlook 2025, Global EV Outlook 2026, World Energy
+Investment 2026, Global Methane Tracker 2026: <a href="https://www.iea.org/">https://www.iea.org/</a> <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></li>
+<li>IRENA Renewable Power Generation Costs in 2024:
+<a href="https://www.irena.org/Publications/2025/Jun/Renewable-Power-Generation-Costs-in-2024">https://www.irena.org/Publications/2025/Jun/Renewable-Power-Generation-Costs-in-2024</a> <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></li>
+<li>Global Tipping Points Report 2025: <a href="https://global-tipping-points.org/">https://global-tipping-points.org/</a> <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></li>
+<li>Lancet Countdown 2025: <a href="https://lancetcountdown.org/2025-report/">https://lancetcountdown.org/2025-report/</a> <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></li>
+<li>UNEP Adaptation Gap Report 2025:
+<a href="https://www.unep.org/en/publications/report/adaptation-gap-report-2025">https://www.unep.org/en/publications/report/adaptation-gap-report-2025</a> <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></li>
+<li>Carbon Brief analyses (China, India, state of the climate):
+<a href="https://www.carbonbrief.org/">https://www.carbonbrief.org/</a> <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></li>
+<li>Hansen et al. 2025, doi 10.1080/00139157.2025.2434494 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></li>
+<li>Ivanova et al. 2020, Environ. Res. Lett. 15 093001;
+Wynes and Nicholas 2017, Environ. Res. Lett. 12 074024 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></li>
+<li>Probst et al. 2024, Nature Communications 15:9562 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></li>
+<li>Andre et al. 2024, Nature Climate Change 14:253 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></li>
+<li>JMA, Climate Change in Japan 2020 and 2025:
+<a href="https://www.data.jma.go.jp/cpdinfo/ccj/">https://www.data.jma.go.jp/cpdinfo/ccj/</a> <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></li>
+</ul>
+</div>
+</main>
+</body>
+</html>

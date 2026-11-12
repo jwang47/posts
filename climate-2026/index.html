@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Climate change in 2026: where it stands and what can be done</title>
+<meta name="description" content="How warm it is, why, where it is going, what is working, what is not, and what one person can do. With the raw data and every source.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root { --page: #f3f6f9; --surface: #fcfcfb; --ink: #101820; --ink-2: #4b5560; --muted: #6f7780; --line: #dde2e7; --cold: #2a78d6; --warm: #eb6834;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif; --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif; }
+@media (prefers-color-scheme: dark) { :root { color-scheme: dark; --page: #0c1116; --surface: #161c22; --ink: #eef1f4; --ink-2: #b9c1c9; --muted: #969da5; --line: #2a323a; --cold: #3987e5; --warm: #d95926; } }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 400 18px/1.55 var(--body); }
+nav.top { max-width: 760px; margin: 0 auto; padding: 16px 20px 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15.5px; }
+nav.top a { color: var(--ink-2); text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; }
+nav.top a:hover { color: var(--ink); }
+nav.top a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--cold); font-weight: 600; }
+main { max-width: 760px; margin: 0 auto; padding: 28px 20px 72px; display: flex; flex-direction: column; gap: 48px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.12; }
+h1 { font-size: clamp(32px, 6vw, 46px); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: clamp(24px, 4.2vw, 30px); font-weight: 700; }
+h3 { font-size: 18px; font-weight: 500; }
+p { margin: 0; }
+a { color: var(--cold); }
+a:focus-visible, summary:focus-visible, svg:focus-visible { outline: 2px solid var(--cold); outline-offset: 2px; }
+section, header { display: flex; flex-direction: column; gap: 16px; }
+.kicker { font: 600 14px/1.2 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+.lede { font-size: 20px; color: var(--ink-2); }
+.tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+@media (min-width: 640px) { .tiles { grid-template-columns: repeat(4, 1fr); } }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
+.tile b { font: 700 26px/1.1 var(--display); font-variant-numeric: tabular-nums; }
+.tile span { font-size: 15px; line-height: 1.35; color: var(--ink-2); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px; position: relative; }
+.panel h3 { font-weight: 700; }
+.panel .sub, .note { font-size: 15px; color: var(--ink-2); }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 14.5px; color: var(--ink-2); }
+.legend i { display: inline-block; width: 14px; height: 3px; border-radius: 2px; vertical-align: middle; margin-right: 6px; }
+svg.chart { max-width: 100%; height: auto; display: block; overflow: visible; touch-action: pan-y; }
+svg.chart text { font: 400 13px var(--body); fill: var(--muted); }
+svg.chart text.lab { fill: var(--ink-2); font-size: 13.5px; }
+svg.chart text.val { fill: var(--ink); font-size: 13.5px; font-variant-numeric: tabular-nums; }
+svg.chart .grid { stroke: var(--line); stroke-width: 1; }
+svg.chart .zero { stroke: var(--muted); stroke-width: 1; }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--page); font-size: 14px; line-height: 1.35; padding: 6px 9px; border-radius: 6px; white-space: nowrap; transform: translate(-50%, -100%); opacity: 0; transition: opacity .1s; z-index: 2; }
+.tip.on { opacity: 1; }
+details { font-size: 15px; color: var(--ink-2); }
+summary { cursor: pointer; }
+details table { border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+details th, details td { text-align: right; padding: 2px 12px 2px 0; }
+details .wrap { max-height: 220px; overflow: auto; }
+ul.plain { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
+ol.levers { margin: 0; padding-left: 24px; display: flex; flex-direction: column; gap: 10px; }
+ol.levers b { font-weight: 600; }
+.box { border-left: 3px solid var(--cold); padding: 4px 0 4px 14px; color: var(--ink-2); }
+footer { font-size: 15px; color: var(--ink-2); }
+</style>
+</head>
+<body>
+<nav class="top" aria-label="Pages">
+  <a href="./" aria-current="page">Explainer</a>
+  <a href="sources/">Report and sources</a>
+  <a href="data/">Data</a>
+</nav>
+<main>
+<header>
+  <div class="kicker">Written 12 November 2026</div>
+  <h1>Climate change in 2026: where it stands and what can be done</h1>
+  <p class="lede">The world is about 1.4 °C warmer than it was 150 years ago, and people caused almost all of it. The worst futures have become unlikely, the safest one is gone, and most of what decides the rest is cheap and known. Here is the evidence, in five charts.</p>
+  <div class="tiles">
+    <div class="tile"><b>+1.39 °C</b><span>global temperature in 2025, against 1850-1900</span></div>
+    <div class="tile"><b>0.27 °C</b><span>of human-caused warming per decade, the fastest on record</span></div>
+    <div class="tile"><b>2.5-2.8 °C</b><span>expected by 2100 on current policies; it was 3.6 °C in 2015</span></div>
+    <div class="tile"><b>43%</b><span>of world electricity from low-carbon sources in 2025</span></div>
+  </div>
+</header>
+
+<section>
+  <h2>It is warmer, and the cause is known</h2>
+  <p>Each point is one year. For the first sixty years nothing much happens. Then the line climbs, and since the 1970s it has climbed about 0.2 °C every decade. The three warmest years in the record are the last three.</p>
+  <div class="panel" id="c-temp">
+  <h3>Global temperature, 1850 to 2025</h3>
+  <p class="sub">Difference from the 1850-1900 mean, °C. Mean of several datasets (Indicators of Global Climate Change).</p>
+</div>
+  <p>Of the 1.39 °C in 2025, 1.38 °C is human-caused. Greenhouse gases added 1.63 °C, and air pollution that reflects sunlight hid 0.26 °C. The sun and volcanoes added 0.04 °C. Carbon dioxide in the air is 53% above its level in 1750, and methane is 166% above.</p>
+  <p>This year is hotter still. A very strong El Niño is in progress: the NOAA index is at +2.46 °C, close to the record. October 2026 was 1.78 °C above 1850-1900, the warmest October measured. El Niño heat arrives mostly in its second year, so 2027 will probably set the next record.</p>
+  <p class="box">The Paris limit of 1.5 °C refers to the average over about twenty years, not one hot year. That average is now about 1.4 °C and rises 0.27 °C per decade. It will pass 1.5 °C in about 2029 or 2030.</p>
+</section>
+
+<section>
+  <h2>Is it speeding up?</h2>
+  <p>Yes. The planet now gains heat about twice as fast as it did before 2006 (0.91 against 0.49 watts per square metre), and that number does not depend on El Niño. Two causes are agreed: emissions are at a record, and cleaner air over the oceans and East Asia hides less of the warming than before.</p>
+  <p>What scientists do not agree on is whether that explains all of it. Low clouds have thinned, and the Earth reflects less sunlight than at any time since 1940. If that is a response to warming itself, the climate is more sensitive than the central estimate and every projection below is too low. The El Niño will hide the answer until about 2028.</p>
+</section>
+
+<section>
+  <h2>Emissions have almost stopped growing</h2>
+  <p>Warming stops when net emissions of CO2 reach zero. They are not falling yet, but the growth has slowed from 2.7% per year in the 2000s to 0.9% per year since 2019. China's emissions have been flat or falling since early 2024. The peak is probably within two years of now.</p>
+  <div class="panel" id="c-co2">
+  <h3>World CO2 emissions from fossil fuels</h3>
+  <p class="sub">Billion tonnes (Gt) of CO2 per year, 1950 to 2025. Global Carbon Budget through Our World in Data.</p>
+</div>
+  <p>Fossil CO2 is 68% of the problem. Methane is 16%, deforestation 8%, and nitrous oxide and industrial gases the rest: 56.8 Gt of CO2-equivalent in 2024.</p>
+  <p>A peak is not enough. On current policies the world reaches about 2.5 to 2.8 °C by 2100. Ten years ago the same estimate was 3.6 °C, so policy and cheap clean energy have already removed about one degree. But the estimate has not moved in four years, and the UN now says that staying below 1.5 °C without overshoot is no longer possible.</p>
+</section>
+
+<section>
+  <h2>What is working: electricity</h2>
+  <p>In 2025, for the first time outside a crisis, clean sources grew by more than the world's whole increase in electricity demand, and fossil power fell. Solar and wind alone covered almost all of the increase. Renewables passed coal. Solar output has doubled about every three years for a decade.</p>
+  <div class="panel" id="c-el">
+  <h3>Coal against solar and wind</h3>
+  <p class="sub">Share of world electricity, 2000 to 2025. Ember and the Energy Institute through Our World in Data.</p>
+  <div class="legend"><span><i style="background:var(--warm)"></i>Coal</span><span><i style="background:var(--cold)"></i>Solar and wind</span></div>
+</div>
+  <p>The reason is cost. A battery pack costs 93% less than in 2010. New solar and wind power are cheaper than new coal or gas in most of the world. One new car in four is electric, and more than half in China. Clean energy now receives about twice the investment of fossil fuels.</p>
+</section>
+
+<section>
+  <h2>What is not working yet</h2>
+  <ul class="plain">
+    <li><b>Grids and permits.</b> In the US about 2,000 GW of solar, wind and batteries wait for a grid connection. This, not cost, is now the limit in rich countries.</li>
+    <li><b>Methane.</b> More than 150 countries promised a 30% cut by 2030. Current policies give about 8%. Most leaks from oil and gas are cheap to fix.</li>
+    <li><b>Forests.</b> Tropical forest loss fell 36% in 2025 but is still higher than ten years ago.</li>
+    <li><b>Steel, cement, planes and ships.</b> About a fifth of emissions. The clean versions cost more, and several flagship projects were cancelled or delayed.</li>
+    <li><b>Food.</b> About a third of emissions when land clearing is counted, and almost no policy anywhere.</li>
+    <li><b>Carbon removal.</b> Machines remove about a millionth of what is emitted. Most cheap offsets do not represent real reductions.</li>
+    <li><b>Money for poor countries.</b> Africa gets about 2% of clean energy investment, mostly because loans there cost two to three times more.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>What can be done, in order</h2>
+  <p>The UN climate panel found that actions costing less than $100 per tonne could halve emissions by 2030. The damage from one tonne is about $185. So the question is not whether we can afford it, but who pays and how fast things get built.</p>
+  <ol class="levers">
+    <li><b>Build clean electricity faster.</b> Solar, wind, batteries and grids, with nuclear and geothermal where they fit. It is the cheapest option now and it unlocks the next step.</li>
+    <li><b>Move cars, heating and factories onto that electricity.</b> Cars are on course. Heat pumps are stalled.</li>
+    <li><b>Cut methane.</b> The fastest way to slow warming in the next twenty years.</li>
+    <li><b>Stop deforestation.</b> It works when a government wants it: Brazil cut its loss by 42% in one year.</li>
+    <li><b>Waste less.</b> Efficient buildings and motors, less wasted food.</li>
+    <li><b>Change food.</b> Less beef and dairy, better fertiliser use.</li>
+    <li><b>Clean up heavy industry, aviation and shipping.</b> Needs a carbon price or public buyers to create the first market.</li>
+    <li><b>Remove carbon.</b> Needed for the last tenth and to come back down after a peak. Not a substitute for the steps above.</li>
+  </ol>
+  <p>Adaptation is needed at every level of warming, and it works: cyclone deaths in Bangladesh fell more than 100 times after 1970 through warnings and shelters. Reflecting sunlight with particles in the upper air could cool the planet quickly and cheaply, but it treats the symptom, must continue for centuries, and has no rules yet.</p>
+</section>
+
+<section>
+  <h2>Who emits</h2>
+  <p>The average person emits 4.7 tonnes of CO2 a year. High-income countries hold about a sixth of the world's people and caused 62% of all emissions so far. The countries that emitted least are hit first and hardest.</p>
+  <div class="panel" id="c-who">
+  <h3>Tonnes of CO2 per person, 2025</h3>
+  <p class="sub">Fossil fuels and cement. Point at a bar for the country total.</p>
+</div>
+</section>
+
+<section>
+  <h2>What one person can do</h2>
+  <p>Most of what an individual controls sits in four things: flights, the car, home heating and beef. The small habits people usually think of first change very little.</p>
+  <div class="panel" id="c-acts">
+  <h3>Tonnes of CO2-equivalent saved per year</h3>
+  <p class="sub">One person in a rich country. Middle of the range from two reviews of the research; point at a bar for the range.</p>
+</div>
+  <p>But for most people the personal footprint is not the strongest tool. Three things are larger:</p>
+  <ul class="plain">
+    <li><b>Vote, and say so.</b> In a survey of 125 countries, 89% of people wanted more climate action, and most of them believed they were in a minority. Local decisions on housing, power lines and wind or solar farms count too.</li>
+    <li><b>Give to groups that change policy or technology.</b> Estimates of what they achieve per dollar are very uncertain, but even pessimistic ones beat most personal changes. Avoid cheap offsets.</li>
+    <li><b>Use your job, and be seen choosing the clean option.</b> One more solar roof in a neighbourhood measurably raises the chance of the next one.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>How bad, honestly</h2>
+  <p>Two beliefs are common and both are wrong. One is that humanity is doomed. Researchers who try to estimate it put extinction from climate change at about 1 in 1,000 this century. The other is that 2.7 °C is fine because it is not 4 °C. At 2.7 °C the coral reefs are gone, the ice sheets are committed to metres of sea level rise over centuries, and heat makes parts of the tropics very hard to live in.</p>
+  <p>There is no cliff edge and no safe level. Every tenth of a degree avoided is worth the effort. A realistic good outcome is a peak a little below 2 °C and a slow decline after it. That needs world emissions to fall by about half by 2040. It is hard, and it is still possible.</p>
+</section>
+
+<footer>
+  <p>Every number in the charts comes from public data files that you can <a href="data/">download here</a>. The <a href="sources/">full report</a> has every source, and labels each fact by how it was checked: computed from data, read on the page, seen only in search results, or from memory. Most facts about events in 2026 were seen only in search results.</p>
+</footer>
+</main>
+<script type="application/json" id="d">{"temp":[[1850,-0.046],[1851,0.041],[1852,0.099],[1853,0.054],[1854,0.049],[1855,0.076],[1856,-0.021],[1857,-0.114],[1858,-0.049],[1859,0.051],[1860,-0.059],[1861,-0.116],[1862,-0.184],[1863,-0.039],[1864,-0.074],[1865,0.034],[1866,0.014],[1867,-0.011],[1868,0.059],[1869,0.066],[1870,0.026],[1871,-0.004],[1872,0.034],[1873,0.016],[1874,-0.056],[1875,-0.006],[1876,-0.041],[1877,0.306],[1878,0.364],[1879,0.084],[1880,0.039],[1881,0.134],[1882,0.061],[1883,0.016],[1884,-0.116],[1885,-0.109],[1886,-0.101],[1887,-0.159],[1888,0.006],[1889,0.124],[1890,-0.154],[1891,-0.044],[1892,-0.131],[1893,-0.134],[1894,-0.136],[1895,-0.059],[1896,0.084],[1897,0.094],[1898,-0.106],[1899,0.029],[1900,0.121],[1901,0.071],[1902,-0.069],[1903,-0.191],[1904,-0.251],[1905,-0.074],[1906,0.026],[1907,-0.154],[1908,-0.191],[1909,-0.219],[1910,-0.186],[1911,-0.206],[1912,-0.129],[1913,-0.119],[1914,0.076],[1915,0.131],[1916,-0.089],[1917,-0.209],[1918,-0.081],[1919,-0.001],[1920,0.036],[1921,0.076],[1922,-0.009],[1923,0.014],[1924,0.014],[1925,0.054],[1926,0.186],[1927,0.084],[1928,0.089],[1929,-0.071],[1930,0.151],[1931,0.199],[1932,0.151],[1933,-0.001],[1934,0.146],[1935,0.111],[1936,0.151],[1937,0.301],[1938,0.291],[1939,0.284],[1940,0.391],[1941,0.351],[1942,0.299],[1943,0.336],[1944,0.464],[1945,0.346],[1946,0.191],[1947,0.241],[1948,0.179],[1949,0.161],[1950,0.086],[1951,0.231],[1952,0.319],[1953,0.386],[1954,0.181],[1955,0.124],[1956,0.066],[1957,0.294],[1958,0.309],[1959,0.289],[1960,0.226],[1961,0.311],[1962,0.266],[1963,0.299],[1964,0.039],[1965,0.141],[1966,0.194],[1967,0.224],[1968,0.169],[1969,0.309],[1970,0.264],[1971,0.149],[1972,0.261],[1973,0.399],[1974,0.169],[1975,0.229],[1976,0.141],[1977,0.449],[1978,0.336],[1979,0.421],[1980,0.536],[1981,0.584],[1982,0.381],[1983,0.564],[1984,0.394],[1985,0.381],[1986,0.444],[1987,0.569],[1988,0.619],[1989,0.501],[1990,0.689],[1991,0.666],[1992,0.466],[1993,0.509],[1994,0.569],[1995,0.721],[1996,0.604],[1997,0.749],[1998,0.894],[1999,0.651],[2000,0.654],[2001,0.804],[2002,0.879],[2003,0.871],[2004,0.799],[2005,0.946],[2006,0.901],[2007,0.911],[2008,0.786],[2009,0.919],[2010,0.989],[2011,0.866],[2012,0.899],[2013,0.929],[2014,0.994],[2015,1.144],[2016,1.261],[2017,1.166],[2018,1.094],[2019,1.214],[2020,1.249],[2021,1.096],[2022,1.139],[2023,1.439],[2024,1.511],[2025,1.391]],"co2w":[[1950,5.92],[1951,6.38],[1952,6.46],[1953,6.64],[1954,6.78],[1955,7.43],[1956,7.91],[1957,8.17],[1958,8.4],[1959,8.85],[1960,9.38],[1961,9.42],[1962,9.76],[1963,10.31],[1964,10.88],[1965,11.36],[1966,11.92],[1967,12.3],[1968,12.98],[1969,13.85],[1970,14.69],[1971,15.28],[1972,15.99],[1973,16.86],[1974,16.77],[1975,16.72],[1976,17.72],[1977,18.21],[1978,18.88],[1979,19.37],[1980,19.23],[1981,18.73],[1982,18.58],[1983,18.79],[1984,19.36],[1985,20.05],[1986,20.35],[1987,21.1],[1988,21.93],[1989,22.24],[1990,22.78],[1991,23.24],[1992,22.55],[1993,22.78],[1994,23.01],[1995,23.56],[1996,24.27],[1997,24.43],[1998,24.34],[1999,24.85],[2000,25.51],[2001,25.68],[2002,26.25],[2003,27.64],[2004,28.61],[2005,29.63],[2006,30.57],[2007,31.52],[2008,32.05],[2009,31.51],[2010,33.32],[2011,34.51],[2012,34.92],[2013,35.27],[2014,35.52],[2015,35.49],[2016,35.49],[2017,36.07],[2018,36.86],[2019,37.06],[2020,35.1],[2021,36.89],[2022,37.47],[2023,38.14],[2024,38.65],[2025,39]],"coal":[[2000,38],[2001,38],[2002,38.3],[2003,39.5],[2004,39],[2005,39.5],[2006,40.2],[2007,40.8],[2008,40.2],[2009,39.9],[2010,39.8],[2011,40.6],[2012,39.8],[2013,40.7],[2014,40.4],[2015,38.7],[2016,37.8],[2017,38],[2018,37.9],[2019,36.6],[2020,35.3],[2021,35.9],[2022,35.4],[2023,35],[2024,34.1],[2025,33]],"sw":[[2000,0.2],[2001,0.3],[2002,0.3],[2003,0.4],[2004,0.5],[2005,0.6],[2006,0.7],[2007,0.9],[2008,1.2],[2009,1.5],[2010,1.8],[2011,2.3],[2012,2.8],[2013,3.3],[2014,3.8],[2015,4.5],[2016,5.2],[2017,6.2],[2018,7],[2019,7.9],[2020,9.1],[2021,10.3],[2022,11.9],[2023,13.4],[2024,15],[2025,17.3]],"who":[["United States",14.5,"5.04 Gt in total, 12.9% of the world"],["Russia",12.3,"1.77 Gt in total, 4.5% of the world"],["China",8.8,"12.42 Gt in total, 31.8% of the world"],["Japan",7.8,"0.96 Gt in total, 2.5% of the world"],["EU",5.4,"2.41 Gt in total, 6.2% of the world"],["World average",4.7,"39.0 Gt in total"],["India",2.2,"3.2 Gt in total, 8.2% of the world"],["Low-income countries",0.3,"0.21 Gt in total, 0.5% of the world"]],"acts":[["Live without a car",2.2,"2.0 to 2.4"],["One long-haul return flight less",2.3,"1.6 to 3"],["Electric car in place of petrol",1.6,"1.2 to 2.0"],["Renewable electricity at home",1.6,"about 1.6"],["Heat pump in place of a boiler",1.35,"1 to 1.7"],["Home insulation",0.9,"about 0.9"],["Vegan diet",0.85,"0.8 to 0.9"],["Less food waste",0.3,"about 0.3"],["Recycling",0.2,"about 0.2"]]}</script>
+<script>
+const D = JSON.parse(document.getElementById('d').textContent);
+const NS = 'http://www.w3.org/2000/svg';
+const el = (p, n, a, t) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); if (t != null) e.textContent = t; p.appendChild(e); return e; };
+function tipFor(panel) { const t = document.createElement('div'); t.className = 'tip'; t.setAttribute('role', 'status'); panel.appendChild(t); return t; }
+function table(panel, head, rows) {
+  const d = document.createElement('details');
+  d.innerHTML = '<summary>Show the numbers</summary><div class="wrap"><table><thead><tr>' + head.map((h) => '<th>' + h + '</th>').join('') + '</tr></thead><tbody>' +
+    rows.map((r) => '<tr>' + r.map((c) => '<td>' + c + '</td>').join('') + '</tr>').join('') + '</tbody></table></div>';
+  panel.appendChild(d);
+}
+// series: [{name, color, data: [[x, y], ...]}]
+function line(id, series, o) {
+  const panel = document.getElementById(id), W = Math.max(280, Math.min(726, panel.clientWidth - 34)), small = W < 520, H = small ? 230 : 300, m = { l: 34, r: small ? 52 : (o.right || 16), t: 14, b: 26 };
+  const svg = el(panel, 'svg', { class: 'chart', width: W, height: H, viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': o.label, tabindex: 0 });
+  const xs = series[0].data.map((p) => p[0]), x0 = xs[0], x1 = xs[xs.length - 1];
+  const X = (v) => m.l + (v - x0) / (x1 - x0) * (W - m.l - m.r), Y = (v) => H - m.b - (v - o.y0) / (o.y1 - o.y0) * (H - m.t - m.b);
+  for (const v of o.yticks) { el(svg, 'line', { class: v === 0 ? 'zero' : 'grid', x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v) }); el(svg, 'text', { x: m.l - 6, y: Y(v) + 4, 'text-anchor': 'end' }, v + (o.unit || '')); }
+  for (const v of (small && o.xticks.length > 4 ? o.xticks.filter((t, i) => i % 2 === (o.xticks.length - 1) % 2) : o.xticks)) el(svg, 'text', { x: X(v), y: H - 6, 'text-anchor': v === x1 ? 'end' : v === x0 ? 'start' : 'middle' }, v);
+  for (const s of series) {
+    el(svg, 'path', { d: s.data.map((p, i) => (i ? 'L' : 'M') + X(p[0]).toFixed(1) + ' ' + Y(p[1]).toFixed(1)).join(''), fill: 'none', stroke: 'var(' + s.color + ')', 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' });
+    const e = s.data[s.data.length - 1];
+    el(svg, 'circle', { cx: X(e[0]), cy: Y(e[1]), r: 4, fill: 'var(' + s.color + ')', stroke: 'var(--surface)', 'stroke-width': 2 });
+    if (s.end) el(svg, 'text', { class: 'val', x: X(e[0]) + 8, y: Y(e[1]) + 4 }, small ? s.short : s.end);
+  }
+  const cross = el(svg, 'line', { class: 'zero', y1: m.t, y2: H - m.b, visibility: 'hidden' });
+  const dots = series.map((s) => el(svg, 'circle', { r: 4.5, fill: 'var(' + s.color + ')', stroke: 'var(--surface)', 'stroke-width': 2, visibility: 'hidden' }));
+  const tip = tipFor(panel);
+  let idx = xs.length - 1;
+  const show = (i) => {
+    idx = Math.max(0, Math.min(xs.length - 1, i));
+    cross.setAttribute('x1', X(xs[idx])); cross.setAttribute('x2', X(xs[idx])); cross.setAttribute('visibility', 'visible');
+    series.forEach((s, k) => { dots[k].setAttribute('cx', X(xs[idx])); dots[k].setAttribute('cy', Y(s.data[idx][1])); dots[k].setAttribute('visibility', 'visible'); });
+    tip.innerHTML = '<b>' + xs[idx] + '</b>' + series.map((s) => '<br>' + (series.length > 1 ? s.name + ': ' : '') + o.fmt(s.data[idx][1])).join('');
+    const r = svg.getBoundingClientRect(), pr = panel.getBoundingClientRect(), k = r.width / W;
+    const px = Math.max(70, Math.min(pr.width - 70, r.left - pr.left + X(xs[idx]) * k));
+    tip.style.left = px + 'px'; tip.style.top = (r.top - pr.top + Math.min(...series.map((s) => Y(s.data[idx][1]))) * k - 10) + 'px'; tip.classList.add('on');
+  };
+  const hide = () => { cross.setAttribute('visibility', 'hidden'); dots.forEach((d) => d.setAttribute('visibility', 'hidden')); tip.classList.remove('on'); };
+  svg.addEventListener('pointermove', (ev) => { const r = svg.getBoundingClientRect(); const v = x0 + ((ev.clientX - r.left) / r.width * W - m.l) / (W - m.l - m.r) * (x1 - x0); show(Math.round((v - x0) / (x1 - x0) * (xs.length - 1))); });
+  svg.addEventListener('pointerleave', hide); svg.addEventListener('blur', hide);
+  svg.addEventListener('keydown', (ev) => { if (ev.key === 'ArrowLeft') { show(idx - 1); ev.preventDefault(); } if (ev.key === 'ArrowRight') { show(idx + 1); ev.preventDefault(); } });
+  table(panel, ['Year'].concat(series.map((s) => s.name)), xs.map((x, i) => [x].concat(series.map((s) => o.fmt(s.data[i][1])))).reverse());
+}
+// rows: [[label, value, note]]
+function bars(id, rows, o) {
+  const panel = document.getElementById(id), W = Math.max(280, Math.min(726, panel.clientWidth - 34)), small = W < 520, rh = small ? 52 : 34, lw = small ? 0 : o.lw, top = small ? 20 : 0, H = rows.length * rh + 6;
+  const svg = el(panel, 'svg', { class: 'chart', width: W, height: H, viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': o.label });
+  const X = (v) => v / o.max * (W - lw - 84), tip = tipFor(panel);
+  rows.forEach((r, i) => {
+    const y = i * rh + 4 + top, w = Math.max(5, X(r[1]));
+    if (small) el(svg, 'text', { class: 'lab', x: 0, y: y - 6 }, r[0]); else el(svg, 'text', { class: 'lab', x: lw - 10, y: y + 17, 'text-anchor': 'end' }, r[0]);
+    el(svg, 'path', { d: 'M' + lw + ' ' + y + 'h' + (w - 4) + 'a4 4 0 0 1 4 4v16a4 4 0 0 1 -4 4h-' + (w - 4) + 'z', fill: 'var(--cold)' });
+    el(svg, 'text', { class: 'val', x: lw + w + 8, y: y + 17 }, o.fmt(r[1], r));
+    const hit = el(svg, 'rect', { x: 0, y: y - 4 - top, width: W, height: rh, fill: 'transparent', tabindex: 0 });
+    const on = () => { const b = svg.getBoundingClientRect(), pr = panel.getBoundingClientRect(), k = b.width / W; tip.innerHTML = '<b>' + r[0] + '</b><br>' + r[2];
+      tip.style.left = Math.max(110, Math.min(pr.width - 110, b.left - pr.left + (lw + w / 2) * k)) + 'px'; tip.style.top = (b.top - pr.top + y * k - 6) + 'px'; tip.classList.add('on'); };
+    const off = () => tip.classList.remove('on');
+    hit.addEventListener('pointerenter', on); hit.addEventListener('pointerleave', off); hit.addEventListener('focus', on); hit.addEventListener('blur', off);
+  });
+  table(panel, o.head, rows.map((r) => [r[0], o.fmt(r[1], r), r[2]]));
+}
+line('c-temp', [{ name: 'Above 1850-1900', color: '--warm', data: D.temp, end: '+' + D.temp[D.temp.length - 1][1].toFixed(2) + ' \u00b0C', short: '+' + D.temp[D.temp.length - 1][1].toFixed(2) + '\u00b0' }],
+  { label: 'Global mean surface temperature each year from 1850 to 2025, against the 1850 to 1900 mean. It is flat until about 1910 and rises steeply after 1975.', y0: -0.4, y1: 1.6, yticks: [0, 0.5, 1, 1.5], unit: '\u00b0', xticks: [1850, 1900, 1950, 2000, 2025], fmt: (v) => (v > 0 ? '+' : '') + v.toFixed(2) + ' \u00b0C', right: 78 });
+line('c-co2', [{ name: 'Gt of CO2', color: '--cold', data: D.co2w, end: D.co2w[D.co2w.length - 1][1].toFixed(1) + ' Gt', short: D.co2w[D.co2w.length - 1][1].toFixed(0) + ' Gt' }],
+  { label: 'World CO2 emissions from fossil fuels and cement each year from 1950 to 2025. They rise almost every year; the rise is slower after 2010.', y0: 0, y1: 40, yticks: [0, 10, 20, 30, 40], xticks: [1950, 1970, 1990, 2010, 2025], fmt: (v) => v.toFixed(1) + ' Gt', right: 66 });
+line('c-el', [{ name: 'Coal', color: '--warm', data: D.coal, end: 'Coal ' + D.coal[D.coal.length - 1][1] + '%', short: D.coal[D.coal.length - 1][1].toFixed(0) + '%' }, { name: 'Solar and wind', color: '--cold', data: D.sw, end: 'Solar and wind ' + D.sw[D.sw.length - 1][1] + '%', short: D.sw[D.sw.length - 1][1].toFixed(0) + '%' }],
+  { label: 'Share of world electricity from coal and from solar and wind, 2000 to 2025. Coal falls from about 40 to 33 percent. Solar and wind rise from near zero to 17 percent.', y0: 0, y1: 45, yticks: [0, 10, 20, 30, 40], unit: '%', xticks: [2000, 2005, 2010, 2015, 2020, 2025], fmt: (v) => v.toFixed(1) + '%', right: 150 });
+bars('c-who', D.who, { label: 'Fossil CO2 emissions per person in 2025 by country.', max: 16, lw: 190, fmt: (v) => v.toFixed(1) + ' t', head: ['Place', 'Per person', 'Total'] });
+bars('c-acts', D.acts, { label: 'Tonnes of CO2 equivalent that one person in a rich country saves per year with each action.', max: 3, lw: 270, fmt: (v, r) => r[2] + ' t', head: ['Action', 'Saving per year', 'Range'] });
+</script>
+</body>
+</html>
