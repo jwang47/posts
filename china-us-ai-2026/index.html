@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Is China's AI catching up, or copying? Two claims tested</title>
-<meta name="description" content="Two common takes on the China-US AI race, tested against the evidence: Chinese AI is more efficient and will win, or China is six months behind because it only distills US models.">
+<title>China and the US in AI: how far apart, and why</title>
+<meta name="description" content="An analysis of the China-US AI gap in 2026: how far behind Chinese models are, and what efficiency, compute, power, distillation and open models each contribute.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Posts">
-<meta property="og:title" content="Is China's AI catching up, or copying? Two claims tested">
-<meta property="og:description" content="China is about six months behind with a fraction of the compute. Distillation is large, but so is Chinese innovation. Neither popular take holds up.">
+<meta property="og:title" content="China and the US in AI: how far apart, and why">
+<meta property="og:description" content="Chinese models trail the US by about six months with a fraction of the compute. Efficiency, distillation, power and open models, measured.">
 <meta property="og:url" content="https://jwang47.github.io/posts/china-us-ai-2026/">
 <meta property="og:image" content="https://jwang47.github.io/posts/china-us-ai-2026/card.png">
 <meta property="og:image:width" content="1200">
@@ -90,11 +90,13 @@ footer { font-size: 15px; color: var(--ink-2); display: flex; flex-direction: co
 <main>
 <header>
   <div class="kicker">Written 13 November 2026</div>
-  <h1>Is China's AI catching up, or copying? Two claims tested</h1>
-  <p class="lede">Two friends disagree about the AI race. One says Chinese AI is more efficient, so it will win whatever happens. The other says China is always six months behind because it only copies American models. The evidence gives the second friend the right number and the first friend one real point. Neither conclusion holds.</p>
+  <h1>China and the US in AI: how far apart, and why</h1>
+  <p class="lede">The best Chinese AI models trail the best American ones by about six months. This post looks at why: how much comes from efficiency, compute, electricity and distillation, and where China already leads.</p>
   <div class="claims">
-    <div class="claim"><q>Chinese AI is a lot more scalable than US AI, it's more optimized. US AI is only better because of raw processing power, so either way they're gonna win.</q><b>Mostly wrong.</b><span>Chinese labs did invent real efficiency methods. But they are short of compute, not more scalable: they rationed service in 2026 and DeepSeek raised its prices. The US has 8 to 16 times the compute, and published efficiency methods help both sides.</span></div>
-    <div class="claim"><q>China is always 6 months behind Anthropic and OpenAI because they're mainly just distilling their models. Always lagging, no real innovation.</q><b>Right number, half-right reason.</b><span>The gap is about 4 to 8 months. Distillation is real and very large: Anthropic's per-lab counts add up to about 190 million exchanges, mostly in May to July 2026. But Chinese labs also publish original methods, so "no real innovation" is wrong.</span></div>
+    <div class="claim"><b>The gap</b><span>About 4 to 8 months, centred near 6, with no clear trend since 2023. Every model at the frontier has been American.</span></div>
+    <div class="claim"><b>Efficiency</b><span>Chinese labs published original methods that cut training and serving costs. They still ration compute, and efficiency does not replace chips.</span></div>
+    <div class="claim"><b>Compute and power</b><span>The US has about 8 to 16 times the AI compute. China generates more than twice the electricity, but cannot yet make enough chips to use it.</span></div>
+    <div class="claim"><b>Distillation</b><span>Large and documented: Anthropic's per-lab counts add up to about 190 million exchanges in 2026. One estimate says it halves the gap.</span></div>
   </div>
   <div class="tiles">
     <div class="tile"><b>~6 months</b><span>typical lag of the best Chinese model behind the best US model; range 4 to 14</span></div>
@@ -155,12 +157,12 @@ footer { font-size: 15px; color: var(--ink-2); display: flex; flex-direction: co
 <g><path class="cn" d="M0.0,351.0 h80.6 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-80.6 z"/><title>Epoch AI, open vs closed models, since Jan 2026: 4 months</title></g>
 <text class="val" x="90.6" y="367.0">4</text></svg><details><summary>Show the numbers</summary><div class="wrap"><table><tr><th>Estimate</th><th>Months behind</th><th>Note</th></tr><tr><td>NIST CAISI test of DeepSeek V4 Pro, May 2026</td><td>8</td><td>About level with GPT-5</td></tr><tr><td>Epoch AI, best Chinese vs best US model, 2023 to Jan 2026 (average)</td><td>7</td><td>Range 4 to 14 months</td></tr><tr><td>Institute for Progress, 2026</td><td>6.5</td><td>Says it would be about 13 without distillation</td></tr><tr><td>Mozilla, open vs closed models, Sep 2026</td><td>4.4</td><td>Open vs closed, not China vs US</td></tr><tr><td>Epoch AI, open vs closed models, since Jan 2026</td><td>4</td><td>Open vs closed, not China vs US</td></tr></table></div></details>
   </div>
-  <p>So the second friend's "six months" is a fair summary: about 4 to 8 months, centred near 6, with no clear trend either way. The word "always" is too strong; the lag has moved between 4 and 14 months since 2023.</p>
+  <p>Taken together: about 4 to 8 months, centred near 6, with no clear trend either way. The lag is not fixed; it has moved between 4 and 14 months since 2023.</p>
 </section>
 
 <section>
-  <h2>Claim 1: China is more efficient</h2>
-  <p>This part has truth in it. Export controls cut Chinese labs off from the best Nvidia chips, so they had to do more with less. Their published work shows original methods:</p>
+  <h2>Efficiency</h2>
+  <p>Export controls cut Chinese labs off from the best Nvidia chips, so they had to do more with less. Their published work shows original methods:</p>
   <ul class="plain">
     <li><b>DeepSeek-V3</b> (Dec 2024) took about 2.8 million GPU hours for its final training run, about $5.6 million at rental prices. Meta's Llama 3 405B, a weaker model, took 30.8 million.<sup><a href="#s14">14</a></sup> It combined a compressed attention cache (MLA, DeepSeek's own design), mixture-of-experts and 8-bit training at scale.</li>
     <li><b>DeepSeek-R1</b> (Jan 2025) was the first open, detailed recipe for teaching a model to reason with reinforcement learning (GRPO). OpenAI's o1 reasoned first, but kept its method secret. R1 was also the first major model paper to pass peer review, in <i>Nature</i>; the reasoning stage cost about $294,000.<sup><a href="#s15">15</a></sup></li>
@@ -210,7 +212,11 @@ footer { font-size: 15px; color: var(--ink-2); display: flex; flex-direction: co
 <text class="val" x="15.8" y="322.0">1.32</text></svg><details><summary>Show the numbers</summary><div class="wrap"><table><tr><th>Model</th><th>US$ per million output tokens</th></tr><tr><td>Claude Fable 5.2 (Anthropic)</td><td>$40</td></tr><tr><td>Claude Opus 5.5 (Anthropic)</td><td>$20</td></tr><tr><td>GPT-6.1 Sol (OpenAI)</td><td>$10</td></tr><tr><td>Claude Sonnet 5.5 (Anthropic)</td><td>$10</td></tr><tr><td>DeepSeek V4-Pro, peak hours</td><td>$3.96</td></tr><tr><td>DeepSeek V4-Flash, peak hours</td><td>$1.32</td></tr></table></div></details>
     <div class="note">DeepSeek charges half these prices off-peak. Before August, V4-Pro cost $0.87. The models are not equal in ability, so this is not a like-for-like comparison.</div>
   </div>
-  <p>Now the problems with "more scalable, so they will win either way".</p>
+  </section>
+
+<section>
+  <h2>Compute and power</h2>
+  <p>Efficiency matters, but it has limits as a strategy.</p>
   <ol class="plain">
     <li><b>Chinese labs are short of compute, not scaling past it.</b> In April 2026 Caixin reported that MiniMax, Moonshot and Zhipu rationed service, and DeepSeek had an outage of nearly 12 hours. Alibaba Cloud's chief expects the shortage to last 3 to 5 years.<sup><a href="#s27">27</a></sup> DeepSeek's price rise points the same way. Efficiency was how they coped with too few chips; it did not make the shortage go away.</li>
     <li><b>The compute gap is large and growing.</b> Of all AI chips shipped from 2022 to mid-2026, the US got 72% and China about 10%, by computing power: about 7.6 times as much.<sup><a href="#s5">5</a></sup> The Institute for Progress puts the gap in compute used for training at about 16 times.<sup><a href="#s3">3</a></sup> The US share of new compute rose from about 60% a year in 2022-2024 to 78% in the first half of 2026.<sup><a href="#s5">5</a></sup> US cloud companies plan about $764 billion of AI spending in 2026, against about $102 billion for Chinese ones.<sup><a href="#s6">6</a></sup></li>
@@ -277,7 +283,7 @@ footer { font-size: 15px; color: var(--ink-2); display: flex; flex-direction: co
 <g><path class="cn" d="M0.0,202.0 h292.0 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-292.0 z"/><title>China: 10,583 TWh</title></g>
 <text class="val" x="302.0" y="215.0">China 10,583</text></svg><details><summary>Show the numbers</summary><div class="wrap"><table><tr><th>Measure</th><th>US</th><th>China</th></tr><tr><td>AI chips received since 2022 (million H100-equivalents)</td><td>19.8</td><td>2.6</td></tr><tr><td>Cloud AI capex planned for 2026 (US$ billion)</td><td>764</td><td>102</td></tr><tr><td>Electricity generated in 2025 (TWh)</td><td>4,520</td><td>10,583</td></tr></table></div></details>
   </div>
-  <p>The last row shows where "more scalable" does have force: <b>power</b>. China generated about 10,600 TWh of electricity in 2025, more than twice the US, and added about 540 GW of capacity in that one year.<sup><a href="#s7">7</a></sup> Power is now the main limit on US data centres; in China it is chips.<sup><a href="#s7">7</a>,<a href="#s22">22</a></sup> If China solves chips, its power lead starts to matter a lot.</p>
+  <p>The last row shows where China does scale better: <b>power</b>. China generated about 10,600 TWh of electricity in 2025, more than twice the US, and added about 540 GW of capacity in that one year.<sup><a href="#s7">7</a></sup> Power is now the main limit on US data centres; in China it is chips.<sup><a href="#s7">7</a>,<a href="#s22">22</a></sup> If China solves chips, its power lead starts to matter a lot.</p>
   <p>It has not solved chips. Huawei's Ascend output is limited by high-bandwidth memory more than by chip factories, and Epoch AI estimates Huawei will make less than 4% as much AI compute as Nvidia in 2026.<sup><a href="#s19">19</a></sup> Washington licensed some Nvidia H200 sales to China, but Beijing itself limits them, and few have shipped.<sup><a href="#s20">20</a></sup> IFP estimates, per secondary coverage, that about 65% of China's AI compute runs on US chips.<sup><a href="#s3">3</a></sup></p>
   <div class="box new">
     <p><b>New this week.</b> On 12 November, former OpenAI researcher Will DePue published an analysis of six recent models from DeepSeek, Moonshot, MiniMax and Ant Group. He says traces in the published weights show that they were initialised on Nvidia Blackwell chips, which are banned for export to China. His method matched 24 models whose makers disclosed their hardware. His own report says this "supports, without proving" training on Blackwell, and does not show where the chips were or that any law was broken. He estimates roughly 12,000 Blackwell GPUs (7,000 to 20,000).<sup><a href="#s21">21</a></sup> The analysis is one day old and unverified. If it holds, the number is small next to the US fleet, so it would not change the compute picture much. It would suggest that export controls leak, and that part of China's "efficiency" story runs on US chips.</p>
@@ -285,9 +291,9 @@ footer { font-size: 15px; color: var(--ink-2); display: flex; flex-direction: co
 </section>
 
 <section>
-  <h2>Claim 2: China mainly copies by distillation</h2>
-  <p>Distillation means training a model on the answers of a stronger model. Every lab does it with its own models. The accusation is that Chinese labs did it with US models, at scale, through fake accounts and proxy services.</p>
-  <p>The evidence for that is strong and the scale is large. In February 2026 Anthropic said DeepSeek, Moonshot and MiniMax made over 16 million exchanges with Claude through about 24,000 fraudulent accounts. It traced some accounts to specific researchers at DeepSeek and to senior Moonshot staff.<sup><a href="#s10">10</a></sup> In September it reported campaigns from seven China-based labs. Alibaba, the maker of Qwen, ran "the largest distillation attack we have ever measured": over 151 million exchanges from May to July, aimed at Claude's reasoning.<sup><a href="#s11">11</a></sup> Anthropic's per-lab counts add up to about 190 million exchanges, mostly in those three months. OpenAI told a House committee the same about DeepSeek in February,<sup><a href="#s13">13</a></sup> and Google has published on it too.<sup><a href="#s11">11</a></sup></p>
+  <h2>Distillation</h2>
+  <p>Distillation means training a model on the answers of a stronger model. Every lab does it with its own models. The issue here is that Chinese labs did it with US models, at scale, through fake accounts and proxy services.</p>
+  <p>The evidence is strong and the scale is large. In February 2026 Anthropic said DeepSeek, Moonshot and MiniMax made over 16 million exchanges with Claude through about 24,000 fraudulent accounts. It traced some accounts to specific researchers at DeepSeek and to senior Moonshot staff.<sup><a href="#s10">10</a></sup> In September it reported campaigns from seven China-based labs. Alibaba, the maker of Qwen, ran "the largest distillation attack we have ever measured": over 151 million exchanges from May to July, aimed at Claude's reasoning.<sup><a href="#s11">11</a></sup> Anthropic's per-lab counts add up to about 190 million exchanges, mostly in those three months. OpenAI told a House committee the same about DeepSeek in February,<sup><a href="#s13">13</a></sup> and Google has published on it too.<sup><a href="#s11">11</a></sup></p>
   <div class="panel">
     <h3>Exchanges with Claude that Anthropic attributes to each lab</h3>
     <div class="sub">Millions of exchanges, from Anthropic's February and September 2026 reports. The time windows differ. Not independently verified.</div>
@@ -330,29 +336,29 @@ footer { font-size: 15px; color: var(--ink-2); display: flex; flex-direction: co
   </div>
   <p>It also works. In Anthropic's test, a pretrained Claude model trained on Claude Opus 4.8 transcripts scored 80.4% on SWE-bench Verified, a hard coding test, and 71.8% when the reasoning was summarised.<sup><a href="#s12">12</a></sup> Anthropic says Zhipu distilled the cyber skills of US models into GLM-5.3, which CAISI rates the most cyber-capable open model released so far.<sup><a href="#s12">12</a></sup></p>
   <p>How much of the lag does it explain? The only number anyone has published comes from the Institute for Progress. It models the US compute lead as worth about 13 months, and says distillation cuts that to about 6.5.<sup><a href="#s3">3</a></sup> IFP argues for export controls, so it is not neutral, but nobody has published a better estimate. If it is roughly right, distillation is not a side issue. It halves the gap.</p>
-  <p>But "no real innovation" still fails. You cannot learn a new attention design, a new optimizer fix or a cheaper training recipe by copying another model's answers. Those came from Chinese labs, in public papers with open weights. The fair summary is that Chinese labs both innovate and distill, and the distilling is a major part of how they keep pace.</p>
+  <p>Distillation does not explain everything. You cannot learn a new attention design, a new optimizer fix or a cheaper training recipe by copying another model's answers. Those came from Chinese labs, in public papers with open weights. The fair summary is that Chinese labs both innovate and distill, and the distilling is a major part of how they keep pace.</p>
   <div class="box">
     <p><b>A conflict of interest.</b> Almost all distillation evidence comes from Anthropic and OpenAI, who compete with these labs and lobby for export controls. Nobody outside has checked it, and the named labs have mostly not answered. Mozilla, for one, calls a claim that Moonshot distilled Claude Fable 5 for Kimi K3 "asserted, and unshown".<sup><a href="#s4">4</a></sup> And this post was written by Claude, which Anthropic makes. I have used the counts and test results in the reports, not their arguments, and I tried to give the sceptical side too.</p>
   </div>
-  <p>One test is coming. Anthropic says its new defences cut the data that distillers get by 90 to 99%.<sup><a href="#s12">12</a></sup> That covers only its own models; distillers can move to other labs, as Zhipu did. If US labs together shut distillation down and the gap widens through 2027, the second friend's theory gains a lot. If the gap holds at about six months, Chinese labs are doing more on their own than their critics think.</p>
+  <p>One test is coming. Anthropic says its new defences cut the data that distillers get by 90 to 99%.<sup><a href="#s12">12</a></sup> That covers only its own models; distillers can move to other labs, as Zhipu did. If US labs together shut distillation down and the gap widens through 2027, distillation was carrying a lot. If the gap holds at about six months, Chinese labs are doing more on their own than their critics think.</p>
 </section>
 
 <section>
   <h2>Where China is ahead</h2>
-  <p>Neither friend mentioned the area where China clearly leads: <b>open models that other people build on</b>. Chinese models took 41% of Hugging Face downloads in the year to March 2026.<sup><a href="#s8">8</a></sup> Alibaba's Qwen family passed Meta's Llama: about 151,000 derivative models, 2.6 times Meta's, and about 2 billion downloads in 2026 against 227 million for Meta.<sup><a href="#s8">8</a></sup> On OpenRouter, a popular service that routes requests to many models, Chinese models handled more than half of all tokens in September 2026, by several estimates.<sup><a href="#s28">28</a></sup> For a company or a country that wants a good model it can run itself, cheaply, the default in 2026 is usually Chinese.</p>
+  <p>There is one area where China clearly leads: <b>open models that other people build on</b>. Chinese models took 41% of Hugging Face downloads in the year to March 2026.<sup><a href="#s8">8</a></sup> Alibaba's Qwen family passed Meta's Llama: about 151,000 derivative models, 2.6 times Meta's, and about 2 billion downloads in 2026 against 227 million for Meta.<sup><a href="#s8">8</a></sup> On OpenRouter, a popular service that routes requests to many models, Chinese models handled more than half of all tokens in September 2026, by several estimates.<sup><a href="#s28">28</a></sup> For a company or a country that wants a good model it can run itself, cheaply, the default in 2026 is usually Chinese.</p>
   <p>That is a different race. The US leads at building the best model. China leads at spreading good-enough models everywhere.</p>
 </section>
 
 <section>
-  <h2>Verdict</h2>
+  <h2>Summary</h2>
   <ul class="plain">
-    <li><b>"China is about six months behind"</b>: true. About 4 to 8 months, with no clear trend.</li>
-    <li><b>"Because they mainly distill"</b>: partly true. Distillation is large, documented and, by the one published estimate, worth about half the gap. The size is disputed and comes mostly from interested parties.</li>
-    <li><b>"No real innovation"</b>: false. Chinese labs published several original efficiency methods that the open-model world now uses.</li>
-    <li><b>"Chinese AI is more optimized"</b>: partly true. Their training and inference methods are lean, and list prices are lower. Per finished task the cost is mixed.</li>
-    <li><b>"More scalable"</b>: false today. Chinese labs ration compute. Only in electricity does China scale better.</li>
-    <li><b>"US AI is only better because of raw compute"</b>: cannot be shown. Compute is the biggest US advantage, 8 to 16 times, but the IFP estimate says the US lead would be twice as long if distillation stopped.</li>
-    <li><b>"So China wins either way"</b>: does not follow. Published efficiency gains help both sides, and the US gets to apply them to far more chips.</li>
+    <li><b>The gap</b> is about 4 to 8 months, with no clear trend. The frontier has been American every month since 2023.</li>
+    <li><b>Efficiency</b> is a real Chinese strength. Their training and serving methods are lean and original, and list prices are lower. Per finished task, the cost is mixed.</li>
+    <li><b>Compute</b> is the largest US advantage, about 8 to 16 times, and the US share of new chips is still growing. Chinese labs rationed service in 2026.</li>
+    <li><b>Power</b> is China's largest structural advantage, but it cannot use it at scale until it makes enough AI chips and high-bandwidth memory.</li>
+    <li><b>Distillation</b> is large and documented. By the one published estimate it is worth about half the gap. The size is disputed, and the evidence comes mostly from interested parties.</li>
+    <li><b>Original research</b> is real: several efficiency methods that the open-model world now uses came from Chinese labs.</li>
+    <li><b>Open models</b> are where China leads, by downloads, derivatives and usage.</li>
   </ul>
   <p>The likely path for the next year or two: the US keeps the frontier by about six months, and China keeps the lead in cheap open models and in power. Three things could change that. If China makes high-bandwidth memory at scale, its power lead comes into play. If Blackwell chips keep reaching Chinese labs, export controls matter less. If distillation is shut off and the gap widens, the US lead grows.</p>
 </section>
