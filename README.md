@@ -5,6 +5,7 @@ page, the data and the scripts.
 
 | Post | Folder |
 | --- | --- |
+| Is China's AI catching up, or copying? Two claims tested (2026-11-13) | [`china-us-ai-2026/`](china-us-ai-2026/) |
 | Why this winter's snow will come late, and when to go (2026-11-11) | [`hokkaido-winter-2026-27/`](hokkaido-winter-2026-27/) |
 
 The pages are plain HTML with no build step. Weather records are from the

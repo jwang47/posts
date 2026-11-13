@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Is China's AI catching up, or copying? Two claims tested</title>
+<meta name="description" content="Two common takes on the China-US AI race, tested against the evidence: Chinese AI is more efficient and will win, or China is six months behind because it only distills US models.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Posts">
+<meta property="og:title" content="Is China's AI catching up, or copying? Two claims tested">
+<meta property="og:description" content="China is about six months behind with a fraction of the compute. Distillation is large, but so is Chinese innovation. Neither popular take holds up.">
+<meta property="og:url" content="https://jwang47.github.io/posts/china-us-ai-2026/">
+<meta property="og:image" content="https://jwang47.github.io/posts/china-us-ai-2026/card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Paired bars: the US has about 7 times China's AI chips and capex; China generates more than twice the electricity.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jwang47.github.io/posts/china-us-ai-2026/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root { --page: #f3f6f9; --surface: #fcfcfb; --ink: #101820; --ink-2: #4b5560; --muted: #6f7780; --line: #dde2e7; --us: #2a78d6; --cn: #eb6834;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif; --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif; }
+@media (prefers-color-scheme: dark) { :root { color-scheme: dark; --page: #0c1116; --surface: #161c22; --ink: #eef1f4; --ink-2: #b9c1c9; --muted: #969da5; --line: #2a323a; --us: #3987e5; --cn: #d95926; } }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 400 18px/1.55 var(--body); }
+nav.top { max-width: 760px; margin: 0 auto; padding: 16px 20px 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15.5px; }
+nav.top a { color: var(--ink-2); text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; }
+nav.top a:hover { color: var(--ink); }
+nav.top a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--us); font-weight: 600; }
+main { max-width: 760px; margin: 0 auto; padding: 28px 20px 72px; display: flex; flex-direction: column; gap: 48px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.12; }
+h1 { font-size: clamp(32px, 6vw, 46px); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: clamp(24px, 4.2vw, 30px); font-weight: 700; }
+h3 { font-size: 18px; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--us); }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--us); outline-offset: 2px; }
+section, header { display: flex; flex-direction: column; gap: 16px; }
+.kicker { font: 600 14px/1.2 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+.lede { font-size: 20px; color: var(--ink-2); }
+.claims { display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 640px) { .claims { grid-template-columns: 1fr 1fr; } }
+.claim { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; }
+.claim q { font-style: italic; color: var(--ink-2); }
+.claim b { font-family: var(--display); font-size: 19px; }
+.tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+@media (min-width: 640px) { .tiles { grid-template-columns: repeat(4, 1fr); } }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
+.tile b { font: 700 26px/1.1 var(--display); font-variant-numeric: tabular-nums; }
+.tile span { font-size: 15px; line-height: 1.35; color: var(--ink-2); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+.panel .sub, .note { font-size: 15px; color: var(--ink-2); }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 14.5px; color: var(--ink-2); }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -1px; margin-right: 6px; }
+svg.chart.narrow { display: none; }
+@media (max-width: 560px) { svg.chart.wide { display: none; } svg.chart.narrow { display: block; } }
+svg.chart { max-width: 100%; height: auto; display: block; overflow: visible; }
+svg.chart text { font: 400 13px var(--body); fill: var(--muted); }
+svg.chart text.lab { fill: var(--ink-2); font-size: 13.5px; }
+svg.chart text.val { fill: var(--ink); font-size: 13.5px; font-variant-numeric: tabular-nums; }
+svg.chart .us { fill: var(--us); }
+svg.chart .cn { fill: var(--cn); }
+svg.chart g:hover path { opacity: .8; }
+svg.chart .grid { stroke: var(--line); stroke-width: 1; }
+svg.chart .zero { stroke: var(--muted); stroke-width: 1; }
+svg.chart .whisker { stroke: var(--ink-2); stroke-width: 1.5; }
+details { font-size: 15px; color: var(--ink-2); }
+summary { cursor: pointer; }
+details table { border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+details th, details td { text-align: left; padding: 2px 14px 2px 0; vertical-align: top; }
+ul.plain, ol.plain { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
+.box { border-left: 3px solid var(--us); padding: 4px 0 4px 14px; color: var(--ink-2); }
+.box.new { border-left-color: var(--cn); }
+sup a { text-decoration: none; font-size: 12px; }
+ol.sources { font-size: 15px; color: var(--ink-2); padding-left: 26px; display: flex; flex-direction: column; gap: 6px; margin: 0; }
+ol.sources li:target { background: var(--surface); outline: 1px solid var(--line); }
+.tag { font-size: 12.5px; border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; margin-left: 4px; white-space: nowrap; }
+footer { font-size: 15px; color: var(--ink-2); display: flex; flex-direction: column; gap: 10px; }
+</style>
+</head>
+<body>
+<nav class="top" aria-label="Pages">
+  <a href="../">All posts</a>
+  <a href="./" aria-current="page">Analysis</a>
+  <a href="#sources">Sources</a>
+</nav>
+<main>
+<header>
+  <div class="kicker">Written 13 November 2026</div>
+  <h1>Is China's AI catching up, or copying? Two claims tested</h1>
+  <p class="lede">Two friends disagree about the AI race. One says Chinese AI is more efficient, so it will win whatever happens. The other says China is always six months behind because it only copies American models. The evidence gives the second friend the right number and the first friend one real point. Neither conclusion holds.</p>
+  <div class="claims">
+    <div class="claim"><q>Chinese AI is a lot more scalable than US AI, it's more optimized. US AI is only better because of raw processing power, so either way they're gonna win.</q><b>Mostly wrong.</b><span>Chinese labs did invent real efficiency methods. But they are short of compute, not more scalable: they rationed service in 2026 and DeepSeek raised its prices. The US has 8 to 16 times the compute, and published efficiency methods help both sides.</span></div>
+    <div class="claim"><q>China is always 6 months behind Anthropic and OpenAI because they're mainly just distilling their models. Always lagging, no real innovation.</q><b>Right number, half-right reason.</b><span>The gap is about 4 to 8 months. Distillation is real and very large: Anthropic's per-lab counts add up to about 190 million exchanges, mostly in May to July 2026. But Chinese labs also publish original methods, so "no real innovation" is wrong.</span></div>
+  </div>
+  <div class="tiles">
+    <div class="tile"><b>~6 months</b><span>typical lag of the best Chinese model behind the best US model; range 4 to 14</span></div>
+    <div class="tile"><b>78%</b><span>of new AI compute went to the US in early 2026; China's share since 2022 is about 10%</span></div>
+    <div class="tile"><b>151 million</b><span>exchanges with Claude that Anthropic traces to Alibaba alone, May to July 2026</span></div>
+    <div class="tile"><b>41%</b><span>of Hugging Face model downloads in the year to March 2026 were Chinese models</span></div>
+  </div>
+</header>
+
+<section>
+  <h2>How far behind is China?</h2>
+  <p>Epoch AI tracks the best model from each country on one combined capability index. Since 2023 every model at the frontier came from the US. The best Chinese model trailed by 7 months on average, never less than 4 and at most 14.<sup><a href="#s1">1</a></sup> The US government's AI testing centre (CAISI) put DeepSeek V4 Pro, in May 2026, about 8 months behind, level with GPT-5.<sup><a href="#s23">23</a></sup> Moonshot's Kimi K3 was about 6 months behind, by one analyst's reading of a preliminary Epoch score.<sup><a href="#s24">24</a></sup></p>
+  <p>Two lower figures, about 4 months, measure open-weight models against closed ones.<sup><a href="#s2">2</a>,<a href="#s4">4</a></sup> Most leading open models are Chinese, but that is not the same comparison. At the other end, Stanford's 2026 AI Index says the gap has "effectively closed": on the user-voted Chatbot Arena, the top US and Chinese models were 2.7% apart in March 2026.<sup><a href="#s25">25</a></sup> Arena measures what users prefer, not what models can do on hard tasks. And the true frontier is ahead of what the public sees: Anthropic's Mythos 5 is not generally available.<sup><a href="#s11">11</a></sup></p>
+  <div class="panel">
+    <h3>How many months Chinese models trail the US frontier</h3>
+    <div class="sub">Five published estimates. The last two compare open-weight with closed models.</div>
+    <svg class="chart wide" viewBox="0 -4 700 268" role="img" aria-label="How far Chinese models trail the US frontier"><line class="zero" x1="300" x2="300" y1="0" y2="260"/>
+<text class="lab" x="0" y="14">NIST CAISI test of DeepSeek V4 Pro, May 2026</text>
+<text x="0" y="31">About level with GPT-5</text>
+<g><path class="cn" d="M300.0,6.0 h178.9 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-178.9 z"/><title>NIST CAISI test of DeepSeek V4 Pro, May 2026: 8 months</title></g>
+<text class="val" x="488.9" y="22.0">8</text>
+<text class="lab" x="0" y="62">Epoch AI, best Chinese vs best US model,</text>
+<text class="lab" x="0" y="79">2023 to Jan 2026 (average)</text>
+<text x="0" y="96">Range 4 to 14 months</text>
+<g><path class="cn" d="M300.0,62.5 h156.0 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-156.0 z"/><title>Epoch AI, best Chinese vs best US model, 2023 to Jan 2026 (average): 7 months</title></g>
+<text class="val" x="466.0" y="78.5">7</text>
+<text class="lab" x="0" y="127">Institute for Progress, 2026</text>
+<text x="0" y="144">Says it would be about 13 without distillation</text>
+<g><path class="cn" d="M300.0,119.0 h144.6 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-144.6 z"/><title>Institute for Progress, 2026: 6.5 months</title></g>
+<text class="val" x="454.6" y="135.0">6.5</text>
+<text class="lab" x="0" y="175">Mozilla, open vs closed models, Sep 2026</text>
+<text x="0" y="192">Open vs closed, not China vs US</text>
+<g><path class="cn" d="M300.0,167.0 h96.6 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-96.6 z"/><title>Mozilla, open vs closed models, Sep 2026: 4.4 months</title></g>
+<text class="val" x="406.6" y="183.0">4.4</text>
+<text class="lab" x="0" y="223">Epoch AI, open vs closed models, since Jan</text>
+<text class="lab" x="0" y="240">2026</text>
+<text x="0" y="257">Open vs closed, not China vs US</text>
+<g><path class="cn" d="M300.0,223.5 h87.4 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-87.4 z"/><title>Epoch AI, open vs closed models, since Jan 2026: 4 months</title></g>
+<text class="val" x="397.4" y="239.5">4</text></svg><svg class="chart narrow" viewBox="0 -4 360 381" role="img" aria-label="How far Chinese models trail the US frontier"><text class="lab" x="0" y="14">NIST CAISI test of DeepSeek V4 Pro, May 2026</text>
+<text x="0" y="31">About level with GPT-5</text>
+<g><path class="cn" d="M0.0,38.0 h165.1 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-165.1 z"/><title>NIST CAISI test of DeepSeek V4 Pro, May 2026: 8 months</title></g>
+<text class="val" x="175.1" y="54.0">8</text>
+<text class="lab" x="0" y="88">Epoch AI, best Chinese vs best US model, 2023 to</text>
+<text class="lab" x="0" y="105">Jan 2026 (average)</text>
+<text x="0" y="122">Range 4 to 14 months</text>
+<g><path class="cn" d="M0.0,129.0 h144.0 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-144.0 z"/><title>Epoch AI, best Chinese vs best US model, 2023 to Jan 2026 (average): 7 months</title></g>
+<text class="val" x="154.0" y="145.0">7</text>
+<text class="lab" x="0" y="179">Institute for Progress, 2026</text>
+<text x="0" y="196">Says it would be about 13 without distillation</text>
+<g><path class="cn" d="M0.0,203.0 h133.4 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-133.4 z"/><title>Institute for Progress, 2026: 6.5 months</title></g>
+<text class="val" x="143.4" y="219.0">6.5</text>
+<text class="lab" x="0" y="253">Mozilla, open vs closed models, Sep 2026</text>
+<text x="0" y="270">Open vs closed, not China vs US</text>
+<g><path class="cn" d="M0.0,277.0 h89.0 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-89.0 z"/><title>Mozilla, open vs closed models, Sep 2026: 4.4 months</title></g>
+<text class="val" x="99.0" y="293.0">4.4</text>
+<text class="lab" x="0" y="327">Epoch AI, open vs closed models, since Jan 2026</text>
+<text x="0" y="344">Open vs closed, not China vs US</text>
+<g><path class="cn" d="M0.0,351.0 h80.6 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-80.6 z"/><title>Epoch AI, open vs closed models, since Jan 2026: 4 months</title></g>
+<text class="val" x="90.6" y="367.0">4</text></svg><details><summary>Show the numbers</summary><div class="wrap"><table><tr><th>Estimate</th><th>Months behind</th><th>Note</th></tr><tr><td>NIST CAISI test of DeepSeek V4 Pro, May 2026</td><td>8</td><td>About level with GPT-5</td></tr><tr><td>Epoch AI, best Chinese vs best US model, 2023 to Jan 2026 (average)</td><td>7</td><td>Range 4 to 14 months</td></tr><tr><td>Institute for Progress, 2026</td><td>6.5</td><td>Says it would be about 13 without distillation</td></tr><tr><td>Mozilla, open vs closed models, Sep 2026</td><td>4.4</td><td>Open vs closed, not China vs US</td></tr><tr><td>Epoch AI, open vs closed models, since Jan 2026</td><td>4</td><td>Open vs closed, not China vs US</td></tr></table></div></details>
+  </div>
+  <p>So the second friend's "six months" is a fair summary: about 4 to 8 months, centred near 6, with no clear trend either way. The word "always" is too strong; the lag has moved between 4 and 14 months since 2023.</p>
+</section>
+
+<section>
+  <h2>Claim 1: China is more efficient</h2>
+  <p>This part has truth in it. Export controls cut Chinese labs off from the best Nvidia chips, so they had to do more with less. Their published work shows original methods:</p>
+  <ul class="plain">
+    <li><b>DeepSeek-V3</b> (Dec 2024) took about 2.8 million GPU hours for its final training run, about $5.6 million at rental prices. Meta's Llama 3 405B, a weaker model, took 30.8 million.<sup><a href="#s14">14</a></sup> It combined a compressed attention cache (MLA, DeepSeek's own design), mixture-of-experts and 8-bit training at scale.</li>
+    <li><b>DeepSeek-R1</b> (Jan 2025) was the first open, detailed recipe for teaching a model to reason with reinforcement learning (GRPO). OpenAI's o1 reasoned first, but kept its method secret. R1 was also the first major model paper to pass peer review, in <i>Nature</i>; the reasoning stage cost about $294,000.<sup><a href="#s15">15</a></sup></li>
+    <li><b>Moonshot's Kimi K2</b> (Jul 2025) scaled the Muon optimizer (first proposed by US researcher Keller Jordan) to a 1-trillion-parameter model with its own fix, MuonClip, and trained on 15.5 trillion tokens with no loss spikes.<sup><a href="#s16">16</a></sup></li>
+    <li><b>DeepSeek Sparse Attention</b> (Sep 2025) cut long-context costs, and DeepSeek halved its prices.<sup><a href="#s17">17</a></sup> DeepSeek V4 (2026) carried this to a 1.6-trillion-parameter model with a million-token context.<sup><a href="#s18">18</a></sup></li>
+  </ul>
+  <p>These methods are original, published, and reused widely in open models. There is no public evidence that OpenAI, Anthropic or Google adopted them; those labs do not say what they use.<sup><a href="#s26">26</a></sup></p>
+  <p>Chinese models are also cheaper to use, though less than the old headlines said. In August DeepSeek moved to peak and off-peak pricing and raised V4-Pro output prices about 4.5 times at peak hours.<sup><a href="#s9">9</a></sup> Per million output tokens, list prices now differ by about 2.5 to 10 times.<sup><a href="#s29">29</a></sup> Per finished task the picture is mixed: CAISI found DeepSeek V4 Pro anywhere from 53% cheaper to 41% more expensive than US models; one likely reason is that it uses more tokens to finish.<sup><a href="#s23">23</a></sup></p>
+  <div class="panel">
+    <h3>List price for one million output tokens, November 2026</h3>
+    <div class="legend"><span><i style="background:var(--us)"></i>US model</span><span><i style="background:var(--cn)"></i>Chinese model</span></div>
+    <svg class="chart wide" viewBox="0 -4 700 210" role="img" aria-label="List price for one million output tokens, November 2026"><line class="zero" x1="300" x2="300" y1="0" y2="202"/>
+<text class="lab" x="0" y="14">Claude Fable 5.2 (Anthropic)</text>
+<g><path class="us" d="M300.0,0.0 h316.0 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-316.0 z"/><title>Claude Fable 5.2 (Anthropic): 40 US$ per million output tokens</title></g>
+<text class="val" x="626.0" y="16.0">40</text>
+<text class="lab" x="0" y="50">Claude Opus 5.5 (Anthropic)</text>
+<g><path class="us" d="M300.0,36.0 h156.0 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-156.0 z"/><title>Claude Opus 5.5 (Anthropic): 20 US$ per million output tokens</title></g>
+<text class="val" x="466.0" y="52.0">20</text>
+<text class="lab" x="0" y="86">GPT-6.1 Sol (OpenAI)</text>
+<g><path class="us" d="M300.0,72.0 h76.0 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-76.0 z"/><title>GPT-6.1 Sol (OpenAI): 10 US$ per million output tokens</title></g>
+<text class="val" x="386.0" y="88.0">10</text>
+<text class="lab" x="0" y="122">Claude Sonnet 5.5 (Anthropic)</text>
+<g><path class="us" d="M300.0,108.0 h76.0 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-76.0 z"/><title>Claude Sonnet 5.5 (Anthropic): 10 US$ per million output tokens</title></g>
+<text class="val" x="386.0" y="124.0">10</text>
+<text class="lab" x="0" y="158">DeepSeek V4-Pro, peak hours</text>
+<g><path class="cn" d="M300.0,144.0 h27.7 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-27.7 z"/><title>DeepSeek V4-Pro, peak hours: 3.96 US$ per million output tokens</title></g>
+<text class="val" x="337.7" y="160.0">3.96</text>
+<text class="lab" x="0" y="194">DeepSeek V4-Flash, peak hours</text>
+<g><path class="cn" d="M300.0,180.0 h6.6 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-6.6 z"/><title>DeepSeek V4-Flash, peak hours: 1.32 US$ per million output tokens</title></g>
+<text class="val" x="316.6" y="196.0">1.32</text></svg><svg class="chart narrow" viewBox="0 -4 360 336" role="img" aria-label="List price for one million output tokens, November 2026"><text class="lab" x="0" y="14">Claude Fable 5.2 (Anthropic)</text>
+<g><path class="us" d="M0.0,21.0 h292.0 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-292.0 z"/><title>Claude Fable 5.2 (Anthropic): 40 US$ per million output tokens</title></g>
+<text class="val" x="302.0" y="37.0">40</text>
+<text class="lab" x="0" y="71">Claude Opus 5.5 (Anthropic)</text>
+<g><path class="us" d="M0.0,78.0 h144.0 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-144.0 z"/><title>Claude Opus 5.5 (Anthropic): 20 US$ per million output tokens</title></g>
+<text class="val" x="154.0" y="94.0">20</text>
+<text class="lab" x="0" y="128">GPT-6.1 Sol (OpenAI)</text>
+<g><path class="us" d="M0.0,135.0 h70.0 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-70.0 z"/><title>GPT-6.1 Sol (OpenAI): 10 US$ per million output tokens</title></g>
+<text class="val" x="80.0" y="151.0">10</text>
+<text class="lab" x="0" y="185">Claude Sonnet 5.5 (Anthropic)</text>
+<g><path class="us" d="M0.0,192.0 h70.0 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-70.0 z"/><title>Claude Sonnet 5.5 (Anthropic): 10 US$ per million output tokens</title></g>
+<text class="val" x="80.0" y="208.0">10</text>
+<text class="lab" x="0" y="242">DeepSeek V4-Pro, peak hours</text>
+<g><path class="cn" d="M0.0,249.0 h25.3 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-25.3 z"/><title>DeepSeek V4-Pro, peak hours: 3.96 US$ per million output tokens</title></g>
+<text class="val" x="35.3" y="265.0">3.96</text>
+<text class="lab" x="0" y="299">DeepSeek V4-Flash, peak hours</text>
+<g><path class="cn" d="M0.0,306.0 h5.8 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-5.8 z"/><title>DeepSeek V4-Flash, peak hours: 1.32 US$ per million output tokens</title></g>
+<text class="val" x="15.8" y="322.0">1.32</text></svg><details><summary>Show the numbers</summary><div class="wrap"><table><tr><th>Model</th><th>US$ per million output tokens</th></tr><tr><td>Claude Fable 5.2 (Anthropic)</td><td>$40</td></tr><tr><td>Claude Opus 5.5 (Anthropic)</td><td>$20</td></tr><tr><td>GPT-6.1 Sol (OpenAI)</td><td>$10</td></tr><tr><td>Claude Sonnet 5.5 (Anthropic)</td><td>$10</td></tr><tr><td>DeepSeek V4-Pro, peak hours</td><td>$3.96</td></tr><tr><td>DeepSeek V4-Flash, peak hours</td><td>$1.32</td></tr></table></div></details>
+    <div class="note">DeepSeek charges half these prices off-peak. Before August, V4-Pro cost $0.87. The models are not equal in ability, so this is not a like-for-like comparison.</div>
+  </div>
+  <p>Now the problems with "more scalable, so they will win either way".</p>
+  <ol class="plain">
+    <li><b>Chinese labs are short of compute, not scaling past it.</b> In April 2026 Caixin reported that MiniMax, Moonshot and Zhipu rationed service, and DeepSeek had an outage of nearly 12 hours. Alibaba Cloud's chief expects the shortage to last 3 to 5 years.<sup><a href="#s27">27</a></sup> DeepSeek's price rise points the same way. Efficiency was how they coped with too few chips; it did not make the shortage go away.</li>
+    <li><b>The compute gap is large and growing.</b> Of all AI chips shipped from 2022 to mid-2026, the US got 72% and China about 10%, by computing power: about 7.6 times as much.<sup><a href="#s5">5</a></sup> The Institute for Progress puts the gap in compute used for training at about 16 times.<sup><a href="#s3">3</a></sup> The US share of new compute rose from about 60% a year in 2022-2024 to 78% in the first half of 2026.<sup><a href="#s5">5</a></sup> US cloud companies plan about $764 billion of AI spending in 2026, against about $102 billion for Chinese ones.<sup><a href="#s6">6</a></sup></li>
+    <li><b>Efficiency is not a moat when you publish it.</b> Chinese labs release their methods and weights. Any lab can use the same ideas on many more chips. Efficiency multiplies compute; it does not replace it.</li>
+    <li><b>The cheap headline costs leave things out.</b> The $5.6 million figure for DeepSeek-V3 covers one final run, not research, failed runs or staff. SemiAnalysis estimated DeepSeek's hardware at well over $500 million.<sup><a href="#s14">14</a></sup></li>
+  </ol>
+  <div class="panel">
+    <h3>US share of the world's new AI compute</h3>
+    <div class="sub">By computing power of AI chips delivered, from customs records (Epoch AI). China's share since 2022 is about 10%.</div>
+    <svg class="chart wide" viewBox="0 -4 700 102" role="img" aria-label="US share of new AI compute each year"><line class="zero" x1="300" x2="300" y1="0" y2="94"/>
+<text class="lab" x="0" y="14">2022-2024 (each year, about)</text>
+<g><path class="us" d="M300.0,0.0 h188.0 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-188.0 z"/><title>2022-2024 (each year, about): 60% of new AI compute</title></g>
+<text class="val" x="498.0" y="16.0">60%</text>
+<text class="lab" x="0" y="50">2025</text>
+<g><path class="us" d="M300.0,36.0 h226.4 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-226.4 z"/><title>2025: 72% of new AI compute</title></g>
+<text class="val" x="536.4" y="52.0">72%</text>
+<text class="lab" x="0" y="86">First half of 2026</text>
+<g><path class="us" d="M300.0,72.0 h245.6 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-245.6 z"/><title>First half of 2026: 78% of new AI compute</title></g>
+<text class="val" x="555.6" y="88.0">78%</text></svg><svg class="chart narrow" viewBox="0 -4 360 165" role="img" aria-label="US share of new AI compute each year"><text class="lab" x="0" y="14">2022-2024 (each year, about)</text>
+<g><path class="us" d="M0.0,21.0 h173.6 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-173.6 z"/><title>2022-2024 (each year, about): 60% of new AI compute</title></g>
+<text class="val" x="183.6" y="37.0">60%</text>
+<text class="lab" x="0" y="71">2025</text>
+<g><path class="us" d="M0.0,78.0 h209.1 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-209.1 z"/><title>2025: 72% of new AI compute</title></g>
+<text class="val" x="219.1" y="94.0">72%</text>
+<text class="lab" x="0" y="128">First half of 2026</text>
+<g><path class="us" d="M0.0,135.0 h226.9 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-226.9 z"/><title>First half of 2026: 78% of new AI compute</title></g>
+<text class="val" x="236.9" y="151.0">78%</text></svg><details><summary>Show the numbers</summary><div class="wrap"><table><tr><th>Period</th><th>US share of new AI compute</th></tr><tr><td>2022-2024 (each year, about)</td><td>60%</td></tr><tr><td>2025</td><td>72%</td></tr><tr><td>First half of 2026</td><td>78%</td></tr></table></div></details>
+  </div>
+  <div class="panel">
+    <h3>Who has more of what</h3>
+    <div class="sub">Each row is scaled to its larger value, so you can compare across very different units.</div>
+    <div class="legend"><span><i style="background:var(--us)"></i>United States</span><span><i style="background:var(--cn)"></i>China</span></div>
+    <svg class="chart wide" viewBox="0 -4 700 146" role="img" aria-label="Who has more of what"><line class="zero" x1="300" x2="300" y1="0" y2="138"/>
+<text class="lab" x="0" y="14">AI chips received since 2022 (million</text>
+<text class="lab" x="0" y="31">H100-equivalents)</text>
+<g><path class="us" d="M300.0,0.0 h316.0 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-316.0 z"/><title>US: 19.8 M</title></g>
+<text class="val" x="626.0" y="13.0">US 19.8</text>
+<g><path class="cn" d="M300.0,18.0 h38.0 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-38.0 z"/><title>China: 2.6 M</title></g>
+<text class="val" x="348.0" y="31.0">China 2.6</text>
+<text class="lab" x="0" y="66">Cloud AI capex planned for 2026 (US$</text>
+<text class="lab" x="0" y="83">billion)</text>
+<g><path class="us" d="M300.0,52.0 h316.0 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-316.0 z"/><title>US: 764 $B</title></g>
+<text class="val" x="626.0" y="65.0">US 764</text>
+<g><path class="cn" d="M300.0,70.0 h38.7 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-38.7 z"/><title>China: 102 $B</title></g>
+<text class="val" x="348.7" y="83.0">China 102</text>
+<text class="lab" x="0" y="118">Electricity generated in 2025 (TWh)</text>
+<g><path class="us" d="M300.0,104.0 h132.7 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-132.7 z"/><title>US: 4,520 TWh</title></g>
+<text class="val" x="442.7" y="117.0">US 4,520</text>
+<g><path class="cn" d="M300.0,122.0 h316.0 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-316.0 z"/><title>China: 10,583 TWh</title></g>
+<text class="val" x="626.0" y="135.0">China 10,583</text></svg><svg class="chart narrow" viewBox="0 -4 360 226" role="img" aria-label="Who has more of what"><text class="lab" x="0" y="14">AI chips received since 2022 (million</text>
+<text class="lab" x="0" y="31">H100-equivalents)</text>
+<g><path class="us" d="M0.0,38.0 h292.0 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-292.0 z"/><title>US: 19.8 M</title></g>
+<text class="val" x="302.0" y="51.0">US 19.8</text>
+<g><path class="cn" d="M0.0,56.0 h34.9 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-34.9 z"/><title>China: 2.6 M</title></g>
+<text class="val" x="44.9" y="69.0">China 2.6</text>
+<text class="lab" x="0" y="104">Cloud AI capex planned for 2026 (US$ billion)</text>
+<g><path class="us" d="M0.0,111.0 h292.0 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-292.0 z"/><title>US: 764 $B</title></g>
+<text class="val" x="302.0" y="124.0">US 764</text>
+<g><path class="cn" d="M0.0,129.0 h35.5 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-35.5 z"/><title>China: 102 $B</title></g>
+<text class="val" x="45.5" y="142.0">China 102</text>
+<text class="lab" x="0" y="177">Electricity generated in 2025 (TWh)</text>
+<g><path class="us" d="M0.0,184.0 h122.4 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-122.4 z"/><title>US: 4,520 TWh</title></g>
+<text class="val" x="132.4" y="197.0">US 4,520</text>
+<g><path class="cn" d="M0.0,202.0 h292.0 a4,4 0 0 1 4,4 v8.0 a4,4 0 0 1 -4,4 h-292.0 z"/><title>China: 10,583 TWh</title></g>
+<text class="val" x="302.0" y="215.0">China 10,583</text></svg><details><summary>Show the numbers</summary><div class="wrap"><table><tr><th>Measure</th><th>US</th><th>China</th></tr><tr><td>AI chips received since 2022 (million H100-equivalents)</td><td>19.8</td><td>2.6</td></tr><tr><td>Cloud AI capex planned for 2026 (US$ billion)</td><td>764</td><td>102</td></tr><tr><td>Electricity generated in 2025 (TWh)</td><td>4,520</td><td>10,583</td></tr></table></div></details>
+  </div>
+  <p>The last row shows where "more scalable" does have force: <b>power</b>. China generated about 10,600 TWh of electricity in 2025, more than twice the US, and added about 540 GW of capacity in that one year.<sup><a href="#s7">7</a></sup> Power is now the main limit on US data centres; in China it is chips.<sup><a href="#s7">7</a>,<a href="#s22">22</a></sup> If China solves chips, its power lead starts to matter a lot.</p>
+  <p>It has not solved chips. Huawei's Ascend output is limited by high-bandwidth memory more than by chip factories, and Epoch AI estimates Huawei will make less than 4% as much AI compute as Nvidia in 2026.<sup><a href="#s19">19</a></sup> Washington licensed some Nvidia H200 sales to China, but Beijing itself limits them, and few have shipped.<sup><a href="#s20">20</a></sup> IFP estimates, per secondary coverage, that about 65% of China's AI compute runs on US chips.<sup><a href="#s3">3</a></sup></p>
+  <div class="box new">
+    <p><b>New this week.</b> On 12 November, former OpenAI researcher Will DePue published an analysis of six recent models from DeepSeek, Moonshot, MiniMax and Ant Group. He says traces in the published weights show that they were initialised on Nvidia Blackwell chips, which are banned for export to China. His method matched 24 models whose makers disclosed their hardware. His own report says this "supports, without proving" training on Blackwell, and does not show where the chips were or that any law was broken. He estimates roughly 12,000 Blackwell GPUs (7,000 to 20,000).<sup><a href="#s21">21</a></sup> The analysis is one day old and unverified. If it holds, the number is small next to the US fleet, so it would not change the compute picture much. It would suggest that export controls leak, and that part of China's "efficiency" story runs on US chips.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Claim 2: China mainly copies by distillation</h2>
+  <p>Distillation means training a model on the answers of a stronger model. Every lab does it with its own models. The accusation is that Chinese labs did it with US models, at scale, through fake accounts and proxy services.</p>
+  <p>The evidence for that is strong and the scale is large. In February 2026 Anthropic said DeepSeek, Moonshot and MiniMax made over 16 million exchanges with Claude through about 24,000 fraudulent accounts. It traced some accounts to specific researchers at DeepSeek and to senior Moonshot staff.<sup><a href="#s10">10</a></sup> In September it reported campaigns from seven China-based labs. Alibaba, the maker of Qwen, ran "the largest distillation attack we have ever measured": over 151 million exchanges from May to July, aimed at Claude's reasoning.<sup><a href="#s11">11</a></sup> Anthropic's per-lab counts add up to about 190 million exchanges, mostly in those three months. OpenAI told a House committee the same about DeepSeek in February,<sup><a href="#s13">13</a></sup> and Google has published on it too.<sup><a href="#s11">11</a></sup></p>
+  <div class="panel">
+    <h3>Exchanges with Claude that Anthropic attributes to each lab</h3>
+    <div class="sub">Millions of exchanges, from Anthropic's February and September 2026 reports. The time windows differ. Not independently verified.</div>
+    <svg class="chart wide" viewBox="0 -4 700 210" role="img" aria-label="Exchanges with Claude that Anthropic attributes to each lab, 2026"><line class="zero" x1="300" x2="300" y1="0" y2="202"/>
+<text class="lab" x="0" y="14">Alibaba (Qwen), May to July</text>
+<g><path class="cn" d="M300.0,0.0 h316.0 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-316.0 z"/><title>Alibaba (Qwen), May to July: 151M exchanges</title></g>
+<text class="val" x="626.0" y="16.0">151M</text>
+<text class="lab" x="0" y="50">Moonshot (Kimi), May to July</text>
+<g><path class="cn" d="M300.0,36.0 h44.7 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-44.7 z"/><title>Moonshot (Kimi), May to July: 23M exchanges</title></g>
+<text class="val" x="354.7" y="52.0">23M</text>
+<text class="lab" x="0" y="86">MiniMax, before February</text>
+<g><path class="cn" d="M300.0,72.0 h23.5 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-23.5 z"/><title>MiniMax, before February: 13M exchanges</title></g>
+<text class="val" x="333.5" y="88.0">13M</text>
+<text class="lab" x="0" y="122">DeepSeek, 14 days in July</text>
+<g><path class="cn" d="M300.0,108.0 h21.6 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-21.6 z"/><title>DeepSeek, 14 days in July: 12.1M exchanges</title></g>
+<text class="val" x="331.6" y="124.0">12.1M</text>
+<text class="lab" x="0" y="158">Zhipu (GLM), 17 days in June-July</text>
+<g><path class="cn" d="M300.0,144.0 h3.6 a3.6026490066225167,3.6026490066225167 0 0 1 3.6026490066225167,3.6026490066225167 v14.8 a3.6026490066225167,3.6026490066225167 0 0 1 -3.6026490066225167,3.6026490066225167 h-3.6 z"/><title>Zhipu (GLM), 17 days in June-July: 3.4M exchanges</title></g>
+<text class="val" x="313.2" y="160.0">3.4M</text>
+<text class="lab" x="0" y="194">Xiaomi, 20 days in March-April</text>
+<g><path class="cn" d="M300.0,180.0 h1.0 a1.0,1.0 0 0 1 1.0,1.0 v20.0 a1.0,1.0 0 0 1 -1.0,1.0 h-1.0 z"/><title>Xiaomi, 20 days in March-April: 0.4M exchanges</title></g>
+<text class="val" x="308.0" y="196.0">0.4M</text></svg><svg class="chart narrow" viewBox="0 -4 360 336" role="img" aria-label="Exchanges with Claude that Anthropic attributes to each lab, 2026"><text class="lab" x="0" y="14">Alibaba (Qwen), May to July</text>
+<g><path class="cn" d="M0.0,21.0 h292.0 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-292.0 z"/><title>Alibaba (Qwen), May to July: 151M exchanges</title></g>
+<text class="val" x="302.0" y="37.0">151M</text>
+<text class="lab" x="0" y="71">Moonshot (Kimi), May to July</text>
+<g><path class="cn" d="M0.0,78.0 h41.1 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-41.1 z"/><title>Moonshot (Kimi), May to July: 23M exchanges</title></g>
+<text class="val" x="51.1" y="94.0">23M</text>
+<text class="lab" x="0" y="128">MiniMax, before February</text>
+<g><path class="cn" d="M0.0,135.0 h21.5 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-21.5 z"/><title>MiniMax, before February: 13M exchanges</title></g>
+<text class="val" x="31.5" y="151.0">13M</text>
+<text class="lab" x="0" y="185">DeepSeek, 14 days in July</text>
+<g><path class="cn" d="M0.0,192.0 h19.7 a4,4 0 0 1 4,4 v14.0 a4,4 0 0 1 -4,4 h-19.7 z"/><title>DeepSeek, 14 days in July: 12.1M exchanges</title></g>
+<text class="val" x="29.7" y="208.0">12.1M</text>
+<text class="lab" x="0" y="242">Zhipu (GLM), 17 days in June-July</text>
+<g><path class="cn" d="M0.0,249.0 h3.3 a3.332450331125828,3.332450331125828 0 0 1 3.332450331125828,3.332450331125828 v15.3 a3.332450331125828,3.332450331125828 0 0 1 -3.332450331125828,3.332450331125828 h-3.3 z"/><title>Zhipu (GLM), 17 days in June-July: 3.4M exchanges</title></g>
+<text class="val" x="12.7" y="265.0">3.4M</text>
+<text class="lab" x="0" y="299">Xiaomi, 20 days in March-April</text>
+<g><path class="cn" d="M0.0,306.0 h1.0 a1.0,1.0 0 0 1 1.0,1.0 v20.0 a1.0,1.0 0 0 1 -1.0,1.0 h-1.0 z"/><title>Xiaomi, 20 days in March-April: 0.4M exchanges</title></g>
+<text class="val" x="8.0" y="322.0">0.4M</text></svg><details><summary>Show the numbers</summary><div class="wrap"><table><tr><th>Lab</th><th>Exchanges (million)</th></tr><tr><td>Alibaba (Qwen), May to July</td><td>151</td></tr><tr><td>Moonshot (Kimi), May to July</td><td>23</td></tr><tr><td>MiniMax, before February</td><td>13</td></tr><tr><td>DeepSeek, 14 days in July</td><td>12.1</td></tr><tr><td>Zhipu (GLM), 17 days in June-July</td><td>3.4</td></tr><tr><td>Xiaomi, 20 days in March-April</td><td>0.4</td></tr></table></div></details>
+  </div>
+  <p>It also works. In Anthropic's test, a pretrained Claude model trained on Claude Opus 4.8 transcripts scored 80.4% on SWE-bench Verified, a hard coding test, and 71.8% when the reasoning was summarised.<sup><a href="#s12">12</a></sup> Anthropic says Zhipu distilled the cyber skills of US models into GLM-5.3, which CAISI rates the most cyber-capable open model released so far.<sup><a href="#s12">12</a></sup></p>
+  <p>How much of the lag does it explain? The only number anyone has published comes from the Institute for Progress. It models the US compute lead as worth about 13 months, and says distillation cuts that to about 6.5.<sup><a href="#s3">3</a></sup> IFP argues for export controls, so it is not neutral, but nobody has published a better estimate. If it is roughly right, distillation is not a side issue. It halves the gap.</p>
+  <p>But "no real innovation" still fails. You cannot learn a new attention design, a new optimizer fix or a cheaper training recipe by copying another model's answers. Those came from Chinese labs, in public papers with open weights. The fair summary is that Chinese labs both innovate and distill, and the distilling is a major part of how they keep pace.</p>
+  <div class="box">
+    <p><b>A conflict of interest.</b> Almost all distillation evidence comes from Anthropic and OpenAI, who compete with these labs and lobby for export controls. Nobody outside has checked it, and the named labs have mostly not answered. Mozilla, for one, calls a claim that Moonshot distilled Claude Fable 5 for Kimi K3 "asserted, and unshown".<sup><a href="#s4">4</a></sup> And this post was written by Claude, which Anthropic makes. I have used the counts and test results in the reports, not their arguments, and I tried to give the sceptical side too.</p>
+  </div>
+  <p>One test is coming. Anthropic says its new defences cut the data that distillers get by 90 to 99%.<sup><a href="#s12">12</a></sup> That covers only its own models; distillers can move to other labs, as Zhipu did. If US labs together shut distillation down and the gap widens through 2027, the second friend's theory gains a lot. If the gap holds at about six months, Chinese labs are doing more on their own than their critics think.</p>
+</section>
+
+<section>
+  <h2>Where China is ahead</h2>
+  <p>Neither friend mentioned the area where China clearly leads: <b>open models that other people build on</b>. Chinese models took 41% of Hugging Face downloads in the year to March 2026.<sup><a href="#s8">8</a></sup> Alibaba's Qwen family passed Meta's Llama: about 151,000 derivative models, 2.6 times Meta's, and about 2 billion downloads in 2026 against 227 million for Meta.<sup><a href="#s8">8</a></sup> On OpenRouter, a popular service that routes requests to many models, Chinese models handled more than half of all tokens in September 2026, by several estimates.<sup><a href="#s28">28</a></sup> For a company or a country that wants a good model it can run itself, cheaply, the default in 2026 is usually Chinese.</p>
+  <p>That is a different race. The US leads at building the best model. China leads at spreading good-enough models everywhere.</p>
+</section>
+
+<section>
+  <h2>Verdict</h2>
+  <ul class="plain">
+    <li><b>"China is about six months behind"</b>: true. About 4 to 8 months, with no clear trend.</li>
+    <li><b>"Because they mainly distill"</b>: partly true. Distillation is large, documented and, by the one published estimate, worth about half the gap. The size is disputed and comes mostly from interested parties.</li>
+    <li><b>"No real innovation"</b>: false. Chinese labs published several original efficiency methods that the open-model world now uses.</li>
+    <li><b>"Chinese AI is more optimized"</b>: partly true. Their training and inference methods are lean, and list prices are lower. Per finished task the cost is mixed.</li>
+    <li><b>"More scalable"</b>: false today. Chinese labs ration compute. Only in electricity does China scale better.</li>
+    <li><b>"US AI is only better because of raw compute"</b>: cannot be shown. Compute is the biggest US advantage, 8 to 16 times, but the IFP estimate says the US lead would be twice as long if distillation stopped.</li>
+    <li><b>"So China wins either way"</b>: does not follow. Published efficiency gains help both sides, and the US gets to apply them to far more chips.</li>
+  </ul>
+  <p>The likely path for the next year or two: the US keeps the frontier by about six months, and China keeps the lead in cheap open models and in power. Three things could change that. If China makes high-bandwidth memory at scale, its power lead comes into play. If Blackwell chips keep reaching Chinese labs, export controls matter less. If distillation is shut off and the gap widens, the US lead grows.</p>
+</section>
+
+<section id="sources">
+  <h2>Sources</h2>
+  <p class="note">The cloud computer that wrote this post could not open most of these pages directly. Tags show how each was checked: <span class="tag">read</span> the page was read in full; <span class="tag">search</span> seen through web search results and summaries. Model names and leaderboard scores after mid-2026 come only from search results.</p>
+  <ol class="sources">
+    <li id="s1" value="1">Epoch AI, <a href="https://epoch.ai/data-insights/us-vs-china-eci">Chinese AI models have lagged the US frontier by 7 months on average since 2023</a>, Jan 2026. <span class="tag">search</span></li>
+    <li id="s2" value="2">Traictory, <a href="https://traictory.com/news/2026-10-16-open-weight-gap-seven-months">The open-weight gap is 7 months, 4 months, or 14</a>, Oct 2026 (cites Epoch's May 2026 open-vs-closed analysis and the Stanford AI Index 2026). <span class="tag">search</span></li>
+    <li id="s3" value="3">Institute for Progress, <a href="https://ifp.org/how-to-increase-americas-ai-lead-over-china/">How to Increase America's AI Lead Over China</a> (<a href="https://ifp.org/wp-content/uploads/How-to-Increase-Americas-AI-Lead-Over-China_IFP2026.pdf">PDF</a>), 2026: 16× training-compute ratio, about 13 months without distillation, about 6.5 with it; IFP advocates export controls. The 65% figure via <a href="https://origotech.dev/articles/china-ai-compute-double-2027-65-percent-us-chips/">Origo</a>. <span class="tag">search</span></li>
+    <li id="s4" value="4">Tom's Hardware, <a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/chinas-open-weight-ai-models-are-now-just-4-months-behind-frontier-us-offerings-mozilla-report-claims-models-still-lag-in-some-benchmarks-but-are-drastically-cheaper-to-use">Mozilla report: open-weight models 4 months behind</a>, Sep 2026. <span class="tag">search</span></li>
+    <li id="s5" value="5">Epoch AI, <a href="https://epoch.ai/latest/introducing-the-ai-chip-imports-explorer">AI Chip Imports Explorer</a> and <a href="https://x.com/EpochAIResearch/status/2115186242459767006">summary post</a>, Oct 2026: 19.8M of 27.4M H100-equivalents to the US, 2.6M to China. <span class="tag">search</span></li>
+    <li id="s6" value="6">OfficeChai, <a href="https://officechai.com/ai/how-us-ai-capex-stacks-up-against-chinese-ai-capex/">How US AI capex stacks up against Chinese AI capex</a> (Goldman Sachs estimates). <span class="tag">search</span></li>
+    <li id="s7" value="7">Our World in Data / Ember, <a href="https://ourworldindata.org/grapher/electricity-mix">Electricity mix</a> (2025: China 10,583 TWh, US 4,520 TWh); Inside Climate News, <a href="https://insideclimatenews.org/news/02112026/china-renewable-energy-data-centers/">China bets on renewable energy to gain an AI edge</a>, Nov 2026; Al Jazeera, <a href="https://www.aljazeera.com/economy/2026/5/28/chinas-secret-weapon-in-ai-race-with-us-lots-of-cheap-energy">China's secret weapon in AI race: lots of cheap energy</a>, May 2026. <span class="tag">search</span></li>
+    <li id="s8" value="8">Hugging Face, <a href="https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026">State of open source, spring 2026</a> (17 Mar 2026) and <a href="https://huggingface.co/blog/state-of-open-models-summer-2026">State of open models, summer 2026</a>. <span class="tag">search</span></li>
+    <li id="s9" value="9">Quartz, <a href="https://qz.com/deepseek-api-price-increase-v4-peak-off-peak-081326">DeepSeek raises API prices with peak and off-peak billing</a>, Aug 2026; ADTmag, <a href="https://adtmag.com/articles/2026/08/20/deepseek-raises-api-prices.aspx">DeepSeek raises API prices</a>. <span class="tag">search</span></li>
+    <li id="s10" value="10">Anthropic, <a href="https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks">Detecting and preventing distillation attacks</a>, 23 Feb 2026. <span class="tag">read</span></li>
+    <li id="s11" value="11">Anthropic, <a href="https://www.anthropic.com/threat-intelligence-report-september-2026">Detecting and countering misuse of AI: September 2026</a>, section 7. <span class="tag">read</span></li>
+    <li id="s12" value="12">Anthropic, <a href="https://www.anthropic.com/news/distillation-defenses">Strengthening our defenses against distillation attacks</a>, 12 Oct 2026. <span class="tag">read</span></li>
+    <li id="s13" value="13">Bloomberg, <a href="https://www.bloomberg.com/news/articles/2026-02-12/openai-accuses-deepseek-of-distilling-us-models-to-gain-an-edge">OpenAI claims DeepSeek distilled US models to gain an edge</a>, 12 Feb 2026; Rest of World, <a href="https://restofworld.org/2026/openai-deepseek-distillation-dispute-us-china/">the distillation dispute</a>. <span class="tag">search</span></li>
+    <li id="s14" value="14">DeepSeek-AI, <a href="https://arxiv.org/abs/2412.19437">DeepSeek-V3 Technical Report</a>, Dec 2024; Interconnects, <a href="https://www.interconnects.ai/p/deepseek-v3-and-the-actual-cost-of">DeepSeek V3 and the actual cost of training frontier models</a>; <a href="https://tech.slashdot.org/story/25/01/28/1315215">SemiAnalysis estimate via the FT</a>. <span class="tag">search</span></li>
+    <li id="s15" value="15">DeepSeek-AI, <a href="https://www.nature.com/articles/s41586-025-09422-z">DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning</a>, <i>Nature</i>, Sep 2025. <span class="tag">search</span></li>
+    <li id="s16" value="16">Moonshot AI, <a href="https://arxiv.org/abs/2507.20534">Kimi K2: Open Agentic Intelligence</a>, Jul 2025. <span class="tag">search</span></li>
+    <li id="s17" value="17">DeepSeek, <a href="https://api-docs.deepseek.com/news/news250929">DeepSeek-V3.2-Exp release note</a>, 29 Sep 2025. <span class="tag">search</span></li>
+    <li id="s18" value="18">DeepSeek, <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro">DeepSeek-V4-Pro model card</a> and <a href="https://arxiv.org/abs/2606.19348">V4 report</a>, 2026. <span class="tag">search</span></li>
+    <li id="s19" value="19">Epoch AI, <a href="https://epoch.ai/publications/huaweis-roadmap-to-2031">Huawei's roadmap to 2031</a>; SemiAnalysis, <a href="https://newsletter.semianalysis.com/p/huawei-ascend-production-ramp">Huawei Ascend production ramp</a>. <span class="tag">search</span></li>
+    <li id="s20" value="20">Nvidia, Form 10-Q for the quarters ended <a href="https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000052/nvda-20260426.htm">April 2026</a> and <a href="https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000075/nvda-20260726.htm">July 2026</a>. <span class="tag">search</span></li>
+    <li id="s21" value="21">Will DePue, <a href="https://x.com/willdepue/status/2120992457630326841">post on X</a>, 12 Nov 2026; The Decoder, <a href="https://the-decoder.com/former-openai-researcher-says-he-found-nvidia-blackwell-fingerprints-hidden-inside-six-chinese-ai-models/">Former OpenAI researcher says he found Blackwell fingerprints in six Chinese models</a>; The Register, <a href="https://www.theregister.com/ai-and-ml/2026/11/13/chinese-ai-labs-are-training-models-on-nvidias-blackwell-despite-export-controls-says-ex-openai-engineer/5309891">report</a>; Dylan Patel, <a href="https://x.com/dylan522p/status/2121002286470369669">reply on X</a>. <span class="tag">search</span></li>
+    <li id="s22" value="22">CNN, <a href="https://www.cnn.com/2026/10/13/china/china-data-centers-ai-race-intl-hnk-dst">The US is fighting over AI data centers. China is building them fast</a>, Oct 2026. <span class="tag">search</span></li>
+    <li id="s23" value="23">NIST CAISI, <a href="https://www.nist.gov/news-events/news/2026/05/caisi-evaluation-deepseek-v4-pro">Evaluation of DeepSeek V4 Pro</a>, May 2026. <span class="tag">search</span></li>
+    <li id="s24" value="24">Peter Wildeford, <a href="https://x.com/peterwildeford/status/2079052877801128237">Kimi K3 on the Epoch Capabilities Index</a>. <span class="tag">search</span></li>
+    <li id="s25" value="25">The Next Web, <a href="https://thenextweb.com/news/stanford-ai-index-2026-china-us-performance-gap">Stanford AI Index 2026 on the China-US gap</a>. <span class="tag">search</span></li>
+    <li id="s26" value="26">J. Zhang, <a href="https://jxzhangjhu.github.io/blog/2026/how-frontier-labs-train-llms/">How frontier labs train LLMs</a>, 2026 (survey of which labs use which published methods). <span class="tag">search</span></li>
+    <li id="s27" value="27">Caixin, <a href="https://www.caixinglobal.com/2026-04-21/computing-shortage-forces-chinese-ai-firms-to-ration-services-102436452.html">Computing shortage forces Chinese AI firms to ration services</a>, 21 Apr 2026; K. Pilz, <a href="https://www.konstantinpilz.com/posts-publications/chinese-statements-on-compute">Chinese statements on compute</a>. <span class="tag">search</span></li>
+    <li id="s28" value="28">Digital Applied, <a href="https://www.digitalapplied.com/blog/chinese-ai-models-majority-openrouter-tokens-2026">Chinese AI models take the majority of OpenRouter tokens</a>, 2026 (estimates vary by source). <span class="tag">search</span></li>
+    <li id="s29" value="29">Anthropic, <a href="https://www.anthropic.com/pricing">pricing</a> <span class="tag">read</span>; OpenAI, <a href="https://openai.com/index/introducing-gpt-6-1-sol/">Introducing GPT-6.1 Sol</a> <span class="tag">search</span>; DeepSeek prices from source 9.</li>
+  </ol>
+</section>
+
+<footer>
+  <p>Written by Claude for Jiahua on 13 November 2026, from the sources above. The numbers in the charts are in <a href="data.json">data.json</a>, and <a href="https://github.com/jwang47/posts/tree/main/china-us-ai-2026">build.py</a> draws them. Corrections welcome on the <a href="https://github.com/jwang47/posts">repository</a>.</p>
+</footer>
+</main>
+</body>
+</html>

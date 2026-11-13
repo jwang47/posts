@@ -1,0 +1,166 @@
+{
+ "lag": {
+  "title": "How far Chinese models trail the US frontier",
+  "unit": "months",
+  "rows": [
+   [
+    "NIST CAISI test of DeepSeek V4 Pro, May 2026",
+    8,
+    "About level with GPT-5",
+    "caisi"
+   ],
+   [
+    "Epoch AI, best Chinese vs best US model, 2023 to Jan 2026 (average)",
+    7,
+    "Range 4 to 14 months",
+    "epoch-eci"
+   ],
+   [
+    "Institute for Progress, 2026",
+    6.5,
+    "Says it would be about 13 without distillation",
+    "ifp"
+   ],
+   [
+    "Mozilla, open vs closed models, Sep 2026",
+    4.4,
+    "Open vs closed, not China vs US",
+    "mozilla"
+   ],
+   [
+    "Epoch AI, open vs closed models, since Jan 2026",
+    4,
+    "Open vs closed, not China vs US",
+    "epoch-open"
+   ]
+  ]
+ },
+ "compute": {
+  "title": "US share of new AI compute each year",
+  "unit": "%",
+  "rows": [
+   [
+    "2022-2024 (each year, about)",
+    60,
+    "",
+    "epoch-chips"
+   ],
+   [
+    "2025",
+    72,
+    "",
+    "epoch-chips"
+   ],
+   [
+    "First half of 2026",
+    78,
+    "",
+    "epoch-chips"
+   ]
+  ]
+ },
+ "pairs": {
+  "title": "Who has more of what",
+  "rows": [
+   [
+    "AI chips received since 2022 (million H100-equivalents)",
+    19.8,
+    2.6,
+    "M",
+    "epoch-chips"
+   ],
+   [
+    "Cloud AI capex planned for 2026 (US$ billion)",
+    764,
+    102,
+    "$B",
+    "goldman"
+   ],
+   [
+    "Electricity generated in 2025 (TWh)",
+    4520,
+    10583,
+    "TWh",
+    "ember"
+   ]
+  ]
+ },
+ "price": {
+  "title": "List price for one million output tokens, November 2026",
+  "unit": "US$",
+  "rows": [
+   [
+    "Claude Fable 5.2 (Anthropic)",
+    40,
+    "us",
+    "anthropic-pricing"
+   ],
+   [
+    "Claude Opus 5.5 (Anthropic)",
+    20,
+    "us",
+    "anthropic-pricing"
+   ],
+   [
+    "GPT-6.1 Sol (OpenAI)",
+    10,
+    "us",
+    "openai"
+   ],
+   [
+    "Claude Sonnet 5.5 (Anthropic)",
+    10,
+    "us",
+    "anthropic-pricing"
+   ],
+   [
+    "DeepSeek V4-Pro, peak hours",
+    3.96,
+    "cn",
+    "deepseek-price"
+   ],
+   [
+    "DeepSeek V4-Flash, peak hours",
+    1.32,
+    "cn",
+    "deepseek-price"
+   ]
+  ]
+ },
+ "distill": {
+  "title": "Exchanges with Claude that Anthropic attributes to each lab, 2026",
+  "unit": "million",
+  "rows": [
+   [
+    "Alibaba (Qwen), May to July",
+    151,
+    "anthropic-sep"
+   ],
+   [
+    "Moonshot (Kimi), May to July",
+    23,
+    "anthropic-sep"
+   ],
+   [
+    "MiniMax, before February",
+    13,
+    "anthropic-feb"
+   ],
+   [
+    "DeepSeek, 14 days in July",
+    12.1,
+    "anthropic-sep"
+   ],
+   [
+    "Zhipu (GLM), 17 days in June-July",
+    3.4,
+    "anthropic-sep"
+   ],
+   [
+    "Xiaomi, 20 days in March-April",
+    0.4,
+    "anthropic-sep"
+   ]
+  ]
+ }
+}
