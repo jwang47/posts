@@ -89,7 +89,7 @@ footer { font-size: 15px; color: var(--ink-2); display: flex; flex-direction: co
 </nav>
 <main>
 <header>
-  <div class="kicker">Written 13 November 2026</div>
+  <div class="kicker">Written 13 November 2026 · updated 14 November</div>
   <h1>China and the US in AI: how far apart, and why</h1>
   <p class="lede">The best Chinese AI models trail the best American ones by about six months. This post looks at why: how much comes from efficiency, compute, electricity and distillation, and where China already leads.</p>
   <div class="claims">
@@ -335,6 +335,10 @@ footer { font-size: 15px; color: var(--ink-2); display: flex; flex-direction: co
 <text class="val" x="8.0" y="322.0">0.4M</text></svg><details><summary>Show the numbers</summary><div class="wrap"><table><tr><th>Lab</th><th>Exchanges (million)</th></tr><tr><td>Alibaba (Qwen), May to July</td><td>151</td></tr><tr><td>Moonshot (Kimi), May to July</td><td>23</td></tr><tr><td>MiniMax, before February</td><td>13</td></tr><tr><td>DeepSeek, 14 days in July</td><td>12.1</td></tr><tr><td>Zhipu (GLM), 17 days in June-July</td><td>3.4</td></tr><tr><td>Xiaomi, 20 days in March-April</td><td>0.4</td></tr></table></div></details>
   </div>
   <p>It also works. In Anthropic's test, a pretrained Claude model trained on Claude Opus 4.8 transcripts scored 80.4% on SWE-bench Verified, a hard coding test, and 71.8% when the reasoning was summarised.<sup><a href="#s12">12</a></sup> Anthropic says Zhipu distilled the cyber skills of US models into GLM-5.3, which CAISI rates the most cyber-capable open model released so far.<sup><a href="#s12">12</a></sup></p>
+  <div class="box new">
+    <p><b>New this week.</b> Cheap open models have a cost. On 13 November the FBI warned about ARTEX, an open-source tool that uses AI agents to run cyberattacks with little human work. Reports of the alert say attackers can plug in any model, including Claude and GPT, but most often choose DeepSeek's low-cost Flash models, because they are cheap and refuse less when a request is framed as security testing.<sup><a href="#s30">30</a></sup> Security firms tie one ARTEX campaign to a China-linked spying group, but criminals and several states use the tool.<sup><a href="#s31">31</a></sup></p>
+    <p>The same day, the FAA stopped all US departures after a communications failure, only the second nationwide ground stop since 9/11, and Microsoft's email service was recovering from an outage. Officials found no sign of an attack in either, and nothing links them to each other or to ARTEX.<sup><a href="#s32">32</a></sup> Early reports point to a faulty software update in the FAA case.</p>
+  </div>
   <p>How much of the lag does it explain? The only number anyone has published comes from the Institute for Progress. It models the US compute lead as worth about 13 months, and says distillation cuts that to about 6.5.<sup><a href="#s3">3</a></sup> IFP argues for export controls, so it is not neutral, but nobody has published a better estimate. If it is roughly right, distillation is not a side issue. It halves the gap.</p>
   <p>Distillation does not explain everything. You cannot learn a new attention design, a new optimizer fix or a cheaper training recipe by copying another model's answers. Those came from Chinese labs, in public papers with open weights. The fair summary is that Chinese labs both innovate and distill, and the distilling is a major part of how they keep pace.</p>
   <div class="box">
@@ -396,7 +400,10 @@ footer { font-size: 15px; color: var(--ink-2); display: flex; flex-direction: co
     <li id="s27" value="27">Caixin, <a href="https://www.caixinglobal.com/2026-04-21/computing-shortage-forces-chinese-ai-firms-to-ration-services-102436452.html">Computing shortage forces Chinese AI firms to ration services</a>, 21 Apr 2026; K. Pilz, <a href="https://www.konstantinpilz.com/posts-publications/chinese-statements-on-compute">Chinese statements on compute</a>. <span class="tag">search</span></li>
     <li id="s28" value="28">Digital Applied, <a href="https://www.digitalapplied.com/blog/chinese-ai-models-majority-openrouter-tokens-2026">Chinese AI models take the majority of OpenRouter tokens</a>, 2026 (estimates vary by source). <span class="tag">search</span></li>
     <li id="s29" value="29">Anthropic, <a href="https://www.anthropic.com/pricing">pricing</a> <span class="tag">read</span>; OpenAI, <a href="https://openai.com/index/introducing-gpt-6-1-sol/">Introducing GPT-6.1 Sol</a> <span class="tag">search</span>; DeepSeek prices from source 9.</li>
-  </ol>
+      <li id="s30" value="30">FBI, <a href="https://www.ic3.gov/CSA/2026/261113.pdf">FLASH-20261113-001: ARTEX autonomous penetration tooling</a>, 13 Nov 2026; The Record, <a href="https://therecord.media/artex-ai-tool-fbi-flash-alert">FBI flash alert says Artex tool automating cyberattacks at 'machine speed'</a>, 13 Nov 2026. <span class="tag">search</span></li>
+    <li id="s31" value="31">Cisco Talos, <a href="https://blog.talosintelligence.com/artex-and-beyond">ARTEX and beyond: AI-enabled penetration testing platforms</a>; Cybersecurity Dive, <a href="https://www.cybersecuritydive.com/news/agentic-pen-testing-tool-espionage-campaigns/873427/">Agentic pen-testing tool employed in multiple espionage campaigns</a>, Nov 2026. <span class="tag">search</span></li>
+    <li id="s32" value="32">ABC News, <a href="https://abcnews.com/US/nationwide-ground-stop-ordered-airports-faa/story?id=138121848">FAA issues rare nationwide ground stop</a>, 13 Nov 2026; NBC News, <a href="https://www.nbcnews.com/news/us-news/live-blog/live-updates-flights-grounded-faa-communications-outage-rcna609268">live updates</a>, 13 Nov 2026; Bloomberg, <a href="https://www.bloomberg.com/news/articles/2026-11-13/fbi-said-to-probe-whether-software-update-caused-mass-faa-outage">FBI said to probe whether software update caused FAA outage</a>; Wikipedia, <a href="https://en.wikipedia.org/wiki/2023_FAA_system_outage">2023 FAA system outage</a> (the earlier stop). <span class="tag">search</span></li>
+</ol>
 </section>
 
 <footer>
