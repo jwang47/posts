@@ -72,7 +72,7 @@ footer { font-size: 15px; color: var(--ink-2); }
 .prose th, .prose td { text-align: left; vertical-align: top; padding: 6px 12px 6px 0; border-bottom: 1px solid var(--line); min-width: 80px; }
 .prose a { overflow-wrap: anywhere; }
 .lab { font: 600 12px/1 var(--body); text-decoration: none; display: inline-block; padding: 3px 6px; border-radius: 4px; vertical-align: 1px; cursor: help; border: 1px solid var(--line); color: var(--ink-2); background: var(--surface); }
-.lab-D, .lab-V { background: var(--cold); border-color: var(--cold); color: #fff; }
+.lab-D, .lab-V, .lab-C { background: var(--cold); border-color: var(--cold); color: #fff; }
 .lab-M { border-style: dashed; }
 .toc { display: flex; flex-wrap: wrap; gap: 6px 8px; font-size: 15px; }
 .toc a { text-decoration: none; color: var(--ink-2); border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 4px 11px; }
@@ -81,6 +81,7 @@ footer { font-size: 15px; color: var(--ink-2); }
 <body>
 <nav class="top" aria-label="Pages">
   <a href="../">Explainer</a>
+  <a href="../removal/">Carbon removal</a>
   <a href="../sources/" aria-current="page">Report and sources</a>
   <a href="../data/">Data</a>
 </nav>
@@ -762,7 +763,9 @@ The largest direct air capture plant removed 675 t in half a year,
 against a design of 36,000 t per year <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>. Offsets are worse: a
 review of 2,346 projects found that less than 16% of credits were
 real reductions <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
-<a href="https://www.mpg.de/23737687/climate-impact-of-carbon-crediting-projects-substantially-overestimated">Max Planck Society</a>.</li>
+<a href="https://www.mpg.de/23737687/climate-impact-of-carbon-crediting-projects-substantially-overestimated">Max Planck Society</a>.
+A separate report, <a href="../removal/report/">carbon-removal.md</a>, examines
+trees, direct air capture and the other methods.</li>
 <li><strong>Firm clean power.</strong> Nuclear is steady at about 9% of electricity
 <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>; 63 reactors are in construction, half of them in China <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>.
 Enhanced geothermal produced its first commercial power in September
@@ -1043,6 +1046,8 @@ heat inventory only to 2020. The later values here are ocean only.</li>
 <pre><code>python -X utf8 climate/data/fetch.py    # downloads; see data/README.md
 python -X utf8 climate/analyze.py       # writes climate/analysis.json
 </code></pre>
+<p><code>python3 climate/removal.py</code> writes <code>climate/removal.json</code> for the
+second report, <a href="../removal/report/">carbon-removal.md</a>.</p>
 <p><a href="../data/manifest.csv"><code>data/manifest.csv</code></a> lists each file with its URL, the date it was read,
 its size and its SHA-256. <a href="../data/README.md"><code>data/README.md</code></a> describes each file and its
 licence.</p>

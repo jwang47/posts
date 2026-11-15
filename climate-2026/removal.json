@@ -1,0 +1,333 @@
+{
+ "inputs_from_analysis_json": {
+  "co2_fossil_2025_gt": 39.0,
+  "co2_land_use_gt": 4.35,
+  "co2_total_gt": 43.35,
+  "generation_2025_twh": 31772.0,
+  "solar_2025_twh": 2779.0,
+  "grid_t_per_mwh": 0.458
+ },
+ "temperature": {
+  "igcc_budget": {
+   "source": "data/igcc/carbon_budget/budget_normal_magicc_True_fair_False_esf_7.1pm26.7_likeli_0.6827_nonCO2pc50.0_GtCO2_permaf_False_zecsd_0.0_asym_False_hdT_1.24NonlinNonCO2_all_None_recEm213.csv",
+   "budget_gt_50pct": {
+    "1.5": 134.2,
+    "1.6": 316.7,
+    "1.7": 499.4,
+    "2.0": 1047.3
+   },
+   "gt_per_0.1c": 182.6
+  },
+  "tcre_gt_per_0.1c": 222,
+  "tcre_gt_per_0.1c_range": [
+   159,
+   370
+  ],
+  "years_of_co2_per_0.1c": [
+   4.2,
+   5.1
+  ],
+  "gt_per_year_for_0.1c_in_50_years": [
+   3.7,
+   4.4
+  ],
+  "cooling_from_8.75_gt_for_50_years_c": 0.2,
+  "warming_per_year_of_co2_c": 0.02,
+  "prudent_storage_c": 0.66
+ },
+ "scale": {
+  "ocean_sink_gtco2": 12.5,
+  "land_sink_gtco2": 7.0,
+  "natural_sinks_gtco2": 19.4,
+  "natural_sinks_share_of_co2_percent": 45,
+  "removal_now_share_of_co2_percent": 5.1,
+  "novel_now_mt": 2.2,
+  "novel_growth_factor_to_2050": 455,
+  "novel_growth_percent_per_year": 29.0,
+  "solar_growth_percent_per_year_2015_2025": 26.9,
+  "total_removal_growth_factor": 4.0
+ },
+ "trees": {
+  "mha_per_gt_per_year": {
+   "tropical": 89,
+   "temperate": 200,
+   "boreal": 500
+  },
+  "cook_patton_tco2_per_ha": 13.1,
+  "cook_patton_area_vs_india": 2.1,
+  "cook_patton_area_share_of_cropland_percent": 45,
+  "mha_for_afolu_median_tropical": 265,
+  "mha_for_afolu_median_temperate": 596,
+  "mo_potential_gtco2": 828,
+  "mo_potential_years_of_co2": 19.1,
+  "mo_potential_max_cooling_c": 0.37,
+  "mo_new_forest_gtco2": 319,
+  "mo_new_forest_max_cooling_c": 0.14
+ },
+ "dac": {
+  "twh_per_gt": {
+   "min": 123,
+   "low": 1500,
+   "mid": 2000,
+   "high": 2500
+  },
+  "share_of_world_generation_percent_per_gt": {
+   "low": 4.7,
+   "mid": 6.3,
+   "high": 7.9,
+   "belfer": [
+    4.4,
+    13.2
+   ]
+  },
+  "mid_twh_per_gt_share_of_solar_percent": 72,
+  "all_need_by_dac_twh": 17500,
+  "all_need_by_dac_share_of_generation_percent": 55,
+  "second_law_efficiency_percent": [
+   4.9,
+   8.2
+  ],
+  "per_mid_mwh": {
+   "removed_by_dac_t": 1.0,
+   "avoided_if_it_replaces_average_grid_t": 0.92,
+   "avoided_if_it_replaces_coal_t": 1.9
+  },
+  "mammoth_net_per_year_t": 1350.0,
+  "mammoth_share_of_nameplate_percent": 3.8,
+  "mammoth_plants_per_gt_at_nameplate": 27778,
+  "stratos_plants_per_gt_at_nameplate": 2000,
+  "world_co2_t_per_second": 1374,
+  "mammoth_h1_2026_in_seconds_of_world_co2": 0.49
+ },
+ "market": {
+  "delivered_share_of_sold_percent": 3.4,
+  "all_durable_deliveries_in_minutes_of_world_co2": 20
+ },
+ "cost": {
+  "usd_billion_per_year": {
+   "1.0_gt": {
+    "low": 100,
+    "mid": 340,
+    "high": 600
+   },
+   "8.75_gt": {
+    "low": 875,
+    "mid": 2975,
+    "high": 5250
+   }
+  },
+  "percent_of_gdp": {
+   "1.0_gt": {
+    "low": 0.09,
+    "mid": 0.29,
+    "high": 0.51
+   },
+   "8.75_gt": {
+    "low": 0.75,
+    "mid": 2.54,
+    "high": 4.49
+   }
+  },
+  "usd_trillion_per_0.1c": {
+   "low": [
+    18.3,
+    22.2
+   ],
+   "mid": [
+    62.1,
+    75.6
+   ],
+   "high": [
+    109.6,
+    133.3
+   ]
+  }
+ },
+ "params": {
+  "tcre_c_per_1000gt": {
+   "value": 0.45,
+   "label": "S",
+   "source": "IPCC AR6 WG1 figure SPM.10; likely range 0.27-0.63"
+  },
+  "tcre_low": {
+   "value": 0.27,
+   "label": "S",
+   "source": "same"
+  },
+  "tcre_high": {
+   "value": 0.63,
+   "label": "S",
+   "source": "same"
+  },
+  "removal_now_gt": {
+   "value": 2.2,
+   "label": "S",
+   "source": "State of CDR 3rd edition, June 2026"
+  },
+  "novel_share_of_removal": {
+   "value": 0.001,
+   "label": "S",
+   "source": "State of CDR 3rd edition: about 0.1%"
+  },
+  "removal_need_2050_gt": {
+   "value": 8.75,
+   "label": "S",
+   "source": "State of CDR 3rd edition via Carbon Brief; 2nd edition gave 7-9"
+  },
+  "novel_need_2050_gt": {
+   "value": 1.0,
+   "label": "S",
+   "source": "State of CDR 3rd edition: novel methods pass 1 Gt/yr by 2050"
+  },
+  "ocean_sink_gtc": {
+   "value": 3.4,
+   "label": "S",
+   "source": "Global Carbon Budget 2025, year 2024"
+  },
+  "land_sink_gtc": {
+   "value": 1.9,
+   "label": "S",
+   "source": "Global Carbon Budget 2025, year 2024"
+  },
+  "gtc_to_gtco2": {
+   "value": 3.664,
+   "label": "S",
+   "source": "Global Carbon Budget conversion"
+  },
+  "tropical_regrowth_tco2_ha": {
+   "value": 11.2,
+   "label": "S",
+   "source": "Poorter et al. 2016: 3.05 MgC/ha/yr in the first 20 years"
+  },
+  "temperate_regrowth_tco2_ha": {
+   "value": 5.0,
+   "label": "M",
+   "source": "middle of a 3-7 range from memory"
+  },
+  "boreal_regrowth_tco2_ha": {
+   "value": 2.0,
+   "label": "M",
+   "source": "middle of a 1-3 range from memory"
+  },
+  "cook_patton_gt": {
+   "value": 8.9,
+   "label": "S",
+   "source": "Cook-Patton et al. 2020, natural regrowth to 2050"
+  },
+  "cook_patton_mha": {
+   "value": 678.0,
+   "label": "S",
+   "source": "same"
+  },
+  "afolu_removal_2050_gt": {
+   "value": 2.98,
+   "label": "S",
+   "source": "IPCC AR6 WG3 chapter 12, median of 2 C or lower scenarios"
+  },
+  "mo_potential_gtc": {
+   "value": 226.0,
+   "label": "S",
+   "source": "Mo et al. 2023, range 151-363"
+  },
+  "mo_new_forest_gtc": {
+   "value": 87.0,
+   "label": "S",
+   "source": "Mo et al. 2023, land where forest was removed"
+  },
+  "india_mha": {
+   "value": 329.0,
+   "label": "M",
+   "source": "area of India"
+  },
+  "cropland_mha": {
+   "value": 1500.0,
+   "label": "M",
+   "source": "world cropland"
+  },
+  "dac_min_mwh_t": {
+   "value": 0.123,
+   "label": "S",
+   "source": "thermodynamic minimum, 19.5 kJ/mol at 400 ppm"
+  },
+  "dac_low_mwh_t": {
+   "value": 1.5,
+   "label": "S",
+   "source": "low end of company and analyst figures"
+  },
+  "dac_mid_mwh_t": {
+   "value": 2.0,
+   "label": "S",
+   "source": "companies estimate 2-3 MWh/t with compression"
+  },
+  "dac_high_mwh_t": {
+   "value": 2.5,
+   "label": "S",
+   "source": "Keith et al. 2018: 8.81 GJ of gas per tonne"
+  },
+  "belfer_low_twh_gt": {
+   "value": 1400.0,
+   "label": "S",
+   "source": "Belfer Center, low-carbon energy for 1 Gt of DACCS"
+  },
+  "belfer_high_twh_gt": {
+   "value": 4200.0,
+   "label": "S",
+   "source": "same"
+  },
+  "coal_power_t_per_mwh": {
+   "value": 0.95,
+   "label": "M",
+   "source": "CO2 from coal power"
+  },
+  "mammoth_nameplate_t": {
+   "value": 36000.0,
+   "label": "S",
+   "source": "Climeworks Mammoth design"
+  },
+  "mammoth_net_h1_2026_t": {
+   "value": 675.0,
+   "label": "S",
+   "source": "net removal, first half of 2026"
+  },
+  "stratos_nameplate_t": {
+   "value": 500000.0,
+   "label": "S",
+   "source": "1PointFive Stratos design"
+  },
+  "durable_sold_mt": {
+   "value": 49.46,
+   "label": "S",
+   "source": "CDR.fyi via carboncredits.com, all years"
+  },
+  "durable_delivered_mt": {
+   "value": 1.67,
+   "label": "S",
+   "source": "same"
+  },
+  "world_gdp_trillion": {
+   "value": 117.0,
+   "label": "S",
+   "source": "IMF WEO 2025 via secondary sites"
+  },
+  "cost_low": {
+   "value": 100.0,
+   "label": "S",
+   "source": "US DOE Carbon Negative Shot target"
+  },
+  "cost_mid": {
+   "value": 340.0,
+   "label": "S",
+   "source": "Sievert et al. 2024, DAC at 1 Gt/yr, range 226-835"
+  },
+  "cost_high": {
+   "value": 600.0,
+   "label": "S",
+   "source": "near the 2026 supplier break-even for DACCS, $670"
+  },
+  "prudent_storage_gt": {
+   "value": 1460.0,
+   "label": "S",
+   "source": "Gidden et al. 2025"
+  }
+ }
+}

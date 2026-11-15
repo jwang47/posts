@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Carbon removal: what trees and machines can do</title>
+<meta name="description" content="Can we take CO2 out of the air again, with trees or with technology? How much it helps, what it costs, and where it fits.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root { --page: #f3f6f9; --surface: #fcfcfb; --ink: #101820; --ink-2: #4b5560; --muted: #6f7780; --line: #dde2e7; --cold: #2a78d6; --warm: #eb6834;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif; --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif; }
+@media (prefers-color-scheme: dark) { :root { color-scheme: dark; --page: #0c1116; --surface: #161c22; --ink: #eef1f4; --ink-2: #b9c1c9; --muted: #969da5; --line: #2a323a; --cold: #3987e5; --warm: #d95926; } }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 400 18px/1.55 var(--body); }
+nav.top { max-width: 760px; margin: 0 auto; padding: 16px 20px 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15.5px; }
+nav.top a { color: var(--ink-2); text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; }
+nav.top a:hover { color: var(--ink); }
+nav.top a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--cold); font-weight: 600; }
+main { max-width: 760px; margin: 0 auto; padding: 28px 20px 72px; display: flex; flex-direction: column; gap: 48px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.12; }
+h1 { font-size: clamp(32px, 6vw, 46px); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: clamp(24px, 4.2vw, 30px); font-weight: 700; }
+h3 { font-size: 18px; font-weight: 500; }
+p { margin: 0; }
+a { color: var(--cold); }
+a:focus-visible, summary:focus-visible, svg:focus-visible { outline: 2px solid var(--cold); outline-offset: 2px; }
+section, header { display: flex; flex-direction: column; gap: 16px; }
+.kicker { font: 600 14px/1.2 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+.lede { font-size: 20px; color: var(--ink-2); }
+.tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+@media (min-width: 640px) { .tiles { grid-template-columns: repeat(4, 1fr); } }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
+.tile b { font: 700 26px/1.1 var(--display); font-variant-numeric: tabular-nums; }
+.tile span { font-size: 15px; line-height: 1.35; color: var(--ink-2); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px; position: relative; }
+.panel h3 { font-weight: 700; }
+.panel .sub, .note { font-size: 15px; color: var(--ink-2); }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 14.5px; color: var(--ink-2); }
+.legend i { display: inline-block; width: 14px; height: 3px; border-radius: 2px; vertical-align: middle; margin-right: 6px; }
+svg.chart { max-width: 100%; height: auto; display: block; overflow: visible; touch-action: pan-y; }
+svg.chart text { font: 400 13px var(--body); fill: var(--muted); }
+svg.chart text.lab { fill: var(--ink-2); font-size: 13.5px; }
+svg.chart text.val { fill: var(--ink); font-size: 13.5px; font-variant-numeric: tabular-nums; }
+svg.chart .grid { stroke: var(--line); stroke-width: 1; }
+svg.chart .zero { stroke: var(--muted); stroke-width: 1; }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--page); font-size: 14px; line-height: 1.35; padding: 6px 9px; border-radius: 6px; white-space: nowrap; transform: translate(-50%, -100%); opacity: 0; transition: opacity .1s; z-index: 2; }
+.tip.on { opacity: 1; }
+details { font-size: 15px; color: var(--ink-2); }
+summary { cursor: pointer; }
+details table { border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+details th, details td { text-align: right; padding: 2px 12px 2px 0; }
+details .wrap { max-height: 220px; overflow: auto; }
+ul.plain { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
+ol.levers { margin: 0; padding-left: 24px; display: flex; flex-direction: column; gap: 10px; }
+ol.levers b { font-weight: 600; }
+.box { border-left: 3px solid var(--cold); padding: 4px 0 4px 14px; color: var(--ink-2); }
+footer { font-size: 15px; color: var(--ink-2); }
+</style>
+</head>
+<body>
+<nav class="top" aria-label="Pages">
+  <a href="../">Explainer</a>
+  <a href="../removal/" aria-current="page">Carbon removal</a>
+  <a href="../sources/">Report and sources</a>
+  <a href="../data/">Data</a>
+</nav>
+<main>
+<header>
+  <div class="kicker">Climate change in 2026, part two</div>
+  <h1>Carbon removal: what trees and machines can do</h1>
+  <p class="lede">Stopping emissions stops the warming. Only taking CO2 back out of the air can lower the temperature again. It is necessary, it works, and it is the small part of the answer. Here is why, in three charts.</p>
+  <div class="tiles">
+    <div class="tile"><b>7-9 Gt</b><span>of removal needed each year by 2050; the world emits 43 Gt</span></div>
+    <div class="tile"><b>99.9%</b><span>of today's 2.2 Gt of removal is forest</span></div>
+    <div class="tile"><b>~200 Gt</b><span>to lower the temperature by 0.1 °C: four to five years of emissions</span></div>
+    <div class="tile"><b>$670</b><span>per tonne for direct air capture today</span></div>
+  </div>
+</header>
+
+<section>
+  <h2>Why remove CO2 at all?</h2>
+  <p>Three reasons. Some emissions are very hard to stop: methane from farms, the chemistry of cement, long flights. National plans expect about a fifth of today's emissions to remain in 2050, and "net zero" means removal balances that rest. Second, CO2 stays: when emissions stop, the temperature stops rising but does not fall for centuries. Third, the world will pass 1.5 °C, and the only way back down is to take CO2 out.</p>
+  <p class="box">Each 0.1 °C is about 183 to 222 Gt of CO2. That is 4.2 to 5.1 years of present emissions. To cool the planet by a tenth of a degree in fifty years, the world must remove about 4 Gt a year more than it emits.</p>
+</section>
+
+<section>
+  <h2>The size of the job</h2>
+  <p>People emit about 43 billion tonnes (Gt) of CO2 a year. Oceans, plants and soils absorb almost half of that without being asked. Deliberate removal is 2.2 Gt, nearly all of it forest. Everything technical, from charcoal to machines, adds up to about 2 million tonnes: the last bar is there, but too small to see.</p>
+  <div class="panel" id="c-size">
+  <h3>Billion tonnes of CO2 per year</h3>
+  <p class="sub">Emissions and sinks now, and the removal that paths below 2 °C need in 2050. Point at a bar for detail.</p>
+</div>
+  <p>Total removal must grow four times by 2050. The technical methods must grow about 450 times, which is 29% a year for 24 years. Solar power grew 27% a year over the last decade, so that pace is possible. But solar sells electricity. Removal sells a waste service that nobody has to buy.</p>
+  <p>The free half is the part to worry about. Climate change has already made the land sink about 25% smaller than it would be. In the hot year 2023 the land absorbed the least since 2003, and the fires in Canada alone released about 2.4 Gt. Losing a tenth of the natural sinks would cancel all the tree planting in the world.</p>
+</section>
+
+<section>
+  <h2>Trees: cheap, ready, and not permanent</h2>
+  <p>New forest can realistically remove 1 to 4 Gt a year for some decades, at $10 to $50 a tonne. Nothing else is close to that today. The limits are land, time and fire.</p>
+  <ul class="plain">
+    <li><b>Land.</b> One Gt a year needs about 89 million hectares of young tropical forest, and more than twice that outside the tropics. The largest serious estimate, 8.9 Gt a year, needs an area twice the size of India.</li>
+    <li><b>Time.</b> A tropical forest needs about 66 years to regain 90% of its mass, and then it stops absorbing. If every place a natural forest could return were restored, the result would be at most 0.37 °C of cooling, once, over a century.</li>
+    <li><b>Fire and failure.</b> California set aside a reserve of forest credits to cover a hundred years of fires. Fires used at least 95% of it in under ten years. In tropical Asia, 44% of planted saplings were dead after five years.</li>
+    <li><b>The wrong trees in the wrong place.</b> Almost half of national pledges are plantations that are cut every decade. Dark forest on snowy or dry land absorbs sunlight and can cancel much of the gain. The wet tropics are where new forest helps most.</li>
+  </ul>
+  <p>Protecting beats planting. A hectare of old tropical forest that is cut releases in a few years what a new hectare needs most of a lifetime to take back, and the world still loses 4.3 million hectares a year.</p>
+</section>
+
+<section>
+  <h2>Machines: permanent, tiny, and hungry</h2>
+  <p>A direct air capture plant pulls air across a chemical that binds CO2, then pumps the CO2 deep into rock, where it stays. The catch is that CO2 is only 0.04% of air. Separating it takes about 2 megawatt-hours per tonne, some 12 to 20 times the limit set by physics.</p>
+  <p>Removing 1 Gt a year would take about 2,000 TWh: 6.3% of the world's electricity, or 72% of everything solar panels produced in 2025. And while grids still burn coal, that clean power does more good elsewhere:</p>
+  <div class="panel" id="c-power">
+  <h3>What 2 MWh of clean electricity keeps out of the air</h3>
+  <p class="sub">Tonnes of CO2. Direct air capture makes sense where the grid is already clean, as in Iceland.</p>
+</div>
+  <p>The largest plant now running, Mammoth in Iceland, was designed for 36,000 tonnes a year. It removed 675 tonnes in the first half of 2026. The world emits that in 0.5 seconds. A plant in Texas fourteen times larger has slipped from 2025 to the end of 2026. One Gt a year would need 2,000 plants of that size.</p>
+  <p>Other technical methods sit between trees and machines. Biochar, charcoal from plant waste, delivers four fifths of all durable removal today because it is simple and easy to measure. Capturing the CO2 from ethanol plants and waste burners works at the scale of a million tonnes. Crushed rock on farm fields and added alkalinity in seawater are real but hard to measure, and some field trials found nothing.</p>
+</section>
+
+<section>
+  <h2>What a tonne costs</h2>
+  <p>No method is cheap, permanent and large at once. Trees are cheap and large but can burn. Machines are permanent but neither cheap nor large. And almost every way of not emitting the tonne in the first place costs less than any of them.</p>
+  <div class="panel" id="c-cost">
+  <h3>Dollars per tonne of CO2, today</h3>
+  <p class="sub">Supplier costs for removal in 2025, against the cost of most emission cuts. Point at a bar for detail.</p>
+</div>
+  <p>Will machines get cheap the way solar did? Probably only partly. Solar panels are small, identical and made by the billion. A capture plant is partly that and partly a chemical works with fans, heat and pipes, and those get cheaper slowly. The best independent estimate at very large scale is about $340 a tonne, not the $100 its makers hope for.</p>
+  <p>At $340, removing 8.75 Gt a year would cost about $3 trillion a year, 2.5% of the world economy: roughly what the world spends on its armies. Taking back a single tenth of a degree would cost $62 to 76 trillion. That is the real price of each year of delay.</p>
+</section>
+
+<section>
+  <h2>Who pays?</h2>
+  <p>A removed tonne has no natural buyer. It is closer to sewage treatment than to a product. So far buyers have ordered about 49 million tonnes of durable removal and received 1.67 million, which is 20 minutes of world emissions. One company, Microsoft, made about 90% of the purchases in 2025, and in April 2026 it was reported to have paused new ones. Public buyers are only starting: Sweden and Denmark hold auctions, the EU has certified its first methods, and the US pays a tax credit of $180 a tonne.</p>
+  <p>The biggest risk is not that the technology fails. It is that the promise of removing carbon later becomes the excuse for cutting less now. A tonne stored in a tree for forty years also does not cancel a tonne of fossil CO2 that stays in the air for thousands.</p>
+</section>
+
+<section>
+  <h2>So, in order</h2>
+  <ol class="levers">
+    <li><b>Cut emissions first.</b> Removal is for the last 10 to 20%, not a reason to wait.</li>
+    <li><b>Keep the forests and the natural sinks.</b> They do 19 Gt a year for free and they are weakening.</li>
+    <li><b>Regrow forest where it fits:</b> in the wet tropics, with native trees and the people who live there, counted as a bonus and not as a licence to burn.</li>
+    <li><b>Build the technical methods now with public money.</b> They need twenty years to grow. Governments should buy removal the way they buy waste treatment, by auction, with strict measurement.</li>
+    <li><b>Keep two accounts,</b> one for cuts and one for removal, so that one cannot hide the lack of the other.</li>
+  </ol>
+  <p>For one person: paying for durable removal is a gift to a young industry, not a way to cancel a flight. Cheap forest credits help nature but do not balance fossil CO2.</p>
+</section>
+
+<footer>
+  <p>The <a href="report/">full removal report</a> has every source and labels each fact by how it was checked. No source page could be opened for this part, so facts from papers and news were seen only in search results. The scale numbers are arithmetic from those inputs: <a href="../removal.py">removal.py</a> writes <a href="../removal.json">removal.json</a>.</p>
+</footer>
+</main>
+<script type="application/json" id="d">{"size":[["Emitted by people",43.35,"CO2 in 2025: fossil fuels 39.0 Gt, land use 4.35 Gt"],["Absorbed by oceans and land",19.4,"Ocean 12.5 Gt, land 7 Gt in 2024. Nobody pays for this"],["Removal needed in 2050",8.75,"7 to 9 Gt in paths that stay below 2 °C"],["Removed now, by forests",2.2,"More than 99.9% of deliberate removal is new and managed forest"],["Removed now, by technology",0.0022,"About 2 million tonnes: biochar, bioenergy with capture, machines"]],"cost":[["Most emission cuts",100,"Not emitting the tonne at all. Half of the cuts cost under $20","under $100"],["New forest",30,"$10 to $50. Cheap, but fire or logging can release it again","$10 to $50"],["Biochar",143,"Charcoal from plant waste, put into soil. Lasts centuries"],["Bioenergy with capture",232,"Burn plants for energy, store the CO2 in rock"],["Crushed rock on fields",310,"$272 to $349. Hard to measure in the field","$270 to $350"],["Direct air capture",670,"Supplier break-even in 2025. Target for 2030: $400 to $600"]],"power":[["Replace coal power",1.9,"Coal power emits about 0.95 t per MWh"],["Run a direct air capture plant",1,"At 2 MWh per tonne captured"],["Replace average grid power",0.92,"World average in 2025: 458 g of CO2 per kWh"]]}</script>
+<script>
+const D = JSON.parse(document.getElementById('d').textContent);
+const NS = 'http://www.w3.org/2000/svg';
+const el = (p, n, a, t) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); if (t != null) e.textContent = t; p.appendChild(e); return e; };
+function tipFor(panel) { const t = document.createElement('div'); t.className = 'tip'; t.setAttribute('role', 'status'); panel.appendChild(t); return t; }
+function table(panel, head, rows) {
+  const d = document.createElement('details');
+  d.innerHTML = '<summary>Show the numbers</summary><div class="wrap"><table><thead><tr>' + head.map((h) => '<th>' + h + '</th>').join('') + '</tr></thead><tbody>' +
+    rows.map((r) => '<tr>' + r.map((c) => '<td>' + c + '</td>').join('') + '</tr>').join('') + '</tbody></table></div>';
+  panel.appendChild(d);
+}
+// series: [{name, color, data: [[x, y], ...]}]
+function line(id, series, o) {
+  const panel = document.getElementById(id), W = Math.max(280, Math.min(726, panel.clientWidth - 34)), small = W < 520, H = small ? 230 : 300, m = { l: 34, r: small ? 52 : (o.right || 16), t: 14, b: 26 };
+  const svg = el(panel, 'svg', { class: 'chart', width: W, height: H, viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': o.label, tabindex: 0 });
+  const xs = series[0].data.map((p) => p[0]), x0 = xs[0], x1 = xs[xs.length - 1];
+  const X = (v) => m.l + (v - x0) / (x1 - x0) * (W - m.l - m.r), Y = (v) => H - m.b - (v - o.y0) / (o.y1 - o.y0) * (H - m.t - m.b);
+  for (const v of o.yticks) { el(svg, 'line', { class: v === 0 ? 'zero' : 'grid', x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v) }); el(svg, 'text', { x: m.l - 6, y: Y(v) + 4, 'text-anchor': 'end' }, v + (o.unit || '')); }
+  for (const v of (small && o.xticks.length > 4 ? o.xticks.filter((t, i) => i % 2 === (o.xticks.length - 1) % 2) : o.xticks)) el(svg, 'text', { x: X(v), y: H - 6, 'text-anchor': v === x1 ? 'end' : v === x0 ? 'start' : 'middle' }, v);
+  for (const s of series) {
+    el(svg, 'path', { d: s.data.map((p, i) => (i ? 'L' : 'M') + X(p[0]).toFixed(1) + ' ' + Y(p[1]).toFixed(1)).join(''), fill: 'none', stroke: 'var(' + s.color + ')', 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' });
+    const e = s.data[s.data.length - 1];
+    el(svg, 'circle', { cx: X(e[0]), cy: Y(e[1]), r: 4, fill: 'var(' + s.color + ')', stroke: 'var(--surface)', 'stroke-width': 2 });
+    if (s.end) el(svg, 'text', { class: 'val', x: X(e[0]) + 8, y: Y(e[1]) + 4 }, small ? s.short : s.end);
+  }
+  const cross = el(svg, 'line', { class: 'zero', y1: m.t, y2: H - m.b, visibility: 'hidden' });
+  const dots = series.map((s) => el(svg, 'circle', { r: 4.5, fill: 'var(' + s.color + ')', stroke: 'var(--surface)', 'stroke-width': 2, visibility: 'hidden' }));
+  const tip = tipFor(panel);
+  let idx = xs.length - 1;
+  const show = (i) => {
+    idx = Math.max(0, Math.min(xs.length - 1, i));
+    cross.setAttribute('x1', X(xs[idx])); cross.setAttribute('x2', X(xs[idx])); cross.setAttribute('visibility', 'visible');
+    series.forEach((s, k) => { dots[k].setAttribute('cx', X(xs[idx])); dots[k].setAttribute('cy', Y(s.data[idx][1])); dots[k].setAttribute('visibility', 'visible'); });
+    tip.innerHTML = '<b>' + xs[idx] + '</b>' + series.map((s) => '<br>' + (series.length > 1 ? s.name + ': ' : '') + o.fmt(s.data[idx][1])).join('');
+    const r = svg.getBoundingClientRect(), pr = panel.getBoundingClientRect(), k = r.width / W;
+    const px = Math.max(70, Math.min(pr.width - 70, r.left - pr.left + X(xs[idx]) * k));
+    tip.style.left = px + 'px'; tip.style.top = (r.top - pr.top + Math.min(...series.map((s) => Y(s.data[idx][1]))) * k - 10) + 'px'; tip.classList.add('on');
+  };
+  const hide = () => { cross.setAttribute('visibility', 'hidden'); dots.forEach((d) => d.setAttribute('visibility', 'hidden')); tip.classList.remove('on'); };
+  svg.addEventListener('pointermove', (ev) => { const r = svg.getBoundingClientRect(); const v = x0 + ((ev.clientX - r.left) / r.width * W - m.l) / (W - m.l - m.r) * (x1 - x0); show(Math.round((v - x0) / (x1 - x0) * (xs.length - 1))); });
+  svg.addEventListener('pointerleave', hide); svg.addEventListener('blur', hide);
+  svg.addEventListener('keydown', (ev) => { if (ev.key === 'ArrowLeft') { show(idx - 1); ev.preventDefault(); } if (ev.key === 'ArrowRight') { show(idx + 1); ev.preventDefault(); } });
+  table(panel, ['Year'].concat(series.map((s) => s.name)), xs.map((x, i) => [x].concat(series.map((s) => o.fmt(s.data[i][1])))).reverse());
+}
+// rows: [[label, value, note]]
+function bars(id, rows, o) {
+  const panel = document.getElementById(id), W = Math.max(280, Math.min(726, panel.clientWidth - 34)), small = W < 520, rh = small ? 52 : 34, lw = small ? 0 : o.lw, top = small ? 20 : 0, H = rows.length * rh + 6;
+  const svg = el(panel, 'svg', { class: 'chart', width: W, height: H, viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': o.label });
+  const X = (v) => v / o.max * (W - lw - 84), tip = tipFor(panel);
+  rows.forEach((r, i) => {
+    const y = i * rh + 4 + top, w = Math.max(5, X(r[1]));
+    if (small) el(svg, 'text', { class: 'lab', x: 0, y: y - 6 }, r[0]); else el(svg, 'text', { class: 'lab', x: lw - 10, y: y + 17, 'text-anchor': 'end' }, r[0]);
+    el(svg, 'path', { d: 'M' + lw + ' ' + y + 'h' + (w - 4) + 'a4 4 0 0 1 4 4v16a4 4 0 0 1 -4 4h-' + (w - 4) + 'z', fill: 'var(--cold)' });
+    el(svg, 'text', { class: 'val', x: lw + w + 8, y: y + 17 }, o.fmt(r[1], r));
+    const hit = el(svg, 'rect', { x: 0, y: y - 4 - top, width: W, height: rh, fill: 'transparent', tabindex: 0 });
+    const on = () => { const b = svg.getBoundingClientRect(), pr = panel.getBoundingClientRect(), k = b.width / W; tip.innerHTML = '<b>' + r[0] + '</b><br>' + r[2];
+      tip.style.left = Math.max(110, Math.min(pr.width - 110, b.left - pr.left + (lw + w / 2) * k)) + 'px'; tip.style.top = (b.top - pr.top + y * k - 6) + 'px'; tip.classList.add('on'); };
+    const off = () => tip.classList.remove('on');
+    hit.addEventListener('pointerenter', on); hit.addEventListener('pointerleave', off); hit.addEventListener('focus', on); hit.addEventListener('blur', off);
+  });
+  table(panel, o.head, rows.map((r) => [r[0], o.fmt(r[1], r), r[2]]));
+}
+
+bars('c-size', D.size, { label: 'Billion tonnes of CO2 per year: emitted by people 43, absorbed by oceans and land 19, removal needed in 2050 about 9, removed now by forests 2.2, removed now by technology 0.002.', max: 46, lw: 230, fmt: (v) => (v < 0.1 ? v.toFixed(3) : v.toFixed(1)) + ' Gt', head: ['Flow', 'Gt of CO2 per year', 'Note'] });
+bars('c-power', D.power, { label: 'Tonnes of CO2 kept out of the air by 2 megawatt-hours of clean electricity: 1.9 if it replaces coal power, 1.0 if it runs a direct air capture plant, 0.9 if it replaces average grid power.', max: 2.2, lw: 250, fmt: (v) => v.toFixed(1) + ' t', head: ['Use of 2 MWh', 'Tonnes of CO2', 'Note'] });
+bars('c-cost', D.cost, { label: 'Cost per tonne of CO2 in dollars: most emission cuts under 100, new forest 10 to 50, biochar 143, bioenergy with capture 232, crushed rock 270 to 350, direct air capture 670.', max: 720, lw: 200, fmt: (v, r) => r[3] || '$' + v, head: ['Method', 'Cost per tonne', 'Note'] });
+</script>
+</body>
+</html>

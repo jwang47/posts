@@ -497,6 +497,8 @@ Very little of it goes to poor countries: Africa gets about 2% [S].
   review of 2,346 projects found that less than 16% of credits were
   real reductions [S]
   [Max Planck Society](https://www.mpg.de/23737687/climate-impact-of-carbon-crediting-projects-substantially-overestimated).
+  A separate report, [carbon-removal.md](carbon-removal.md), examines
+  trees, direct air capture and the other methods.
 - **Firm clean power.** Nuclear is steady at about 9% of electricity
   [D]; 63 reactors are in construction, half of them in China [S].
   Enhanced geothermal produced its first commercial power in September
@@ -713,6 +715,9 @@ Nagano only, and most of the country.
 python -X utf8 climate/data/fetch.py    # downloads; see data/README.md
 python -X utf8 climate/analyze.py       # writes climate/analysis.json
 ```
+
+`python3 climate/removal.py` writes `climate/removal.json` for the
+second report, [carbon-removal.md](carbon-removal.md).
 
 `data/manifest.csv` lists each file with its URL, the date it was read,
 its size and its SHA-256. `data/README.md` describes each file and its

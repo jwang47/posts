@@ -65,6 +65,7 @@ footer { font-size: 15px; color: var(--ink-2); }
 <body>
 <nav class="top" aria-label="Pages">
   <a href="./" aria-current="page">Explainer</a>
+  <a href="removal/">Carbon removal</a>
   <a href="sources/">Report and sources</a>
   <a href="data/">Data</a>
 </nav>
@@ -129,7 +130,7 @@ footer { font-size: 15px; color: var(--ink-2); }
     <li><b>Forests.</b> Tropical forest loss fell 36% in 2025 but is still higher than ten years ago.</li>
     <li><b>Steel, cement, planes and ships.</b> About a fifth of emissions. The clean versions cost more, and several flagship projects were cancelled or delayed.</li>
     <li><b>Food.</b> About a third of emissions when land clearing is counted, and almost no policy anywhere.</li>
-    <li><b>Carbon removal.</b> Machines remove about a millionth of what is emitted. Most cheap offsets do not represent real reductions.</li>
+    <li><b>Carbon removal.</b> Machines remove about a millionth of what is emitted. Most cheap offsets do not represent real reductions. <a href="removal/">More on trees and machines</a>.</li>
     <li><b>Money for poor countries.</b> Africa gets about 2% of clean energy investment, mostly because loans there cost two to three times more.</li>
   </ul>
 </section>
@@ -145,7 +146,7 @@ footer { font-size: 15px; color: var(--ink-2); }
     <li><b>Waste less.</b> Efficient buildings and motors, less wasted food.</li>
     <li><b>Change food.</b> Less beef and dairy, better fertiliser use.</li>
     <li><b>Clean up heavy industry, aviation and shipping.</b> Needs a carbon price or public buyers to create the first market.</li>
-    <li><b>Remove carbon.</b> Needed for the last tenth and to come back down after a peak. Not a substitute for the steps above.</li>
+    <li><b>Remove carbon.</b> Needed for the last tenth and to come back down after a peak. Not a substitute for the steps above. <a href="removal/">What trees and machines can do</a>.</li>
   </ol>
   <p>Adaptation is needed at every level of warming, and it works: cyclone deaths in Bangladesh fell more than 100 times after 1970 through warnings and shelters. Reflecting sunlight with particles in the upper air could cool the planet quickly and cheaply, but it treats the symptom, must continue for centuries, and has no rules yet.</p>
 </section>
@@ -247,6 +248,7 @@ function bars(id, rows, o) {
   });
   table(panel, o.head, rows.map((r) => [r[0], o.fmt(r[1], r), r[2]]));
 }
+
 line('c-temp', [{ name: 'Above 1850-1900', color: '--warm', data: D.temp, end: '+' + D.temp[D.temp.length - 1][1].toFixed(2) + ' \u00b0C', short: '+' + D.temp[D.temp.length - 1][1].toFixed(2) + '\u00b0' }],
   { label: 'Global mean surface temperature each year from 1850 to 2025, against the 1850 to 1900 mean. It is flat until about 1910 and rises steeply after 1975.', y0: -0.4, y1: 1.6, yticks: [0, 0.5, 1, 1.5], unit: '\u00b0', xticks: [1850, 1900, 1950, 2000, 2025], fmt: (v) => (v > 0 ? '+' : '') + v.toFixed(2) + ' \u00b0C', right: 78 });
 line('c-co2', [{ name: 'Gt of CO2', color: '--cold', data: D.co2w, end: D.co2w[D.co2w.length - 1][1].toFixed(1) + ' Gt', short: D.co2w[D.co2w.length - 1][1].toFixed(0) + ' Gt' }],

@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Carbon removal: report and sources</title>
+<meta name="description" content="The full written report on carbon removal with every source linked and labelled by how it was checked.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root { --page: #f3f6f9; --surface: #fcfcfb; --ink: #101820; --ink-2: #4b5560; --muted: #6f7780; --line: #dde2e7; --cold: #2a78d6; --warm: #eb6834;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif; --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif; }
+@media (prefers-color-scheme: dark) { :root { color-scheme: dark; --page: #0c1116; --surface: #161c22; --ink: #eef1f4; --ink-2: #b9c1c9; --muted: #969da5; --line: #2a323a; --cold: #3987e5; --warm: #d95926; } }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 400 18px/1.55 var(--body); }
+nav.top { max-width: 760px; margin: 0 auto; padding: 16px 20px 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15.5px; }
+nav.top a { color: var(--ink-2); text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; }
+nav.top a:hover { color: var(--ink); }
+nav.top a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--cold); font-weight: 600; }
+main { max-width: 760px; margin: 0 auto; padding: 28px 20px 72px; display: flex; flex-direction: column; gap: 48px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.12; }
+h1 { font-size: clamp(32px, 6vw, 46px); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: clamp(24px, 4.2vw, 30px); font-weight: 700; }
+h3 { font-size: 18px; font-weight: 500; }
+p { margin: 0; }
+a { color: var(--cold); }
+a:focus-visible, summary:focus-visible, svg:focus-visible { outline: 2px solid var(--cold); outline-offset: 2px; }
+section, header { display: flex; flex-direction: column; gap: 16px; }
+.kicker { font: 600 14px/1.2 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+.lede { font-size: 20px; color: var(--ink-2); }
+.tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+@media (min-width: 640px) { .tiles { grid-template-columns: repeat(4, 1fr); } }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
+.tile b { font: 700 26px/1.1 var(--display); font-variant-numeric: tabular-nums; }
+.tile span { font-size: 15px; line-height: 1.35; color: var(--ink-2); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px; position: relative; }
+.panel h3 { font-weight: 700; }
+.panel .sub, .note { font-size: 15px; color: var(--ink-2); }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 14.5px; color: var(--ink-2); }
+.legend i { display: inline-block; width: 14px; height: 3px; border-radius: 2px; vertical-align: middle; margin-right: 6px; }
+svg.chart { max-width: 100%; height: auto; display: block; overflow: visible; touch-action: pan-y; }
+svg.chart text { font: 400 13px var(--body); fill: var(--muted); }
+svg.chart text.lab { fill: var(--ink-2); font-size: 13.5px; }
+svg.chart text.val { fill: var(--ink); font-size: 13.5px; font-variant-numeric: tabular-nums; }
+svg.chart .grid { stroke: var(--line); stroke-width: 1; }
+svg.chart .zero { stroke: var(--muted); stroke-width: 1; }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--page); font-size: 14px; line-height: 1.35; padding: 6px 9px; border-radius: 6px; white-space: nowrap; transform: translate(-50%, -100%); opacity: 0; transition: opacity .1s; z-index: 2; }
+.tip.on { opacity: 1; }
+details { font-size: 15px; color: var(--ink-2); }
+summary { cursor: pointer; }
+details table { border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+details th, details td { text-align: right; padding: 2px 12px 2px 0; }
+details .wrap { max-height: 220px; overflow: auto; }
+ul.plain { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
+ol.levers { margin: 0; padding-left: 24px; display: flex; flex-direction: column; gap: 10px; }
+ol.levers b { font-weight: 600; }
+.box { border-left: 3px solid var(--cold); padding: 4px 0 4px 14px; color: var(--ink-2); }
+footer { font-size: 15px; color: var(--ink-2); }
+
+.prose { display: flex; flex-direction: column; gap: 14px; }
+.prose h2 { margin-top: 34px; scroll-margin-top: 16px; }
+.prose ul, .prose ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; }
+.prose code { font: 400 .88em ui-monospace, "SF Mono", Consolas, monospace; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; }
+.prose pre { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; overflow-x: auto; margin: 0; }
+.prose pre code { border: 0; padding: 0; background: none; }
+.scroll { overflow-x: auto; }
+.prose table { border-collapse: collapse; font-size: 15.5px; }
+.prose th, .prose td { text-align: left; vertical-align: top; padding: 6px 12px 6px 0; border-bottom: 1px solid var(--line); min-width: 80px; }
+.prose a { overflow-wrap: anywhere; }
+.lab { font: 600 12px/1 var(--body); text-decoration: none; display: inline-block; padding: 3px 6px; border-radius: 4px; vertical-align: 1px; cursor: help; border: 1px solid var(--line); color: var(--ink-2); background: var(--surface); }
+.lab-D, .lab-V, .lab-C { background: var(--cold); border-color: var(--cold); color: #fff; }
+.lab-M { border-style: dashed; }
+.toc { display: flex; flex-wrap: wrap; gap: 6px 8px; font-size: 15px; }
+.toc a { text-decoration: none; color: var(--ink-2); border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 4px 11px; }
+</style>
+</head>
+<body>
+<nav class="top" aria-label="Pages">
+  <a href="../../">Explainer</a>
+  <a href="../../removal/" aria-current="page">Carbon removal</a>
+  <a href="../../sources/">Report and sources</a>
+  <a href="../../data/">Data</a>
+</nav>
+<main>
+<header>
+  <div class="kicker">The removal report</div>
+  <h1>Carbon removal: trees, rocks and machines</h1>
+  <p class="lede">The full written analysis behind the <a href="../">carbon removal page</a>. Each fact carries a label that says how it was checked.</p>
+  <div class="toc">
+<a href="#answer">Answer</a>
+<a href="#source-labels">Source labels</a>
+<a href="#1-why-removal-when-we-can-stop-emissions">1. Why removal, when we can stop emissions?</a>
+<a href="#2-what-nature-does-without-us">2. What nature does without us</a>
+<a href="#3-the-size-of-the-job">3. The size of the job</a>
+<a href="#4-trees">4. Trees</a>
+<a href="#5-soil-biochar-coasts-and-the-open-ocean">5. Soil, biochar, coasts and the open ocean</a>
+<a href="#6-machines-direct-air-capture">6. Machines: direct air capture</a>
+<a href="#7-other-technical-methods-and-the-storage">7. Other technical methods, and the storage</a>
+<a href="#8-all-methods-side-by-side">8. All methods side by side</a>
+<a href="#9-who-pays">9. Who pays?</a>
+<a href="#10-the-risks-of-the-idea-itself">10. The risks of the idea itself</a>
+<a href="#11-my-judgement">11. My judgement</a>
+<a href="#what-could-not-be-verified">What could not be verified</a>
+<a href="#data-and-how-to-redo-it">Data and how to redo it</a>
+  </div>
+</header>
+<div class="prose">
+<p>Written 2026-11-12 by Claude, with two research workers. This is a
+second part of the <a href="../../sources/">climate analysis</a>. That report is about
+how to stop emissions. This one asks a different question: can we take
+CO2 out of the air again, with trees or with technology, and how much
+does that help?</p>
+<h2 id="answer">Answer</h2>
+<ol>
+<li><strong>Removal is necessary, but it is the small part of the solution.</strong>
+Paths that keep warming well below 2 °C cut emissions by about 80 to
+90% and remove the rest. They need about 7 to 9 Gt of CO2 removal
+per year by 2050 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>. The world emits about 43 Gt of CO2 per year
+<abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. Removal cannot replace the cuts.</li>
+<li><strong>Almost all removal today is trees.</strong> People remove about 2.2 Gt
+per year, and more than 99.9% of that is forest <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>. All the
+technical methods together remove about 2 million tonnes per year
+<abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>. That is 0.005% of emissions.</li>
+<li><strong>Each 0.1 °C costs about 180 to 220 Gt.</strong> That is four to five
+years of the present CO2 emissions <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>. To lower the temperature by
+0.1 °C in 50 years, the world must remove about 4 Gt per year more
+than it emits <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>. So removal can shave a peak. It cannot bring
+back the old climate.</li>
+<li><strong>Trees are cheap and ready, but they need much land and they are
+not permanent.</strong> One Gt per year needs about 90 million hectares of
+new tropical forest, or about 200 million hectares in the temperate
+zone <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>. A realistic share for new forest is about 1 to 4 Gt per
+year <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>. Fire, drought and logging can release the carbon again.
+To protect the forests that exist gives more than to plant new
+ones.</li>
+<li><strong>Machines are permanent, but they are tiny, expensive and they
+need much energy.</strong> Direct air capture costs about $670 per tonne
+now <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>. One Gt per year needs about 2,000 TWh, which is 6% of the
+world&#39;s electricity <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>. The largest plant in operation removed
+675 tonnes in half a year <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>. That is half a second of world
+emissions <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>.</li>
+<li><strong>The technical methods must grow about 450 times by 2050.</strong> That
+is 29% per year for 24 years <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>. Solar power grew 27% per year in
+the last ten years <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. It is possible, but solar sells a product.
+Removal sells a waste service that nobody must buy.</li>
+<li><strong>The largest risk is not the technology. It is the excuse.</strong> A
+promise of future removal makes it easier to delay cuts today. A
+tonne that is not emitted costs less than $100 for most sources. A
+tonne removed by machine costs $200 to $700. The correct order is:
+cut emissions, protect the forests and the sinks, then use removal
+for the last 10 to 20%.</li>
+</ol>
+<h2 id="source-labels">Source labels</h2>
+<p>The labels are the same as in the <a href="../../sources/">main report</a>:</p>
+<ul>
+<li><strong><abbr class="lab lab-D" title="computed from a raw data file">D</abbr></strong> computed from a raw data file in <a href="../../data/"><code>data/</code></a>.</li>
+<li><strong><abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr></strong> computed by <a href="../../removal.py"><code>removal.py</code></a> from numbers that the text cites.
+The result is in <a href="../../removal.json"><code>removal.json</code></a>. It is only as good as its inputs.</li>
+<li><strong><abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></strong> from search-result text. The page could not be opened from
+the cloud container. Treat the number as provisional.</li>
+<li><strong><abbr class="lab lab-M" title="from model memory: not checked">M</abbr></strong> from model memory, not checked.</li>
+</ul>
+<p>No web page could be opened for this part. All facts from papers and
+news are <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> or <abbr class="lab lab-M" title="from model memory: not checked">M</abbr>. The full notes, with all links, are in
+<a href="../../research/research-removal-nature.md">research/research-removal-nature.md</a>
+and
+<a href="../../research/research-removal-engineered.md">research/research-removal-engineered.md</a>.</p>
+<h2 id="1-why-removal-when-we-can-stop-emissions">1. Why removal, when we can stop emissions?</h2>
+<p>There are three reasons.</p>
+<ul>
+<li><strong>Some emissions are very hard to stop.</strong> Examples are methane and
+nitrous oxide from farms, CO2 from the chemistry of cement, and long
+flights. National plans expect that about 18% of today&#39;s emissions
+remain in 2050 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://eprints.lancs.ac.uk/id/eprint/184736">Buck et al. 2023</a>.
+&quot;Net zero&quot; means that removal balances this rest.</li>
+<li><strong>The CO2 stays.</strong> When emissions stop, warming stops, but the
+temperature does not go down again for centuries <abbr class="lab lab-M" title="from model memory: not checked">M</abbr>. Only removal
+lowers it.</li>
+<li><strong>The world will pass 1.5 °C.</strong> UNEP says that an overshoot is now
+almost certain, and that removal must take out about five years of
+current CO2 emissions for each 0.1 °C that the world wants to come
+back <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.unep.org/en/publications/report/emissions-gap-report-2025">UNEP Emissions Gap Report 2025</a>.</li>
+</ul>
+<p>My own numbers agree with UNEP. The carbon budget table in the data
+gives 183 Gt of CO2 for each 0.1 °C between 1.5 and 1.7 °C <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. The
+IPCC relation between CO2 and temperature (0.45 °C per 1,000 Gt) gives
+222 Gt, with a range of 159 to 370 Gt <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>. The world emits 43.4 Gt of
+CO2 per year (fossil 39.0, land use 4.35) <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. So 0.1 °C is 4.2 to 5.1
+years of emissions <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>.</p>
+<p>This also works in the other direction. Each year of emissions at the
+present rate adds about 0.02 °C <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>, and it needs 43 Gt of later
+removal to undo.</p>
+<h2 id="2-what-nature-does-without-us">2. What nature does without us</h2>
+<p>The ocean and the land already take up about half of the CO2 that
+people emit.</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Sink, 2024</th>
+<th>Gt CO2 per year</th>
+<th>Share of emissions, 2015-2024</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ocean</td>
+<td>12.5</td>
+<td>29%</td>
+</tr>
+<tr>
+<td>Land (plants and soils)</td>
+<td>7.0</td>
+<td>21%</td>
+</tr>
+</tbody></table></div>
+<p>Source: <a href="https://essd.copernicus.org/articles/18/3211/2026/">Global Carbon Budget 2025</a>
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>; the conversion from carbon to CO2 is <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>.</p>
+<p>Three facts about these sinks are important.</p>
+<ul>
+<li><strong>They are not &quot;removal&quot;.</strong> They happen without our action, because
+there is more CO2 in the air. The carbon budgets and the temperature
+numbers already include them. If a country counts this natural
+uptake against its fossil emissions, the sum says &quot;net zero&quot; but the
+warming continues <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.inet.ox.ac.uk/publications/geological-net-zero-and-the-need-for-disaggregated-accounting-for-carbon-sinks">Allen et al. 2024</a>.
+National inventories already do this: they report 6.7 Gt per year
+more land uptake than the science models <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://pure.iiasa.ac.at/id/eprint/18687/">Grassi et al. 2023</a>.</li>
+<li><strong>The land sink becomes weaker.</strong> Climate change has made the land
+sink 25% smaller and the ocean sink 7% smaller than they would be
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://cger.nies.go.jp/gcp/news/20251113.html">Global Carbon Project</a>.
+In the hot year 2023, the land took up about 1.6 Gt, the least since
+2003 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://futureearth.org/droughts-fires-dramatically-weakened-land-carbon-sinks-last-year-new-paper-reports/">Ke et al. 2024</a>.
+The fires in Canada in 2023 emitted about 2.4 Gt <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://phys.org/news/2024-08-nasa-tallies-carbon-emissions-massive.html">Byrne et al. 2024</a>.
+The south-east Amazon is now a source <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>. The forests of Finland
+have been a source since 2021 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://stat.fi/en/publication/cm1942l1d9jk606uk6ltkwntx">Statistics Finland</a>.</li>
+<li><strong>To keep them is the first task.</strong> A sink of 19 Gt per year is nine
+times all deliberate removal <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>. A loss of 10% of it cancels all
+the tree planting in the world.</li>
+</ul>
+<h2 id="3-the-size-of-the-job">3. The size of the job</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th></th>
+<th>Gt CO2 per year</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CO2 emissions now</td>
+<td>43.4</td>
+<td><abbr class="lab lab-D" title="computed from a raw data file">D</abbr></td>
+</tr>
+<tr>
+<td>Deliberate removal now</td>
+<td>2.2</td>
+<td><abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></td>
+</tr>
+<tr>
+<td>of this, technical methods</td>
+<td>0.002</td>
+<td><abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr></td>
+</tr>
+<tr>
+<td>Removal needed in 2050</td>
+<td>7 to 9 (latest report: 8.75)</td>
+<td><abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></td>
+</tr>
+<tr>
+<td>Removal in the national plans for 2050</td>
+<td>about 3.6</td>
+<td><abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></td>
+</tr>
+<tr>
+<td>Technical methods needed in 2050</td>
+<td>more than 1</td>
+<td><abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></td>
+</tr>
+</tbody></table></div>
+<p>Sources:
+<a href="https://www.stateofcdr.org/asset/The-State-of-CDR-Executive-summary_June-2026.pdf">State of Carbon Dioxide Removal, 3rd edition, June 2026</a>
+and <a href="https://www.carbonbrief.org/qa-the-current-state-of-carbon-dioxide-removal-around-the-world/">Carbon Brief</a>.</p>
+<p>Total removal must become four times larger <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>. The technical methods
+must become about 450 times larger, which is 29% growth per year until
+2050 <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>. For comparison, solar electricity grew 26.9% per year from
+2015 to 2025 <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>. The report itself says that removal &quot;might need to
+scale faster than solar&quot; <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>.</p>
+<p>In the IPCC scenarios, the removal in 2050 comes from three places:
+forests and soils 3.0 Gt, bioenergy with capture 2.75 Gt, and direct
+air capture 0.02 Gt (medians) <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.ipcc.ch/report/ar6/wg3/chapter/chapter-12/">IPCC AR6 WG3, chapter 12</a>.
+The models choose bioenergy because it was the cheapest method in
+their cost tables, not because it is easy.</p>
+<p>Even the full 8.75 Gt per year does not cool the planet much. If the
+world removed that much for 50 years, and emitted nothing, the
+temperature would fall by about 0.2 °C <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>. In the scenarios, most of
+that removal only balances the emissions that remain.</p>
+<h2 id="4-trees">4. Trees</h2>
+<h3>How much they can do</h3>
+<p>The estimates fall when the method becomes more careful.</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Study</th>
+<th>Result</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://www.pubmed.gov/31624179/">Bastin et al. 2019</a></td>
+<td>205 Gt of carbon (750 Gt CO2) on 0.9 billion ha</td>
+<td>Disputed. Critics found it about five times too large; the authors published a correction <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></td>
+</tr>
+<tr>
+<td><a href="https://pure.iiasa.ac.at/19186">Mo et al. 2023</a></td>
+<td>226 Gt of carbon (828 Gt CO2), range 151-363</td>
+<td>61% is in forests that exist, if we let them grow old. New forest is 87 Gt of carbon <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></td>
+</tr>
+<tr>
+<td><a href="https://www.wri.org/insights/young-forests-capture-carbon-quicker-previously-thought">Cook-Patton et al. 2020</a></td>
+<td>8.9 Gt CO2 per year to 2050 on 678 million ha</td>
+<td>The technical maximum for natural regrowth <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></td>
+</tr>
+<tr>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/29078344/">Griscom et al. 2017</a></td>
+<td>11.3 Gt CO2e per year below $100 per tonne</td>
+<td>All &quot;natural climate solutions&quot;; much of it is avoided emissions, not removal <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></td>
+</tr>
+<tr>
+<td><a href="https://www.ipcc.ch/report/ar6/wg3/chapter/chapter-7/">IPCC AR6 WG3, chapter 7</a></td>
+<td>3.9 Gt per year technical (0.5-10.1); 1.2 to 1.6 Gt below $100</td>
+<td>New forest only <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></td>
+</tr>
+<tr>
+<td><a href="https://www.conservation.org/research/cost-effectiveness-of-natural-forest-regeneration-and-plantations-for-climate-mitigation">Busch et al. 2024</a></td>
+<td>31 Gt in 30 years below $50 per tonne</td>
+<td>About 1 Gt per year, in poor and middle-income countries <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></td>
+</tr>
+</tbody></table></div>
+<p>A fair summary: new forest can remove about 1 to 4 Gt per year for some
+decades, at $10 to $50 per tonne. That is real and useful. It is 2 to
+9% of present CO2 emissions.</p>
+<p>The upper limit is also useful. If the complete Mo et al. potential
+were reached, it would be 828 Gt, or 19 years of present emissions, and
+it would lower the temperature by at most 0.37 °C <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>. The new-forest
+part is 0.14 °C <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>. This takes 50 to 100 years, and it happens only
+once: a grown forest takes up no more.</p>
+<h3>Land and time</h3>
+<ul>
+<li>A young tropical forest takes up about 11 tonnes of CO2 per hectare
+per year in the first 20 years, and needs a median of 66 years to
+reach 90% of the biomass of an old forest <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.sciencedaily.com/releases/2016/02/160208135436.htm">Poorter et al. 2016</a>.</li>
+<li>So 1 Gt per year needs about 90 million hectares in the wet tropics
+<abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>. With a temperate rate of 5 tonnes it is 200 million hectares,
+and with a boreal rate of 2 tonnes it is 500 million <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>, but these
+two rates are from memory <abbr class="lab lab-M" title="from model memory: not checked">M</abbr>.</li>
+<li>The 3.0 Gt per year in the IPCC median needs about 265 million
+hectares of tropical land <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>. India is 329 million hectares <abbr class="lab lab-M" title="from model memory: not checked">M</abbr>.
+The Cook-Patton maximum needs 678 million hectares, which is two
+times India or 45% of the world&#39;s cropland <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>.</li>
+</ul>
+<h3>What goes wrong</h3>
+<ul>
+<li><strong>The carbon can come back.</strong> California keeps a reserve of offset
+credits against fire for 100 years. Fires used at least 95% of it in
+less than ten years <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://frontiersin.org/journals/forests-and-global-change/articles/10.3389/ffgc.2022.930426/full">Badgley et al. 2022</a>.
+Fossil CO2 stays in the air for thousands of years. A forest must
+stand that long to balance it.</li>
+<li><strong>Planted trees die.</strong> At 176 sites in tropical Asia, 44% of the
+young trees were dead after five years <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.abdn.ac.uk/news/16531/">Banin et al.</a>. A study of 430
+plantations in north India found no increase in tree cover after
+decades <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://ideas.repec.org/a/nat/natsus/v4y2021i11d10.1038_s41893-021-00761-z.html">Coleman et al. 2021</a>.</li>
+<li><strong>Plantations are not forests.</strong> About 45% of the national pledges
+are commercial plantations, which are cut every ten years or so.
+Natural forest stores about 40 times more carbon in the long term
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://pubmed.ncbi.nlm.nih.gov/30940972">Lewis et al. 2019</a>.</li>
+<li><strong>Dark trees warm.</strong> Forest is darker than snow, grass or desert and
+absorbs more sunlight. A count of carbon alone can be up to 81% too
+high. The effect is largest in the north and in dry land <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://doaj.org/article/d9b93922234d4b66abdd0736ce8541e6">Hasler et al. 2024</a>.
+So the tropics are the correct place for new forest.</li>
+<li><strong>Land is in use.</strong> New forest competes with food, and trees on
+natural grassland damage it.</li>
+</ul>
+<h3>Protect first</h3>
+<p>A hectare of old tropical forest that is cut releases in a few years
+what a new hectare needs about 66 years to take up again. Regrowth in
+the humid tropics balances only 26% of the emissions from forest loss
+there <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.carbonbrief.org/regrowth-of-degraded-tropical-forests-offsets-a-quarter-of-deforestation-emissions/">Heinrich et al. 2023</a>.
+The world still loses 4.3 million hectares of primary tropical forest
+per year (main report, section 8). To stop that loss is faster, cheaper
+and more certain than to plant.</p>
+<h2 id="5-soil-biochar-coasts-and-the-open-ocean">5. Soil, biochar, coasts and the open ocean</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Potential, Gt CO2 per year</th>
+<th>Cost per tonne</th>
+<th>How long it stays</th>
+<th>State</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Soil carbon on farms</td>
+<td>up to about 5 in theory; much less in practice</td>
+<td>low</td>
+<td>Years to decades; lost if the practice stops</td>
+<td>Long field trials show that large gains need extreme measures <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://repository.rothamsted.ac.uk/item/84663">Poulton et al. 2018</a></td>
+</tr>
+<tr>
+<td>Biochar</td>
+<td>0.3 to 6.6</td>
+<td>$125 to $165 on the market</td>
+<td>Centuries</td>
+<td>80% of all durable removal delivered until now <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></td>
+</tr>
+<tr>
+<td>Mangroves, salt marsh, seagrass</td>
+<td>0.03 to 0.84</td>
+<td>not found</td>
+<td>Centuries if not disturbed</td>
+<td>Small; good for coasts and fish also <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></td>
+</tr>
+<tr>
+<td>Peat: make drained peat wet again</td>
+<td>stops about 2 of emissions</td>
+<td>low</td>
+<td>-</td>
+<td>This avoids emissions; it is not removal <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></td>
+</tr>
+<tr>
+<td>Ocean iron, sunk seaweed</td>
+<td>not known</td>
+<td>not known</td>
+<td>Not shown</td>
+<td>Running Tide closed in 2024; sunk kelp decays fast <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></td>
+</tr>
+</tbody></table></div>
+<p>Biochar is charcoal from plant waste that is put into soil. It is the
+one method between the trees and the machines that delivers real
+tonnes now, because it is simple and it can be measured. Its limit is
+the supply of waste biomass.</p>
+<p>Sources: biochar potential
+<a href="https://www.ipcc.ch/report/ar6/wg3/chapter/chapter-12/">IPCC AR6 WG3 chapter 12</a>,
+deliveries
+<a href="https://www.cdr.fyi/blog/durable-cdr-market-update-carbon-unbound-east-coast-2026">CDR.fyi</a>,
+coasts
+<a href="https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D875C9D7C90D0A5D8ED96F62D1180520/S275472052400009Xa.pdf/restoring-blue-carbon-ecosystems.pdf">Macreadie et al. 2021</a>,
+peat
+<a href="https://www.ramsar.org/sites/default/files/documents/library/rpb5_restoring_drained_peatlands_e.pdf">Ramsar</a>,
+kelp
+<a href="https://carbondioxide-removal.eu/2026/03/20/bauer-et-al-2026-in-situ-deep-ocean-monitoring-reveals-rapid-kelp-degradation-limits-marine-biomass-based-carbon-sequestration-potential-and-alters-benthic-ecosystems/">Bauer et al. 2026</a>.</p>
+<h2 id="6-machines-direct-air-capture">6. Machines: direct air capture</h2>
+<p>A direct air capture (DAC) plant moves air across a chemical that binds
+CO2. Heat then releases the CO2, and a pump puts it deep into rock.</p>
+<h3>The physics</h3>
+<p>CO2 is 0.04% of air. To separate it needs energy, and physics sets a
+minimum of about 0.12 MWh per tonne <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>. Real plants need about 1.5 to
+2.5 MWh per tonne, which is 12 to 20 times the minimum <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>
+<a href="https://www.belfercenter.org/publication/process-capturing-co2-atmosphere">Keith et al. 2018</a>.
+There is room to improve, but not to zero.</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>For 1 Gt per year</th>
+<th>Value</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Energy at 2 MWh per tonne</td>
+<td>2,000 TWh</td>
+<td><abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr></td>
+</tr>
+<tr>
+<td>Share of world electricity (31,772 TWh in 2025)</td>
+<td>6.3% (range 4.7 to 7.9%)</td>
+<td><abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr> from <abbr class="lab lab-D" title="computed from a raw data file">D</abbr></td>
+</tr>
+<tr>
+<td>Compared with all solar power in 2025 (2,779 TWh)</td>
+<td>72%</td>
+<td><abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr> from <abbr class="lab lab-D" title="computed from a raw data file">D</abbr></td>
+</tr>
+<tr>
+<td>Range of the Belfer Center</td>
+<td>1,400 to 4,200 TWh</td>
+<td><abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://www.belfercenter.org/publication/prospects-direct-air-carbon-capture-and-storage-costs-scale-and-funding">Belfer</a></td>
+</tr>
+<tr>
+<td>Plants of the size of Stratos (0.5 Mt per year)</td>
+<td>2,000</td>
+<td><abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr></td>
+</tr>
+<tr>
+<td>Plants of the size of Mammoth (36,000 t per year)</td>
+<td>about 28,000</td>
+<td><abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr></td>
+</tr>
+</tbody></table></div>
+<p>If machines did all of the 8.75 Gt, they would need 17,500 TWh, which
+is 55% of the electricity that the world makes today <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>.</p>
+<p><strong>Clean power is better used on the grid first.</strong> Two MWh of clean
+electricity remove 1 tonne with DAC. The same two MWh avoid 1.9 tonnes
+if they replace coal power [C, with a coal value from memory], and
+0.9 tonnes if they replace average grid power (458 g per kWh <abbr class="lab lab-D" title="computed from a raw data file">D</abbr>). DAC
+makes sense only where the grid is already clean or where the power
+cannot be used for something else. Iceland is such a place.</p>
+<h3>The state today</h3>
+<ul>
+<li><strong>Mammoth</strong> (Climeworks, Iceland, 2024) is the largest plant in
+operation. Its design is 36,000 tonnes per year. Its net removal was
+119 tonnes in the first half of 2025 and 675 tonnes in the first half
+of 2026 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://netzerocompare.com/articles/climeworks-increases-co2-removal-at-mammoth-as-operating-costs-fall">Net Zero Compare</a>.
+That is 4% of the design <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>. The world emits 1,374 tonnes of CO2
+per second <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>.</li>
+<li><strong>Stratos</strong> (Occidental, Texas) has a design of 500,000 tonnes per
+year. Its start moved from 2025 to the end of 2026. I found no report
+that it has captured CO2 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.eenews.net/articles/worlds-largest-carbon-removal-plant-to-open-at-the-end-of-2026/">E&amp;E News</a>.
+Its owner is an oil company, and US law now pays the same $180 per
+tonne when the CO2 is used to push more oil out of old fields <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.globalccsinstitute.com/u-s-preserves-and-increases-45q-credit-in-one-big-beautiful-bill-act/">Global CCS Institute</a>.
+That use is not removal.</li>
+<li><strong>All plants in the world</strong> capture about 0.01 Mt per year. The
+planned projects give about 3 Mt in 2030, and the IEA net zero path
+needs about 75 Mt <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.iea.org/reports/direct-air-capture">IEA</a>. This number
+is from about 2023.</li>
+</ul>
+<h3>The cost</h3>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th></th>
+<th>$ per tonne</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Supplier break-even, 2025</td>
+<td>670</td>
+<td><abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://www.cdr.fyi/blog/cdr-pricing-survey-may-2026">CDR.fyi and OPIS</a></td>
+</tr>
+<tr>
+<td>Climeworks target for 2030</td>
+<td>400 to 600</td>
+<td><abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></td>
+</tr>
+<tr>
+<td>Independent estimate at 1 Gt per year</td>
+<td>340 (226 to 835)</td>
+<td><abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://sciencedaily.com/releases/2024/03/240304135808.htm">Sievert et al. 2024</a></td>
+</tr>
+<tr>
+<td>US government target</td>
+<td>below 100</td>
+<td><abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> <a href="https://www.energy.gov/fecm/carbon-negative-shot">DOE</a></td>
+</tr>
+<tr>
+<td>Most emission cuts</td>
+<td>below 100, half of them below 20</td>
+<td><abbr class="lab lab-S" title="search snippet only: provisional">S</abbr> main report, section 9</td>
+</tr>
+</tbody></table></div>
+<p>Will DAC follow the cost curve of solar? I think only partly. Solar
+panels are small, identical and made in factories by the billion. A
+DAC plant is partly like that (the capture boxes) and partly a chemical
+plant with large fans, heat and pipes, and chemical plants become
+cheaper slowly. The energy cost also has a floor. The independent
+estimate of about $340 at very large scale looks more credible to me
+than $100.</p>
+<h2 id="7-other-technical-methods-and-the-storage">7. Other technical methods, and the storage</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Method</th>
+<th>How it works</th>
+<th>Potential, Gt per year</th>
+<th>Cost per tonne now</th>
+<th>State</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Bioenergy with capture (BECCS)</td>
+<td>Burn or ferment plants, capture the CO2, store it in rock</td>
+<td>0.5 to 5 with limits for land</td>
+<td>about 230</td>
+<td>Two US ethanol plants have a capacity of about 1.8 Mt per year. Stockholm builds 0.8 Mt per year for 2028. Drax in the UK left its project in 2026 <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></td>
+</tr>
+<tr>
+<td>Enhanced rock weathering</td>
+<td>Spread crushed basalt on fields; it binds CO2 as it dissolves</td>
+<td>0.5 to 2</td>
+<td>270 to 350</td>
+<td>Thousands of tonnes verified. Hard to measure in the field; some trials found nothing <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></td>
+</tr>
+<tr>
+<td>Ocean alkalinity</td>
+<td>Add alkaline minerals to seawater, which then takes up more CO2</td>
+<td>not known; large in theory</td>
+<td>about 270</td>
+<td>First 626 verified tonnes in 2025. A trial in Cornwall was stopped after protests <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></td>
+</tr>
+<tr>
+<td>Storage in rock</td>
+<td>Pump CO2 into deep saline rock or basalt</td>
+<td>prudent total 1,460 Gt</td>
+<td>10 to 30 <abbr class="lab lab-M" title="from model memory: not checked">M</abbr></td>
+<td>Works. In Iceland more than 95% became stone in two years <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr></td>
+</tr>
+</tbody></table></div>
+<p>BECCS has the same land problem as trees, and a larger one. The 1.5 °C
+scenarios used 93 to 724 million hectares of energy crops <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.chathamhouse.org/2023/11/emerging-global-crisis-land-use/03-land-and-climate-pressures">Chatham House</a>.
+It makes most sense with waste: ethanol plants, paper mills, and the
+burning of household waste.</p>
+<p>Storage is not the limit in this century, but it is not without limit.
+A study in 2025 put the prudent world capacity at 1,460 Gt, after it
+excluded places with earthquake risk, groundwater or many people <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.carbonbrief.org/guest-post-how-the-role-of-carbon-storage-has-been-hugely-overestimated">Gidden et al. 2025</a>.
+If all of it were used for removal, it would lower the temperature by
+about 0.7 °C <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>.</p>
+<p><strong>Capture at a chimney is not removal.</strong> A filter on a gas power plant
+or a cement kiln stops new fossil CO2. That is a cut in emissions. Only
+CO2 that came from the air (through a plant or a machine) and stays
+out of the air counts as removal <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.stateofcdr.org/asset/SoCDR_ED3_Chpater-1_June-2026.pdf">State of CDR, chapter 1</a>.</p>
+<p>Sources for the table:
+<a href="https://www.opis.com/blog/pricing-gap-in-durable-carbon-dioxide-removal-revealed-in-new-survey/">CDR.fyi and OPIS prices</a>,
+<a href="https://www.eib.org/en/press/all/2025-172-eib-finances-ground-breaking-carbon-capture-plant-in-stockholm">Stockholm Exergi</a>,
+<a href="https://www.eenews.net/articles/energy-giant-drax-pulls-out-of-uk-climate-plan/">Drax</a>,
+<a href="https://eprints.soton.ac.uk/442331/">Beerling et al. 2020</a>,
+<a href="https://bg.copernicus.org/articles/23/7727/2026/">weathering trials</a>,
+<a href="https://isometric.com/writing-articles/worlds-first-verified-ocean-alkalinity-enhancement-credits">Planetary credits</a>,
+<a href="https://gasworld.com/story/uk-ocean-carbon-capture-trial-scrapped-over-viability-concerns/2154523.article">Cornwall</a>,
+<a href="https://meetingorganizer.copernicus.org/EGU24/EGU24-16577.html">Carbfix</a>.</p>
+<h2 id="8-all-methods-side-by-side">8. All methods side by side</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th></th>
+<th>Trees and soils</th>
+<th>Biochar</th>
+<th>BECCS</th>
+<th>Rocks and ocean</th>
+<th>DAC</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Removal now, per year</td>
+<td>about 2.2 Gt</td>
+<td>about 1 Mt</td>
+<td>1 to 2 Mt</td>
+<td>thousands of tonnes</td>
+<td>about 0.01 Mt</td>
+</tr>
+<tr>
+<td>Realistic in 2050, Gt per year</td>
+<td>1 to 4 more</td>
+<td>0.5 to 2</td>
+<td>0.5 to 3</td>
+<td>0.5 to 2</td>
+<td>0.1 to 1</td>
+</tr>
+<tr>
+<td>Cost per tonne now</td>
+<td>$10 to $50</td>
+<td>$140 to $190</td>
+<td>about $230</td>
+<td>$270 to $350</td>
+<td>about $670</td>
+</tr>
+<tr>
+<td>How long it stays</td>
+<td>Decades; can burn</td>
+<td>Centuries</td>
+<td>10,000 years or more</td>
+<td>10,000 years or more</td>
+<td>10,000 years or more</td>
+</tr>
+<tr>
+<td>Main limit</td>
+<td>Land, fire, honest counting</td>
+<td>Waste biomass</td>
+<td>Land, biomass</td>
+<td>Measurement</td>
+<td>Energy, cost</td>
+</tr>
+<tr>
+<td>Easy to measure</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody></table></div>
+<p>The &quot;realistic in 2050&quot; row is my judgement from the ranges in the
+studies above, not a result from one source. The sum is about 3 to 12
+Gt per year. The need is 7 to 9. So the target can be reached only if
+several methods work, and none of them is certain.</p>
+<p>No method is cheap, permanent and large at the same time. Trees are
+cheap and large but not permanent. Machines are permanent but not cheap
+and not yet large.</p>
+<h2 id="9-who-pays">9. Who pays?</h2>
+<p>A removed tonne has no buyer by nature. It is a waste service, like
+sewage treatment. Somebody must be made to pay, or the state must pay.</p>
+<ul>
+<li>Buyers have ordered about 49 Mt of durable removal in total, and
+1.67 Mt has been delivered, which is 3.4% <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr> from
+<a href="https://www.cdr.fyi/blog/durable-cdr-market-update-carbon-unbound-east-coast-2026">CDR.fyi</a>
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>. All durable removal that was ever delivered equals 20 minutes
+of world CO2 emissions <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>.</li>
+<li>One company, Microsoft, made about 90% of the purchases in 2025. In
+April 2026 it was reported to have paused new purchases; the company
+denies that the programme has ended <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://heatmap.news/carbon-removal/microsoft-carbon-removal-pause">Heatmap</a>.
+A market with one buyer is fragile.</li>
+<li>Public demand starts slowly. The EU certified its first permanent
+removal methods in 2026 and proposes to let removals into its carbon
+market after 2030. Sweden and Denmark buy bioenergy capture by
+auction. The US kept its tax credit of $180 per tonne <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>.</li>
+</ul>
+<p>The cost at full scale <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>:</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>Removal per year</th>
+<th>at $100</th>
+<th>at $340</th>
+<th>at $600</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1 Gt</td>
+<td>$100 billion (0.09% of world GDP)</td>
+<td>$340 billion (0.29%)</td>
+<td>$600 billion (0.51%)</td>
+</tr>
+<tr>
+<td>8.75 Gt</td>
+<td>$0.9 trillion (0.75%)</td>
+<td>$3.0 trillion (2.5%)</td>
+<td>$5.3 trillion (4.5%)</td>
+</tr>
+<tr>
+<td>To lower the temperature by 0.1 °C, once</td>
+<td>$18 to 22 trillion</td>
+<td>$62 to 76 trillion</td>
+<td>$110 to 133 trillion</td>
+</tr>
+</tbody></table></div>
+<p>World GDP is about $117 trillion <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>. The world spends about 2.5% of
+GDP on its armies <abbr class="lab lab-M" title="from model memory: not checked">M</abbr>, so the middle case is of that size. It is
+possible to pay. But the last row shows the main point: each 0.1 °C
+that we let pass now costs tens of trillions of dollars to take back
+later. To avoid the same emissions costs less than a third of that.</p>
+<h2 id="10-the-risks-of-the-idea-itself">10. The risks of the idea itself</h2>
+<ul>
+<li><strong>Delay.</strong> If governments and companies count on cheap removal in
+2050, they cut less now. The removal then does not arrive, or it
+arrives late and small. Researchers call this &quot;mitigation
+deterrence&quot; and propose separate targets for cuts and for removal
+<abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.frontiersin.org/journals/climate/articles/10.3389/fclim.2019.00004/full">McLaren et al. 2019</a>.
+&quot;Net-zero oil&quot; from Occidental is the clearest example.</li>
+<li><strong>A tonne is not a tonne.</strong> A tonne in a tree for 40 years does not
+balance a tonne of fossil CO2 that stays for thousands of years. The
+Oxford principles say: use removal only for the emissions that
+cannot be avoided, and move to permanent storage by the net zero
+date <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>
+<a href="https://www.ox.ac.uk/news/2024-02-28-oxford-researchers-launch-updated-carbon-offsetting-principles">Oxford</a>.</li>
+<li><strong>Weak credits.</strong> Forest credits sell for about $22 per tonne and
+the low price reflects the doubt <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>. The main report cites a review
+in which less than 16% of offset credits were real reductions.</li>
+<li><strong>Removal cools a little less than emission warms</strong> <abbr class="lab lab-M" title="from model memory: not checked">M</abbr>. The ocean
+gives back part of the CO2 that it took up when the air had more of
+it. So my numbers per 0.1 °C are a best case.</li>
+</ul>
+<h2 id="11-my-judgement">11. My judgement</h2>
+<ol>
+<li><strong>Removal is the last 10 to 20% of the solution, and it is not a
+reason to wait.</strong> The cheap tonnes are the ones that are never
+emitted.</li>
+<li><strong>The best &quot;removal&quot; action now is to keep the forests and the
+natural sinks.</strong> They do 19 Gt per year without payment, and they
+become weaker as the planet warms.</li>
+<li><strong>Plant and regrow forest where it fits:</strong> in the wet tropics, with
+native trees, with the people who live there, and counted as a
+bonus for some decades. Do not sell it as a licence to burn fossil
+fuel.</li>
+<li><strong>Build the technical methods now, with public money, because they
+need 20 years to grow.</strong> The target is not tonnes today. The target
+is to learn what works and what it costs: 30% growth per year, as
+solar had. Governments should buy removal as they buy waste
+treatment, by auction, with strict measurement.</li>
+<li><strong>Keep two separate accounts,</strong> one for emission cuts and one for
+removal, and inside removal one for permanent and one for
+temporary storage.</li>
+<li><strong>For one person:</strong> to pay for removal is a gift to a young
+industry, not a way to cancel a flight. At $200 to $700 per durable
+tonne, the same money cuts far more through the groups in section
+11 of the main report. Forest credits at $10 to $25 are useful for
+nature but they do not balance fossil CO2.</li>
+</ol>
+<h2 id="what-could-not-be-verified">What could not be verified</h2>
+<ul>
+<li>No page was opened. Every fact from a paper, a report or a news
+site is <abbr class="lab lab-S" title="search snippet only: provisional">S</abbr>, and the numbers for 2026 cannot be checked from memory.</li>
+<li>The IPCC numbers come from summaries and one draft chapter text, not
+from the final chapters.</li>
+<li>The 8.75 Gt need in 2050 is from secondary reports on the State of
+CDR 2026. An errata file exists for that edition and was not read.</li>
+<li>The removal by technical methods (about 2 Mt per year) is 0.1% of
+2.2 Gt. The 2024 edition gave 1.3 Mt.</li>
+<li>Temperate and boreal growth rates, the coal emission factor, the
+storage cost, the area of India and of cropland, and military
+spending are from memory.</li>
+<li>Mammoth numbers differ between sources (gross or net). Stratos may
+have started after the search.</li>
+<li>The &quot;realistic in 2050&quot; row in section 8 is my judgement.</li>
+<li>The cost table uses one price for all tonnes. Real costs differ by
+method and fall with time.</li>
+</ul>
+<h2 id="data-and-how-to-redo-it">Data and how to redo it</h2>
+<pre><code>python3 removal.py
+</code></pre>
+<p><a href="../../removal.py"><code>removal.py</code></a> reads <a href="../../analysis.json"><code>analysis.json</code></a>, the carbon budget file in
+<code>data/igcc/carbon_budget/</code>, and a list of cited parameters (<code>PARAMS</code>,
+each with its label and source). It writes <a href="../../removal.json"><code>removal.json</code></a>. Every <abbr class="lab lab-C" title="computed from numbers that the text cites">C</abbr>
+number in this report is in that file. Change a parameter and run it
+again to see what depends on it.</p>
+</div>
+</main>
+</body>
+</html>
