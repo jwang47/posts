@@ -7,6 +7,7 @@ igcc,igcc/,https://github.com/ClimateIndicator/data.git,2026-11-12,,git d9726573
 jma-japan-annual-temp,primary/jma-japan-annual-temp.csv,https://www.data.jma.go.jp/cpdinfo/temp/list/csv/an_jpn.csv,2026-11-12,1415,2a93342ee904e37f49512f777424f580f71fe9e557c813da47d1bc9792809477,ok
 jma-world-annual-temp,primary/jma-world-annual-temp.csv,https://www.data.jma.go.jp/cpdinfo/temp/list/csv/an_wld.csv,2026-11-12,3127,08deb89fbdb96ca224f1fcb6f01960af214b3718954fe476555ddf969bc2c04b,ok
 nasa-gistemp,primary/nasa-gistemp-global-monthly.csv,https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.csv,2026-11-12,12886,4c64eda288bce32b8d76926278f346ecea1e53506df8ee72a3d5accb0657c416,ok
+natural-earth-countries,maps/ne_110m_admin_0_countries.geojson,https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_110m_admin_0_countries.geojson,2026-11-16,838726,6866c877d39cba9c357620878839b336d569f8c662d3cfab4cb1dbe2d39c977f,ok
 noaa-ch4-global-annual,primary/noaa-ch4-annmean-global.csv,https://gml.noaa.gov/webdata/ccgg/trends/ch4/ch4_annmean_gl.csv,2026-11-12,2786,e3aa85c175b5deca25a121f4ba0c48979a650304830650543230fda1835a774b,ok
 noaa-co2-global-annual,primary/noaa-co2-annmean-global.csv,https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_gl.csv,2026-11-12,2513,d82714c8a014a232b08e8bc150ddaaedf2ec4a80db65d6fe0eb93eb84f9db7db,ok
 noaa-co2-global-growth,primary/noaa-co2-growth-global.csv,https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_gr_gl.csv,2026-11-12,3124,08b9a52c71b0687ab98f70d5cb345f6c8f9984fafc78f3bb998e7c7af74e12c0,ok

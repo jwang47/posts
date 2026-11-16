@@ -33,6 +33,7 @@ SOURCES = [
     ("owid-co2-codebook", "https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-codebook.csv", "owid/owid-co2-codebook.csv"),
     ("owid-energy", "https://raw.githubusercontent.com/owid/energy-data/master/owid-energy-data.csv", None),
     ("owid-energy-codebook", "https://raw.githubusercontent.com/owid/energy-data/master/owid-energy-codebook.csv", "owid/owid-energy-codebook.csv"),
+    ("natural-earth-countries", "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_110m_admin_0_countries.geojson", "maps/ne_110m_admin_0_countries.geojson"),
     ("berkeley-earth-annual", "https://berkeley-earth-temperature.s3.us-west-1.amazonaws.com/Global/Land_and_Ocean_summary.txt", "primary/berkeley-earth-land-ocean-annual.txt"),
     ("noaa-co2-mlo-annual", "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.csv", "primary/noaa-co2-annmean-mlo.csv"),
     ("noaa-co2-mlo-monthly", "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_mm_mlo.csv", "primary/noaa-co2-mm-mlo.csv"),
