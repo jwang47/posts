@@ -35,8 +35,9 @@ does that help?
    world's electricity [C]. The largest plant in operation removed
    675 tonnes in half a year [S]. That is half a second of world
    emissions [C].
-6. **The technical methods must grow about 450 times by 2050.** That
-   is 29% per year for 24 years [C]. Solar power grew 27% per year in
+6. **The technical methods must grow about 450 to 750 times by 2050.**
+   That is about 29 to 32% per year for 24 years [C]; the range comes
+   from the 2026 and 2024 counts of today's removal. Solar power grew 27% per year in
    the last ten years [D]. It is possible, but solar sells a product.
    Removal sells a waste service that nobody must buy.
 7. **The largest risk is not the technology. It is the excuse.** A
@@ -150,7 +151,9 @@ and [Carbon Brief](https://www.carbonbrief.org/qa-the-current-state-of-carbon-di
 
 Total removal must become four times larger [C]. The technical methods
 must become about 450 times larger, which is 29% growth per year until
-2050 [C]. For comparison, solar electricity grew 26.9% per year from
+2050 [C]. With the 2024 count of today's removal (1.3 Mt), it is 770
+times and 32% per year [C]. The report says novel removal already grows
+about 40% per year [S], but from a very small base. For comparison, solar electricity grew 26.9% per year from
 2015 to 2025 [D]. The report itself says that removal "might need to
 scale faster than solar" [S].
 
@@ -471,7 +474,7 @@ later. To avoid the same emissions costs less than a third of that.
    fuel.
 4. **Build the technical methods now, with public money, because they
    need 20 years to grow.** The target is not tonnes today. The target
-   is to learn what works and what it costs: 30% growth per year, as
+   is to learn what works and what it costs: about 30% growth per year, as
    solar had. Governments should buy removal as they buy waste
    treatment, by auction, with strict measurement.
 5. **Keep two separate accounts,** one for emission cuts and one for

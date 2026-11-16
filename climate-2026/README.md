@@ -15,8 +15,10 @@ what can we do about them?
    caused almost all of it.** The 2025 global mean was 1.39 °C above
    1850-1900 [D]. The human-caused part was 1.38 °C [D]. The long-term
    level will pass 1.5 °C in about 2029 or 2030.
-2. **Warming is now faster: about 0.27 °C per decade**, against about
-   0.18 °C per decade in 1970-2010. Scientists agree on the faster rate.
+2. **Warming is now faster.** A simple trend through the measured
+   temperatures gives 0.24 °C per decade for 1996-2025, against 0.18 °C
+   per decade for 1970-2010 [D]. The human-caused part now rises about
+   0.27 °C per decade [S]. Scientists agree on the faster rate.
    They do not agree on how much of it will last (section 3).
 3. **The path has improved, but not enough.** In 2015 the expected
    warming by 2100 was about 3.6 °C. It is now about 2.5 to 2.8 °C under
@@ -24,8 +26,9 @@ what can we do about them?
    limit without overshoot is also gone.
 4. **Emissions are near a peak but have not started to fall.** Growth of
    fossil CO2 slowed from 2.7% per year (2000-2010) to 0.9% per year
-   (2019-2025) [D]. In 2025, clean electricity grew more than demand for
-   the first time outside a crisis, and fossil electricity fell [D].
+   (2019-2025) [D]. In 2025, clean electricity grew more than demand,
+   and fossil electricity fell [D]. Analysts say this is the first time
+   outside a crisis [S].
 5. **Electricity and cars are the solved part.** Solar, wind, batteries
    and electric cars are now the cheap option in most markets. The work
    there is to build faster: grids, permits, storage and cheap finance
@@ -91,7 +94,8 @@ All of them put 2024 first, and all show the same step up of about
 for August to October 2026 is +2.46 °C [D]. That is already above the
 peaks of 1982-83 (2.14) and 1997-98 (2.37), and near the record of
 2015-16 (2.59) [D]. October 2026 was 1.78 °C above 1850-1900 in ERA5,
-the warmest October in the record [D]. From 1 January to 9 November,
+the warmest October in the record [S]. In the ERA5 file it is the
+warmest of the last four Octobers [D]. From 1 January to 9 November,
 2026 is at 1.54 °C, against 1.60 °C for the same days of 2024 [D]. To
 pass 2024, the rest of 2026 must be at about 1.96 °C. So 2026 will
 probably be the second warmest year. Copernicus expects the same, with
@@ -123,7 +127,7 @@ from its own trend [S]
 The NOAA files agree: 425.62 ppm of CO2, 1,936 ppb of methane and
 338.9 ppb of nitrous oxide in 2025 [D]. CO2 rose 0.8 ppm per year in
 the 1960s and 2.6 ppm per year in 2015-2024 [D]. The rise of 3.76 ppm
-in 2024 was the largest on record [D], because fires were large and the
+in 2024 was the largest in the NOAA growth file [D], because fires were large and the
 land absorbed less carbon in the El Niño year [S]
 [WMO](https://wmo.int/publication-series/wmo-greenhouse-gas-bulletin-no-21).
 The same will probably occur in 2026-27. The rise of methane has slowed
@@ -217,9 +221,13 @@ end: likely range 2.5 to 4 °C, very likely range 2 to 5 °C [S]
 [Carbon Brief](https://www.carbonbrief.org/guest-post-why-low-end-climate-sensitivity-can-now-be-ruled-out).
 
 **Carbon budget.** For a 50% chance to stay below 1.5 °C, about 130 Gt
-of CO2 remained at the start of 2026 [D]. The world emits about 43 Gt
-of CO2 per year, so the budget ends in about 3 years. For 2 °C the
-budget is about 1,055 Gt, or about 25 years at the current rate [S]
+of CO2 remained at the start of 2026 [S]
+[Forster et al. 2026](https://essd.copernicus.org/articles/18/3889/2026/).
+The budget files in the data give 98 to 188 Gt, 134 Gt in the main
+case [D]; they differ in the start warming and the model. The world
+emits about 43 Gt of CO2 per year, so the budget ends in about 3 years.
+For 2 °C the budget is about 1,050 Gt (1,047 in the main file [D]), or
+about 25 years at the current rate [S]
 [Carbon Brief](https://www.carbonbrief.org/analysis-fossil-fuel-co2-emissions-to-set-new-record-in-2025-as-land-sink-recovers/).
 Warming stops, to a first approximation, when net CO2 emissions reach
 zero. It does not go down again for centuries unless CO2 is removed.
@@ -489,7 +497,8 @@ Very little of it goes to poor countries: Africa gets about 2% [S].
   for four years [S].
 - **Carbon removal.** Trees and soils remove about 2 Gt of CO2 per
   year. All engineered methods together remove about 1.3 million tonnes
-  per year, less than 0.1% of that [S]
+  per year in the 2024 count, about 2 million in the 2026 count, less
+  than 0.1% of that [S]
   [State of CDR](https://ox.ac.uk/news/2024-06-05-new-report-states-7-9-billion-tonnes-co2-must-be-sustainably-removed-year-hit).
   Paths that keep warming below 2 °C need 7 to 9 Gt per year by 2050.
   The largest direct air capture plant removed 675 t in half a year,
@@ -529,7 +538,7 @@ are approximate and come from the sector numbers in section 6.
 | 5. Efficiency: buildings, motors, less waste | cuts demand in all sectors | Cheap, slow | Many small decisions; split incentives |
 | 6. Food: less beef and dairy, less waste, better fertiliser use | about 12 to 30% | Almost no policy | Culture and farm politics |
 | 7. Clean heavy industry, aviation and shipping | about 20% | Pilot stage; projects delayed | Costs 20 to 100% more with no carbon price; needs standards and public purchase |
-| 8. Carbon removal | needed for the last 10% and for a return below a peak | Trees work now; engineered removal is 1,000 times too small | $500 or more per tonne; honest accounting |
+| 8. Carbon removal | needed for the last 10 to 20% and for a return below a peak | Trees work now; engineered removal must grow about 500 times by 2050 | $500 or more per tonne; honest accounting |
 
 Policies that make these levers work:
 
@@ -662,16 +671,19 @@ Nagano only, and most of the country.
 
 - **Good news that is firm:** clean electricity and electric cars now
   win on cost, and they grow on an S-curve. Projections made from
-  current policies have been too pessimistic about them every year.
-  The world emission peak is probably within two years of now.
+  current policies have often been too pessimistic about them [M].
+- **Good news that is likely, not firm:** the world emission peak is
+  probably close. Growth has slowed to 0.9% per year [D], but the Global
+  Carbon Budget authors say it is too early to call a peak [S].
 - **Bad news that is firm:** a peak is not a fall. Warming continues
-  until net CO2 emissions are zero. On the current path that is after
-  2070, at about 2.5 to 2.8 °C. The 1.5 °C limit will be passed in
+  until net CO2 emissions are zero. On the current path that is late in
+  the century, at about 2.5 to 2.8 °C [S]. The 1.5 °C limit will be passed in
   about 2030.
 - **Largest uncertainty in the science:** clouds and sensitivity
-  (section 3). If Hansen is right, add about 0.5 °C to every number.
+  (section 3). If Hansen is right, every number here is too low, by
+  several tenths of a degree [M].
 - **Largest uncertainty in the response:** politics. The US reversal
-  costs about 0.1 °C. China's decisions on coal count for more than
+  costs a little warming, of the order of 0.1 °C [M]. China's decisions on coal count for more than
   those of all other countries.
 - **Best value now:** methane, forests, grids and finance for poor
   countries. All four are cheap compared with their effect, and all
@@ -707,7 +719,8 @@ Nagano only, and most of the country.
 - **AMOC collapse odds** are quoted in the press with no clear source,
   so this report gives none.
 - **Energy imbalance for 2021-2025**: the IGCC file gives the full
-  heat inventory only to 2020. The later values here are ocean only.
+  heat inventory only to 2020, so this report gives no measured value
+  after 2020. The satellite value is [S].
 
 ## Data and how to redo it
 

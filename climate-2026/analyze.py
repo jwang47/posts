@@ -153,6 +153,15 @@ out["ghg_emissions_gtco2e"] = {
 s = rows("igcc/sea_level_rise/IGCC_GMSL_ensemble.csv")
 sl = {int(float(x["timebound_lower"])): float(x["mean"]) for x in s}
 ls = max(sl)
+# Remaining carbon budgets, 50% chance, Gt CO2. The three IGCC files differ in
+# the human-caused warming at the start (1.24 or 1.26 C) and in the model.
+bdir = os.path.join(D, "igcc", "carbon_budget")
+out["carbon_budget_gtco2_50pct"] = {}
+for fn in sorted(os.listdir(bdir)):
+    tab = {round(num(x["dT_targets"]), 1): num(x["0.5"]) for x in rows(os.path.join("igcc", "carbon_budget", fn))}
+    key = ("fair" if "fair_True" in fn else "magicc") + "_hdT_" + fn.split("hdT_")[1][:4]
+    out["carbon_budget_gtco2_50pct"][key] = {str(t): r(tab[t], 0) for t in (1.5, 1.7, 2.0)}
+
 out["sea_level_mm"] = {
     "rise_1901_to_%d" % ls: r(sl[ls] - sl[1901], 0),
     "rate_mm_per_year": {

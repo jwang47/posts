@@ -44,6 +44,8 @@
   "novel_now_mt": 2.2,
   "novel_growth_factor_to_2050": 455,
   "novel_growth_percent_per_year": 29.0,
+  "novel_growth_factor_to_2050_from_2024_count": 769,
+  "novel_growth_percent_per_year_from_2024_count": 31.9,
   "solar_growth_percent_per_year_2015_2025": 26.9,
   "total_removal_growth_factor": 4.0
  },
@@ -173,6 +175,11 @@
    "value": 8.75,
    "label": "S",
    "source": "State of CDR 3rd edition via Carbon Brief; 2nd edition gave 7-9"
+  },
+  "novel_now_2024_mt": {
+   "value": 1.3,
+   "label": "S",
+   "source": "State of CDR 2nd edition, June 2024"
   },
   "novel_need_2050_gt": {
    "value": 1.0,

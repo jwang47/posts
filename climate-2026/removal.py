@@ -31,6 +31,7 @@ PARAMS = {
     "removal_now_gt": (2.2, "S", "State of CDR 3rd edition, June 2026"),
     "novel_share_of_removal": (0.001, "S", "State of CDR 3rd edition: about 0.1%"),
     "removal_need_2050_gt": (8.75, "S", "State of CDR 3rd edition via Carbon Brief; 2nd edition gave 7-9"),
+    "novel_now_2024_mt": (1.3, "S", "State of CDR 2nd edition, June 2024"),
     "novel_need_2050_gt": (1.0, "S", "State of CDR 3rd edition: novel methods pass 1 Gt/yr by 2050"),
     "ocean_sink_gtc": (3.4, "S", "Global Carbon Budget 2025, year 2024"),
     "land_sink_gtc": (1.9, "S", "Global Carbon Budget 2025, year 2024"),
@@ -124,6 +125,8 @@ def main():
         "novel_now_mt": round(novel_now * 1000, 1),
         "novel_growth_factor_to_2050": round(p("novel_need_2050_gt") / novel_now),
         "novel_growth_percent_per_year": round(100 * ((p("novel_need_2050_gt") / novel_now) ** (1 / years) - 1), 1),
+        "novel_growth_factor_to_2050_from_2024_count": round(p("novel_need_2050_gt") / (p("novel_now_2024_mt") / 1000)),
+        "novel_growth_percent_per_year_from_2024_count": round(100 * ((p("novel_need_2050_gt") / (p("novel_now_2024_mt") / 1000)) ** (1 / years) - 1), 1),
         "solar_growth_percent_per_year_2015_2025": round(100 * ((solar / el["2015"]["solar"]) ** 0.1 - 1), 1),
         "total_removal_growth_factor": round(p("removal_need_2050_gt") / p("removal_now_gt"), 1),
     }

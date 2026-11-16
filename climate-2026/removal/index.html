@@ -124,28 +124,28 @@ svg.map .all { fill: var(--warm); fill-opacity: .22; stroke: var(--warm); stroke
 </header>
 
 <section>
-  <h2>One year of CO2, one dot per million tonnes</h2>
+  <h2>One year of CO2, one dot per 100 million tonnes</h2>
   <div class="panel" id="c-dots">
-    <p class="dotcap"><b>43,350 dots: what people emit in a year.</b> Oceans, plants and soils absorb the grey part without being asked. The orange part stays in the air.</p>
-    <canvas data-part="field" role="img" aria-label="A field of 43,350 dots. 23,950 are orange, for CO2 that stays in the air. 19,400 are grey, for CO2 that oceans and land absorb."></canvas>
-    <p class="dotcap"><b>2,200 dots: what people remove on purpose, almost all with forests.</b></p>
-    <canvas data-part="forest" role="img" aria-label="A thin strip of 2,200 blue dots."></canvas>
-    <p class="dotcap"><b>2 dots: what all technology removes,</b> from charcoal to machines. They are inside the circle.</p>
-    <canvas data-part="tech" role="img" aria-label="2 blue dots inside a circle."></canvas>
+    <p class="dotcap"><b>434 dots: what people emit in a year.</b> Oceans, plants and soils absorb the grey part without being asked. The orange part stays in the air.</p>
+    <canvas data-part="field" role="img" aria-label="434 dots. 240 are orange, for CO2 that stays in the air. 194 are grey, for CO2 that oceans and land absorb."></canvas>
+    <p class="dotcap"><b>22 dots: what people remove on purpose, almost all with forests.</b></p>
+    <canvas data-part="forest" role="img" aria-label="22 blue dots."></canvas>
+    <p class="dotcap"><b>A fiftieth of one dot: what all technology removes,</b> from charcoal to machines. It is the speck inside the dashed circle.</p>
+    <canvas data-part="tech" role="img" aria-label="A dashed circle the size of one dot, with a blue speck inside that fills a fiftieth of it."></canvas>
   </div>
-  <p>Paths that keep warming below 2 °C need about four of those blue strips by 2050: 7 to 9 billion tonnes (Gt) a year. They need the orange and grey field to shrink by four fifths first.</p>
+  <p>Paths that keep warming below 2 °C need about four times as many blue dots by 2050: 7 to 9 billion tonnes (Gt) a year. They need the orange and grey field to shrink by four fifths first.</p>
 </section>
 
 <section>
   <h2>Removal is the last step, and delay makes it larger</h2>
   <p>Some emissions are very hard to stop: methane from farms, the chemistry of cement, long flights. "Net zero" is the year when removal balances that rest. Until then, everything between the two lines is added to the air, and it stays there. Move the slider to start the cuts later.</p>
   <div class="panel" id="c-path">
-    <h3>Emissions and removal, billion tonnes of CO2 a year</h3>
-    <div class="legend"><span><i style="background:var(--warm)"></i>Emissions</span><span><i style="background:var(--cold)"></i>Removal</span></div>
+    <h3>Emissions and new removal, billion tonnes of CO2 a year</h3>
+    <div class="legend"><span><i style="background:var(--warm)"></i>Emissions</span><span><i style="background:var(--cold)"></i>New removal, beyond today's forests</span></div>
     <div class="plot"></div>
     <div class="ctl"><label for="delay" class="delay">Cuts start now</label><input id="delay" type="range" min="0" max="15" step="1" value="0"><div class="ends"><span>now</span><span>15 years late</span></div></div>
     <div class="readout" role="status"></div>
-    <p class="sub">An illustration with straight lines, not a forecast: emissions fall to a fifth of today's over 24 years and removal reaches 8.75 Gt in 2050. Peak warming comes from the carbon budget table in the data.</p>
+    <p class="sub">An illustration with straight lines, not a forecast: emissions fall to about a seventh of today's over 24 years and new removal reaches 6.5 Gt in 2050, so that with today's 2.2 Gt the total is 8.75 Gt. Emissions here are already net of today's forest uptake. Peak warming comes from the carbon budget table in the data.</p>
   </div>
   <p class="box">Each 0.1 °C is about 183 to 222 Gt of CO2, which is 4.2 to 5.1 years of present emissions. Removal can shave a peak. It cannot bring back the old climate.</p>
 </section>
@@ -192,7 +192,7 @@ svg.map .all { fill: var(--warm); fill-opacity: .22; stroke: var(--warm); stroke
   <h3>What 2 MWh of clean electricity keeps out of the air</h3>
   <p class="sub">Tonnes of CO2. Direct air capture makes sense where the grid is already clean, as in Iceland.</p>
 </div>
-  <p>The technical methods must grow about 450 times by 2050, or 29% a year. Solar grew 27% a year over the last decade, so the pace is possible. But solar sells electricity. Removal sells a waste service that nobody has to buy: one company made about 90% of the purchases in 2025.</p>
+  <p>The technical methods must grow about 450 to 750 times by 2050, or about 29% a year. Solar grew 27% a year over the last decade, so the pace is possible. But solar sells electricity. Removal sells a waste service that nobody has to buy: one company made about 90% of the purchases in 2025.</p>
 </section>
 
 <section>
@@ -276,7 +276,7 @@ svg.map .all { fill: var(--warm); fill-opacity: .22; stroke: var(--warm); stroke
   <p>The <a href="report/">full removal report</a> has the detail and every source, and labels each fact by how it was checked. No source page could be opened for this part, so facts from papers and news were seen only in search results. The pictures are drawn from those numbers: <a href="../removal.py">removal.py</a> writes <a href="../removal.json">removal.json</a>. Country outlines: Natural Earth.</p>
 </footer>
 </main>
-<script type="application/json" id="d">{"dots":{"emit":43350,"sink":19400,"forest":2200,"tech":2},"path":{"e0":43.35,"resid":8.75,"r0":2.2,"need":8.75,"span":24,"t0":1.5,"b0":134.2,"gt_per_c":1826,"cost":340},"tick":{"world_t_per_s":1374,"plant_t_per_year":1350},"power":[["Replace coal power",1.9,"Coal power emits about 0.95 t per MWh"],["Run a direct air capture plant",1,"At 2 MWh per tonne captured"],["Replace average grid power",0.92,"World average in 2025: 458 g of CO2 per kWh"]]}</script>
+<script type="application/json" id="d">{"dots":{"emit":43350,"sink":19400,"forest":2200,"tech":2},"path":{"e0":43.35,"resid":6.55,"r0":0,"need":6.55,"span":24,"t0":1.5,"b0":134.2,"gt_per_c":1826,"cost":340},"tick":{"world_t_per_s":1374,"plant_t_per_year":1350},"power":[["Replace coal power",1.9,"Coal power emits about 0.95 t per MWh"],["Run a direct air capture plant",1,"At 2 MWh per tonne captured"],["Replace average grid power",0.92,"World average in 2025: 458 g of CO2 per kWh"]]}</script>
 <script>
 const D = JSON.parse(document.getElementById('d').textContent);
 const NS = 'http://www.w3.org/2000/svg';
@@ -346,30 +346,34 @@ const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v
 const nf = (v, d) => v.toLocaleString('en-US', { maximumFractionDigits: d || 0, minimumFractionDigits: d || 0 });
 const redraws = [];
 
-// 1. One dot per million tonnes of CO2.
+// 1. One dot per 100 million tonnes of CO2 (D.dots is in million tonnes).
 function dots(id) {
-  const panel = document.getElementById(id), P = D.dots;
+  const panel = document.getElementById(id), P = D.dots, U = 100, n = (v) => Math.round(v / U);
   const parts = [
-    ['field', [[P.emit - P.sink, '--warm'], [P.sink, '--muted']]],
-    ['forest', [[P.forest, '--cold']]],
-    ['tech', [[P.tech, '--cold']]],
+    ['field', [[n(P.emit) - n(P.sink), '--warm'], [n(P.sink), '--muted']]],
+    ['forest', [[n(P.forest), '--cold']]],
   ];
   const draw = () => {
-    const W = Math.max(260, Math.min(726, panel.clientWidth - 34)), k = window.devicePixelRatio || 1, c = Math.round((W < 520 ? 2 : 2.6) * k) / k, cols = Math.floor(W / c);
-    // The cell is a whole number of device pixels, or the dots form moire bands.
+    const W = Math.max(260, Math.min(726, panel.clientWidth - 34)), k = window.devicePixelRatio || 1, c = W < 520 ? 13 : 17, cols = Math.floor(W / c), rad = c * 0.38;
+    // Large, countable dots: small dense dots shimmer and make people dizzy.
     for (const [name, groups] of parts) {
       const cv = panel.querySelector('canvas[data-part="' + name + '"]'), n = groups.reduce((s, g) => s + g[0], 0), rows = Math.ceil(n / cols);
-      const pad = name === 'tech' ? 9 : 0, H = rows * c + pad * 2;
+      const pad = 0, H = rows * c;
       cv.width = Math.round(W * k); cv.height = Math.round(H * k); cv.style.width = W + 'px'; cv.style.height = H + 'px';
       const g = cv.getContext('2d'); g.scale(k, k);
       let i = 0;
       for (const [count, colour] of groups) {
         g.fillStyle = css(colour); g.beginPath();
-        for (let j = 0; j < count; j++, i++) { const x = pad + (i % cols) * c + c / 2, y = pad + Math.floor(i / cols) * c + c / 2; g.moveTo(x + c * 0.36, y); g.arc(x, y, c * 0.36, 0, 6.2832); }
+        for (let j = 0; j < count; j++, i++) { const x = pad + (i % cols) * c + c / 2, y = pad + Math.floor(i / cols) * c + c / 2; g.moveTo(x + rad, y); g.arc(x, y, rad, 0, 6.2832); }
         g.fill();
       }
-      if (name === 'tech') { g.strokeStyle = css('--ink'); g.lineWidth = 1.5; g.beginPath(); g.arc(pad + c * P.tech / 2, pad + c / 2, 8, 0, 6.2832); g.stroke(); }
     }
+    // Technology: a fiftieth of one dot, drawn by area inside the outline of a whole dot.
+    const cv = panel.querySelector('canvas[data-part="tech"]'), H = c + 4;
+    cv.width = Math.round(W * k); cv.height = Math.round(H * k); cv.style.width = W + 'px'; cv.style.height = H + 'px';
+    const g = cv.getContext('2d'); g.scale(k, k);
+    g.strokeStyle = css('--muted'); g.lineWidth = 1; g.setLineDash([2, 2]); g.beginPath(); g.arc(c / 2, H / 2, rad, 0, 6.2832); g.stroke();
+    g.fillStyle = css('--cold'); g.beginPath(); g.arc(c / 2, H / 2, Math.max(1.2, rad * Math.sqrt(P.tech / U)), 0, 6.2832); g.fill();
   };
   draw(); redraws.push(draw);
   table(panel, ['Flow', 'Million tonnes of CO2 per year'], [['Emitted by people', nf(P.emit)], ['of this, absorbed by oceans and land', nf(P.sink)], ['of this, stays in the air', nf(P.emit - P.sink)], ['Removed on purpose, by forests', nf(P.forest)], ['Removed on purpose, by technology', 'about ' + P.tech]]);
@@ -395,7 +399,7 @@ function pathChart(id) {
     const delay = +slider.value, m = model(delay);
     const W = Math.max(280, Math.min(726, panel.clientWidth - 34)), small = W < 520, H = small ? 220 : 280, mg = { l: 30, r: 12, t: 12, b: 24 };
     holder.textContent = '';
-    const svg = el(holder, 'svg', { class: 'chart', width: W, height: H, viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': 'CO2 emissions fall from ' + P.e0.toFixed(0) + ' billion tonnes a year and removal rises from ' + P.r0 + ' until they meet in ' + m.zero + '.' });
+    const svg = el(holder, 'svg', { class: 'chart', width: W, height: H, viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': 'CO2 emissions fall from ' + P.e0.toFixed(0) + ' billion tonnes a year and new removal rises from zero until they meet in ' + m.zero + '.' });
     const X = (v) => mg.l + (v - Y0) / (Y1 - Y0) * (W - mg.l - mg.r), Y = (v) => H - mg.b - v / 46 * (H - mg.t - mg.b);
     for (const v of [0, 10, 20, 30, 40]) { el(svg, 'line', { class: v ? 'grid' : 'zero', x1: mg.l, x2: W - mg.r, y1: Y(v), y2: Y(v) }); el(svg, 'text', { x: mg.l - 6, y: Y(v) + 4, 'text-anchor': 'end' }, v); }
     for (const v of [2030, 2040, 2050, 2060, 2070]) el(svg, 'text', { x: X(v), y: H - 6, 'text-anchor': 'middle' }, v);
