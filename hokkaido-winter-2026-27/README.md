@@ -57,7 +57,7 @@ are now [V]; the text was corrected where a page differed.
 | --- | --- |
 | JMA NINO.3 anomaly for October 2026 is +4.4 °C. It is the highest value since 1949 and beats September (+4.0 °C). JMA expects the peak by early winter and gives 100% for El Niño to continue into spring 2027. | [V] [JMA El Niño outlook No. 410, 2026-11-10](https://www.data.jma.go.jp/cpd/elnino/kanshi_joho/kanshi_joho1.html) |
 | NOAA has an El Niño Advisory. "Strong-to-very strong El Niño likely through January-March 2027". September values: Niño-3.4 +2.1 °C, Niño-3 +3.0 °C, Niño-1+2 +3.9 °C. Chance of a "historic" event (RONI of +2.5 °C or more): 83% for October-December. | [V] [NOAA CPC ENSO discussion, 2026-10-08](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml) |
-| NOAA update of 12 November 2026: El Niño Advisory continues. "El Niño continues to strengthen, with a strong-to-very strong El Niño likely through January-March 2027 (remaining greater than a 79% chance)." It will begin to weaken in early 2027. Niño indices in the discussion: Niño-3.4 +2.5 °C, Niño-3 +3.6 °C, Niño-1+2 +4.4 °C. Chance of a "historic" event (RONI of +2.5 °C or more): about 60% for October-December and November-January, down from 83%. Weekly Niño-3.4 (traditional index) was +3.3 °C in the week of 4 November. October monthly Niño-3.4 was +3.25 °C. | [V] [NOAA CPC ENSO discussion, 2026-11-12](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml) (next issue 2026-12-10), [weekly values](https://www.cpc.ncep.noaa.gov/data/indices/wksst9120.for), [monthly values](https://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices) |
+| NOAA update of 12 November 2026: El Niño Advisory continues. "El Niño continues to strengthen, with a strong-to-very strong El Niño likely through January-March 2027 (remaining greater than a 79% chance)." It will begin to weaken in early 2027. Niño indices in the discussion: Niño-3.4 +2.5 °C, Niño-3 +3.6 °C, Niño-1+2 +4.4 °C. Chance of a "historic" event (RONI of +2.5 °C or more): about 60% for October-December and November-January, down from 83%. Weekly Niño-3.4 (traditional index) was +3.3 °C in the week of 4 November, +3.2 °C on 11 November and +3.3 °C on 18 November. October monthly Niño-3.4 was +3.25 °C. | [V] [NOAA CPC ENSO discussion, 2026-11-12](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml) (next issue 2026-12-10), [weekly values](https://www.cpc.ncep.noaa.gov/data/indices/wksst9120.for), [monthly values](https://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices) |
 | ONI for August-October 2026 is +2.46. Past peaks: 2015-16 +2.59, 1997-98 +2.37, 1982-83 +2.14, 2023-24 +1.99, 1972-73 +1.84. | [V] [NOAA ONI data](https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt) |
 | The warmest water is in the east Pacific (Niño-1+2 is warmer than Niño-3.4). This is a classic east Pacific event, not a central Pacific (Modoki) event. | [V] [NOAA CPC ENSO discussion, 2026-10-08](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml) |
 | Indian Ocean Dipole index is +0.69 (positive). | [V] [JMA El Niño outlook No. 410, 2026-11-10](https://www.data.jma.go.jp/cpd/elnino/kanshi_joho/kanshi_joho1.html) |
@@ -156,6 +156,32 @@ Probabilities are below / near / above normal.
 | December alone | 20 / 40 / 40 | 30 / 30 / 40 | not given |
 | January alone | 20 / 40 / 40 | 30 / 40 / 30 | not given |
 | 1 month, 7 Nov-6 Dec (issued 2026-11-05) | 50 / 30 / 20 | 30 / 40 / 30 | not given |
+| 3 months, Dec-Feb (issued 2026-11-24), Sea of Japan side temperature | 30 / 30 / 40 | 30 / 30 / 40 | 40 / 30 / 30 |
+| December alone (issued 2026-11-24) | 30 / 40 / 30 | 30 / 30 / 40 | not given |
+| January alone (issued 2026-11-24) | 30 / 40 / 30 | 30 / 40 / 30 | not given |
+| February alone (issued 2026-11-24) | 20 / 40 / 40 | 30 / 40 / 30 | not given |
+| 1 month, 21 Nov-20 Dec (issued 2026-11-19), Sea of Japan side temperature | 30 / 40 / 30 | 20 / 40 / 40 | 40 / 30 / 30 |
+
+The 24 November rows are from the Hokkaido file
+[V] [JMA 3-month forecast data](https://www.jma.go.jp/bosai/season/data/P3M/010100.json); the 19 November row from
+[V] [JMA 1-month forecast data](https://www.jma.go.jp/bosai/season/data/P1M/010100.json). The 1-month outlook gives
+temperature by week: 20 / 50 / 30 for 21-27 November and for 28 November to
+4 December, then 40 / 30 / 30 for 5-18 December.
+
+**What changed on 24 November.** The snowfall odds moved ten points from
+"normal" to "above" (40 / 30 / 30, against 40 / 40 / 20 before). JMA's new
+headline for Hokkaido: 「気温が大きく変動し、一時的に強い寒気の影響を受ける可能性があります。」
+(temperatures will swing widely, and strong cold air may affect the region
+at times). For all of northern Japan's Sea of Japan side JMA still gives
+40 / 40 / 20 and says snowfall will be "normal or below" because "cold air
+will have little influence" (寒気の影響が小さいため). Its reasons repeat the
+October ones: El Niño peaks by early winter and continues, the westerlies run
+south of normal over Eurasia and are weak near Japan, the Aleutian Low is weak
+on its west side so the monsoon is weak, and "global warming and El Niño" keep
+the whole atmosphere warm (地球温暖化やエルニーニョ現象の影響で). The reasons
+do not mention the Arctic, the polar vortex or the Sea of Japan. JMA also
+notes that November in Hokkaido was colder than normal, with below-normal
+precipitation on the Sea of Japan side.
 
 JMA's reasons: the record El Niño continues. The Siberian High is near
 normal, but the Aleutian Low is weak on its west side, so the monsoon
@@ -167,8 +193,8 @@ More precipitation with less snowfall means more of it falls as rain or
 wet snow at low level. This matters most at the start and end of the
 season and at the base of the resorts.
 
-Next issues: 1-month outlook 2026-11-12, 3-month outlook 2026-11-24,
-El Niño outlook 2026-12-10.
+Next issues: 1-month outlook every Thursday, El Niño outlook 2026-12-10,
+3-month outlook 2026-12-22.
 
 Private forecasters agree. Weathernews: Hokkaido Sea of Japan side about
 normal, a weak monsoon with short cold outbreaks.
@@ -197,6 +223,15 @@ local heavy snow.
   with a mean temperature of 4.6 °C on the 12th.
   [V] [JMA Kutchan daily data](https://www.data.jma.go.jp/stats/etrn/view/daily_s1.php?prec_no=16&block_no=47433&year=2026&month=11).
   The normal deepest snow for all of November is 36 cm.
+- The rest of November: the snow was gone by 15 November (12 cm on the
+  13th, 3 cm on the 14th). A second fall of 16, 18, 3 and 4 cm on 19-22
+  November gave 33 cm on the 21st and 22 cm on the 23rd. New snow from 1 to
+  23 November: 107 cm, against a normal of about 62 cm to that date (95 cm for
+  the whole month). On 24 November it rained (21.0 mm in 24 hours at 2.9 °C)
+  and the depth at 16:00 was 2 cm, against a normal of 14 cm for the date.
+  [V] [JMA Kutchan daily data](https://www.data.jma.go.jp/stats/etrn/view/daily_s1.php?prec_no=16&block_no=47433&year=2026&month=11),
+  [V] [JMA AMeDAS, Kutchan 16217](https://www.jma.go.jp/bosai/amedas/),
+  [V] [JMA daily normals](https://www.data.jma.go.jp/stats/etrn/view/nml_sfc_d.php?prec_no=16&block_no=47433&year=&month=11&day=&view=).
 - Sapporo had 10 cm by 11:00 on 7 November
   [V] [tenki.jp, 2026-11-07](https://tenki.jp/forecaster/deskpart/2026/11/07/41234.html)
   and 0 cm on 11 November [V] [JMA AMeDAS map](https://www.jma.go.jp/bosai/amedas/).
@@ -213,7 +248,7 @@ winter shows this: Kutchan had 56 cm on 12 December 2025 and 21 cm on
 | --- | --- | --- | --- |
 | Sea of Japan surface temperature | Much above normal in October, with a much stronger Tsushima Warm Current. The cold snap shrank the very warm area. Next month: north normal or above, south much above. | Each cold outbreak picks up more moisture, so single storms can be heavy. Early in the season the same warm water gives wetter snow and rain at low level. | [V] [JMA sea diagnosis, 2026-11-10](https://www.data.jma.go.jp/kaiyou/data/shindan/c_1/jpn_jun/jpn_sst.html), [Sea of Japan page](https://www.data.jma.go.jp/kaiyou/data/shindan/c_1/jun_NK/kaikyo_NK.html) |
 | Arctic Oscillation | +1.29 for October. It fell to about -2 on 10 November. The forecast mean goes back to about 0 by 15-17 November, with a wide spread. | Negative AO goes with a stronger Siberian High and colder East Asia ([S] [Gong, Wang and Zhu 2001](https://openpolar.no/Record/ftpekinguniv:oai:localhost:20.500.11897%2F247353); [V] [DOI](https://doi.org/10.1029/2000GL012311), abstract read through Crossref). It explains the cold snap. It is not predictable beyond about two weeks. | [V] [NOAA CPC AO](https://www.cpc.ncep.noaa.gov/products/precip/CWlink/daily_ao_index/ao.shtml) |
-| Stratospheric polar vortex | The wind at 60°N, 10 hPa fell from 21.9 m/s on 23 October to 0.3 m/s on 5 November. The normal for that date is 26.0 and the lowest value in the record before this year (1978 onward) was 13.6. The wind reversed on 10 November (-0.6 m/s) and reached -3.0 m/s on 11 November. The forecast of 12 November gives a recovery to 17 m/s by 19 November. A reversal is a major sudden stratospheric warming. | After such an event, cold outbreaks at the surface are more likely for several weeks. This is the main reason December could beat the El Niño odds. Where the cold goes is not known in advance. | [V] [NASA Ozone Watch, MERRA-2 and GEOS FP](https://ozonewatch.gsfc.nasa.gov/meteorology/NH.html) (file `u60n_10_2026_merra2.txt`); news context [V] [phys.org](https://phys.org/news/2026-11-polar-vortex-faltering-weeks-earlier.html) |
+| Stratospheric polar vortex | The wind at 60°N, 10 hPa fell from 21.9 m/s on 23 October to 0.3 m/s on 5 November. The normal for that date is 26.0 and the lowest value in the record before this year (1978 onward) was 13.6. The wind reversed on 10 November (-0.6 m/s) and reached -2.9 m/s on 11 November. It stayed below the old record low until 16 November, then recovered: 14.8 m/s on 19 November and 21.0 m/s on 21 November. The forecast of 24 November gives 31-33 m/s, about normal, from 29 November. A reversal is a major sudden stratospheric warming. The Arctic Oscillation went to -1.9 on 11-12 November and back to +0.3 to +0.8 from 15 November; the GEFS forecast of 23 November turns it negative again from 30 November (about -1.2 on 1-8 December, spread -5.6 to +1.7) [V] [NOAA CPC AO](https://www.cpc.ncep.noaa.gov/products/precip/CWlink/daily_ao_index/ao.shtml). | After such an event, cold outbreaks at the surface are more likely for several weeks. This is the main reason December could beat the El Niño odds. Where the cold goes is not known in advance. | [V] [NASA Ozone Watch, MERRA-2 and GEOS FP](https://ozonewatch.gsfc.nasa.gov/meteorology/NH.html) (file `u60n_10_2026_merra2.txt`); news context [V] [phys.org](https://phys.org/news/2026-11-polar-vortex-faltering-weeks-earlier.html) |
 | Barents-Kara sea ice | Very low in October. | Some studies link low ice to cold Eurasian winters ([V] [Mori et al. 2014, 2019, news summary](https://www.eco-business.com/news/arctic-melting-sends-winter-warning-europe-and-asia); [V] DOIs [2014](https://doi.org/10.1038/ngeo2277), [2019](https://doi.org/10.1038/s41558-018-0379-3)). Others disagree ([V] Blackport et al. 2019, cited in [this review](https://www.frontiersin.org/journals/climate/articles/10.3389/fclim.2024.1345763/pdf); [V] [DOI](https://doi.org/10.1038/s41558-019-0551-4)). Weak evidence. | [V] [Copernicus, October 2026](https://climate.copernicus.eu/sea-ice-cover-october-2026) |
 | Long-term warming | 1959-2020: snow-covered days go down almost everywhere. On the Sea of Japan side of northern Japan the deepest snow shows no significant change at any height. In the mountains of eastern Japan the heaviest daily falls go up. | Fewer snow days, some very large ones. Low-level snow is less reliable in December and March. | [V] [Kawase et al., via PEPS 2023](https://link.springer.com/content/pdf/10.1186/s40645-023-00536-4.pdf); record fall at Obihiro in February 2025 (120 cm in 12 hours) [V] [Hirata et al., SOLA 2025](https://www.jstage.jst.go.jp/article/sola/21C/Special_Edition/21C_21C-001/_article/-char/ja) |
 
