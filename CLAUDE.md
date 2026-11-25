@@ -20,12 +20,14 @@ memory.
   paths or private trip details that the post does not need.
 - Pages are plain HTML with no build step. Each post names its sources and
   links them. Use only data that we have permission to use.
-- Add each new post to the table in `README.md` and to `index.html`.
+- When a post is published, add it to the table in `README.md` and to
+  `index.html`.
 - Work on a branch and open a pull request. Say in the PR how you checked
   the page (for example, a phone and a desktop screenshot).
 - **Reviewer order** (Jiahua, 2026-11-25): Gemini 4 Neon is the preferred
   reviewer, but no review round can run it yet. Until one exists, a fresh
-  Opus 5.5 agent (not the author) reviews. Say in the PR which model
+  Opus 5.5 agent (not the author) reviews, and Fable 5.2 only a high-risk
+  change. Say in the PR which model
   reviewed.
 - Never ask a human to paste a secret into a chat or a PR. Keep the account
   email out of everything you send. Commit as
